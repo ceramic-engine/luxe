@@ -42,6 +42,12 @@ class OrderedMap<K, V> implements IMap<K, V> {
        map = _map;
     }
 
+#if (haxe_ver >= "4.0.0")
+    public inline function copy() {
+        return this.copy();
+    }
+#end
+
     public inline function set(key:K, value:V) {
         if (!map.exists(key)) _keys.push(key);
         map[key] = value;
