@@ -24,6 +24,7 @@ class Uniforms {
 
     var ints        : Map<String, Uniform<Int>>;
     var floats      : Map<String, Uniform<Float>>;
+    var floatarrs   : Map<String, Uniform<Float32Array>>;
     var vector2s    : Map<String, Uniform<Vector>>;
     var vector2arrs : Map<String, Uniform<Float32Array>>;
     var vector3s    : Map<String, Uniform<Vector>>;
@@ -37,6 +38,7 @@ class Uniforms {
 
     var dirty_ints          : Array<Uniform<Int>>;
     var dirty_floats        : Array<Uniform<Float>>;
+    var dirty_floatarrs     : Array<Uniform<Float32Array>>;
     var dirty_vector2s      : Array<Uniform<Vector>>;
     var dirty_vector2arrs   : Array<Uniform<Float32Array>>;
     var dirty_vector3s      : Array<Uniform<Vector>>;
@@ -85,6 +87,7 @@ class Uniforms {
 
         ints        = new Map();
         floats      = new Map();
+        floatarrs   = new Map();
         vector2s    = new Map();
         vector2arrs = new Map();
         vector3s    = new Map();
@@ -98,6 +101,7 @@ class Uniforms {
 
         dirty_ints          = [];
         dirty_floats        = [];
+        dirty_floatarrs     = [];
         dirty_vector2s      = [];
         dirty_vector2arrs   = [];
         dirty_vector3s      = [];
@@ -140,6 +144,21 @@ class Uniforms {
         dirty_floats.push(_float);
 
     } //set_float
+
+    public inline function set_float_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
+
+        var _float = floatarrs.get(_name);
+
+        if(_float != null) {
+            _float.value = _value;
+        } else {
+            _float = new Uniform<Float32Array>(_name, _value, _location);
+            floatarrs.set(_name, _float);
+        }
+
+        dirty_floatarrs.push(_float);
+
+    } //set_float_arr
 
     public inline function set_vector2( _name:String, _value:Vector, _location:Location ) : Void {
 
@@ -304,6 +323,11 @@ class Uniforms {
             GL.uniform1f(uf.location, uf.value);
         }
 
+        while(dirty_floatarrs.length > 0) {
+            var uf = dirty_floatarrs.pop();
+            GL.uniform1fv(uf.location, uf.value);
+        }
+
         while(dirty_vector2s.length > 0) {
             var uf = dirty_vector2s.pop();
             GL.uniform2f(uf.location, uf.value.x, uf.value.y);
@@ -441,6 +465,10 @@ class Shader extends Resource {
     public inline function set_float( _name:String, _value:Float ) : Void {
         uniforms.set_float(_name, _value, location(_name));
     } //set_float
+
+    public inline function set_float_arr( _name:String, _value:Float32Array ) : Void {
+        uniforms.set_float_arr(_name, _value, location(_name));
+    } //set_float_arr
 
     public inline function set_vector2( _name:String, _value:Vector ) : Void {
         uniforms.set_vector2(_name, _value, location(_name));
