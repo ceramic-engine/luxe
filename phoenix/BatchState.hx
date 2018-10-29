@@ -55,7 +55,7 @@ class BatchState {
                 if(last_texture_id != geom_state.texture.id){
 
                     last_texture_id = geom_state.texture.id;
-                    if(geom_state.texture.texture != null) {
+                    if(geom_state.texture.texture != 0) {
                         geom_state.texture.bind();
                     }
 
@@ -63,7 +63,7 @@ class BatchState {
 
             } else {
 
-                Luxe.renderer.state.bindTexture2D(null);
+                Luxe.renderer.state.bindTexture2D(0);
                 last_texture_id = null;
 
             } //geom_state.texture !=null
@@ -154,12 +154,12 @@ class BatchState {
 
             //undo any textures we bound last
         if(last_texture_id != null) {
-            batcher.renderer.state.bindTexture2D(null);
+            batcher.renderer.state.bindTexture2D(0);
         }
 
             //for now we just disable any shader because other
             //batchers are not aware of us yet.
-        batcher.renderer.state.useProgram(null);
+        batcher.renderer.state.useProgram(0);
 
             //remove clipping
         if(is_clipping) GL.disable(GL.SCISSOR_TEST);

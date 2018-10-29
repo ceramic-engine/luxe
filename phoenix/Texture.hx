@@ -67,6 +67,9 @@ class Texture extends Resource {
 
     public function new( _options:TextureOptions ) {
 
+        // This seems to be needed to ensure binding next texture id will work
+        Luxe.renderer.state.bindTexture2D(0);
+
         assertnull(_options, 'Texture create requires non-null options');
 
         def(_options.resource_type, ResourceType.texture);
@@ -79,9 +82,9 @@ class Texture extends Resource {
 
         texture = _options.texture;
 
-        bind();
-
         apply_default_options(_options);
+
+        bind();
 
             //pixels require width and height
         if(_options.pixels != null) {
@@ -147,9 +150,9 @@ class Texture extends Resource {
 
             GL.readPixels(_x, _y, _w, _h, GL.RGBA, GL.UNSIGNED_BYTE, _into);
 
-        GL.bindFramebuffer(GL.FRAMEBUFFER, null);
+        GL.bindFramebuffer(GL.FRAMEBUFFER, 0);
         GL.deleteFramebuffer(fb);
-        fb = null;
+        fb = 0;
 
         return _into;
 
@@ -268,7 +271,7 @@ class Texture extends Resource {
 
     override function clear() {
 
-        if(texture != null) {
+        if(texture != 0) {
             GL.deleteTexture(texture);
         }
 

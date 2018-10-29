@@ -64,7 +64,6 @@ class RenderTexture extends Texture implements RenderTarget {
             //Attach the depth buffer to the render buffer
         GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
 
-
         var status = GL.checkFramebufferStatus( GL.FRAMEBUFFER );
 
         switch (status) {
@@ -88,8 +87,8 @@ class RenderTexture extends Texture implements RenderTarget {
         }
 
             //no lingering
-        unbindBuffer();
-        unbindRenderBuffer();
+        unbindBuffer(0);
+        unbindRenderBuffer(0);
 
             //add to the resource system
         system.add(this);
@@ -100,11 +99,11 @@ class RenderTexture extends Texture implements RenderTarget {
 
         super.clear();
 
-        if(framebuffer != null) {
+        if(framebuffer != 0) {
             GL.deleteFramebuffer(framebuffer);
         }
 
-        if(renderbuffer != null) {
+        if(renderbuffer != 0) {
             GL.deleteRenderbuffer(renderbuffer);
         }
 
@@ -116,7 +115,7 @@ class RenderTexture extends Texture implements RenderTarget {
 
     } //bind
 
-    @:noCompletion public function unbindBuffer( ?_other:GLFramebuffer=null ) {
+    @:noCompletion public function unbindBuffer( _other:GLFramebuffer ) {
 
         Luxe.renderer.state.bindFramebuffer( _other );
 
@@ -128,7 +127,7 @@ class RenderTexture extends Texture implements RenderTarget {
 
     } //bind
 
-    @:noCompletion public function unbindRenderBuffer( ?_other:GLRenderbuffer=null ) {
+    @:noCompletion public function unbindRenderBuffer( _other:GLRenderbuffer ) {
 
         Luxe.renderer.state.bindRenderbuffer( _other );
 
