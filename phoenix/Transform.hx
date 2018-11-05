@@ -347,7 +347,8 @@ class Transform extends ID {
 
 
     inline function propagate_clean() {
-        for(_handler in _clean_handlers) {
+        for (i in 0..._clean_handlers.length) {
+            var _handler = _clean_handlers[i];
             if(_handler != null) {
                 _handler(this);
             }
@@ -355,7 +356,8 @@ class Transform extends ID {
     } //propagate clean
 
     inline function propagate_dirty() {
-        for(_handler in _dirty_handlers) {
+        for (i in 0..._dirty_handlers.length) {
+            var _handler = _dirty_handlers[i];
             if(_handler != null) {
                 _handler(this);
             }
@@ -363,7 +365,8 @@ class Transform extends ID {
     } //propagate dirty
 
     inline function propagate_pos( _pos:Vector ) {
-        for(_handler in _pos_handlers) {
+        for (i in 0..._pos_handlers.length) {
+            var _handler = _pos_handlers[i];
             if(_handler != null) {
                 _handler(_pos);
             }
@@ -371,7 +374,8 @@ class Transform extends ID {
     } //propagate pos
 
     inline function propagate_rotation( _rotation:Quaternion ) {
-        for(_handler in _rotation_handlers) {
+        for (i in 0..._rotation_handlers.length) {
+            var _handler = _rotation_handlers[i];
             if(_handler != null) {
                 _handler(_rotation);
             }
@@ -379,7 +383,8 @@ class Transform extends ID {
     } //propagate rotation
 
     inline function propagate_scale( _scale:Vector ) {
-        for(_handler in _scale_handlers) {
+        for (i in 0..._scale_handlers.length) {
+            var _handler = _scale_handlers[i];
             if(_handler != null) {
                 _handler(_scale);
             }
@@ -387,7 +392,8 @@ class Transform extends ID {
     } //propagate scale
 
     inline function propagate_origin( _origin:Vector ) {
-        for(_handler in _origin_handlers) {
+        for (i in 0..._origin_handlers.length) {
+            var _handler = _origin_handlers[i];
             if(_handler != null) {
                 _handler(_origin);
             }
@@ -395,7 +401,8 @@ class Transform extends ID {
     } //propagate origin
 
     inline function propagate_parent( _parent:Transform ) {
-        for(_handler in _parent_handlers) {
+        for (i in 0..._parent_handlers.length) {
+            var _handler = _parent_handlers[i];
             if(_handler != null) {
                 _handler(_parent);
             }
