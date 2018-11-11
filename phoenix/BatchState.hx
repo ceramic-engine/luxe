@@ -55,7 +55,7 @@ class BatchState {
                 if(last_texture_id != geom_state.texture.id){
 
                     last_texture_id = geom_state.texture.id;
-                    if(geom_state.texture.texture != 0) {
+                    if(geom_state.texture.texture != #if snow_web null #else 0 #end) {
                         geom_state.texture.bind();
                     }
 
@@ -63,7 +63,7 @@ class BatchState {
 
             } else {
 
-                Luxe.renderer.state.bindTexture2D(0);
+                Luxe.renderer.state.bindTexture2D(#if snow_web null #else 0 #end);
                 last_texture_id = null;
 
             } //geom_state.texture !=null
@@ -154,12 +154,12 @@ class BatchState {
 
             //undo any textures we bound last
         if(last_texture_id != null) {
-            batcher.renderer.state.bindTexture2D(0);
+            batcher.renderer.state.bindTexture2D(#if snow_web null #else 0 #end);
         }
 
             //for now we just disable any shader because other
             //batchers are not aware of us yet.
-        batcher.renderer.state.useProgram(0);
+        batcher.renderer.state.useProgram(#if snow_web null #else 0 #end);
 
             //remove clipping
         if(is_clipping) GL.disable(GL.SCISSOR_TEST);

@@ -68,7 +68,7 @@ class Texture extends Resource {
     public function new( _options:TextureOptions ) {
 
         // This seems to be needed to ensure binding next texture id will work
-        Luxe.renderer.state.bindTexture2D(0);
+        Luxe.renderer.state.bindTexture2D(#if snow_web null #else 0 #end);
 
         assertnull(_options, 'Texture create requires non-null options');
 
@@ -150,9 +150,9 @@ class Texture extends Resource {
 
             GL.readPixels(_x, _y, _w, _h, GL.RGBA, GL.UNSIGNED_BYTE, _into);
 
-        GL.bindFramebuffer(GL.FRAMEBUFFER, 0);
+        GL.bindFramebuffer(GL.FRAMEBUFFER, #if snow_web null #else 0 #end);
         GL.deleteFramebuffer(fb);
-        fb = 0;
+        fb = #if snow_web null #else 0 #end;
 
         return _into;
 
@@ -271,7 +271,7 @@ class Texture extends Resource {
 
     override function clear() {
 
-        if(texture != 0) {
+        if(texture != #if snow_web null #else 0 #end) {
             GL.deleteTexture(texture);
         }
 

@@ -87,8 +87,8 @@ class RenderTexture extends Texture implements RenderTarget {
         }
 
             //no lingering
-        unbindBuffer(0);
-        unbindRenderBuffer(0);
+        unbindBuffer(#if snow_web null #else 0 #end);
+        unbindRenderBuffer(#if snow_web null #else 0 #end);
 
             //add to the resource system
         system.add(this);
@@ -99,11 +99,11 @@ class RenderTexture extends Texture implements RenderTarget {
 
         super.clear();
 
-        if(framebuffer != 0) {
+        if(framebuffer != #if snow_web null #else 0 #end) {
             GL.deleteFramebuffer(framebuffer);
         }
 
-        if(renderbuffer != 0) {
+        if(renderbuffer != #if snow_web null #else 0 #end) {
             GL.deleteRenderbuffer(renderbuffer);
         }
 

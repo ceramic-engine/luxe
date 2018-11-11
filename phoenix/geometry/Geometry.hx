@@ -461,7 +461,7 @@ class Geometry {
 //Explicit vb
 
     function destroy_vbos() {
-        if(vb_pos==0) return;
+        if(vb_pos==#if snow_web null #else 0 #end) return;
         GL.deleteBuffer(vb_pos);
         GL.deleteBuffer(vb_tcoords);
         GL.deleteBuffer(vb_colors);
@@ -472,7 +472,7 @@ class Geometry {
 
     inline
     function create_vbos() {
-        if(vb_pos!=0) return;
+        if(vb_pos!=#if snow_web null #else 0 #end) return;
         vb_pos = GL.createBuffer();
         vb_tcoords = GL.createBuffer();
         vb_colors = GL.createBuffer();
@@ -521,7 +521,7 @@ class Geometry {
 
     inline
     function unbind() {
-        GL.bindBuffer(GL.ARRAY_BUFFER, 0);
+        GL.bindBuffer(GL.ARRAY_BUFFER, #if snow_web null #else 0 #end);
     }
 
     inline
@@ -597,8 +597,8 @@ class Geometry {
 
         buffer_type = _locked ? GL.STATIC_DRAW : GL.DYNAMIC_DRAW;
 
-        if(_locked && vb_pos == 0) create_vbos();
-        if(!_locked && vb_pos != 0) destroy_vbos();
+        if(_locked && vb_pos == #if snow_web null #else 0 #end) create_vbos();
+        if(!_locked && vb_pos != #if snow_web null #else 0 #end) destroy_vbos();
 
         return locked = _locked;
 

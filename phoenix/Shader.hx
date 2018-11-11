@@ -391,10 +391,10 @@ class Shader extends Resource {
     public var vert_id : String = '';
     public var frag_id : String = '';
 
-    public var vert_shader : GLShader = 0;
-    public var frag_shader : GLShader = 0;
-    public var program : GLProgram = 0;
-    public var shader : GLShader = 0;
+    public var vert_shader : GLShader = #if snow_web null #else 0 #end;
+    public var frag_shader : GLShader = #if snow_web null #else 0 #end;
+    public var program : GLProgram = #if snow_web null #else 0 #end;
+    public var shader : GLShader = #if snow_web null #else 0 #end;
 
     public var no_default_uniforms : Bool = false;
     public var proj_attribute : Location;
@@ -431,7 +431,7 @@ class Shader extends Resource {
 
     public function use() {
 
-        if(program != 0) {
+        if(program != #if snow_web null #else 0 #end) {
             Luxe.renderer.state.useProgram( program );
         }
 
@@ -439,7 +439,7 @@ class Shader extends Resource {
 
     public inline function deactivate() {
 
-        Luxe.renderer.state.useProgram( 0 );
+        Luxe.renderer.state.useProgram( #if snow_web null #else 0 #end );
 
     } //deactivate
 
@@ -539,9 +539,9 @@ class Shader extends Resource {
             add_log( _log.length == 0 ? format_log(GL.getShaderInfoLog(_shader)) : _log );
 
             GL.deleteShader(_shader);
-            _shader = 0;
+            _shader = #if snow_web null #else 0 #end;
 
-            return 0;
+            return #if snow_web null #else 0 #end;
 
         } //compile_status
 
@@ -567,7 +567,7 @@ class Shader extends Resource {
             add_log("\tFailed to link shader program:");
             add_log( format_log(GL.getProgramInfoLog(program)) );
             GL.deleteProgram(program);
-            program = 0;
+            program = #if snow_web null #else 0 #end;
             return false;
         }
 
@@ -592,14 +592,14 @@ class Shader extends Resource {
                 var _tex6_attribute = location( 'tex6' );
                 var _tex7_attribute = location( 'tex7' );
 
-                if(_tex0_attribute != 0) GL.uniform1i( _tex0_attribute, 0 );
-                if(_tex1_attribute != 0) GL.uniform1i( _tex1_attribute, 1 );
-                if(_tex2_attribute != 0) GL.uniform1i( _tex2_attribute, 2 );
-                if(_tex3_attribute != 0) GL.uniform1i( _tex3_attribute, 3 );
-                if(_tex4_attribute != 0) GL.uniform1i( _tex4_attribute, 4 );
-                if(_tex5_attribute != 0) GL.uniform1i( _tex5_attribute, 5 );
-                if(_tex6_attribute != 0) GL.uniform1i( _tex6_attribute, 6 );
-                if(_tex7_attribute != 0) GL.uniform1i( _tex7_attribute, 7 );
+                if(_tex0_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex0_attribute, 0 );
+                if(_tex1_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex1_attribute, 1 );
+                if(_tex2_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex2_attribute, 2 );
+                if(_tex3_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex3_attribute, 3 );
+                if(_tex4_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex4_attribute, 4 );
+                if(_tex5_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex5_attribute, 5 );
+                if(_tex6_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex6_attribute, 6 );
+                if(_tex7_attribute != #if snow_web null #else 0 #end) GL.uniform1i( _tex7_attribute, 7 );
 
             }
 
@@ -615,9 +615,9 @@ class Shader extends Resource {
 
     override function clear() {
 
-        if( vert_shader != 0 ) GL.deleteShader( vert_shader );
-        if( frag_shader != 0 ) GL.deleteShader( frag_shader );
-        if( program != 0 )     GL.deleteProgram( program );
+        if( vert_shader != #if snow_web null #else 0 #end ) GL.deleteShader( vert_shader );
+        if( frag_shader != #if snow_web null #else 0 #end ) GL.deleteShader( frag_shader );
+        if( program != #if snow_web null #else 0 #end )     GL.deleteProgram( program );
 
         vert_source = null;
         frag_source = null;
@@ -718,7 +718,7 @@ class Shader extends Resource {
         vert_shader = compile( GL.VERTEX_SHADER, vert_source );
         frag_shader = compile( GL.FRAGMENT_SHADER, frag_source );
 
-        if( vert_shader == 0 || frag_shader == 0 ) {
+        if( vert_shader == #if snow_web null #else 0 #end || frag_shader == #if snow_web null #else 0 #end ) {
             dump_log();
             return false;
         }

@@ -117,12 +117,12 @@ class RenderState {
 
     } //viewport
 
-    @:noCompletion public var current_framebuffer : GLFramebuffer = 0;
+    @:noCompletion public var current_framebuffer : GLFramebuffer = #if snow_web null #else 0 #end;
     public function bindFramebuffer( buffer:GLFramebuffer ) {
 
         if(current_framebuffer != buffer) {
 
-            if (buffer == 0) buffer = renderer.default_framebuffer;
+            if (buffer == #if snow_web null #else 0 #end) buffer = renderer.default_framebuffer;
 
             GL.bindFramebuffer( GL.FRAMEBUFFER, buffer );
             current_framebuffer = buffer;
@@ -130,12 +130,12 @@ class RenderState {
 
     } //bindFrameBuffer
 
-    @:noCompletion public var current_renderbuffer : GLRenderbuffer = 0;
+    @:noCompletion public var current_renderbuffer : GLRenderbuffer = #if snow_web null #else 0 #end;
     public function bindRenderbuffer( buffer:GLRenderbuffer ) {
 
         if(current_renderbuffer != buffer) {
 
-            if (buffer == 0) buffer = renderer.default_renderbuffer;
+            if (buffer == #if snow_web null #else 0 #end) buffer = renderer.default_renderbuffer;
 
             GL.bindRenderbuffer( GL.RENDERBUFFER, buffer );
             current_renderbuffer = buffer;
@@ -143,7 +143,7 @@ class RenderState {
 
     } //bindRenderbuffer
 
-    var _used_program : GLProgram = 0;
+    var _used_program : GLProgram = #if snow_web null #else 0 #end;
     public function useProgram( program:GLProgram ) {
         if(_used_program != program) {
             _used_program = program;
@@ -168,7 +168,7 @@ class RenderState {
         }
     }
 
-    public static var bound_texture_2D : TextureID = 0;
+    public static var bound_texture_2D : TextureID = #if snow_web null #else 0 #end;
     public function bindTexture2D( tex:TextureID ) {
         if(bound_texture_2D != tex) {
             bound_texture_2D = tex;
@@ -176,7 +176,7 @@ class RenderState {
         }
     }
 
-    public static var bound_texture_cube : TextureID = 0;
+    public static var bound_texture_cube : TextureID = #if snow_web null #else 0 #end;
     public function bindTextureCube( tex:TextureID ) {
         if(bound_texture_cube != tex) {
             bound_texture_cube = tex;
