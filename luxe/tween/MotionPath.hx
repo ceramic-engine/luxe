@@ -8,9 +8,9 @@ package luxe.tween;
 class MotionPath {
 
 
-    public var rotation (get_rotation, null):RotationPath;
-    public var x (get_x, null):IComponentPath;
-    public var y (get_y, null):IComponentPath;
+    public var rotation (get, null):RotationPath;
+    public var x (get, null):IComponentPath;
+    public var y (get, null):IComponentPath;
 
     var _rotation:RotationPath;
     var _x:ComponentPath;
@@ -104,7 +104,7 @@ class ComponentPath implements IComponentPath {
 
 
     public var start:Float;
-    public var end (get_end, null):Float;
+    public var end (get, null):Float;
 
     var paths:Array <BezierPath>;
     var totalStrength:Float;
@@ -188,7 +188,7 @@ class ComponentPath implements IComponentPath {
 @:noCompletion interface IComponentPath {
 
 
-    var end (get_end, null):Float;
+    var end (get, null):Float;
     var start:Float;
 
     function calculate (k:Float):Float;
@@ -247,7 +247,7 @@ class LinearPath extends BezierPath {
 class RotationPath implements IComponentPath {
 
 
-    public var end (get_end, null):Float;
+    public var end (get, null):Float;
     public var offset:Float;
     public var start:Float;
 

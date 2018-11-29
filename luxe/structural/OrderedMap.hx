@@ -29,7 +29,7 @@ class OrderedMapIterator<K,V> {
 } //OrderedMapIterator
 
 @:generic
-class OrderedMap<K, V> implements IMap<K, V> {
+class OrderedMap<K, V> /*implements IMap<K, V>*/ {
 
     @:noCompletion public var map:Map<K, V>;
     var idx = 0;
