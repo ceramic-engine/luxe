@@ -17,24 +17,25 @@ import snow.modules.opengl.GL;
 import snow.types.Types.Error;
 import snow.systems.assets.Asset;
 
+import ceramic.IntMap;
 
 @:allow(phoenix.Shader)
 @:allow(phoenix.geometry.Geometry)
 class Uniforms {
 
-    var ints        : Map<String, Uniform<Int>>;
-    var floats      : Map<String, Uniform<Float>>;
-    var floatarrs   : Map<String, Uniform<Float32Array>>;
-    var vector2s    : Map<String, Uniform<Vector>>;
-    var vector2arrs : Map<String, Uniform<Float32Array>>;
-    var vector3s    : Map<String, Uniform<Vector>>;
-    var vector3arrs : Map<String, Uniform<Float32Array>>;
-    var vector4s    : Map<String, Uniform<Vector>>;
-    var vector4arrs : Map<String, Uniform<Float32Array>>;
-    var matrix4s    : Map<String, Uniform<Matrix>>;
-    var matrix4arrs : Map<String, Uniform<Float32Array>>;
-    var colors      : Map<String, Uniform<Color>>;
-    var textures    : Map<String, Uniform<Texture>>;
+    var ints        : IntMap<Uniform<Int>>;
+    var floats      : IntMap<Uniform<Float>>;
+    var floatarrs   : IntMap<Uniform<Float32Array>>;
+    var vector2s    : IntMap<Uniform<Vector>>;
+    var vector2arrs : IntMap<Uniform<Float32Array>>;
+    var vector3s    : IntMap<Uniform<Vector>>;
+    var vector3arrs : IntMap<Uniform<Float32Array>>;
+    var vector4s    : IntMap<Uniform<Vector>>;
+    var vector4arrs : IntMap<Uniform<Float32Array>>;
+    var matrix4s    : IntMap<Uniform<Matrix>>;
+    var matrix4arrs : IntMap<Uniform<Float32Array>>;
+    var colors      : IntMap<Uniform<Color>>;
+    var textures    : IntMap<Uniform<Texture>>;
 
     var dirty_ints          : Array<Uniform<Int>>;
     var dirty_floats        : Array<Uniform<Float>>;
@@ -85,19 +86,19 @@ class Uniforms {
 
         destroy();
 
-        ints        = new Map();
-        floats      = new Map();
-        floatarrs   = new Map();
-        vector2s    = new Map();
-        vector2arrs = new Map();
-        vector3s    = new Map();
-        vector3arrs = new Map();
-        vector4s    = new Map();
-        vector4arrs = new Map();
-        matrix4s    = new Map();
-        matrix4arrs = new Map();
-        colors      = new Map();
-        textures    = new Map();
+        ints        = new IntMap();
+        floats      = new IntMap();
+        floatarrs   = new IntMap();
+        vector2s    = new IntMap();
+        vector2arrs = new IntMap();
+        vector3s    = new IntMap();
+        vector3arrs = new IntMap();
+        vector4s    = new IntMap();
+        vector4arrs = new IntMap();
+        matrix4s    = new IntMap();
+        matrix4arrs = new IntMap();
+        colors      = new IntMap();
+        textures    = new IntMap();
 
         dirty_ints          = [];
         dirty_floats        = [];
@@ -117,13 +118,13 @@ class Uniforms {
 
     public inline function set_int( _name:String, _value:Int, _location:Location ) : Void {
 
-        var _int = ints.get(_name);
+        var _int = ints.get(_location);
 
         if(_int != null) {
             _int.value = _value;
         } else {
             _int = new Uniform<Int>(_name, _value, _location);
-            ints.set(_name, _int);
+            ints.set(_location, _int);
         }
 
         dirty_ints.push(_int);
@@ -132,13 +133,13 @@ class Uniforms {
 
     public inline function set_float( _name:String, _value:Float, _location:Location ) : Void {
 
-        var _float = floats.get(_name);
+        var _float = floats.get(_location);
 
         if(_float != null) {
             _float.value = _value;
         } else {
             _float = new Uniform<Float>(_name, _value, _location);
-            floats.set(_name, _float);
+            floats.set(_location, _float);
         }
 
         dirty_floats.push(_float);
@@ -147,13 +148,13 @@ class Uniforms {
 
     public inline function set_float_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _float = floatarrs.get(_name);
+        var _float = floatarrs.get(_location);
 
         if(_float != null) {
             _float.value = _value;
         } else {
             _float = new Uniform<Float32Array>(_name, _value, _location);
-            floatarrs.set(_name, _float);
+            floatarrs.set(_location, _float);
         }
 
         dirty_floatarrs.push(_float);
@@ -162,13 +163,13 @@ class Uniforms {
 
     public inline function set_vector2( _name:String, _value:Vector, _location:Location ) : Void {
 
-        var _vector2 = vector2s.get(_name);
+        var _vector2 = vector2s.get(_location);
 
         if(_vector2 != null) {
             _vector2.value = _value;
         } else {
             _vector2 = new Uniform<Vector>(_name, _value, _location);
-            vector2s.set(_name, _vector2);
+            vector2s.set(_location, _vector2);
         }
 
         dirty_vector2s.push(_vector2);
@@ -177,13 +178,13 @@ class Uniforms {
 
     public inline function set_vector2_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _vector2 = vector2arrs.get(_name);
+        var _vector2 = vector2arrs.get(_location);
 
         if(_vector2 != null) {
             _vector2.value = _value;
         } else {
             _vector2 = new Uniform<Float32Array>(_name, _value, _location);
-            vector2arrs.set(_name, _vector2);
+            vector2arrs.set(_location, _vector2);
         }
 
         dirty_vector2arrs.push(_vector2);
@@ -192,13 +193,13 @@ class Uniforms {
 
     public inline function set_vector3( _name:String, _value:Vector, _location:Location ) : Void {
 
-        var _vector3 = vector3s.get(_name);
+        var _vector3 = vector3s.get(_location);
 
         if(_vector3 != null) {
             _vector3.value = _value;
         } else {
             _vector3 = new Uniform<Vector>(_name, _value, _location);
-            vector3s.set(_name, _vector3);
+            vector3s.set(_location, _vector3);
         }
 
         dirty_vector3s.push(_vector3);
@@ -207,13 +208,13 @@ class Uniforms {
 
     public inline function set_vector3_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _vector3 = vector3arrs.get(_name);
+        var _vector3 = vector3arrs.get(_location);
 
         if(_vector3 != null) {
             _vector3.value = _value;
         } else {
             _vector3 = new Uniform<Float32Array>(_name, _value, _location);
-            vector3arrs.set(_name, _vector3);
+            vector3arrs.set(_location, _vector3);
         }
 
         dirty_vector3arrs.push(_vector3);
@@ -222,13 +223,13 @@ class Uniforms {
 
     public inline function set_vector4( _name:String, _value:Vector, _location:Location ) : Void {
 
-        var _vector4 = vector4s.get(_name);
+        var _vector4 = vector4s.get(_location);
 
         if(_vector4 != null) {
             _vector4.value = _value;
         } else {
             _vector4 = new Uniform<Vector>(_name, _value, _location);
-            vector4s.set(_name, _vector4);
+            vector4s.set(_location, _vector4);
         }
 
         dirty_vector4s.push(_vector4);
@@ -237,13 +238,13 @@ class Uniforms {
 
     public inline function set_vector4_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _vector4 = vector4arrs.get(_name);
+        var _vector4 = vector4arrs.get(_location);
 
         if(_vector4 != null) {
             _vector4.value = _value;
         } else {
             _vector4 = new Uniform<Float32Array>(_name, _value, _location);
-            vector4arrs.set(_name, _vector4);
+            vector4arrs.set(_location, _vector4);
         }
 
         dirty_vector4arrs.push(_vector4);
@@ -252,13 +253,13 @@ class Uniforms {
 
     public inline function set_matrix4( _name:String, _value:Matrix, _location:Location ) : Void {
 
-        var _matrix4 = matrix4s.get(_name);
+        var _matrix4 = matrix4s.get(_location);
 
         if(_matrix4 != null) {
             _matrix4.value = _value;
         } else {
             _matrix4 = new Uniform<Matrix>(_name, _value, _location);
-            matrix4s.set(_name, _matrix4);
+            matrix4s.set(_location, _matrix4);
         }
 
         dirty_matrix4s.push(_matrix4);
@@ -267,13 +268,13 @@ class Uniforms {
 
     public inline function set_matrix4_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _matrix4 = matrix4arrs.get(_name);
+        var _matrix4 = matrix4arrs.get(_location);
 
         if(_matrix4 != null) {
             _matrix4.value = _value;
         } else {
             _matrix4 = new Uniform<Float32Array>(_name, _value, _location);
-            matrix4arrs.set(_name, _matrix4);
+            matrix4arrs.set(_location, _matrix4);
         }
 
         dirty_matrix4arrs.push(_matrix4);
@@ -282,13 +283,13 @@ class Uniforms {
 
     public inline function set_color( _name:String, _value:Color, _location:Location ) : Void {
 
-        var _color = colors.get(_name);
+        var _color = colors.get(_location);
 
         if(_color != null) {
             _color.value = _value;
         } else {
             _color = new Uniform<Color>(_name, _value, _location);
-            colors.set(_name, _color);
+            colors.set(_location, _color);
         }
 
         dirty_colors.push(_color);
@@ -297,13 +298,13 @@ class Uniforms {
 
     public inline function set_texture( _name:String, _value:Texture, _location:Location ) : Void {
 
-        var _texture = textures.get(_name);
+        var _texture = textures.get(_location);
 
         if(_texture != null) {
             _texture.value = _value;
         } else {
             _texture = new Uniform<Texture>(_name, _value, _location);
-            textures.set(_name, _texture);
+            textures.set(_location, _texture);
         }
 
         dirty_textures.push(_texture);
