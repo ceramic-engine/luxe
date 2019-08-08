@@ -17,12 +17,29 @@ import snow.modules.opengl.GL;
 import snow.types.Types.Error;
 import snow.systems.assets.Asset;
 
+#if !web
 import ceramic.IntMap;
+#end
 
 @:allow(phoenix.Shader)
 @:allow(phoenix.geometry.Geometry)
 class Uniforms {
 
+#if web
+    var ints        : Map<Location,Uniform<Int>>;
+    var floats      : Map<Location,Uniform<Float>>;
+    var floatarrs   : Map<Location,Uniform<Float32Array>>;
+    var vector2s    : Map<Location,Uniform<Vector>>;
+    var vector2arrs : Map<Location,Uniform<Float32Array>>;
+    var vector3s    : Map<Location,Uniform<Vector>>;
+    var vector3arrs : Map<Location,Uniform<Float32Array>>;
+    var vector4s    : Map<Location,Uniform<Vector>>;
+    var vector4arrs : Map<Location,Uniform<Float32Array>>;
+    var matrix4s    : Map<Location,Uniform<Matrix>>;
+    var matrix4arrs : Map<Location,Uniform<Float32Array>>;
+    var colors      : Map<Location,Uniform<Color>>;
+    var textures    : Map<Location,Uniform<Texture>>;
+#else
     var ints        : IntMap<Uniform<Int>>;
     var floats      : IntMap<Uniform<Float>>;
     var floatarrs   : IntMap<Uniform<Float32Array>>;
@@ -36,6 +53,7 @@ class Uniforms {
     var matrix4arrs : IntMap<Uniform<Float32Array>>;
     var colors      : IntMap<Uniform<Color>>;
     var textures    : IntMap<Uniform<Texture>>;
+#end
 
     var dirty_ints          : Array<Uniform<Int>>;
     var dirty_floats        : Array<Uniform<Float>>;
@@ -86,6 +104,21 @@ class Uniforms {
 
         destroy();
 
+#if web
+        ints        = new Map();
+        floats      = new Map();
+        floatarrs   = new Map();
+        vector2s    = new Map();
+        vector2arrs = new Map();
+        vector3s    = new Map();
+        vector3arrs = new Map();
+        vector4s    = new Map();
+        vector4arrs = new Map();
+        matrix4s    = new Map();
+        matrix4arrs = new Map();
+        colors      = new Map();
+        textures    = new Map();
+#else
         ints        = new IntMap();
         floats      = new IntMap();
         floatarrs   = new IntMap();
@@ -99,6 +132,7 @@ class Uniforms {
         matrix4arrs = new IntMap();
         colors      = new IntMap();
         textures    = new IntMap();
+#end
 
         dirty_ints          = [];
         dirty_floats        = [];
