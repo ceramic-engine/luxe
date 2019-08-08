@@ -650,11 +650,15 @@ class Spatial {
 
     inline function set_pos( _p:Vector ) {
 
-        pos = _p;
+        if (pos != _p) {
+            pos = _p;
+
+            if (_p != null) {
+                Vector.Listen( _p, _pos_change );
+            }
+        }
 
         if( _p != null ) {
-
-            Vector.Listen( pos, _pos_change );
 
             propagate_pos(pos);
 
@@ -666,11 +670,15 @@ class Spatial {
 
     inline function set_rotation( _r:Quaternion ) {
 
-        rotation = _r;
+        if (rotation != _r) {
+            rotation = _r;
+
+            if (_r != null) {
+                Quaternion.Listen( _r, _rotation_change );
+            }
+        }
 
         if( _r != null ) {
-
-            Quaternion.Listen( rotation, _rotation_change );
 
             propagate_rotation(rotation);
 
@@ -682,11 +690,15 @@ class Spatial {
 
     inline function set_scale( _s:Vector ) {
 
-        scale = _s;
+        if (scale != _s) {
+            scale = _s;
+
+            if (_s != null) {
+                Vector.Listen( _s, _scale_change );
+            }
+        }
 
         if( _s != null ) {
-
-            Vector.Listen( scale, _scale_change );
 
             propagate_scale(scale);
 
