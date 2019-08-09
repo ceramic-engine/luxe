@@ -18,9 +18,9 @@ class Vector {
 
     public var ignore_listeners : Bool = false;
 
-    @:isVar public var listen_x(default,default) : Float -> Void;
-    @:isVar public var listen_y(default,default) : Float -> Void;
-    @:isVar public var listen_z(default,default) : Float -> Void;
+    @:isVar public var listen_x(default,default) : Vector -> Void;
+    @:isVar public var listen_y(default,default) : Vector -> Void;
+    @:isVar public var listen_z(default,default) : Vector -> Void;
 
     var _construct = false;
 
@@ -50,19 +50,33 @@ class Vector {
     public function set( _x:Float, _y:Float, _z:Float, _w:Float ) {
 
         var prev = ignore_listeners;
+        var changed = false;
 
         ignore_listeners = true;
 
-            x = _x;
-            y = _y;
-            z = _z;
-            w = _w;
+            if (x != _x) {
+                changed = true;
+                x = _x;
+            }
+            if (y != _y) {
+                changed = true;
+                y = _y;
+            }
+            if (z != _z) {
+                changed = true;
+                z = _z;
+            }
+            if (w != _w) {
+                w = _w;
+            }
 
         ignore_listeners = prev;
 
-        if(listen_x != null && !ignore_listeners) listen_x(x);
-        if(listen_y != null && !ignore_listeners) listen_y(y);
-        if(listen_z != null && !ignore_listeners) listen_z(z);
+        if (changed && !ignore_listeners) {
+            if(listen_x != null) listen_x(this);
+            if(listen_y != null) listen_y(this);
+            if(listen_z != null) listen_z(this);
+        }
 
         return this;
 
@@ -72,16 +86,25 @@ class Vector {
     public function set_xy( _x:Float, _y:Float ) {
 
         var prev = ignore_listeners;
+        var changed = false;
 
         ignore_listeners = true;
 
-            x = _x;
-            y = _y;
+            if (x != _x) {
+                changed = true;
+                x = _x;
+            }
+            if (y != _y) {
+                changed = true;
+                y = _y;
+            }
 
         ignore_listeners = prev;
 
-        if(listen_x != null && !ignore_listeners) listen_x(x);
-        if(listen_y != null && !ignore_listeners) listen_y(y);
+        if (changed && !ignore_listeners) {
+            if(listen_x != null) listen_x(this);
+            if(listen_y != null) listen_y(this);
+        }
 
         return this;
 
@@ -91,18 +114,30 @@ class Vector {
     public function set_xyz( _x:Float, _y:Float, _z:Float ) {
 
         var prev = ignore_listeners;
+        var changed = false;
 
         ignore_listeners = true;
 
-            x = _x;
-            y = _y;
-            z = _z;
+            if (x != _x) {
+                changed = true;
+                x = _x;
+            }
+            if (y != _y) {
+                changed = true;
+                y = _y;
+            }
+            if (z != _z) {
+                changed = true;
+                z = _z;
+            }
 
         ignore_listeners = prev;
 
-        if(listen_x != null && !ignore_listeners) listen_x(x);
-        if(listen_y != null && !ignore_listeners) listen_y(y);
-        if(listen_z != null && !ignore_listeners) listen_z(z);
+        if (changed && !ignore_listeners) {
+            if(listen_x != null) listen_x(this);
+            if(listen_y != null) listen_y(this);
+            if(listen_z != null) listen_z(this);
+        }
 
         return this;
 
@@ -349,7 +384,7 @@ class Vector {
     } //RotationTo
 
     #if !luxe_no_hotpath_inline @:extern inline #end
-    public static function Listen( _v:Vector, listener ) {
+    public static function Listen( _v:Vector, listener:Vector->Void ) {
 
         _v.listen_x = listener;
         _v.listen_y = listener;
@@ -544,7 +579,7 @@ class Vector {
 
         if(_construct) return x;
 
-            if(listen_x != null && !ignore_listeners) listen_x(_x);
+            if(listen_x != null && !ignore_listeners) listen_x(this);
 
         return x;
 
@@ -557,7 +592,7 @@ class Vector {
 
         if(_construct) return y;
 
-            if(listen_y != null && !ignore_listeners) listen_y(_y);
+            if(listen_y != null && !ignore_listeners) listen_y(this);
 
         return y;
 
@@ -570,7 +605,7 @@ class Vector {
 
         if(_construct) return z;
 
-            if(listen_z != null && !ignore_listeners) listen_z(_z);
+            if(listen_z != null && !ignore_listeners) listen_z(this);
 
         return z;
 

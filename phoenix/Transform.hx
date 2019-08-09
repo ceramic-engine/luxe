@@ -711,9 +711,9 @@ class Spatial {
  //Sub component change listeners
 
         //An internal callback for when x y or z on a transform changes
-    inline function _pos_change(_v:Float) { this.set_pos(pos); }
+    inline function _pos_change(_) { this.set_pos(pos); }
         //An internal callback for when x y or z on a transform changes
-    inline function _scale_change(_v:Float) { this.set_scale(scale); }
+    inline function _scale_change(_) { this.set_scale(scale); }
         //An internal callback for when x y or z on a transform changes
     inline function _rotation_change(_v:Float) { this.set_rotation(rotation); }
 

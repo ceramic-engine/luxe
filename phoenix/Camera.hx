@@ -246,7 +246,7 @@ class Camera {
             return;
         }
 
-        view_matrix_inverse = view_matrix.inverse();
+        view_matrix_inverse.getInverse(view_matrix);
         view_inverse_arr = view_matrix_inverse.float32array();
 
         transform_dirty = false;
@@ -681,13 +681,13 @@ class Camera {
 
     } //_merge_options
 
-    inline function _pos_changed(v:Float) {
+    inline function _pos_changed(_) {
 
         set_pos(pos);
 
     } //_pos_changed
 
-    inline function _center_changed(v:Float) {
+    inline function _center_changed(_) {
 
         set_center(center);
 

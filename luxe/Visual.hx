@@ -479,6 +479,6 @@ class Visual extends Entity {
 //Size
 
         //An internal callback for when x y or z on a size changes
-    function _size_change( _v:Float ) { this.set_size( size ); }
+    function _size_change( _ ) { this.set_size( size ); }
 
 } //Visual
