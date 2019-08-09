@@ -514,6 +514,7 @@ class Camera {
     var refresh_pos_ : Bool = false;
     function set_center( _p:Vector ) : Vector {
 
+        var should_bind_listener = (_p != null && _p != center);
         center = _p;
 
         switch(projection) {
@@ -538,7 +539,9 @@ class Camera {
 
         } //switch projection
 
-        Vector.Listen(center, _center_changed);
+        if (should_bind_listener) {
+            Vector.Listen(center, _center_changed);
+        }
 
         return center;
 
@@ -614,19 +617,20 @@ class Camera {
 
     function set_pos( _p:Vector ) : Vector {
 
+        var should_bind_listener = (_p != null && _p != pos);
         pos = _p;
 
         switch(projection) {
 
             case ProjectionType.ortho:
 
-            var _cx = center.x;
-            var _cy = center.y;
+                var _cx = center.x;
+                var _cy = center.y;
 
-            if(viewport != null) {
-                _cx = _p.x + (viewport.w/2);
-                _cy = _p.y + (viewport.h/2);
-            }
+                if(viewport != null) {
+                    _cx = _p.x + (viewport.w/2);
+                    _cy = _p.y + (viewport.h/2);
+                }
 
                 refresh_pos_ = true;
                     center.ignore_listeners = true;
@@ -646,7 +650,9 @@ class Camera {
 
         } //switch projection
 
-        Vector.Listen(pos, _pos_changed);
+        if (should_bind_listener) {
+            Vector.Listen(pos, _pos_changed);
+        }
 
         return pos;
 
