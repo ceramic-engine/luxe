@@ -201,7 +201,7 @@ class Utils {
     } //find_assets_sequence
 
         /** :WIP: Wrap text using a knuth plass algorithm for column breaking. */
-    #if release inline #end
+    /*#if release inline #end
     public function text_wrap_column_knuth_plass( _string:String, _column:Int=80) {
 
         var result = [];
@@ -268,6 +268,7 @@ class Utils {
         return result;
 
     } //text_wrap_column_knuth
+    */
 
         /** Soft wrap a string by maximum character count. brk default:'\n', col default:80 */
     #if release inline #end
