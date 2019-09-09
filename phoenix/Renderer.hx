@@ -150,7 +150,9 @@ class Renderer {
         render_path = default_render_path;
 
             //init shaders
+        #if !luxe_no_default_shaders
         create_default_shaders();
+        #end
 
             //create the default batcher
         batcher = new Batcher( this, 'default batcher' );
