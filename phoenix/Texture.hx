@@ -25,7 +25,12 @@ class Texture extends Resource {
     public static var default_filter: FilterType = FilterType.linear;
     public static var default_clamp: ClampType = ClampType.edge;
 
+    static var _nextIndex:Int = 1;
+
 //Members
+
+        /** A generated unique per-texture index generated to identify textures with an integer */
+    public var index : Int = _nextIndex++;
 
         /** Which texture slot this texture would be assigned to when bound. */
     public var slot : Int = 0;
