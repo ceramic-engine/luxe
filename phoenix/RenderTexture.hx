@@ -54,15 +54,23 @@ class RenderTexture extends Texture implements RenderTarget {
         bindRenderBuffer();
 
             //Create storage for the depth buffer :todo: optionize
-        #if (web || mobile || tvos)
-        GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_COMPONENT16, width, height);
+        #if !no_luxe_rendertexture_stencil
+        GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_STENCIL, width, height);
         #else
-        GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_COMPONENT, width, height);
+            #if (web || mobile || tvos)
+            GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_COMPONENT16, width, height);
+            #else
+            GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_COMPONENT, width, height);
+            #end
         #end
             //Attach the framebuffer texture to the buffer
         GL.framebufferTexture2D( GL.FRAMEBUFFER, GL.COLOR_ATTACHMENT0, GL.TEXTURE_2D, texture, 0 );
             //Attach the depth buffer to the render buffer
+        #if !no_luxe_rendertexture_stencil
+        GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
+        #else
         GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
+        #end
 
         var status = GL.checkFramebufferStatus( GL.FRAMEBUFFER );
 
