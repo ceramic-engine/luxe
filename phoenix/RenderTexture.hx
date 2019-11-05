@@ -57,7 +57,7 @@ class RenderTexture extends Texture implements RenderTarget {
 
             //Create storage for the depth buffer :todo: optionize
         #if luxe_rendertexture_stencil
-            #if ios
+            #if (ios || android)
             GL.renderbufferStorage(GL.RENDERBUFFER, DEPTH24_STENCIL8_OES, width, height);
             #else
             GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_STENCIL, width, height);
@@ -73,11 +73,7 @@ class RenderTexture extends Texture implements RenderTarget {
         GL.framebufferTexture2D( GL.FRAMEBUFFER, GL.COLOR_ATTACHMENT0, GL.TEXTURE_2D, texture, 0 );
             //Attach the depth buffer to the render buffer
         #if luxe_rendertexture_stencil
-            #if ios
             GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
-            #else
-            GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
-            #end
         #else
         GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
         #end
