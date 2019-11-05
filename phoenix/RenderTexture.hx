@@ -14,6 +14,8 @@ import luxe.Resources;
     //A render texture just extends texture so it can be assigned to meshes etc
 class RenderTexture extends Texture implements RenderTarget {
 
+    inline static var DEPTH24_STENCIL8_OES = 0x88F0;
+
         //These are for RenderTarget interface
     public var framebuffer : GLFramebuffer;
     public var renderbuffer : GLRenderbuffer;
@@ -54,8 +56,12 @@ class RenderTexture extends Texture implements RenderTarget {
         bindRenderBuffer();
 
             //Create storage for the depth buffer :todo: optionize
-        #if !no_luxe_rendertexture_stencil
-        GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_STENCIL, width, height);
+        #if luxe_rendertexture_stencil
+            #if ios
+            GL.renderbufferStorage(GL.RENDERBUFFER, DEPTH24_STENCIL8_OES, width, height);
+            #else
+            GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_STENCIL, width, height);
+            #end
         #else
             #if (web || mobile || tvos)
             GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_COMPONENT16, width, height);
@@ -66,8 +72,12 @@ class RenderTexture extends Texture implements RenderTarget {
             //Attach the framebuffer texture to the buffer
         GL.framebufferTexture2D( GL.FRAMEBUFFER, GL.COLOR_ATTACHMENT0, GL.TEXTURE_2D, texture, 0 );
             //Attach the depth buffer to the render buffer
-        #if !no_luxe_rendertexture_stencil
-        GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
+        #if luxe_rendertexture_stencil
+            #if ios
+            GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
+            #else
+            GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
+            #end
         #else
         GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
         #end
