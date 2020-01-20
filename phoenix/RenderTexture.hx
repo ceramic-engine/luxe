@@ -22,6 +22,8 @@ class RenderTexture extends Texture implements RenderTarget {
         //You generally don't want this to be anything other than 0.
     public var viewport_scale : Float = 1;
 
+    public var stencil_enabled(default, null) : Bool;
+
     public function new( _options:RenderTextureOptions ) {
 
         _options.resource_type = ResourceType.render_texture;
@@ -34,6 +36,8 @@ class RenderTexture extends Texture implements RenderTarget {
             //Width and height of this texture item
         width = width_actual = _options.width;
         height = height_actual = _options.height;
+
+        stencil_enabled = _options.render_stencil != null ? _options.render_stencil : false;
 
             //super creates the texture id
             //and binds the texture id for us
@@ -55,28 +59,30 @@ class RenderTexture extends Texture implements RenderTarget {
             //Bind it so we can attach stuff
         bindRenderBuffer();
 
-            //Create storage for the depth buffer :todo: optionize
-        #if luxe_rendertexture_stencil
+            //Create storage for the depth/stencil buffer
+        if (stencil_enabled) {
             #if (ios || android)
             GL.renderbufferStorage(GL.RENDERBUFFER, DEPTH24_STENCIL8_OES, width, height);
             #else
             GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_STENCIL, width, height);
             #end
-        #else
+        }
+        else {
             #if (web || mobile || tvos)
             GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_COMPONENT16, width, height);
             #else
             GL.renderbufferStorage(GL.RENDERBUFFER, GL.DEPTH_COMPONENT, width, height);
             #end
-        #end
+        }
             //Attach the framebuffer texture to the buffer
         GL.framebufferTexture2D( GL.FRAMEBUFFER, GL.COLOR_ATTACHMENT0, GL.TEXTURE_2D, texture, 0 );
-            //Attach the depth buffer to the render buffer
-        #if luxe_rendertexture_stencil
+            //Attach the depth/stencil buffer to the render buffer
+        if (stencil_enabled) {
             GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
-        #else
-        GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
-        #end
+        }
+        else {
+            GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
+        }
 
         var status = GL.checkFramebufferStatus( GL.FRAMEBUFFER );
 

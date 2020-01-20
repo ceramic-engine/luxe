@@ -97,6 +97,10 @@ typedef RenderTextureOptions = {
 
     > TextureOptions,
 
+    @:optional var render_stencil: Bool;
+
+    @:optional var render_multisampling: Int;
+
 } //RenderTextureOptions
 
 typedef BitmapFontOptions = {
