@@ -34,7 +34,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -114,7 +114,7 @@ class Main extends luxe.Game {
             trace(b.name + ' / ' + b.layer);
         }
 
-    } //ready
+    }
 
     function create_hud() {
 
@@ -156,7 +156,7 @@ class Main extends luxe.Game {
             batcher : hud_batcher
         });
 
-    } //create_hud
+    }
 
     function z_rot(_r:Float) {
         return new Quaternion().setFromEuler(new Vector(0,0,_r).radians());
@@ -241,7 +241,7 @@ class Main extends luxe.Game {
             current_camera.zoom -= 0.1;
         }
 
-    } //onmousewheel
+    }
 
     override function onmouseup( e:MouseEvent ) {
 
@@ -258,7 +258,7 @@ class Main extends luxe.Game {
             current_camera.focus( world_mouse );
         }
 
-    } //onmouseup
+    }
 
     override function onkeydown( e:KeyEvent ) {
         if(e.keycode == Key.space) {
@@ -336,7 +336,7 @@ class Main extends luxe.Game {
 
         world_mouse = current_camera.screen_point_to_world( screen_mouse );
 
-    } //onkeyup
+    }
 
     var screen_mouse : Vector;
     var view_mouse : Vector;
@@ -352,7 +352,7 @@ class Main extends luxe.Game {
             text : 'mouse position: ' + screen_mouse.x + ', ' + screen_mouse.y + ' (on screen)' + '\n' + '                               ' + view_mouse.x + ', ' + view_mouse.y + ' (in view)' + '\n' + '                               ' + Math.round(world_mouse.x) + ', ' + Math.round(world_mouse.y) + ' (in world)'
         });
 
-    } //update
+    }
 
 
-} //Main
+}

@@ -57,13 +57,13 @@ package luxe.physics.deflect;
 
             return gravity;
 
-        } //setGravity
+        }
 
         public function add_rigidbody( _body:BtRigidBody ) {
 
             world.addRigidBody( _body );
 
-        } //addRigidBody
+        }
 
         public override function render() {
 
@@ -76,7 +76,7 @@ package luxe.physics.deflect;
                 }
             #end
 
-        } //render
+        }
 
         public override function update() {
 
@@ -88,9 +88,9 @@ package luxe.physics.deflect;
                 var ts_step : Float = Luxe.physics.step_delta * Luxe.timescale;
                 world.stepSimulation( ts_step, max_iterations, ts_step );
 
-            } //paused
+            }
 
-        } //update
+        }
 
         override function set_draw( _draw:Bool ) : Bool {
 
@@ -103,7 +103,7 @@ package luxe.physics.deflect;
 
             return super.set_draw(_draw);
 
-        } //set_draw
+        }
 
         public override function destroy() {
 
@@ -119,9 +119,9 @@ package luxe.physics.deflect;
             config.destroy();
             broadphase.destroy();
 
-        } //destroy
+        }
 
-    } //PhysicsDeflect
+    }
 
 #end //deflect
 

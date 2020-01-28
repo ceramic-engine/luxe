@@ -13,7 +13,7 @@ class Main extends luxe.Game {
 
         Luxe.showConsole(true);
 
-    } //ready
+    }
 
     function test_int(count:Int) {
 
@@ -32,7 +32,7 @@ class Main extends luxe.Game {
         assert(max <= 10);
         assert(min >= 0);
 
-    } //test_int
+    }
 
     function test_float(count:Int) {
 
@@ -51,7 +51,7 @@ class Main extends luxe.Game {
         assert(max <= 10);
         assert(min >= 0);
 
-    } //test_float
+    }
 
     function test_get(count:Int) {
 
@@ -70,7 +70,7 @@ class Main extends luxe.Game {
         assert(max <= 1);
         assert(min >= 0);
 
-    } //test_get
+    }
 
     function test_256() {
 
@@ -100,11 +100,11 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
-    } //update
+    }
 
 
-} //Main
+}

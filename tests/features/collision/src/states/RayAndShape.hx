@@ -42,7 +42,7 @@ class RayAndShape extends luxe.States.State {
         before = Luxe.draw.line({ depth:100, batcher: Main.thicker, p0:new Vector(), p1:new Vector(), color:new Color().rgb(0x00f67b) });
         after = Luxe.draw.line({ depth:100, batcher: Main.thicker, p0:new Vector(), p1:new Vector(), color:new Color().rgb(0x7b00f6) });
 
-    } //onenter
+    }
 
     override function onleave<T>(_:T) {
 
@@ -55,7 +55,7 @@ class RayAndShape extends luxe.States.State {
         before = null;
         after = null;
 
-    } //onleave
+    }
 
      override function onkeyup(e:KeyEvent) {
         
@@ -80,7 +80,7 @@ class RayAndShape extends luxe.States.State {
             }
         }
 
-    } //onkeyup
+    }
 
     override function onmousemove( e:MouseEvent ) {
         if(beam != null) {
@@ -154,6 +154,6 @@ class RayAndShape extends luxe.States.State {
 
         } //each collision
 
-    } //update
+    }
 
-} //RayAndShape
+}

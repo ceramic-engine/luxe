@@ -21,7 +21,7 @@ class ParticleSystem extends Entity {
 
         def(emitters, new Map());
 
-    } //init
+    }
 
         /** Add an emitter to this system.
             This adds the emitter as a component internally.
@@ -43,7 +43,7 @@ class ParticleSystem extends Entity {
             //store the reference of the emitter
         emitters.set(_name, _emitter);
 
-    } //add_emitter
+    }
 
         /** Start all emitters.
             Emitters will continue to emit indefinitely, if no duration is specifed (duration < 0). */
@@ -56,7 +56,7 @@ class ParticleSystem extends Entity {
 
         paused = false;
 
-    } //start
+    }
 
         /** Stop all emitters from emitting.
             Alive particles will continue to update,
@@ -68,7 +68,7 @@ class ParticleSystem extends Entity {
             emitter.stop();
         }
 
-    } //stop
+    }
 
         /** Stop all emitters from emitting,
             and kills all alive particles. also see `stop` */
@@ -79,7 +79,7 @@ class ParticleSystem extends Entity {
             emitter.kill();
         }
 
-    } //kill
+    }
 
 //Internal
 
@@ -91,7 +91,7 @@ class ParticleSystem extends Entity {
 
         return paused = _paused;
 
-    } //set_paused
+    }
 
 } //Particle System
 
@@ -100,7 +100,7 @@ private typedef ParticleEmitterInitData = {
     ?name : String,
     system : ParticleSystem,
     template : ParticleEmitterOptions
-} //ParticleEmitterInitData
+}
 
 class ParticleEmitter extends Component {
 
@@ -202,7 +202,7 @@ class ParticleEmitter extends Component {
             //apply defaults
         apply(template);
 
-    } //init
+    }
 
         /** Apply a particle emitter template to this emitter. */
     public function apply(_template:ParticleEmitterOptions) {
@@ -335,7 +335,7 @@ class ParticleEmitter extends Component {
 
         check_cache();
 
-    } //apply
+    }
 
     function cache(index:Int) {
 
@@ -352,7 +352,7 @@ class ParticleEmitter extends Component {
         particle_cache[index] = _particle;
         dead_pool.push(index);
 
-    } //cache
+    }
 
     inline function check_cache() {
 
@@ -376,7 +376,7 @@ class ParticleEmitter extends Component {
             }
         }
 
-    } //check_cache
+    }
 
         /** Start the emitter.
             If duration is not specified it will run indefinitely (duration < 0).
@@ -394,7 +394,7 @@ class ParticleEmitter extends Component {
             finish_time = Luxe.time + duration;
         }
 
-    } //start
+    }
 
         /** Stop this emitter.
             Alive particles will continue to update,
@@ -405,7 +405,7 @@ class ParticleEmitter extends Component {
         elapsed_time = 0;
         emit_timer = 0;
 
-    } //stop
+    }
 
         /** Stop this emitter from emitting,
             and kills all alive particles. also see `stop` */
@@ -420,7 +420,7 @@ class ParticleEmitter extends Component {
         active_particles = null;
         active_particles = [];
 
-    } //kill
+    }
 
         //component destroy handling
     override function ondestroy() {
@@ -437,7 +437,7 @@ class ParticleEmitter extends Component {
 
         particle_cache = null;
 
-    } //ondestroy
+    }
 
     function unspawn( particle:Particle, ?_remove_from_active:Bool=true ) {
 
@@ -450,7 +450,7 @@ class ParticleEmitter extends Component {
             template.batcher.remove( particle.sprite.geometry );
         }
 
-    } //unspawn
+    }
 
     function spawn() {
 
@@ -483,7 +483,7 @@ class ParticleEmitter extends Component {
             template.batcher.add(_particle.sprite.geometry);
         }
 
-    } //spawn
+    }
 
     function reset_particle(particle:Particle) {
 
@@ -548,7 +548,7 @@ class ParticleEmitter extends Component {
         particle.sprite.pos.copy_from(particle.pos);
         particle.sprite.rotation_z = particle.rotation;
 
-    } //reset_particle
+    }
 
 
     override function update(dt:Float) {
@@ -637,11 +637,11 @@ class ParticleEmitter extends Component {
         _to_remove = null;
         _to_remove = [];
 
-    } //update
+    }
 
     inline function random_1_to_1(){ return Math.random() * 2 - 1; }
 
-} //ParticleEmitter
+}
 
 
 class Particle {
@@ -694,7 +694,7 @@ class Particle {
         draw_color = new Color();
         draw_size = new Vector();
 
-    } //new
+    }
 
     public function destroy() {
 
@@ -717,6 +717,6 @@ class Particle {
         draw_color = null;
         draw_size = null;
 
-    } //destroy
+    }
 
 }  //Particle

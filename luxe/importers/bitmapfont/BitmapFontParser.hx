@@ -43,7 +43,7 @@ class BitmapFontParser {
 
             return _info;
 
-        } //parse
+        }
 
     //internal
 
@@ -116,7 +116,7 @@ class BitmapFontParser {
 
             _items = null;
 
-        } //parse_token
+        }
 
         static function tokenize_line( _tokens:Array<String> ) {
 
@@ -130,13 +130,13 @@ class BitmapFontParser {
 
             return _item_map;
 
-        } //tokenize_line
+        }
 
         inline static function trim(_s:String) { return StringTools.trim(_s); }
         inline static function unquote(_s:String) {
             if(_s.indexOf('"') != -1) {
                 _s = StringTools.replace(_s,'"', '');
             } return _s;
-        } //unquote
+        }
 
-} //BitmapFontParser
+}

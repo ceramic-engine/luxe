@@ -44,7 +44,7 @@ class Resources {
         parcels.push(_cache);
         emit(ResourceEvent.cache_tracked, _cache);
 
-    } //track
+    }
 
     public function untrack(_cache:Parcel) {
 
@@ -56,7 +56,7 @@ class Resources {
             emit(ResourceEvent.cache_untracked, _cache);
         }
 
-    } //untrack
+    }
 
 //Public Resource list
 
@@ -71,7 +71,7 @@ class Resources {
 
         update_stats(resource, 1);
 
-    } //add
+    }
 
         /** Remove a resource being tracked by this system. */
     public function remove(resource:Resource #if luxe_resource_pos, ?_pos:haxe.PosInfos #end) : Bool {
@@ -84,7 +84,7 @@ class Resources {
 
         return cache.remove(resource.id);
 
-    } //remove
+    }
 
         /** Destroy a resource by id. Returns false if the resource wasn't found. */
     public function destroy(_id:String, ?_force:Bool=false) : Bool {
@@ -97,7 +97,7 @@ class Resources {
 
         return true;
 
-    } //destroy
+    }
 
         /** Invalidate a resource by id. Returns false if the resource wasn't found. */
     public function invalidate(_id:String) : Bool {
@@ -110,7 +110,7 @@ class Resources {
 
         return true;
 
-    } //invalidate
+    }
 
 //Public event handling
 
@@ -118,20 +118,20 @@ class Resources {
 
         emitter.on(ev, handler);
 
-    } //on
+    }
 
     public function off<T>(ev:ResourceEvent, handler:T->Void) {
 
         emitter.off(ev, handler);
 
-    } //off
+    }
 
     public function emit<T>(ev:ResourceEvent, data:T) {
 
         emitter.emit(ResourceEvent.any, data);
         emitter.emit(ev, data);
 
-    } //emit
+    }
 
 
 //Public load api
@@ -160,7 +160,7 @@ class Resources {
 
         return _resource.reload();
 
-    } //load_bytes
+    }
 
     public function load_text(_id:String) : Promise {
 
@@ -186,7 +186,7 @@ class Resources {
 
         return _resource.reload();
 
-    } //load_text
+    }
 
     public function load_json(_id:String) : Promise {
 
@@ -212,7 +212,7 @@ class Resources {
 
         return _resource.reload();
 
-    } //load_json
+    }
 
     public function load_texture(_id:String, ?_options:LoadTextureOptions) : Promise {
 
@@ -258,7 +258,7 @@ class Resources {
 
         return _resource.reload();
 
-    } //load_texture
+    }
 
     public function load_font(_id:String, ?_options:LoadFontOptions) : Promise {
 
@@ -289,7 +289,7 @@ class Resources {
 
         return _resource.reload();
 
-    } //load_font
+    }
 
     public function load_shader(_id:String, _options:LoadShaderOptions) : Promise {
 
@@ -316,7 +316,7 @@ class Resources {
 
         return _resource.reload();
 
-    } //load_shader
+    }
 
 
     public function load_audio(_id:String, ?_options:LoadAudioOptions) : Promise {
@@ -349,7 +349,7 @@ class Resources {
 
         return _resource.reload();
 
-    } //load_audio
+    }
 
 //Public fetch API
 
@@ -367,7 +367,7 @@ class Resources {
 
     inline function fetch<T>(_id:String) : T {
         return cast cache.get(_id);
-    } //fetch
+    }
 
     inline function update_stats(_res:Resource, _offset:Int) {
 
@@ -387,7 +387,7 @@ class Resources {
 
     }
 
-} //Resources
+}
 
 
 
@@ -424,7 +424,7 @@ class Resources {
             state it should not be considered for reuse and will assert on use it */
     var destroyed   = 6;
 
-} //ResourceState
+}
 
 @:enum abstract ResourceEvent(Int) from Int to Int {
 
@@ -442,7 +442,7 @@ class Resources {
     var cache_tracked       = 11;
     var cache_untracked     = 12;
 
-} //ResourceEvent
+}
 
 
 @:enum
@@ -474,7 +474,7 @@ class ResourceStats {
 
     public function new() {
 
-    } //new
+    }
 
     function toString() {
 
@@ -491,7 +491,7 @@ class ResourceStats {
             '\taudios : ' + audios + '\n' +
             '\tunknown : ' + unknown;
 
-    } //toString
+    }
 
     public function reset() {
 
@@ -506,7 +506,7 @@ class ResourceStats {
         audios = 0;
         unknown = 0;
 
-    } //reset
+    }
 
 
-} //ResourceStats
+}

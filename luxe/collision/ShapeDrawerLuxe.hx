@@ -51,6 +51,6 @@ class ShapeDrawerLuxe extends ShapeDrawer {
             batcher: options.batcher
         });
 
-    } //drawLine
+    }
 
-} //ShapeDrawerLuxe
+}

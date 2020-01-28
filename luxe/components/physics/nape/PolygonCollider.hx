@@ -21,7 +21,7 @@ typedef PolygonColliderOptions = {
         /** The local vertices of the polygon */
     var polygon : Array<Vector>;
 
-} //PolygonColliderOptions
+}
 
 class PolygonCollider extends NapeBody {
 
@@ -33,7 +33,7 @@ class PolygonCollider extends NapeBody {
 
         super(options);
 
-    } //new
+    }
 
     override function onadded() {
 
@@ -50,8 +50,8 @@ class PolygonCollider extends NapeBody {
 
         post_add();
 
-    } //onadded
+    }
 
-} //PolygonCollider
+}
 
 #end //nape

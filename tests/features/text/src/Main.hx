@@ -27,7 +27,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -64,7 +64,7 @@ class Main extends luxe.Game {
             batcher: Luxe.renderer.batcher
         });
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -72,7 +72,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
@@ -80,7 +80,7 @@ class Main extends luxe.Game {
         dtr.text = 'right\n$dt';
         dtc.text = 'center\n$dt';
 
-    } //update
+    }
 
     function setup() {
 
@@ -237,9 +237,9 @@ class Main extends luxe.Game {
         text_with_component.add(new BounceTest({ name:'bounce' }));
 
 
-    } //ready
+    }
 
     var text_with_component:Text;
 
 
-} //Main
+}

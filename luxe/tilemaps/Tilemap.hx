@@ -28,7 +28,7 @@ class TilemapVisual {
 
         create();
 
-    } //new
+    }
 
     public function create() {
 
@@ -39,7 +39,7 @@ class TilemapVisual {
 
         //implemented in subclass
 
-    } //create
+    }
 
     public function geometry_for_tile( _layer:String, x:Int, y:Int ) : Geometry {
 
@@ -52,7 +52,7 @@ class TilemapVisual {
 
         return geomlayer[y][x];
 
-    } //geometry_for_tile
+    }
 
     public function geometry_for_layer( _layer:String ) : TilemapVisualLayerGeometry {
 
@@ -62,7 +62,7 @@ class TilemapVisual {
 
         return geometry.get(_layer);
 
-    } //geometry_for_layer
+    }
 
     function default_options() {
 
@@ -72,20 +72,20 @@ class TilemapVisual {
         def(options.grid, false);
         def(options.filter, FilterType.nearest);
 
-    } //default_options
+    }
 
     function create_tile_for_layer( layer:TileLayer, x:Int, y:Int ) : Geometry {
 
         //implemented in subclass
         return null;
 
-    } //create_tile_for_layer
+    }
 
     function update_tile_id( _geom:Geometry, _layer_name:String, _x:Int, _y:Int, _id:Int, _flipx:Bool, _flipy:Bool, _angle:Int ) {
 
         //implemented in subclass
 
-    } //update_tile_id
+    }
 
         /** Update the visual to match a new tile id at a given coordinate.
             This is called automatically when you set a `Tile` ID in a map, if it has a visual assigned.
@@ -142,7 +142,7 @@ class TilemapVisual {
             trace("cannot refresh tile " + _x + "," + _y + " because layer was not found : " + _layer_name );
         }
 
-    } //refresh_tile_id
+    }
 
         /** Destroy the geometry this visual contains and clean up */
     public function destroy( ) {
@@ -158,20 +158,20 @@ class TilemapVisual {
                             tile.drop();
                         }
                         tile = null;
-                    } //tile
+                    }
                     row = null;
-                } //row
+                }
 
                 geometry.remove(_name);
 
-            } //layer
+            }
         } //!null
 
         geometry = null;
 
-    } //destroy
+    }
 
-} //TilemapVisual
+}
 
 class Tile {
 
@@ -212,7 +212,7 @@ class Tile {
             size = new Vector( map.tile_width, map.tile_height );
         }
 
-    } //new
+    }
 
     function toString() {
         var _pos = map.tile_pos(x,y);
@@ -234,7 +234,7 @@ class Tile {
 
         return id;
 
-    } //set_id
+    }
 
     function set_flipx(_val:Bool):Bool {
         flipx = _val;
@@ -260,7 +260,7 @@ class Tile {
         }
         return angle;
     }
-} //Tile
+}
 
 
 class TileLayer {
@@ -303,7 +303,7 @@ class TileLayer {
 
         tiles = [];
 
-    } //new
+    }
 
 
         /** Returns a list of rectangles in tile space,
@@ -352,7 +352,7 @@ class TileLayer {
 
         return rectangles;
 
-    } //bounds_fitted
+    }
 
         /** Finds the largest bounding rect around tiles with id > 0 between start_x and end_x, starting at start_y and going down as far as possible */
     function find_bounds_rect(start_y:Int, start_x:Int, end_x:Int, checked:Array<Null<Bool>>) {
@@ -388,9 +388,9 @@ class TileLayer {
 
         return new Rectangle(start_x, start_y, end_x - start_x, height - start_y);
 
-    } //find_bounds_rect
+    }
 
-} //TileLayer
+}
 
 
 class Tileset {
@@ -419,7 +419,7 @@ class Tileset {
         margin      = def(options.margin,   0);
         spacing     = def(options.spacing,  0);
 
-    } //new
+    }
 
     function toString() : String {
         return "Tileset; " + name + " tw(" + tile_width + ") th(" + tile_height + ") first_id(" + first_id + ") margin(" + margin + ") spacing(" + spacing + ")";
@@ -431,13 +431,13 @@ class Tileset {
         var tileid = _id - first_id;
         return new Vector( texture_x(tileid), texture_y(tileid) );
 
-    } //pos_in_texture
+    }
 
         //Returns the inner x-position of a texture with given _id
     public function texture_x(_id:Int):Int {
         var _tx = Std.int(texture.width / (tile_width + spacing));
         return _tx == 0 ? 0 : (_id % _tx);
-    } //texture_x
+    }
 
         //Returns the inner y-position of a texture with given _id
         //:todo : Is this making an assumption about the height of a tile?
@@ -446,9 +446,9 @@ class Tileset {
         var _ty = Std.int(texture.width / (tile_width + spacing));
         return _ty == 0 ? 0 : Std.int(_id / _ty);
 
-    } //texture_y
+    }
 
-} //Tileset
+}
 
 class Tilemap {
 
@@ -507,7 +507,7 @@ class Tilemap {
         layers = new Map<String,TileLayer>();
         layers_ordered = [];
 
-    } //new
+    }
 
     public function display( options:TilemapVisualOptions ) {
 
@@ -517,9 +517,9 @@ class Tilemap {
             case TilemapOrientation.isometric :
                 visual = new IsometricVisual( this, options );
             case TilemapOrientation.none :
-        } //orientation
+        }
 
-    } //display
+    }
 
         /** If the given tile space coordinate is inside the map or not */
     public function inside( x:Int, y:Int ) : Bool {
@@ -546,7 +546,7 @@ class Tilemap {
 
         return true;
 
-    } //inside
+    }
 
         /** Get the world space position of a tile coordinate, from a given layer. */
     public function tile_pos( x:Int, y:Int, ?scale:Float=1.0, ?offset_x:TileOffset, ?offset_y:TileOffset ) {
@@ -571,11 +571,11 @@ class Tilemap {
 
             } //switch orientation
 
-        } //inside
+        }
 
         return new Vector();
 
-    } //tile_pos
+    }
 
         /** Convert a world space position to tile space coords */
     public function tile_coord( _world_pos_x:Float, _world_pos_y:Float, ?_scale:Float = 1.0, ?_rounded:Bool=true ) : Vector {
@@ -594,7 +594,7 @@ class Tilemap {
 
         } //switch orientation
 
-    } //tile_coord
+    }
 
         /** Returns the tile at a given world position. 
             Returns null if not in the tilemap, or no tile exists at the position, for that layer */
@@ -608,7 +608,7 @@ class Tilemap {
                 
                 tile_at( layer_name, Math.floor(_tile_pos.x), Math.floor(_tile_pos.y) );
 
-            } //ortho
+            }
 
             case TilemapOrientation.isometric: {
 
@@ -616,13 +616,13 @@ class Tilemap {
                 
                 tile_at( layer_name, Math.floor(_tile_pos.x), Math.floor(_tile_pos.y) );
 
-            } //isometric
+            }
 
             default: null;
 
         } //switch orientation
 
-    } //tile_at_pos
+    }
 
 
         /** Fetch a layer by name, or null if it's not found */
@@ -651,14 +651,14 @@ class Tilemap {
             return null;
         }
 
-    } //tile_at
+    }
 
         /** Allows iterating on the layers in order */
     public function iterator() : Iterator<TileLayer> {
 
         return layers_ordered.iterator();
 
-    } //iterator
+    }
 
         /** Add a tileset with the given options */
     public function add_tileset( options:TilesetOptions ) {
@@ -669,7 +669,7 @@ class Tilemap {
 
         return tileset;
 
-    } //add_tileset
+    }
 
         /** Return the tileset for a given tile id, or null */
     public function tileset_from_id( _id:Int ) {
@@ -686,7 +686,7 @@ class Tilemap {
 
         return tileset;
 
-    } //tileset_from_id
+    }
 
         /**  Removes the tile at the given tile coordinates. Sets the tile id to 0 */
     public function remove_tile( layer_name:String, x:Int, y:Int ) : Bool {
@@ -702,7 +702,7 @@ class Tilemap {
 
         return false;
 
-    } //remove_tile
+    }
 
         /** Remove a tileset by name */
     public function remove_tileset( name:String, _destroy_textures:Bool = false ) : Bool {
@@ -715,7 +715,7 @@ class Tilemap {
 
         return tilesets.remove( name );
 
-    } //remove_tileset
+    }
 
         /** Remove a layer by name */
     public function remove_layer( name:String ) : Bool {
@@ -728,7 +728,7 @@ class Tilemap {
 
         return layers.remove( name );
 
-    } //remove_layer
+    }
 
         /** Add a layer with the given options */
     public function add_layer( options:TileLayerOptions ) {
@@ -746,7 +746,7 @@ class Tilemap {
 
         return new_layer;
 
-    } //add_layer
+    }
 
         /** Fill an entire layer with the given tile id.
             The existing tiles are replaced. */
@@ -783,7 +783,7 @@ class Tilemap {
             trace("No tile layer called '" + layer_name + "' for add_tiles_fill_by_id");
         }
 
-    } //add_tiles_fill_by_id
+    }
 
         /** Add tiles from an array of integer tile id's to the given layer.
             This will destroy previous tiles (use set to change them). */
@@ -830,7 +830,7 @@ class Tilemap {
             trace("No tile layer called '" + layer_name + "' for add_tiles_from_grid");
         }
 
-    } //add_tiles_from_grid
+    }
 
         /** Destroys the tilemap and it's visual. */
     public function destroy(?_keep_visual:Bool=false) {
@@ -850,7 +850,7 @@ class Tilemap {
             visual.destroy();
         }
 
-    } //destroy
+    }
 
 //Internal
 
@@ -858,13 +858,13 @@ class Tilemap {
         if(a.layer < b.layer) return -1;
         if(a.layer >= b.layer) return 1;
         return 1;
-    } //_sort_layers
+    }
 
     function sort_layers() {
 
         layers_ordered.sort( _sort_layers );
 
-    } //sort_layers
+    }
 
 //Getters
 
@@ -872,14 +872,14 @@ class Tilemap {
 
         return new Rectangle( pos.x, pos.y, pos.x+total_width, pos.y + total_height );
 
-    } //get_bounds
+    }
 
         /** Get the total height of the tilemap in tile width space */
     function get_total_width() : Int {
 
         return width * tile_width;
 
-    } //get_total_width
+    }
 
         /** Get the total height of the tilemap in tile height space */
 
@@ -887,7 +887,7 @@ class Tilemap {
 
         return height * tile_height;
 
-    } //get_total_height
+    }
 
 } // Tilemap
 

@@ -25,7 +25,7 @@ class Random {
 
         seed = initial = _initial_seed;
 
-    } //new
+    }
 
 //Public API
 
@@ -82,7 +82,7 @@ class Random {
             return initial;
         }
 
-} //Random
+}
 
 
 //Based on code from http://blog.gskinner.com/archives/2008/01/source_code_see.html

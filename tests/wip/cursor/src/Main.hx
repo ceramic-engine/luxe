@@ -10,7 +10,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -22,7 +22,7 @@ class Main extends luxe.Game {
             desktop_cursor();
         #end
 
-    } //ready
+    }
 
     function web_cursor() {
         
@@ -35,7 +35,7 @@ class Main extends luxe.Game {
 
         #end
 
-    } //web_cursor
+    }
 
     function desktop_cursor() {
         
@@ -86,7 +86,7 @@ class Main extends luxe.Game {
 
         #end //if desktop
     
-    } //desktop_cursor
+    }
 
     override function onkeyup(event:KeyEvent) {
 
@@ -94,6 +94,6 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}

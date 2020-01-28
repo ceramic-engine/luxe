@@ -8,7 +8,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     var pool: Pool<luxe.Sprite>;
     var unlimited_pool: Pool<luxe.Sprite>;
@@ -31,7 +31,7 @@ class Main extends luxe.Game {
             });
         });
 
-    } //ready
+    }
 
     override function onmouseup( e:MouseEvent ) {
 
@@ -66,7 +66,7 @@ class Main extends luxe.Game {
             trace('> UNLIMITED get > at ${unlimited_pool.items.length} items');
         }
 
-    } //onkeyup
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -74,6 +74,6 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}

@@ -12,19 +12,19 @@ class FakeRigidBody extends Component {
 
     override function init() {
         trace('init rigidbody');
-    } //init
+    }
 
     override function onreset() {
         trace('reset rigidbody');
         trace('getting collider' + entity.get('collider'));
-    } //reset
+    }
 
     override function ondestroy() {
         trace('destroy rigidbody');
-    } //destroyed
+    }
 
 
-} //FakeRigidBody
+}
 
 
 class FakeMeshComponent extends Component {
@@ -33,36 +33,36 @@ class FakeMeshComponent extends Component {
     override function init() {
         trace('init FakeMeshComponent');
 
-    } //init
+    }
 
     override function onreset() {
         trace('reset FakeMeshComponent');
-    } //reset
+    }
 
     override function ondestroy() {
         trace('destroy FakeMeshComponent');
-    } //destroyed
+    }
 
 
-} //FakeMeshComponent
+}
 
 class FakeCollider extends Component {
 
 
     override function init() {
         trace('init FakeCollider');
-    } //init
+    }
 
     override function onreset() {
         trace('reset FakeCollider');
-    } //reset
+    }
 
     override function ondestroy() {
         trace('destroy FakeCollider');
-    } //destroy
+    }
 
 
-} //FakeCollider
+}
 
 class Main extends luxe.Game {
 
@@ -117,7 +117,7 @@ class Main extends luxe.Game {
             //test
         spherething.destroy();
 
-    } //ready
+    }
 
     function draw_entities_transforms() {
 
@@ -142,7 +142,7 @@ class Main extends luxe.Game {
             immediate : true
         });
 
-    } //draw_entities_transforms
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -152,7 +152,7 @@ class Main extends luxe.Game {
             child.pos = e.pos;
         }
 
-    } //onmousemove
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -176,22 +176,22 @@ class Main extends luxe.Game {
             trace('absolute: ' + child.transform.world.pos);
             trace('relative: ' + child.pos);
 
-        } //key_P
+        }
 
         if(e.keycode == Key.space) {
             od = !od;
-        } //space
+        }
 
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
-        } //escape
+        }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
         draw_entities_transforms();
-    } //update
+    }
 
 
 
-} //Main
+}

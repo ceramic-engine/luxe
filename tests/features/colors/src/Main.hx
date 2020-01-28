@@ -27,7 +27,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -80,7 +80,7 @@ class Main extends luxe.Game {
         mouse = new Vector(480,320);
         bar_color = new ColorHSV(0,0.5,1);
 
-    } //ready
+    }
 
 
     override function onmousemove( e:MouseEvent ) {
@@ -95,7 +95,7 @@ class Main extends luxe.Game {
         hsb_strip_top.color = bar_color;
         hsb_strip_bottom.color = bar_color;
 
-    } //onmousemove
+    }
 
     override function onmousedown( e:MouseEvent ) {
 
@@ -106,7 +106,7 @@ class Main extends luxe.Game {
             a: Maths.clamp(0.5+(Math.random()),0,1)
         }); //tween
 
-    } //onmousedown
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -123,7 +123,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

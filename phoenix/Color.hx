@@ -39,7 +39,7 @@ class Color {
                 var colorhsv : ColorHSV = cast this;
                 colorhsv.fromColor(this);
             }
-        } //refreshing
+        }
 
         return r;
     }
@@ -69,7 +69,7 @@ class Color {
                 var colorhsv : ColorHSV = cast this;
                 colorhsv.fromColor(this);
             }
-        } //refreshing
+        }
 
         return b;
     }
@@ -156,24 +156,24 @@ class Color {
             throw " Warning: Color.tween passed a null destination ";
         }
 
-    } //tween
+    }
 
     public function clone() : Color {
         return new Color(r,g,b,a);
-    } //clone
+    }
 
     public function rgb(_rgb:Int = 0xFFFFFF) : Color {
         from_int(_rgb);
         return this;
-    } //rgb
+    }
 
     public function toColorHSL() : ColorHSL {
         return new ColorHSL().fromColor(this);
-    } //toColorHSL
+    }
 
     public function toColorHSV() : ColorHSV {
         return new ColorHSV().fromColor(this);
-    } //toColorHSV
+    }
 
     public function fromColorHSV( _color_hsv:ColorHSV ) {
 
@@ -203,7 +203,7 @@ class Color {
 
         a = _color_hsv.a;
 
-    } //fromColorHSV
+    }
 
     public function fromColorHSL( _color_hsl:ColorHSL ) : Color {
 
@@ -276,7 +276,7 @@ class Color {
         // a = 1.0;
     }
 
-} //Color
+}
 
 class ColorHSL extends Color {
 
@@ -313,7 +313,7 @@ class ColorHSL extends Color {
 
         _refresh();
 
-    } //new
+    }
 
     public override function set( ?_h : Float, ?_s : Float, ?_l : Float, ?_a : Float ) : ColorHSL {
 
@@ -337,7 +337,7 @@ class ColorHSL extends Color {
 
         return this;
 
-    } //set
+    }
 
     public override function tween( ?_time_in_seconds:Float = 0.5, ?_dest:ColorOptions = null, _override:Bool = true ) {
 
@@ -389,7 +389,7 @@ class ColorHSL extends Color {
             throw " Warning: Color.tween passed a null destination ";
         }
 
-    } //tween
+    }
 
     public function _refresh() : ColorHSL {
 
@@ -398,15 +398,15 @@ class ColorHSL extends Color {
         refreshing = false;
 
         return this;
-    } //_refresh
+    }
 
     public override function clone() : ColorHSL {
         return new ColorHSL(h,s,l,a);
-    } //clone
+    }
 
     public function toColor() : Color {
         return cast _refresh();
-    } //toColor
+    }
 
     public function fromColor( _color:Color ) : ColorHSL {
 
@@ -443,14 +443,14 @@ class ColorHSL extends Color {
 
         return this;
 
-    } //fromColor
+    }
 
     public override function toString() : String {
         return "{ h:"+h+" , s:"+s+" , l:"+l+" , a:"+a+" }";
     }
 
 
-} //ColorHSL
+}
 
 
 class ColorHSV extends Color {
@@ -488,7 +488,7 @@ class ColorHSV extends Color {
 
         _refresh();
 
-    } //new
+    }
 
     public override function set( ?_h : Float, ?_s : Float, ?_v : Float, ?_a : Float ) : Color {
 
@@ -513,7 +513,7 @@ class ColorHSV extends Color {
 
         return this;
 
-    } //set
+    }
 
     public override function tween( ?_time_in_seconds:Float = 0.5, ?_dest:ColorOptions = null, _override:Bool = true ) {
 
@@ -565,7 +565,7 @@ class ColorHSV extends Color {
             throw " Warning: Color.tween passed a null destination ";
         }
 
-    } //tween
+    }
 
     public function _refresh() {
 
@@ -578,12 +578,12 @@ class ColorHSV extends Color {
 
     public override function clone() : ColorHSV {
         return new ColorHSV(h,s,v,a);
-    } //clone
+    }
 
     public function toColor() : Color {
         //make sure the values are passed up to parent color
         return cast _refresh();
-    } //toColor
+    }
 
     public override function toColorHSL() : ColorHSL {
         _refresh();
@@ -628,10 +628,10 @@ class ColorHSV extends Color {
 
         return this;
 
-    } //fromColor
+    }
 
     public override function toString() : String {
         return "{ h:"+h+" , s:"+s+" , v:"+v+" , a:"+a+" }";
     }
 
-} //ColorHSV
+}

@@ -35,13 +35,13 @@ class Quaternion {
 
         _construct = false;
 
-    } //new
+    }
 
     function toString() {
 
         return "{ x:"+x + ", y:" + y + ", z:" + z  + ", w:" + w  +  " }" ;
 
-    } //toString
+    }
 
     public function set( _x:Float, _y:Float, _z:Float, _w:Float ) : Quaternion {
 
@@ -49,7 +49,7 @@ class Quaternion {
 
         return this;
 
-    } //set
+    }
 
 
     public function copy( _quaternion :Quaternion ) : Quaternion {
@@ -61,7 +61,7 @@ class Quaternion {
 
         return this;
 
-    } //copy
+    }
 
     public function dot( _other:Quaternion ) {
         return x * _other.x + y * _other.y + z * _other.z + w * _other.w;
@@ -135,7 +135,7 @@ class Quaternion {
 
         return this;
 
-    } //setFromEuler
+    }
 
 
     public function setFromAxisAngle( _axis:Vector, _angle:Float ) : Quaternion {
@@ -153,7 +153,7 @@ class Quaternion {
 
         return this;
 
-    } //setFromAxisAngle
+    }
 
 
     public function setFromRotationMatrix( _m:Matrix ) : Quaternion {
@@ -218,14 +218,14 @@ class Quaternion {
 
         return this;
 
-    } //setFromRotationMatrix
+    }
 
 
     public function inverse() : Quaternion {
 
         return conjugate().normalize();
 
-    } //inverse
+    }
 
 
     public function conjugate() : Quaternion {
@@ -234,21 +234,21 @@ class Quaternion {
 
         return this;
 
-    } //conjugate
+    }
 
 
     public function lengthSq() : Float {
 
         return x * x + y * y + z * z + w * w;
 
-    } //lengthSq
+    }
 
 
     public function length() : Float {
 
         return Math.sqrt(x * x + y * y + z * z + w * w);
 
-    } //length
+    }
 
 
     public function normalize() : Quaternion {
@@ -269,7 +269,7 @@ class Quaternion {
 
         return this;
 
-    } //normalize
+    }
 
     public static function Add( _a:Quaternion, _b:Quaternion ):Quaternion {
         return _a.clone().add(_b);
@@ -287,13 +287,13 @@ class Quaternion {
 
         return multiplyQuaternions( this, _quaternion );
 
-    } //multiply
+    }
 
     public function add( _quaternion:Quaternion ) : Quaternion {
 
         return addQuaternions( this, _quaternion );
 
-    } //add
+    }
 
     public function addQuaternions( _a:Quaternion, _b:Quaternion ) {
 
@@ -304,7 +304,7 @@ class Quaternion {
 
         return this;
 
-    } //addQuaternions
+    }
 
     public function multiplyScalar( _scalar:Float ) : Quaternion {
 
@@ -315,7 +315,7 @@ class Quaternion {
 
         return this;
 
-    } //multiply
+    }
 
     public function multiplyQuaternions( _a:Quaternion, _b:Quaternion ) : Quaternion {
 
@@ -329,7 +329,7 @@ class Quaternion {
 
         return this;
 
-    } //multiplyQuaternions
+    }
 
 
     public function slerp( _qb:Quaternion, _t:Float ) : Quaternion {
@@ -390,14 +390,14 @@ class Quaternion {
 
         return this;
 
-    } //slerp
+    }
 
 
     public function equals( _q:Quaternion ) : Bool {
 
         return ( (_q.x == x) && (_q.y == y) && (_q.z == z) && (_q.w == w) );
 
-    } //equals
+    }
 
 
     public function fromArray( _a:Array<Float> ) : Quaternion {
@@ -406,20 +406,20 @@ class Quaternion {
 
         return this;
 
-    } //fromArray
+    }
 
 
     public function toArray() : Array<Float> {
 
         return [ x,y,z,w ];
 
-    } //toArray
+    }
 
     public function clone() : Quaternion {
 
         return new Quaternion( x, y, z, w );
 
-    } //clone
+    }
 
     public function toeuler() {
         return new Vector().setEulerFromQuaternion(this).degrees();
@@ -429,7 +429,7 @@ class Quaternion {
 
         return _qm.copy( _qa ).slerp( _qb, _t );
 
-    } //Slerp
+    }
 
     public static function Dot( _a:Quaternion,  _b:Quaternion ) {
         return new Quaternion(_a.x,_a.y,_a.z,_a.w).dot(_b);
@@ -443,7 +443,7 @@ class Quaternion {
 
         euler.setEulerFromQuaternion( this );
 
-    } //update_euler
+    }
 
     var ignore_euler = false;
 
@@ -465,7 +465,7 @@ class Quaternion {
         if(listen_z != null && !ignore_listeners) listen_z(z);
         if(listen_w != null && !ignore_listeners) listen_w(w);
 
-    } //set_xyzw
+    }
 
     public inline function set_xyz(_x:Float, _y:Float, _z:Float) {
 
@@ -483,7 +483,7 @@ class Quaternion {
         if(listen_y != null && !ignore_listeners) listen_y(y);
         if(listen_z != null && !ignore_listeners) listen_z(z);
 
-    } //set_xyzw
+    }
 
     inline function set_x( _v:Float ) {
 
@@ -497,7 +497,7 @@ class Quaternion {
 
         return x;
 
-    } //set_x
+    }
 
     inline function set_y( _v:Float ) {
 
@@ -511,7 +511,7 @@ class Quaternion {
 
         return y;
 
-    } //set_y
+    }
 
     inline function set_z( _v:Float ) {
 
@@ -525,7 +525,7 @@ class Quaternion {
 
         return z;
 
-    } //set_z
+    }
 
     inline function set_w( _v:Float ) {
 
@@ -539,7 +539,7 @@ class Quaternion {
 
         return w;
 
-    } //set_w
+    }
 
     public static inline function Listen( _q : Quaternion, listener ) {
 
@@ -548,7 +548,7 @@ class Quaternion {
         _q.listen_z = listener;
         _q.listen_w = listener;
 
-    } //listen
+    }
 
-} //Quaternion
+}
 

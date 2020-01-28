@@ -43,7 +43,7 @@ class Resource {
         state = ResourceState.unknown;
         ref = 1;
 
-    } //new
+    }
 
         /** Destroys the resource, unlisting it, cleaning up it's resource usage.
             Once destroyed, it is no longer valid and should not be used in any way.
@@ -70,7 +70,7 @@ class Resource {
 
         } //no refs || force
 
-    } //destroy
+    }
 
         /** Invalidates and frees up any resource usage held.
             The resource instance remains valid for use, and remains listed in the resource cache. */
@@ -95,7 +95,7 @@ class Resource {
             Some resources return 0, in the case of not being able to give an estimate. */
     public function memory_use() : Float {
         return 0;
-    } //memory_use
+    }
 
  //Internal
 
@@ -112,7 +112,7 @@ class Resource {
 
         return ref;
 
-    } //set_ref
+    }
 
     function set_state( _state:ResourceState ) {
 
@@ -130,7 +130,7 @@ class Resource {
 
         return state;
 
-    } //set_state
+    }
 
         /** Clean up any resource usage, freeing memory, removing references etc. */
     function clear() : Void {
@@ -167,7 +167,7 @@ class Resource {
     }
 
 
-} //Resource
+}
 
 
 class BytesResource extends Resource {
@@ -184,7 +184,7 @@ class BytesResource extends Resource {
 
         asset = _options.asset;
 
-    } //new
+    }
 
     override function reload() : Promise {
 
@@ -215,7 +215,7 @@ class BytesResource extends Resource {
 
         }); //promise
 
-    } //reload
+    }
 
     override function clear() {
 
@@ -224,7 +224,7 @@ class BytesResource extends Resource {
             asset = null;
         }
 
-    } //clear
+    }
 
     override function memory_use() {
 
@@ -232,9 +232,9 @@ class BytesResource extends Resource {
 
         return asset.bytes.byteLength;
 
-    } //memory_use
+    }
 
-} //BytesResource
+}
 
 class TextResource extends Resource {
 
@@ -250,7 +250,7 @@ class TextResource extends Resource {
 
         asset = _options.asset;
 
-    } //new
+    }
 
     override function reload() : Promise {
 
@@ -281,7 +281,7 @@ class TextResource extends Resource {
 
         }); //promise
 
-    } //reload
+    }
 
     override function clear() {
 
@@ -290,7 +290,7 @@ class TextResource extends Resource {
             asset = null;
         }
 
-    } //clear
+    }
 
     override function memory_use() {
 
@@ -298,9 +298,9 @@ class TextResource extends Resource {
 
         return asset.text.length;
 
-    } //memory_use
+    }
 
-} //TextResource
+}
 
 class JSONResource extends Resource {
 
@@ -316,7 +316,7 @@ class JSONResource extends Resource {
 
         asset = _options.asset;
 
-    } //new
+    }
 
     override function reload() : Promise {
 
@@ -347,7 +347,7 @@ class JSONResource extends Resource {
 
         }); //promise
 
-    } //reload
+    }
 
     override function clear() {
 
@@ -356,9 +356,9 @@ class JSONResource extends Resource {
             asset = null;
         }
 
-    } //clear
+    }
 
-} //JSONResource
+}
 
 class AudioResource extends Resource {
 
@@ -382,7 +382,7 @@ class AudioResource extends Resource {
             source = new AudioSource(Luxe.snow, asset.audio);
         }
 
-    } //new
+    }
 
     override function reload() : Promise {
 
@@ -414,7 +414,7 @@ class AudioResource extends Resource {
 
         }); //promise
 
-    } //reload
+    }
 
     override function clear() {
 
@@ -428,6 +428,6 @@ class AudioResource extends Resource {
             source = null;
         }
 
-    } //clear
+    }
 
-} //AudioResource
+}

@@ -43,7 +43,7 @@ typedef ParticleEmitterOptions = {
     ? end_color : Color,
     ? end_color_random : Color
 
-} //ParticleEmitterOptions
+}
 
 
     //placeholder for the filename

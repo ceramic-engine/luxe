@@ -194,6 +194,6 @@ class Transforms extends Mohxa {
 
         run();
 
-    } //new
+    }
 
 } //Transforms

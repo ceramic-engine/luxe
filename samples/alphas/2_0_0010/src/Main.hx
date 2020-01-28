@@ -31,7 +31,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -50,6 +50,6 @@ class Main extends luxe.Game {
             //set the initial state to menu
         state.set('menu');
 
-    } //ready
+    }
 
-} //Main
+}

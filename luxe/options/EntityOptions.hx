@@ -28,4 +28,4 @@ typedef EntityOptions = {
         /** if set, this transform will be used as the transform reference on this entity */
     @:optional var transform : Transform;
 
-} //EntityOptions
+}

@@ -21,8 +21,8 @@ package luxe.components.physics.deflect.three;
 
             shape = new BtCylinderShape( width, height, depth );
 
-        } //init
+        }
 
-    } //CylinderCollider
+    }
 
 #end //deflect

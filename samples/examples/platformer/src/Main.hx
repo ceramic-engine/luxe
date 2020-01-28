@@ -91,7 +91,7 @@ class Main extends luxe.Game {
             //fade in when the init event happens
         Luxe.on(luxe.Ev.init, function(_){ fade.up(0.5); });
 
-    } //ready
+    }
 
     function bind_input() {
 
@@ -107,7 +107,7 @@ class Main extends luxe.Game {
         Luxe.input.bind_key('jump', Key.key_z);
         Luxe.input.bind_key('jump', Key.key_x);
 
-    } //bind_input
+    }
 
     function create_map_collision() {
 
@@ -120,7 +120,7 @@ class Main extends luxe.Game {
             sim.obstacle_colliders.push(Polygon.rectangle(bound.x, bound.y, bound.w, bound.h, false));
         }
 
-    } //create_map_collision
+    }
 
     function create_map() {
 
@@ -153,7 +153,7 @@ class Main extends luxe.Game {
                             texture:Luxe.resources.texture('assets/player.png')
                         });
 
-                    } //spawn
+                    }
 
                     case 'exit': {
 
@@ -183,7 +183,7 @@ class Main extends luxe.Game {
                             //store it in the list of triggers
                         sim.trigger_colliders.push(shape);
 
-                    } //exit
+                    }
 
                     case 'portal': {
 
@@ -212,7 +212,7 @@ class Main extends luxe.Game {
                             //and finally add it to the list of triggers
                         sim.trigger_colliders.push(shape);
 
-                    } //portal
+                    }
 
                 } //switch type
             } //each object
@@ -248,7 +248,7 @@ class Main extends luxe.Game {
             }
         } //each row
 
-    } //create_map
+    }
 
     var teleport_disabled: Bool = false;
 
@@ -273,7 +273,7 @@ class Main extends luxe.Game {
 
                         teleport_disabled = true;
 
-                    } //if
+                    }
 
                 case 'exit':
 
@@ -283,7 +283,7 @@ class Main extends luxe.Game {
 
         } //each collision
 
-    } //ontrigger
+    }
 
     function respawn() {
 
@@ -293,7 +293,7 @@ class Main extends luxe.Game {
             fade.up();
         });
 
-    } //respawn
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -309,7 +309,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     var max_vel = 50;
     var air_vel = 60;
@@ -337,7 +337,7 @@ class Main extends luxe.Game {
         var _max_vel = (sim.player_can_jump) ? max_vel : air_vel;
         sim.player_velocity.x = Maths.clamp(sim.player_velocity.x, -_max_vel, _max_vel);
 
-    } //update
+    }
 
     function apply_input(dt:Float) {
 
@@ -361,7 +361,7 @@ class Main extends luxe.Game {
 
         } //not left or right
 
-    } //update_input
+    }
 
 
     override function config(config:luxe.GameConfig) {
@@ -381,6 +381,6 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
-} //Main
+}

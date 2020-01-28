@@ -19,7 +19,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -41,7 +41,7 @@ class Main extends luxe.Game {
 
         tower.add(mesh);
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -49,7 +49,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     var y : Float = 0.0;
 
@@ -58,7 +58,7 @@ class Main extends luxe.Game {
         y += 90 * dt;
         tower.rotation.setFromEuler(new Vector(0,y,0).radians());
 
-    } //update
+    }
 
 
-} //Main
+}

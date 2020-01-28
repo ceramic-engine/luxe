@@ -22,7 +22,7 @@ import sys.FileSystem;
 
         return macro null;
 
-    } //save
+    }
 
         //This is always called from Luxe.hx in the root folder,
         //which contains the .git repo, and build file directly
@@ -48,7 +48,7 @@ import sys.FileSystem;
 
         return Context.makeExpr(build, Context.currentPos());
 
-    } //latest
+    }
 
     static function try_git(root:String) {
 
@@ -69,6 +69,6 @@ import sys.FileSystem;
 
         return '';
 
-    } //try_git
+    }
 
-} //BuildVersion
+}

@@ -11,7 +11,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -32,7 +32,7 @@ class Main extends luxe.Game {
         });
 
 
-    } //ready
+    }
 
     override public function onkeyup(event:KeyEvent) {
 
@@ -58,6 +58,6 @@ class Main extends luxe.Game {
 
         }
 
-    } //onkeydown
+    }
 
-} //Main
+}

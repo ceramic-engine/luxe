@@ -95,19 +95,19 @@ class NineSlice extends luxe.Visual {
 
         geometry = null;
 
-    } //new
+    }
 
     public function lock() {
         if(is_set && _geometry != null) {
             _geometry.locked = true;
         }
-    } //lock
+    }
 
     public function dirty() {
         if(is_set && _geometry != null) {
             _geometry.dirty = true;
         }
-    } //dirty
+    }
 
     @:noCompletion public function update_size(_width:Float, _height:Float) {
 
@@ -200,7 +200,7 @@ class NineSlice extends luxe.Visual {
         slices[8].width = right;
         slices[8].height = bottom;
 
-    } //update_size
+    }
 
     @:noCompletion public function set(_width:Float, _height:Float) {
 
@@ -323,7 +323,7 @@ class NineSlice extends luxe.Visual {
 
         is_set = true;
 
-    } //set
+    }
 
     override function set_size( _v : Vector ) {
 
@@ -341,12 +341,12 @@ class NineSlice extends luxe.Visual {
         for(slice in slices) {
             if(_geometry != null) {
                 _geometry.quad_resize(slice.geometry_id , new Rectangle( slice.pos.x, slice.pos.y, slice.width, slice.height ));
-            } //_geometry
+            }
         }
 
         return super.set_size(_v);
 
-    } //set_size
+    }
 
     function _create(_pos:Vector, _w:Float, _h:Float, ?_reset:Bool = false) {
 
@@ -394,7 +394,7 @@ class NineSlice extends luxe.Visual {
             _create(_pos,_w,_h,_reset);
         }
 
-    } //create
+    }
 
 
-} //NineSlice
+}

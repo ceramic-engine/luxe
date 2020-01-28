@@ -79,7 +79,7 @@ class BatchState {
                     _shader = batcher.renderer.shaders.plain.shader;
                 }
 
-            } //_shader
+            }
 
             if(last_shader_id != _shader.program) {
                 batcher.apply_default_uniforms(_shader);
@@ -134,7 +134,7 @@ class BatchState {
 
                     } //last clip_rect
 
-                } //clip_rect
+                }
 
             } else { //clip is false
 
@@ -148,7 +148,7 @@ class BatchState {
             // finally, mark the state as clean.
         geom_state.clean();
 
-    } //activate
+    }
 
     public function deactivate(batcher:Batcher) {
 
@@ -169,7 +169,7 @@ class BatchState {
         GL.blendFunc(GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA);
         GL.blendEquation(GL.FUNC_ADD);
 
-    } //deactivate
+    }
 
     public function update( geom:Geometry ) : Bool {
 
@@ -183,7 +183,7 @@ class BatchState {
 
         return geom_state.dirty || (last_clip_rect != clip_rect);
 
-    } //update
+    }
 
 
 //noisy debug stuff

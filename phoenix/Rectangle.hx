@@ -22,20 +22,20 @@ class Rectangle {
         w = _w;
         h = _h;
 
-    } //new
+    }
 
     function toString() {
 
         return "{ x:"+x + ", y:" + y + ", w:" + w  + ", h:" + h  + " }" ;
 
-    } //toString
+    }
 
     public static function listen( _r:Rectangle, listener ) {
         _r.listen_x = listener;
         _r.listen_y = listener;
         _r.listen_w = listener;
         _r.listen_h = listener;
-    } //listen
+    }
 
     public function point_inside( _p:Vector ) {
 
@@ -46,7 +46,7 @@ class Rectangle {
 
         return true;
 
-    } //point_inside
+    }
 
     public function overlaps( _other:Rectangle ) {
 
@@ -70,7 +70,7 @@ class Rectangle {
 
         return new Rectangle(x,y,w,h);
 
-    } //clone
+    }
 
         //:todo:, epsilon fp check version
     public function equal( _other:Rectangle ) {
@@ -81,7 +81,7 @@ class Rectangle {
 
         return x == _other.x && y == _other.y && w == _other.w && h == _other.h;
 
-    } //equal
+    }
 
     public function copy_from( _rect:Rectangle ) {
 
@@ -90,7 +90,7 @@ class Rectangle {
         w = _rect.w;
         h = _rect.h;
 
-    } //copy_from
+    }
 
     public function set(?_x:Float, ?_y:Float, ?_w:Float, ?_h:Float) {
 
@@ -112,7 +112,7 @@ class Rectangle {
 
         return this;
 
-    } //set
+    }
 
     function set_x(_x:Float) : Float {
 
@@ -124,7 +124,7 @@ class Rectangle {
 
         return x;
 
-    } //set_x
+    }
 
     function set_y(_y:Float) : Float {
 
@@ -136,7 +136,7 @@ class Rectangle {
 
         return y;
 
-    } //set_y
+    }
 
     function set_w(_w:Float) : Float {
 
@@ -148,7 +148,7 @@ class Rectangle {
 
         return w;
 
-    } //set_w
+    }
 
     function set_h(_h:Float) : Float {
 
@@ -160,6 +160,6 @@ class Rectangle {
 
         return h;
 
-    } //set_h
+    }
 
 }

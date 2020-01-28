@@ -36,29 +36,29 @@ class MeshComponent extends Component {
 
         } //mesh != null
 
-    } //init
+    }
 
     override function entity_pos_change( _pos:Vector ) {
 
         if(mesh != null) {
             mesh.pos = _pos;
-        } //mesh
+        }
 
-    } //entity_pos_change
+    }
 
     override function entity_rotation_change( _rotation:Quaternion ) {
 
         if(mesh != null) {
             mesh.rotation = _rotation;
-        } //mesh
+        }
 
-    } //entity_rotation_change
+    }
 
     override function entity_scale_change( _scale:Vector ) {
 
         if(mesh != null){
             mesh.scale = _scale;
-        } //mesh
+        }
 
     } // entity_scale_change
 
@@ -70,4 +70,4 @@ class MeshComponent extends Component {
 
     } // ondestroy
 
-} //MeshComponent
+}

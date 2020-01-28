@@ -20,7 +20,7 @@ typedef TilemapVisualOptions = {
         /** */
     @:optional var no_destroy : Bool;
 
-} //TilemapVisualOptions
+}
 
 /** Options specific to a `Tilemap` */
 typedef TilemapOptions = {
@@ -40,7 +40,7 @@ typedef TilemapOptions = {
         /** */
     @:optional var orientation : TilemapOrientation;
 
-} //TilemapOptions
+}
 
 /** Options specific to a `Tile`, part of a `Tilemap` */
 typedef TileOptions = {
@@ -60,7 +60,7 @@ typedef TileOptions = {
 
     @:optional var angle : Int;
 
-} //TileOptions
+}
 
 /** Options specific to a `TileLayer`, part of a `Tilemap` */
 typedef TileLayerOptions = {
@@ -80,7 +80,7 @@ typedef TileLayerOptions = {
         /** */
     @:optional var properties : Map<String, String>;
 
-} //TileLayerOptions
+}
 
 
 /** Options specific to a `Tileset`, part of a `Tilemap` */
@@ -101,4 +101,4 @@ typedef TilesetOptions = {
         /** */
     @:optional var first_id : Int;
 
-} //TilesetOptions
+}

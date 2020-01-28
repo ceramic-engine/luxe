@@ -33,7 +33,7 @@ class Emitter<ET:Int> {
 
         bindings = new IntMap<HandlerList>();
 
-    } //new
+    }
 
     @:noCompletion public function _emitter_destroy() {
         while(_to_remove.length > 0) {
@@ -79,7 +79,7 @@ class Emitter<ET:Int> {
             //might disconnect listeners
         _check();
 
-    } //emit
+    }
 
         /** connect a named event to a handler */
     // @:generic
@@ -104,7 +104,7 @@ class Emitter<ET:Int> {
             }
         }
 
-    } //on
+    }
 
         /** disconnect a named event and handler. returns true on success, or false if event or handler not found */
     // @:generic
@@ -135,7 +135,7 @@ class Emitter<ET:Int> {
 
         return _success;
 
-    } //off
+    }
 
     @:noCompletion public function connections( handler:EmitHandler ) {
 
@@ -151,7 +151,7 @@ class Emitter<ET:Int> {
 
         return _list;
 
-    } //connections
+    }
 
     var _checking = false;
 
@@ -191,6 +191,6 @@ class Emitter<ET:Int> {
 
         _checking = false;
 
-    } //_check
+    }
 
-} //Emitter
+}

@@ -59,7 +59,7 @@ import luxe.options.RenderProperties;
 
             geometry = new Map();
 
-        } //new
+        }
 
     //Public API
 
@@ -98,7 +98,7 @@ import luxe.options.RenderProperties;
 
             geometry.set(_body, {geometry: bodyGeom, active_color: _active_color, inactive_color: _inactive_color});
 
-        } //add
+        }
 
             /** Remove a body from the debug drawer. */
         public function remove(_body:Body) {
@@ -116,7 +116,7 @@ import luxe.options.RenderProperties;
 
             geometry.remove(_body);
 
-        } //remove
+        }
 
     // Internal public API
 
@@ -148,7 +148,7 @@ import luxe.options.RenderProperties;
 
             } //for all bodies
 
-        } //update
+        }
 
 
             /** A convenience API for potential future use. */
@@ -173,7 +173,7 @@ import luxe.options.RenderProperties;
             options = previous_options;
             options.immediate = previous_immediate;
 
-        } //draw_immediate
+        }
 
         public function destroy() {
 
@@ -184,7 +184,7 @@ import luxe.options.RenderProperties;
 
             geometry = null;
 
-        } //destroy
+        }
 
     //Internal API
 
@@ -200,7 +200,7 @@ import luxe.options.RenderProperties;
 
             return visible = state;
 
-        } //set_visible
+        }
 
         function draw_body( _body:Body, _active_color:Color, _inactive_color:Color) {
 
@@ -223,7 +223,7 @@ import luxe.options.RenderProperties;
 
             } //_body.debugDraw
 
-        } //draw_body
+        }
 
         function draw_shape( _shape:Shape, _active_color:Color, _inactive_color:Color) {
 
@@ -248,19 +248,19 @@ import luxe.options.RenderProperties;
 
             geom.color = _shape.body.isSleeping ? _inactive_color : _active_color;
 
-        } //draw_shape
+        }
 
         function draw_constraint( _constraint:Constraint) {
 
             //:todo : I wanted to look at how nape default draws things to match if possible
 
-        } //draw_constraint
+        }
 
         function draw_compound( _space:Compound) {
 
             //:todo : I wanted to look at how nape default draws things to match if possible
 
-        } //draw_compound
+        }
 
     //Internal helpers
 
@@ -277,7 +277,7 @@ import luxe.options.RenderProperties;
                 batcher: options.batcher
             });
 
-        } //draw_point
+        }
 
         function draw_AABB( _bounds:nape.geom.AABB, color:Color) {
 
@@ -293,7 +293,7 @@ import luxe.options.RenderProperties;
                 batcher: options.batcher
             });
 
-        } //draw_AABB
+        }
 
         function make_circle_verts(circle:Circle):Array<Vertex> {
 
@@ -322,7 +322,7 @@ import luxe.options.RenderProperties;
 
             return _verts;
 
-        } //make_circle_verts
+        }
 
         function make_polygon_verts( vertexList:Vec2List):Array<Vertex> {
 
@@ -346,9 +346,9 @@ import luxe.options.RenderProperties;
 
             return verts;
 
-        } //make_polygon_verts
+        }
 
-    } //DebugDraw
+    }
 
     private typedef CachedGeometry = {
 

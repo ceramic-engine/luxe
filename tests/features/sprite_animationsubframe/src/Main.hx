@@ -27,7 +27,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -142,7 +142,7 @@ class Main extends luxe.Game {
         anim.animation = 'walk';
         anim.play();
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -150,6 +150,6 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}

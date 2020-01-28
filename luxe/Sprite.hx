@@ -71,14 +71,14 @@ class Sprite extends Visual {
         flipx = !!flipx;
         flipy = !!flipy;
 
-    } //on_geometry_created
+    }
 
     override function set_geometry( _g:Geometry ) {
 
         geometry_quad = cast _g;
         return super.set_geometry(_g);
 
-    } //set_geometry
+    }
 
     override public function ondestroy() {
 
@@ -99,7 +99,7 @@ class Sprite extends Visual {
 
         return Luxe.utils.geometry.point_in_geometry(_p, geometry);
 
-    } //point_inside
+    }
 
         /** Returns true if a point is inside the AABB unrotated */
     public function point_inside_AABB(_p:Vector) : Bool {
@@ -127,7 +127,7 @@ class Sprite extends Visual {
 
         return true;
 
-    } //point_inside_AABB
+    }
 
 //Properties
 
@@ -163,7 +163,7 @@ class Sprite extends Visual {
 
         return flipy = _v;
 
-    } //set_flipy
+    }
 
     function set_flipx(_v:Bool) {
 
@@ -177,7 +177,7 @@ class Sprite extends Visual {
 
         return flipx = _v;
 
-    } //set_flipv
+    }
 
 //Size
 
@@ -202,7 +202,7 @@ class Sprite extends Visual {
             //done
         return super.set_size(_v);
 
-    } //set_size
+    }
 
 //Centered
 
@@ -219,10 +219,10 @@ class Sprite extends Visual {
 
         return centered = _c;
 
-    } //set_centered
+    }
 
 
         //An internal callback for when x y or w or h on a transform changes
     function _uv_change(_v:Float) { this.set_uv(uv); }
 
-} //Sprite
+}

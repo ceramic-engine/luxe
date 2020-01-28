@@ -56,7 +56,7 @@ class TexturePackerSpriteAnimation {
 
         return final_json;
 
-    } //parse
+    }
 
         //given a single named animation sequence in the data, this will extract and return
         //any frames specific to the named animation
@@ -109,7 +109,7 @@ class TexturePackerSpriteAnimation {
 
         return json_anim;
 
-    } //parse_by_name
+    }
 
         //this returns multiple named animations as a single blob
     public static function parse_by_sequences( data:TexturePackerData, names:Array<String> ) : Dynamic {
@@ -128,7 +128,7 @@ class TexturePackerSpriteAnimation {
 
         return final_json;
 
-    } //parse_by_names
+    }
 
 //Internal API
 
@@ -155,6 +155,6 @@ class TexturePackerSpriteAnimation {
 
         return _frame_source;
 
-    } //parse_source
+    }
 
 }

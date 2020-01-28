@@ -30,7 +30,7 @@ typedef DrawNgonOptions = {
         /** whether or not this is an outline or a solid filled ngon */
     @:optional var solid : Bool;
 
-} //DrawNgonOptions
+}
 
 typedef DrawPolygonOptions = {
 
@@ -48,7 +48,7 @@ typedef DrawPolygonOptions = {
         /** The list of colors, per point. Must match length with the points list */
     @:optional var colors : Array<Color>;
 
-} //DrawPolygonOptions
+}
 
 typedef DrawTextureOptions = {
 
@@ -59,7 +59,7 @@ typedef DrawTextureOptions = {
         /** the uv coordinates for the created quad, in texture size (pixels) */
     @:optional var uv : Rectangle;
 
-} //DrawTextureOptions
+}
 
     //:todo : hidden as 3d is not part of the API yet
 @:noCompletion typedef DrawPlaneOptions = PlaneGeometryOptions;

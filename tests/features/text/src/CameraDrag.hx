@@ -79,7 +79,7 @@ class CameraDrag extends Component {
 
                 pos.set_xy(drag_start_pos.x - diffx, drag_start_pos.y - diffy);
 
-        } //draggable
-    } //onmousemove
+        }
+    }
 
 } //CameraDrag

@@ -87,7 +87,7 @@ class TiledMapData {
 
                         tilesets.push(tileset);
 
-                    } //tileset
+                    }
 
                     case "properties" : {
                         for (property in child) {
@@ -99,7 +99,7 @@ class TiledMapData {
                             properties.set(property.get("name"), property.get("value"));
 
                         } //for each property
-                    } //properties
+                    }
 
                     case "layer" : {
 
@@ -108,7 +108,7 @@ class TiledMapData {
 
                         layers.push(layer);
 
-                    } //layer
+                    }
 
                     case "objectgroup" : {
 
@@ -117,7 +117,7 @@ class TiledMapData {
 
                         object_groups.push( object_group );
 
-                    } //objectgroup
+                    }
 
                     case "imagelayer" : {
 
@@ -126,13 +126,13 @@ class TiledMapData {
 
                         image_layers.push( image_layer );
 
-                    } //imagelayer
+                    }
 
                 } //switch child nodename
             } //if valid element
         } //for each child in root
 
-    } //from_xml
+    }
 
     public function parseFromJSON( json:Dynamic ) {
 
@@ -165,14 +165,14 @@ class TiledMapData {
 
                     } //each tileset json
 
-                } //tileset
+                }
 
                 case "properties" : {
                     var child_fields = Reflect.fields(child);
                     for (property_name in child_fields) {
                         properties.set(property_name, Reflect.field(child, property_name));
                     } //for each property
-                } //properties
+                }
 
                 case "layers" : {
 
@@ -206,7 +206,7 @@ class TiledMapData {
                         } //switch type
                     } //each layer json
 
-                } //layer
+                }
 
             } //switch child nodename
         } //for each child in root

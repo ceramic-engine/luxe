@@ -31,7 +31,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -95,7 +95,7 @@ class Main extends luxe.Game {
             //set the uniform
         distort_shader.set_texture('tex1', distort_map);
 
-    } //ready
+    }
 
     #if mobile
         override function ontouchmove( e:TouchEvent ) {
@@ -108,7 +108,7 @@ class Main extends luxe.Game {
                 //hue based on mouse x
             hue_shader.set_float('in_hue', hue);
 
-        } //ontouchmove
+        }
     #end //mobile
 
     override function onmousemove( e:MouseEvent ) {
@@ -121,7 +121,7 @@ class Main extends luxe.Game {
             //hue based on mouse x
         hue_shader.set_float('in_hue', hue);
 
-    } //onmousemove
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -154,7 +154,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

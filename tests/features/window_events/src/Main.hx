@@ -17,7 +17,7 @@ class Main extends luxe.Game {
         Luxe.renderer.clear_color.rgb(0x3e8fb1);
         start = Luxe.screen.size;
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -40,7 +40,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function onrender() {
         Luxe.draw.rectangle({
@@ -68,4 +68,4 @@ class Main extends luxe.Game {
         trace('window restored');
     }
 
-} //Main
+}

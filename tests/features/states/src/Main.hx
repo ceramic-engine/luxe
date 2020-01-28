@@ -20,18 +20,18 @@ class State1 extends State {
 
     override function init() {
         trace("State1 inited with value : " + value);
-    } //init
+    }
 
     override function onleave<T>( _value:T ) {
         trace("State 1 LEAVE with value " + _value);
-    } //onleave
+    }
 
     override function onenter<T>( _value:T ) {
         trace("State 1 ENTER with value " + _value);
-    } //onenter
+    }
 
 
-} //State1
+}
 
 
 class State2 extends State {
@@ -45,18 +45,18 @@ class State2 extends State {
 
     override function init() {
         trace("State 2 inited with data " + data);
-    } //init
+    }
 
     override function onenter<T>( _data:T ) {
         trace("State 2 ENTER with data " + _data);
-    } //onenter
+    }
 
     override function onleave<T>( _data:T ) {
         trace("State 2 LEAVE with data " + _data);
-    } //onleave
+    }
 
 
-} //State2
+}
 
 
 class TransientState extends State {
@@ -73,15 +73,15 @@ class TransientState extends State {
             disable();
         });
 
-    } //enabled
+    }
 
     override function update(dt:Float) {
 
         trace("inside transient update : " + luxe.utils.Maths.fixed((Luxe.time - start),3) );
 
-    } //update
+    }
 
-} //TransientState
+}
 
 
 class Main extends luxe.Game {
@@ -107,7 +107,7 @@ class Main extends luxe.Game {
 
         Luxe.core.debug.visible = true;
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -120,7 +120,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

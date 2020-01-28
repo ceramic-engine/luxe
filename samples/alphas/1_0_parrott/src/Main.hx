@@ -40,7 +40,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -93,7 +93,7 @@ class Main extends luxe.Game {
             //now start the demo specific code
         new Parrott();
 
-    } //ready
+    }
 
 
         //This is called for you before any default rendering happens.
@@ -109,7 +109,7 @@ class Main extends luxe.Game {
         Luxe.renderer.target = final_output;
         Luxe.renderer.clear(new Color(0,0,0,1));
 
-    } //onprerender
+    }
 
     override function onpostrender() {
 
@@ -131,7 +131,7 @@ class Main extends luxe.Game {
             //reset the blending
         Luxe.renderer.blend_mode();
 
-    } //onpostrender
+    }
 
     function change_size( x:Float ) {
 
@@ -142,19 +142,19 @@ class Main extends luxe.Game {
             //update the value inside the shader to the new value
         final_shader.set_float('grid_size', val);
 
-    } //change_size
+    }
 
     override function ontouchmove( e:TouchEvent ) {
 
         change_size( e.x * Luxe.screen.w );
 
-    } //ontouchmove
+    }
 
     override function onmousemove( e:MouseEvent ) {
         #if !mobile
             change_size(e.pos.x);
         #end
-    } //onmousemove
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -170,6 +170,6 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}

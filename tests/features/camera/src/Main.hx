@@ -24,7 +24,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -45,7 +45,7 @@ class Main extends luxe.Game {
 
         create_hud();
 
-    } //ready
+    }
 
     function create_hud() {
 
@@ -106,7 +106,7 @@ class Main extends luxe.Game {
             batcher : hud_batcher
         });
 
-    } //create_hud
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -237,7 +237,7 @@ class Main extends luxe.Game {
 
         world_mouse = Luxe.camera.screen_point_to_world( screen_mouse );
 
-    } //onkeyup
+    }
 
     var screen_mouse : Vector;
     var view_mouse : Vector;
@@ -253,7 +253,7 @@ class Main extends luxe.Game {
             text : 'world mouse : ' + world_mouse.x + ',' + world_mouse.y + '\n' + 'view mouse : ' + view_mouse.x + ',' + view_mouse.y
         });
 
-    } //update
+    }
 
 
-} //Main
+}

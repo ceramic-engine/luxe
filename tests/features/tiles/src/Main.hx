@@ -43,7 +43,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -76,7 +76,7 @@ class Main extends luxe.Game {
             depth : 700
         });
 
-    } //ready
+    }
 
     function load_isometric_tiledmap() {
 
@@ -95,7 +95,7 @@ class Main extends luxe.Game {
             //then readd, to test it works
         tiled_iso.tile_at('Tile Layer 2', 0, 2).id = 4;
 
-    } //load_isometric_tiledmap
+    }
 
     function load_ortho_tiledmap() {
 
@@ -129,7 +129,7 @@ class Main extends luxe.Game {
             trace('layer / ${layer.id} / ${layer.name} / ${layer.properties}');
         }
 
-    } //load_ortho_tiledmap
+    }
 
     function generate_tilemap() {
 
@@ -194,7 +194,7 @@ class Main extends luxe.Game {
         small_tiles.tile_at('fg', 4, 0).id = 1;
         small_tiles.tile_at('fg', 5, 0).id = 1;
 
-    } //generate_tilemap
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -233,7 +233,7 @@ class Main extends luxe.Game {
             down_down = false;
         }
 
-    } //onkeyup
+    }
 
     var up_down = false;
     var down_down = false;
@@ -258,14 +258,14 @@ class Main extends luxe.Game {
             down_down = true;
         }
 
-    } //onkeydown
+    }
 
 
     override function onmousewheel( e:MouseEvent ) {
 
         Luxe.camera.zoom += e.y * 0.1;
 
-    } //onmousewheel
+    }
 
     override function onmouseup( e:MouseEvent ) {
 
@@ -292,7 +292,7 @@ class Main extends luxe.Game {
             trace('ISO set a new id from $oldid to ${tile.id}!');
         }
 
-    } //onmouseup
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -369,27 +369,27 @@ class Main extends luxe.Game {
 
         } //tile != null
 
-    } //onmousemove
+    }
 
     override function update( dt:Float ) {
 
         if(left_down) {
             Luxe.camera.pos.x -= (150/Luxe.camera.zoom) * dt;
-        } //left_down
+        }
 
         if(right_down) {
             Luxe.camera.pos.x += (150/Luxe.camera.zoom) * dt;
-        } //right_down
+        }
 
         if(up_down) {
             Luxe.camera.pos.y -= (150/Luxe.camera.zoom) * dt;
-        } //up_down
+        }
 
         if(down_down) {
             Luxe.camera.pos.y += (150/Luxe.camera.zoom) * dt;
-        } //down_down
+        }
 
-    } //update
+    }
 
     function draw_tiled_image_layers( _scale:Float = 1) {
 
@@ -428,7 +428,7 @@ class Main extends luxe.Game {
                             last = p.clone();
                         } //each point
 
-                    } //polyline
+                    }
 
                     case TiledObjectType.polygon: {
 
@@ -448,7 +448,7 @@ class Main extends luxe.Game {
                             depth : 2
                         });
 
-                    } //polygon
+                    }
 
                     case TiledObjectType.ellipse:{
 
@@ -461,7 +461,7 @@ class Main extends luxe.Game {
                             depth : 2
                         });
 
-                    } //ellipse
+                    }
 
                     case TiledObjectType.rectangle: {
 
@@ -472,13 +472,13 @@ class Main extends luxe.Game {
                             depth : 2
                         });
 
-                    } //rectangle
+                    }
 
                 } //switch type
             } //for each object
-        } //groups
+        }
 
-    } //draw_tiled_object_groups
+    }
 
 
-} //Main
+}

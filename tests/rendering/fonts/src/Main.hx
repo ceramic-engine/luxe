@@ -15,7 +15,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     var text : TextGeometry;
 
@@ -59,7 +59,7 @@ class Main extends luxe.Game {
             point_size : 24
         });
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -89,7 +89,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

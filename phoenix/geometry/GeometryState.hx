@@ -36,7 +36,7 @@ class GeometryState {
         shader = null;
         primitive_type = PrimitiveType.points;
 
-    } //new
+    }
 
     inline
     function clone_onto( _other:GeometryState )  {
@@ -58,7 +58,7 @@ class GeometryState {
         _other.blend_dest_rgb = blend_dest_rgb;
         _other.ignore_blend = ignore_blend;
 
-    } //clone_onto
+    }
 
     function str() {
 
@@ -77,14 +77,14 @@ class GeometryState {
             trace('\t\tblend - $blend_disabled - src_alpha($blend_src_alpha) src_rgb($blend_src_rgb) dest_alpha($blend_dest_alpha) dest_rgb($blend_dest_rgb)');
         trace('\t- GEOMETRYSTATE');
 
-    } //str
+    }
 
     inline
     function clean() {
 
         dirty = false;
 
-    } //clean
+    }
 
     #if !luxe_no_hotpath_inline @:extern inline #end
     function update( other : GeometryState ) {
@@ -111,45 +111,45 @@ class GeometryState {
 
         if(clip_x != other.clip_x) {
             clip_x = other.clip_x;
-        } //clip_x
+        }
 
         if(clip_y != other.clip_y) {
             clip_y = other.clip_y;
-        } //clip_y
+        }
 
         if(clip_w != other.clip_w) {
             clip_w = other.clip_w;
-        } //clip_w
+        }
 
         if(clip_h != other.clip_h) {
             clip_h = other.clip_h;
-        } //clip_h
+        }
 
         if(blend_disabled != other.blend_disabled) {
             blend_disabled = other.blend_disabled;
-        } //blend_disabled
+        }
 
         if(blend_src_alpha != other.blend_src_alpha) {
             blend_src_alpha = other.blend_src_alpha;
-        } //blend_src_alpha
+        }
 
         if(blend_src_rgb != other.blend_src_rgb) {
             blend_src_rgb = other.blend_src_rgb;
-        } //blend_src_rgb
+        }
 
         if(blend_dest_alpha != other.blend_dest_alpha) {
             blend_dest_alpha = other.blend_dest_alpha;
-        } //blend_dest_alpha
+        }
 
         if(blend_dest_rgb != other.blend_dest_rgb) {
             blend_dest_rgb = other.blend_dest_rgb;
-        } //blend_dest_rgb
+        }
 
         if(ignore_blend != other.ignore_blend) {
             ignore_blend = other.ignore_blend;
-        } //ignore_blend
+        }
 
-    } //update
+    }
 
 //Primitive Type
     inline function set_primitive_type(val : PrimitiveType) : PrimitiveType {

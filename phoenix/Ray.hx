@@ -27,7 +27,7 @@ class Ray {
 
        refresh(_screen_pos);
 
-    } //new
+    }
 
     public function refresh( _screen_pos:Vector ) {
 
@@ -43,6 +43,6 @@ class Ray {
         end = camera.unproject(end_ndc);
         dir = Vector.Subtract(end, origin);
 
-    } //refresh
+    }
 
 } //Ray

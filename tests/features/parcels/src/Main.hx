@@ -90,7 +90,7 @@ class Main extends luxe.Game {
 
         parcel.load();
 
-    } //ready
+    }
 
     var parcel: Parcel;
     var sprites : Array<Sprite>;
@@ -102,7 +102,7 @@ class Main extends luxe.Game {
 
         trace(Luxe.resources.texture('assets/texture1.png'));
         trace(Luxe.resources.texture('assets/texture3.png'));
-    } //onloaded
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -118,7 +118,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

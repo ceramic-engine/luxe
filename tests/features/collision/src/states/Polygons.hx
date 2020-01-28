@@ -49,7 +49,7 @@ class Polygons extends luxe.States.State {
 
         Main.display(text);
 
-    } //onenter
+    }
 
     override function onleave<T>(_:T) {
 
@@ -59,7 +59,7 @@ class Polygons extends luxe.States.State {
         mover.destroy();
         mover = null;
 
-    } //onleave
+    }
 
 
     override function onkeyup(e:KeyEvent) {
@@ -77,7 +77,7 @@ class Polygons extends luxe.States.State {
 
         mover.position = e.pos;
 
-    } //onmousemove
+    }
 
     override function onrender() {
 

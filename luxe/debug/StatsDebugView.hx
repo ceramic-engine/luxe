@@ -49,13 +49,13 @@ class StatsDebugView extends luxe.debug.DebugView  {
             vert_count : 0
         };
 
-    } //new
+    }
 
     public function get_resource_stats_string() {
 
         return Std.string( Luxe.resources.stats );
 
-    } //get_resource_stats_string
+    }
 
     inline function get_batcher_info(b:phoenix.Batcher) {
         var _s = '  ${b.name} (enabled ${b.enabled}, layer ${b.layer})\n';
@@ -90,7 +90,7 @@ class StatsDebugView extends luxe.debug.DebugView  {
             'batchers : ' + _render_stats.batchers + '\n'+
             _bs;
 
-    } //get_render_stats_string
+    }
 
     var margin = 32;
     public override function create() {
@@ -131,7 +131,7 @@ class StatsDebugView extends luxe.debug.DebugView  {
 
         Luxe.resources.on(ResourceEvent.any, function(_) if(visible) refresh() );
 
-    } //create
+    }
 
     function resize() {
 
@@ -275,7 +275,7 @@ class StatsDebugView extends luxe.debug.DebugView  {
 
         reset_tween();
 
-    } //refresh
+    }
 
     public override function process() {
 
@@ -303,9 +303,9 @@ class StatsDebugView extends luxe.debug.DebugView  {
 
         if(dirty) {
             refresh_render_stats();
-        } //dirty
+        }
 
-    } //process
+    }
 
 #if (desktop || web)
     //:wip:
@@ -366,7 +366,7 @@ class StatsDebugView extends luxe.debug.DebugView  {
             }
         }
 
-    } //onkeydown
+    }
 
     public override function show() {
 
@@ -375,7 +375,7 @@ class StatsDebugView extends luxe.debug.DebugView  {
         render_stats_text.visible = true;
         resource_list_text.visible = true;
 
-    } //show
+    }
 
     public override function hide() {
 
@@ -385,7 +385,7 @@ class StatsDebugView extends luxe.debug.DebugView  {
         Actuate.stop(resource_list_text.pos);
         Actuate.stop(render_stats_text.pos);
 
-    } //hide
+    }
 
     function reset_tween() {
 
@@ -431,7 +431,7 @@ class StatsDebugView extends luxe.debug.DebugView  {
             render_stats_text.geometry.dirty = true;
         }
 
-    } //refresh_render_stats
+    }
 
     public function update_render_stats() {
 
@@ -443,9 +443,9 @@ class StatsDebugView extends luxe.debug.DebugView  {
         _render_stats.draw_calls = Luxe.renderer.stats.draw_calls;
         _render_stats.vert_count = Luxe.renderer.stats.vert_count;
 
-    } //update_render_stats
+    }
 
-} //StatsDebugView
+}
 
 typedef RenderStats = {
     batchers : Int,

@@ -31,7 +31,7 @@ class Main extends luxe.Game {
 
         reset_world();
 
-    } //ready
+    }
 
         //overriding the built in function to configure the default window
     override function config( config:GameConfig ) : GameConfig {
@@ -50,7 +50,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     function reset_world() {
 
@@ -91,7 +91,7 @@ class Main extends luxe.Game {
 
                 drawer.add(box);
 
-            } //for
+            }
 
             ball = new Body(BodyType.DYNAMIC);
 
@@ -102,13 +102,13 @@ class Main extends luxe.Game {
 
             drawer.add(ball);
 
-    } //reset_world
+    }
 
     override function onmouseup( e:MouseEvent ) {
 
         mouseJoint.active = false;
 
-    } //onmouseup
+    }
 
     override function onmousedown( e:MouseEvent ) {
 
@@ -140,7 +140,7 @@ class Main extends luxe.Game {
 
         mousePoint.dispose();
 
-    } //onmousedown
+    }
 
     override function onmousemove( e:MouseEvent ) {
         if (mouseJoint.active) {
@@ -155,7 +155,7 @@ class Main extends luxe.Game {
                 mouseJoint.anchor1.setxy(e.pos.x, e.pos.y);
             }
 
-        } //ontouchmove
+        }
     #end //mobile
 
     var ramp = false;
@@ -193,7 +193,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

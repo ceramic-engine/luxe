@@ -34,7 +34,7 @@ class Splash extends luxe.ParcelProgress {
 
         _parcel.load();
 
-    } //new
+    }
 
     function onupdate(dt:Float) {
 
@@ -53,7 +53,7 @@ class Splash extends luxe.ParcelProgress {
 
         info.text = '...';
 
-    } //onbegin
+    }
 
     override public function onprogress( _state:ParcelChange ) {
 
@@ -66,7 +66,7 @@ class Splash extends luxe.ParcelProgress {
         spin.color.tween(0.25, { a:0.25 }).onComplete(function(){ spin.color.tween(0.25, { a:1 }); });
         info.color.tween(0.25, { a:0.5 }).onComplete(function(){ info.color.tween(0.25, { a:1 }); });
 
-    } //onprogress
+    }
 
     override public function oncomplete( _parcel:Parcel ) {
 

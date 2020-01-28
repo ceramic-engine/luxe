@@ -67,7 +67,7 @@ class TiledImageLayer {
                 }
             }
         } //for each child
-    } //from_xml
+    }
 
     public function from_json( json:Dynamic ) {
 
@@ -98,9 +98,9 @@ class TiledImageLayer {
 
         } //properties exists
 
-    } //from_json
+    }
 
-} //TiledImageLayer
+}
 
 class TiledImage {
 

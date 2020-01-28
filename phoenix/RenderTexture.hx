@@ -113,7 +113,7 @@ class RenderTexture extends Texture implements RenderTarget {
             //add to the resource system
         system.add(this);
 
-    } //new
+    }
 
     override function clear() {
 
@@ -127,31 +127,31 @@ class RenderTexture extends Texture implements RenderTarget {
             GL.deleteRenderbuffer(renderbuffer);
         }
 
-    } //clear
+    }
 
     @:noCompletion public function bindBuffer() {
 
         Luxe.renderer.state.bindFramebuffer(framebuffer);
 
-    } //bind
+    }
 
     @:noCompletion public function unbindBuffer( _other:GLFramebuffer ) {
 
         Luxe.renderer.state.bindFramebuffer( _other );
 
-    } //unbind
+    }
 
     @:noCompletion public function bindRenderBuffer() {
 
         Luxe.renderer.state.bindRenderbuffer( renderbuffer );
 
-    } //bind
+    }
 
     @:noCompletion public function unbindRenderBuffer( _other:GLRenderbuffer ) {
 
         Luxe.renderer.state.bindRenderbuffer( _other );
 
-    } //unbind
+    }
 
 
 } //RenderTexture

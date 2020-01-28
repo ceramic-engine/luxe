@@ -24,7 +24,7 @@ class TiledTile {
 
         id = _id & ~(0x80000000 | 0x40000000 | 0x20000000);
 
-    } //new
+    }
 
 //properties
 

@@ -49,7 +49,7 @@ class Main extends luxe.Game {
             batcher: Luxe.renderer.create_batcher()
         });
 
-    } //ready
+    }
 
     override function onmousewheel( e:MouseEvent ) {
         Luxe.camera.zoom += e.y < 0 ? 0.1 : -0.1;
@@ -61,7 +61,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
@@ -80,7 +80,7 @@ class Main extends luxe.Game {
 
         info.text = '${Luxe.camera.pos.x}, ${Luxe.camera.pos.y}\n${Luxe.camera.viewport}\n${Luxe.camera.center}\n${Luxe.camera.bounds}';
 
-    } //update
+    }
 
 
-} //Main
+}

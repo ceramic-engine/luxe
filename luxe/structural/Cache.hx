@@ -40,7 +40,7 @@ class Cache<T> {
             }
         } //if precache
 
-    } //new
+    }
 
         /** Get the next available item from the cache.
             It will be created if needed, or returned from the cache.
@@ -64,7 +64,7 @@ class Cache<T> {
 
         return _item;
 
-    } //get
+    }
 
 
-} //Cache
+}

@@ -57,4 +57,4 @@ enum InfiniteState {
             directions from it's starting point. */
     infinite;
 
-} //InfiniteState
+}

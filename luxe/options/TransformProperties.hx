@@ -14,4 +14,4 @@ typedef TransformProperties = {
         /** the transform origin */
     @:optional var origin : Vector;
 
-} //TransformProperties
+}

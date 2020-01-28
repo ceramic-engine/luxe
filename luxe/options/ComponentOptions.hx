@@ -9,4 +9,4 @@ typedef ComponentOptions = {
             Think of the name like the attachment slot for a component. */
     @:optional var name : String;
 
-} //ComponentOptions
+}

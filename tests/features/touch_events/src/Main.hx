@@ -38,13 +38,13 @@ class Main extends luxe.Game {
             new Color().rgb(0xffffff),
         ];
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
         }
-    } //onkeyup
+    }
 
     override function ontouchdown(e:TouchEvent) {
 
@@ -97,4 +97,4 @@ class Main extends luxe.Game {
 
     }
 
-} //Main
+}

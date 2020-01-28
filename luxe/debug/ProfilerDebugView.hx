@@ -33,7 +33,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
         name = 'Profiler';
         lists = new Map();
 
-    } //new
+    }
 
     var margin = 32;
     override function create() {
@@ -90,7 +90,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
 
         #end //cpp
 
-    } //create
+    }
 
     var tickamount = 0.017;
     var nexttick = 0.0;
@@ -117,7 +117,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
 
         graph.ping = Maths.fixed(_byte_value,4);
 
-    } //update_graph
+    }
 
     override function process() {
 
@@ -166,7 +166,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
             _item.hidden = true;
             _item.bar.hide();
         }
-    } //hide_item
+    }
 
     public static function show_item(_id:String) {
         var _item = lists.get(_id);
@@ -174,7 +174,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
             _item.hidden = false;
             _item.bar.show();
         }
-    } //show_item
+    }
 
     public static function start(_id:String, ?_max:Float) {
 
@@ -189,7 +189,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
 
         _item.start = Luxe.time;
 
-    } //start
+    }
 
     public static function end(_id:String) {
 
@@ -201,7 +201,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
             throw "Debug / profile end called for " + _id + " but no start called";
         }
 
-    } //end
+    }
 
     public override function show() {
 
@@ -227,7 +227,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
             _setup = true;
         }
 
-    } //show
+    }
 
     public override function hide() {
 
@@ -243,7 +243,7 @@ class ProfilerDebugView extends luxe.debug.DebugView {
             memtext.visible = false;
         #end
 
-    } //hide
+    }
 
 }
 
@@ -328,7 +328,7 @@ private class ProfilerGraph {
         color = new Color();
         max = Maths.fixed((1/60) * 1000, 2);
 
-    } //new
+    }
 
     public function create() {
 
@@ -422,7 +422,7 @@ private class ProfilerGraph {
 
         return ping = _v;
 
-    } //set_ping
+    }
 
     public function hide() {
         visible = false;
@@ -443,9 +443,9 @@ private class ProfilerGraph {
 
         return pos = _p;
 
-    } //set_pos
+    }
 
-} //ProfilerGraph
+}
 
 private class ProfilerBar {
 
@@ -499,7 +499,7 @@ private class ProfilerBar {
 
         hide();
 
-    } //new
+    }
 
     public function hide() {
         visible = false;
@@ -541,7 +541,7 @@ private class ProfilerBar {
 
         return value = _v;
 
-    } //set_value
+    }
 
     function set_pos(_p:Vector) {
         bg_geometry.transform.pos = _p;
@@ -556,4 +556,4 @@ private class ProfilerBar {
         return text = _t;
     }
 
-} //ProfilerBar
+}

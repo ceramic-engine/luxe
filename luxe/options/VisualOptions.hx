@@ -33,4 +33,4 @@ typedef VisualOptions = {
         /** if specified, the geometry will not be added to any batcher. */
     @:optional var no_batcher_add : Bool;
 
-} //VisualOptions
+}

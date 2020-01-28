@@ -147,7 +147,7 @@ class Text extends Visual {
             //flush
         _update_bounds();
 
-    } //new
+    }
 
 //Public API
 
@@ -156,7 +156,7 @@ class Text extends Visual {
         _update_bounds();
         return text_bounds.point_inside(p);
 
-    } //point_inside
+    }
 
 //Internal
 
@@ -166,7 +166,7 @@ class Text extends Visual {
         _update_bounds();
         text_options.pos = pos;
 
-    } //set_pos_from_transform
+    }
 
 //
 
@@ -225,7 +225,7 @@ class Text extends Visual {
 
         text_bounds.set( _x, _y, _tw, _th );
 
-    } //_update_bounds
+    }
 
 
     override public function ondestroy() {
@@ -238,4 +238,4 @@ class Text extends Visual {
 
     }
 
-} //Text
+}

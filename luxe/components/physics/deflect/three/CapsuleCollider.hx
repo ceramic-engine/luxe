@@ -20,9 +20,9 @@ package luxe.components.physics.deflect.three;
 
             shape = new BtCapsuleShape( radius, height );
 
-        } //init
+        }
 
-    } //CapsuleCollider
+    }
 
 
 #end //deflect

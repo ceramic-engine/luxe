@@ -22,7 +22,7 @@ package luxe.physics.nape;
 
             gravity = new Vector(0, 980);
 
-        } //init
+        }
 
             //update the actual physics
         public override function update() {
@@ -35,16 +35,16 @@ package luxe.physics.nape;
                     debugdraw.update();
                 }
 
-            } //paused
+            }
 
-        } //update
+        }
 
         public override function destroy() {
 
             space.clear();
             space = null;
 
-        } //destroy
+        }
 
 
             //unit's are pixels/second/second
@@ -56,7 +56,7 @@ package luxe.physics.nape;
 
             return super.set_gravity(_gravity);
 
-        } //set_gravity
+        }
 
         override function set_draw(_draw:Bool):Bool {
 
@@ -66,8 +66,8 @@ package luxe.physics.nape;
 
             return draw = _draw;
 
-        } //set_draw
+        }
 
-    } //PhysicsNape
+    }
 
 #end //nape

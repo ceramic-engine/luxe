@@ -36,7 +36,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -171,7 +171,7 @@ class Main extends luxe.Game {
         anim2.animation = 'idle';
         anim2.play();
 
-    } //ready
+    }
 
     override function onmouseup( e:MouseEvent ) {
 
@@ -179,7 +179,7 @@ class Main extends luxe.Game {
             Luxe.io.url_open('http://meetcartographer.com/carapace/');
         }
 
-    } //onmouseup
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -187,7 +187,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

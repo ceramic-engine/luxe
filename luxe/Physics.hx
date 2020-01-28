@@ -43,7 +43,7 @@ class Physics {
         core = _core;
         emitter = new Emitter();
 
-    } //new
+    }
 
     public function init() {
 
@@ -57,7 +57,7 @@ class Physics {
             nape = add_engine(PhysicsNape);
         #end //nape
 
-    } //init
+    }
 
     public function reset() {
 
@@ -74,7 +74,7 @@ class Physics {
 
         } //only if there is a step rate
 
-    } //reset
+    }
 
     static var tag_physics : String = 'physics';
 
@@ -92,7 +92,7 @@ class Physics {
 
             #if !luxe_noprofile Luxe.debug.end(tag_physics); #end
 
-    } //fixed_update
+    }
 
         /** Add a physics engine type to be run by this class. */
     public function add_engine<T1,T2>( type:Class<T1>, ?_data:T2 ) : T1 {
@@ -109,7 +109,7 @@ class Physics {
             //return typed instance
         return _engine_instance;
 
-    } //add_engine
+    }
 
         /** Only call this manually if step_rate is 0! */
     public function update() {
@@ -122,13 +122,13 @@ class Physics {
         for(engine in engines) {
             engine.process();
         }
-    } //process
+    }
 
     public function render() {
         for(engine in engines) {
             engine.render();
         }
-    } //render
+    }
 
     public function destroy() {
 
@@ -142,7 +142,7 @@ class Physics {
             engine.destroy();
         }
 
-    } //destroy
+    }
 
 //Events
 
@@ -172,10 +172,10 @@ class Physics {
 
         return step_rate;
 
-    } //set_step_rate
+    }
 
 
-} //Physics
+}
 
 
 /** :todo:WIP: This api is work in progress, and might change a bit */
@@ -188,7 +188,7 @@ class Physics {
         /** Emitted at the end of the fixed update, after the world is updated */
     var ph_fixed_update_post = 2;
 
-} //PhysicsEvent
+}
 
     //base class for simple physics world
     //updates and access
@@ -205,33 +205,33 @@ class PhysicsEngine {
         gravity = new Vector(0, -9.8, 0);
         Luxe.on(Ev.render, _render);
 
-    } //new
+    }
 
     public function init() {
 
-    } //init
+    }
 
     function _render(_) {
 
         render();
 
-    } //_render
+    }
 
     public function process() {
 
-    } //process
+    }
 
     public function update() {
 
-    } //update
+    }
 
     public function render() {
 
-    } //render
+    }
 
     public function destroy() {
 
-    } //destroy
+    }
 
 //Properties
 
@@ -239,36 +239,36 @@ class PhysicsEngine {
 
         return paused;
 
-    } //get_paused
+    }
 
     function set_paused( ?_pause:Bool ) {
 
         return paused = _pause;
 
-    } //set_paused
+    }
 
     function get_draw() : Bool {
 
         return draw;
 
-    } //get_draw
+    }
 
     function set_draw( _draw:Bool ) : Bool {
 
         return draw = _draw;
 
-    } //set_draw
+    }
 
     function get_gravity() : Vector {
 
         return gravity;
 
-    } //get_gravity
+    }
 
     function set_gravity( _gravity:Vector ) {
 
         return gravity = _gravity;
 
-    } //set_gravity
+    }
 
-} //PhysicsEngine
+}

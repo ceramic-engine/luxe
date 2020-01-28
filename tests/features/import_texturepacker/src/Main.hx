@@ -22,7 +22,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -33,7 +33,7 @@ class Main extends luxe.Game {
 
         create();
 
-    } //ready
+    }
 
     function create() {
 
@@ -83,7 +83,7 @@ class Main extends luxe.Game {
         sprite1_anim.play();
         sprite2_anim.play();
 
-    } //create
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -91,7 +91,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

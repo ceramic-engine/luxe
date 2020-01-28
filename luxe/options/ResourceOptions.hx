@@ -18,7 +18,7 @@ typedef ResourceOptions = {
             Corresponds with ResourceType, but used as int for user typed resource type ids. */
     @:optional var resource_type:Int;
 
-} //ResourceOptions
+}
 
     /** Options for creating a Bytes Resource instance.
         These are usually `load`ed via `Luxe.resources.load_bytes(...)` and
@@ -88,7 +88,7 @@ typedef TextureOptions = {
         /** Advanced: Specify if this is a compressed pixel format */
     @:optional var compressed: Bool;
 
-} //TextureOptions
+}
 
     /** Options for creating a RenderTexture instance.
         Note that width/height are the mainly used options,
@@ -101,7 +101,7 @@ typedef RenderTextureOptions = {
 
     @:optional var render_multisampling: Int;
 
-} //RenderTextureOptions
+}
 
 typedef BitmapFontOptions = {
 
@@ -113,14 +113,14 @@ typedef BitmapFontOptions = {
         /** If creating manually, the font pages (requires `font_data`) to use for this font */
     @:optional var pages:Array<Texture>;
 
-} //BitmapFontOptions
+}
 
 typedef ShaderOptions = {
 
     > ResourceOptions,
     > LoadShaderOptions,
 
-} //ShaderOptions
+}
 
 
 //Load options
@@ -147,7 +147,7 @@ typedef ShaderOptions = {
                 and if this is not specified the images will be relative to the .fnt file. */
         @:optional var texture_path : String;
 
-    } //LoadFontOptions
+    }
 
     typedef LoadShaderOptions = {
 

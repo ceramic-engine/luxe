@@ -9,7 +9,7 @@ class IO {
 
     function new( _core:Engine ) {
         core = _core;
-    } //new
+    }
 
 //Path specifics
 #if luxe_native
@@ -26,7 +26,7 @@ class IO {
 
         core.app.io.url_open( _url );
 
-    } //url_open
+    }
 
         /** Save a string value by key, with an optional slot.
             To remove a saved key, pass value in as null.
@@ -38,7 +38,7 @@ class IO {
 
         return core.app.io.string_save(_key, _value, _slot);
 
-    } //string_save
+    }
 
         /** Load a string value by key, with an optional slot.
             Works on all targets as a simple save/load mechanism.
@@ -47,7 +47,7 @@ class IO {
 
         return core.app.io.string_load(_key, _slot);
 
-    } //string_load
+    }
 
         /** Destroy a specific string slot, removing all values stored.
             Does not ask for confirmation. Returns true if successful, false otherwise. */
@@ -55,7 +55,7 @@ class IO {
 
         return core.app.io.string_destroy(_slot);
 
-    } //string_destroy
+    }
 
 //Internal
 
@@ -65,18 +65,18 @@ class IO {
 
         return core.app.io.module.app_path();
 
-    } //get_app_path
+    }
 
     function get_app_path_prefs() {
 
         return core.app.io.module.app_path_prefs();
 
-    } //get_app_path
+    }
 
 #end
 
     function init() {
 
-    } //init
+    }
 
-} //IO
+}

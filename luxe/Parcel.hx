@@ -132,7 +132,7 @@ class Parcel {
 
         system.track(this);
 
-    } //new
+    }
 
 //Public event handling
 
@@ -360,7 +360,7 @@ class Parcel {
 
         }); //start delay timer
 
-    } //load
+    }
 
         /** Unload this parcel contents, telling the system to remove the reference we have to them.
             Optionally the list can be emptied out, but will be kept around for reloading the parcel again. */
@@ -389,7 +389,7 @@ class Parcel {
 
         state = ParcelState.unloaded;
 
-    } //unload
+    }
 
     public function from_json( _json_object:Dynamic ) {
 
@@ -510,7 +510,7 @@ class Parcel {
             } //each sounds
         } //json object sounds
 
-    } //from_json
+    }
 
 //Internal
 
@@ -536,7 +536,7 @@ class Parcel {
             do_complete(_load_id);
         }
 
-    } //one_loaded
+    }
 
     function one_failed( _item_id:String, _load_id:String, _error:Dynamic, _index:Int, _total:Int ) {
 
@@ -556,7 +556,7 @@ class Parcel {
             onfailed(_state);
         }
 
-    } //one_failed
+    }
 
         //
     inline function get_listed() : Array<String> {
@@ -598,7 +598,7 @@ class Parcel {
             oncomplete(this);
         }
 
-    } //do_complete
+    }
 
     function empty_list() : ParcelList {
         return {
@@ -612,4 +612,4 @@ class Parcel {
         };
     }
 
-} //Parcel
+}

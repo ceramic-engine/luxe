@@ -23,7 +23,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     var parcel: luxe.Parcel;
     var info: luxe.Text;
@@ -48,7 +48,7 @@ class Main extends luxe.Game {
 
         new Splash(parcel, onloaded);
 
-    } //ready
+    }
 
 
     function reload() {
@@ -58,7 +58,7 @@ class Main extends luxe.Game {
         parcel.unload();
         parcel.load();
 
-    } //reload
+    }
 
     function onloaded() {
 
@@ -70,7 +70,7 @@ class Main extends luxe.Game {
             point_size: 20
         });
 
-    } //onloaded
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -84,6 +84,6 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}

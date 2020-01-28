@@ -55,14 +55,14 @@ class FlyCamera extends luxe.Camera {
         pitch_rotation_matrix = new Matrix();
         yaw_rotation_matrix = new Matrix();
 
-    } //new
+    }
 
 
     public function reset() {
             //about 2m tall
         pos = new Vector(0, 1, 5);
 
-    } //start
+    }
 
     public override function update(dt:Float) {
 
@@ -141,7 +141,7 @@ class FlyCamera extends luxe.Camera {
         up = view.view_matrix.up();
 
 
-    } //update
+    }
 
     function move_look(xDelta:Float,yDelta:Float) {
 
@@ -165,7 +165,7 @@ class FlyCamera extends luxe.Camera {
             pitch = halfPI;
         }
 
-    } //move_look
+    }
 
     var locked = false;
     override function onmouseup(e:MouseEvent) {
@@ -183,7 +183,7 @@ class FlyCamera extends luxe.Camera {
             ready = false;
         }
 
-    } //onmouseup
+    }
 
     public function enable() {
 
@@ -191,7 +191,7 @@ class FlyCamera extends luxe.Camera {
 
         ready = true;
 
-    } //enable
+    }
 
     override function onmousemove(e:MouseEvent) {
 
@@ -202,7 +202,7 @@ class FlyCamera extends luxe.Camera {
 
         mouse_delta.set_xy(e.x_rel, e.y_rel);
 
-    } //onmousemove
+    }
 
     override function onkeydown(e) {
 
@@ -228,7 +228,7 @@ class FlyCamera extends luxe.Camera {
             move_speed_scale = 4;
         }
 
-    } //onkeydown
+    }
 
     override function onkeyup(e) {
 
@@ -248,6 +248,6 @@ class FlyCamera extends luxe.Camera {
             move_speed_scale = 1;
         }
 
-    } //onkeyup
+    }
 
-} //FlyCamera
+}

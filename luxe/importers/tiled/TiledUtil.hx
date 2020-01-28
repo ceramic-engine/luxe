@@ -12,7 +12,7 @@ class TiledUtil {
             return element.nodeType == Xml.XmlType.Element;
         #end
 
-    } //valid_element
+    }
 
 
     public static function orientation_from_string( _orientation_string:String ) : TilemapOrientation {
@@ -23,7 +23,7 @@ class TiledUtil {
             default:            TilemapOrientation.none;
         }
 
-    } //orientation_from_string
+    }
 
 
 }

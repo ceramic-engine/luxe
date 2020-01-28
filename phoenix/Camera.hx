@@ -116,7 +116,7 @@ class Camera {
 
         setup_ = false;
 
-    } //new
+    }
 
 
 //Public API
@@ -128,7 +128,7 @@ class Camera {
 
         _merge_options( _options );
 
-    } //set_ortho
+    }
 
     public function set_perspective( _options:CameraOptions ) {
 
@@ -138,7 +138,7 @@ class Camera {
 
         transform.origin.set_xyz(0,0,0);
 
-    } //set_perspective
+    }
 
     public function project( _vector:Vector ) {
 
@@ -147,7 +147,7 @@ class Camera {
         var _transform = new Matrix().multiplyMatrices( projection_matrix, view_matrix_inverse );
         return _vector.clone().applyProjection( _transform );
 
-    } //project
+    }
 
     public function unproject( _vector:Vector ) {
 
@@ -156,13 +156,13 @@ class Camera {
         var _inverted = new Matrix().multiplyMatrices( projection_matrix, view_matrix_inverse );
         return _vector.clone().applyProjection( _inverted.getInverse(_inverted) );
 
-    } //unproject
+    }
 
     public function screen_point_to_ray( _vector:Vector ) : Ray {
 
         return new Ray( _vector, this );
 
-    } //screen_point_as_ray
+    }
 
     public function screen_point_to_world( _vector:Vector ) : Vector {
 
@@ -175,7 +175,7 @@ class Camera {
             //given the default is ortho, for now
         return ortho_screen_to_world(_vector);
 
-    } //screen_point_to_world
+    }
 
     public function world_point_to_screen( _vector:Vector, ?_viewport:Rectangle=null ) : Vector {
 
@@ -188,7 +188,7 @@ class Camera {
             //given the default is ortho, for now
         return ortho_world_to_screen( _vector );
 
-    } //world_point_to_screen
+    }
 
 
 //Internal API
@@ -202,7 +202,7 @@ class Camera {
         apply_state(GL.CULL_FACE, cull_backfaces);
         apply_state(GL.DEPTH_TEST, depth_test);
 
-    } //process
+    }
 
 //Transforms
 
@@ -216,14 +216,14 @@ class Camera {
         update_projection_matrix();
         update_view_matrix();
 
-    } //update_matrices
+    }
 
 
     inline function on_transform_cleaned( t:Transform ) {
 
         transform_dirty = true;
 
-    } //on_transform_cleaned
+    }
 
     var up_: Vector = new Vector(0,1,0);
     function update_look_at() {
@@ -236,7 +236,7 @@ class Camera {
 
         } //dirty & !null
 
-    } //update_look_at
+    }
 
     function update_view_matrix() {
 
@@ -251,7 +251,7 @@ class Camera {
 
         transform_dirty = false;
 
-    } //update_view_matrix
+    }
 
     function update_projection_matrix() {
 
@@ -281,13 +281,13 @@ class Camera {
 
                 projection_matrix.makeOrthographic(_l, _r, _t, _b, near, far);
 
-        } //switch
+        }
 
         proj_arr = projection_matrix.float32array();
 
         projection_dirty = false;
 
-    } //update_projection_matrix
+    }
 
 
 //Helpers
@@ -301,7 +301,7 @@ class Camera {
             Luxe.renderer.state.disable(state);
         }
 
-    } //apply_state
+    }
 
     inline function apply_default_camera_options() {
 
@@ -312,20 +312,20 @@ class Camera {
                 cull_backfaces = false;
                 depth_test = false;
 
-            } //ortho
+            }
 
             case ProjectionType.perspective: {
 
                 cull_backfaces = true;
                 depth_test = true;
 
-            } //perspective
+            }
 
             case ProjectionType.custom: {}
 
-        } //switch
+        }
 
-    } //apply_default_camera_options
+    }
 
     inline function default_camera_options() : CameraOptions {
 
@@ -337,7 +337,7 @@ class Camera {
             far: -1000
         };
 
-    } //default_camera_options
+    }
 
 
 //Conversions
@@ -348,7 +348,7 @@ class Camera {
 
         return _vector.clone().transform(view_matrix);
 
-    } //ortho_screen_to_world
+    }
 
     inline function ortho_world_to_screen( _vector:Vector ) : Vector {
 
@@ -356,7 +356,7 @@ class Camera {
 
         return _vector.clone().transform( view_matrix_inverse );
 
-    } //ortho_world_to_screen
+    }
 
     inline function persepective_world_to_screen( _vector:Vector, ?_viewport:Rectangle=null ) {
 
@@ -372,7 +372,7 @@ class Camera {
             -( _projected.y * height_half ) + height_half
         );
 
-    } //persepective_world_point_to_screen
+    }
 
 
 //Properties
@@ -385,7 +385,7 @@ class Camera {
 
         return target = _target;
 
-    } //set_target
+    }
 
     inline function set_fov( _fov:Float ) : Float {
 
@@ -399,7 +399,7 @@ class Camera {
 
         return fov = _fov;
 
-    } //set_fov
+    }
 
     inline function set_fov_type(_fov_type:FOVType) : FOVType {
 
@@ -409,7 +409,7 @@ class Camera {
 
         return fov_type;
 
-    } //set_fov_type
+    }
 
     inline function set_aspect( _aspect:Float ) : Float {
 
@@ -424,7 +424,7 @@ class Camera {
 
         return aspect;
 
-    } //set_aspect
+    }
 
     inline function set_near( _near:Float ) : Float {
 
@@ -432,7 +432,7 @@ class Camera {
 
         return near = _near;
 
-    } //set_near
+    }
 
     inline function set_far( _far:Float ) : Float {
 
@@ -440,7 +440,7 @@ class Camera {
 
         return far = _far;
 
-    } //set_far
+    }
 
     inline function set_ortho_left( _val:Null<Float> ) : Null<Float> {
 
@@ -448,7 +448,7 @@ class Camera {
 
         return ortho_left = _val;
 
-    } //set_ortho_left
+    }
 
     inline function set_ortho_right( _val:Null<Float> ) : Null<Float> {
 
@@ -456,7 +456,7 @@ class Camera {
 
         return ortho_right = _val;
 
-    } //set_ortho_right
+    }
 
     inline function set_ortho_top( _val:Null<Float> ) : Null<Float> {
 
@@ -464,7 +464,7 @@ class Camera {
 
         return ortho_top = _val;
 
-    } //set_ortho_top
+    }
 
     inline function set_ortho_bottom( _val:Null<Float> ) : Null<Float> {
 
@@ -472,7 +472,7 @@ class Camera {
 
         return ortho_bottom = _val;
 
-    } //set_ortho_bottom
+    }
 
         //0.5 = smaller , 2 = bigger
     function set_zoom( _z:Float ) : Float {
@@ -509,7 +509,7 @@ class Camera {
             //return the real value
         return zoom = _new_zoom;
 
-    } //set_zoom
+    }
 
     var refresh_pos_ : Bool = false;
     function set_center( _p:Vector ) : Vector {
@@ -545,37 +545,37 @@ class Camera {
 
         return center;
 
-    } //set_center
+    }
 
     inline function get_center() : Vector {
 
         return center;
 
-    } //get_center
+    }
 
     inline function get_pos() : Vector {
 
         return pos;
 
-    } //get_pos
+    }
 
     inline function get_rotation() : Quaternion {
 
         return transform.rotation;
 
-    } //get_rotation
+    }
 
     inline function get_scale() : Vector {
 
         return transform.scale;
 
-    } //get_scale
+    }
 
     inline function get_viewport() : Rectangle {
 
         return viewport;
 
-    } //get_viewport
+    }
 
     function set_viewport(_r:Rectangle) : Rectangle {
 
@@ -601,19 +601,19 @@ class Camera {
 
         return viewport;
 
-    } //set_viewport
+    }
 
     inline function set_rotation( _q:Quaternion ) : Quaternion {
 
         return transform.rotation = _q;
 
-    } //set_rotation
+    }
 
     inline function set_scale( _s:Vector ) : Vector {
 
         return transform.scale = _s;
 
-    } //set_scale
+    }
 
     function set_pos( _p:Vector ) : Vector {
 
@@ -656,7 +656,7 @@ class Camera {
 
         return pos;
 
-    } //set_pos
+    }
 
     inline function _merge_options( _o:CameraOptions ) {
 
@@ -679,23 +679,23 @@ class Camera {
             fov_type = FOVType.horizontal;
         }
 
-    } //_merge_options
+    }
 
     inline function _pos_changed(_) {
 
         set_pos(pos);
 
-    } //_pos_changed
+    }
 
     inline function _center_changed(_) {
 
         set_center(center);
 
-    } //_center_changed
+    }
 
-} //Camera
+}
 
 enum FOVType {
     vertical;
     horizontal;
-} //FOVType
+}

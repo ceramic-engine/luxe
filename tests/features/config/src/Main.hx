@@ -14,13 +14,13 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
         log('config loaded as ' + Luxe.snow.config.user);
 
-    } //ready
+    }
 
 
     override function onkeyup( e:KeyEvent ) {
@@ -29,11 +29,11 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
-    } //update
+    }
 
 
-} //Main
+}

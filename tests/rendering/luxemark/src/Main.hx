@@ -27,9 +27,9 @@ class Item {
             rotation_z : Math.random() * 360,
             size : new Vector(26, 37)
         });
-    } //new
+    }
 
-} //Item
+}
 
 class Main extends luxe.Game {
 
@@ -49,7 +49,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -80,7 +80,7 @@ class Main extends luxe.Game {
             cpp.vm.Thread.create(_update4);
         #end
 
-    } //ready
+    }
 
     override function update( dt:Float ) {
         #if (!luxemark_threads)
@@ -89,7 +89,7 @@ class Main extends luxe.Game {
             _update3();
             _update4();
         #end
-    } //update
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -97,7 +97,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     var continued : Bool = true;
     public function _update() {
@@ -114,7 +114,7 @@ class Main extends luxe.Game {
             }
             #if (luxe_native && luxemark_threads) Sys.sleep(0.016); #end
        #if (luxe_native && luxemark_threads) } #end
-    } //_update
+    }
 
     var continued2 : Bool = true;
     public function _update2() {
@@ -131,7 +131,7 @@ class Main extends luxe.Game {
             }
             #if (luxe_native && luxemark_threads) Sys.sleep(0.016); #end
         #if (luxe_native && luxemark_threads) } #end
-    } //_update2
+    }
 
     var continued3 : Bool = true;
     public function _update3() {
@@ -148,7 +148,7 @@ class Main extends luxe.Game {
             }
             #if (luxe_native && luxemark_threads) Sys.sleep(0.016); #end
         #if (luxe_native && luxemark_threads) } #end
-    } //_update3
+    }
 
     var continued4 : Bool = true;
     public function _update4() {
@@ -165,7 +165,7 @@ class Main extends luxe.Game {
             }
             #if (luxe_native && luxemark_threads) Sys.sleep(0.016); #end
         #if (luxe_native && luxemark_threads) } #end
-    } //_update4
+    }
 
 
-} //Main
+}

@@ -38,7 +38,7 @@ typedef DebugInspectorOptions = {
 
         } //_options != null
 
-    } //new
+    }
 
     public function refresh() {
 
@@ -50,7 +50,7 @@ typedef DebugInspectorOptions = {
             onrefresh();
         }
 
-    } //refresh
+    }
 
     public function show() {
         refresh();
@@ -78,7 +78,7 @@ typedef DebugInspectorOptions = {
 
         return size = _size;
 
-    } //set_size
+    }
 
     function set_pos(_pos:Vector) {
 
@@ -97,7 +97,7 @@ typedef DebugInspectorOptions = {
 
         return pos = _pos;
 
-    } //set_pos
+    }
 
     function create_window() {
 

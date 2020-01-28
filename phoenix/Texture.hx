@@ -113,7 +113,7 @@ class Texture extends Resource {
         } //width/height not null
 
 
-    } //new
+    }
 
         /** Returns the estimated memory usage of this Texture, in bytes. */
     override public function memory_use() {
@@ -121,7 +121,7 @@ class Texture extends Resource {
             //:todo: not force 4 bpp
         return (width_actual * height_actual * 4);
 
-    } //memory_use
+    }
 
 
         /** Fetch the pixels from the texture id, storing them in the provided array buffer view.
@@ -161,7 +161,7 @@ class Texture extends Resource {
 
         return _into;
 
-    } //fetch
+    }
 
         /** Submit a pixels array to the texture id. Must match the type and format accordingly. */
     public function submit( _pixels:ArrayBufferView, ?_target:TextureSubmitTarget, ?_level:Int = 0) {
@@ -190,9 +190,9 @@ class Texture extends Resource {
 
                 _debug('Texture submit skipped for type `$type`');
         
-        } //type
+        }
 
-    } //submit
+    }
 
         /** Generates mipmaps for this texture. */
     public function generate_mipmaps() {
@@ -200,7 +200,7 @@ class Texture extends Resource {
         bind();
         GL.generateMipmap(type);
 
-    } //generate_mipmaps
+    }
 
         /** Bind this texture to the it's active texture slot,
             and it's texture id to the texture type. Calling this
@@ -211,7 +211,7 @@ class Texture extends Resource {
         Luxe.renderer.state.activeTexture( GL.TEXTURE0+slot );
         Luxe.renderer.state.bindTexture( type, texture );
 
-    } //bind
+    }
 
 //Resource overrides
 
@@ -248,7 +248,7 @@ class Texture extends Resource {
 
         }); //promise
 
-    } //reload
+    }
 
     function from_asset(_asset:AssetImage, _clear_asset:Bool=true) {
 
@@ -272,7 +272,7 @@ class Texture extends Resource {
 
         apply_props();
 
-    } //from_asset
+    }
 
     override function clear() {
 
@@ -280,7 +280,7 @@ class Texture extends Resource {
             GL.deleteTexture(texture);
         }
 
-    } //clear
+    }
 
 //Internal
 
@@ -289,7 +289,7 @@ class Texture extends Resource {
 
         return GL.createTexture();
 
-    } //create_texture_id
+    }
 
     inline function apply_props() {
 
@@ -298,7 +298,7 @@ class Texture extends Resource {
         apply_clamp(clamp_s, ClampSlot.wrap_s);
         apply_clamp(clamp_t, ClampSlot.wrap_t);
 
-    } //apply_props
+    }
 
     function apply_default_options( _options:TextureOptions ) {
 
@@ -320,7 +320,7 @@ class Texture extends Resource {
                 clamp_s = def(_options.clamp_s, default_clamp);
                 clamp_t = def(_options.clamp_t, default_clamp);
 
-    } //apply_default_options
+    }
 
 
         /** Return the maximum size of a texture from the hardware */
@@ -338,7 +338,7 @@ class Texture extends Resource {
         _debug('\t image.width: '           + _asset.image.width);
         _debug('\t image.width_actual: '    + _asset.image.width_actual);
 
-    } //dump_asset_info
+    }
 
 //Properties
 
@@ -350,7 +350,7 @@ class Texture extends Resource {
 
         return clamp_s = _clamp;
 
-    } //set_clamp_s
+    }
 
     function set_clamp_t( _clamp:ClampType ) {
 
@@ -360,7 +360,7 @@ class Texture extends Resource {
 
         return clamp_t = _clamp;
 
-    } //set_clamp_t
+    }
 
     function set_filter_min( _filter : FilterType ) {
 
@@ -370,7 +370,7 @@ class Texture extends Resource {
 
         return filter_min = _filter;
 
-    } //set_filter_min
+    }
 
     function set_filter_mag( _filter : FilterType ) {
 
@@ -380,7 +380,7 @@ class Texture extends Resource {
 
         return filter_mag = _filter;
 
-    } //set_filter_mag
+    }
 
 //Internal helpers, :todo:refactor:gl:
 
@@ -388,13 +388,13 @@ class Texture extends Resource {
 
         GL.texParameteri(type, _type, _clamp);
 
-    } //apply_clamp
+    }
 
     inline function apply_filter( _filter:FilterType, _type:FilterSlot ) {
 
         GL.texParameteri(type, _type, _filter);
 
-    } //apply_filter
+    }
 
     override function toString() {
 
@@ -410,7 +410,7 @@ class Texture extends Resource {
 
         return 'Texture(id: $id, tex: $texture, type:$_type, $_width $_filter $_clamp )';
 
-    } //toString
+    }
 
     static function type_name(_type:TextureType) {
         return switch(_type) {
@@ -428,7 +428,7 @@ class Texture extends Resource {
             case FilterType.mip_nearest_linear:  'mip_nearest_linear';
             case FilterType.mip_nearest_nearest: 'mip_nearest_nearest';
         }
-    } //filter_name
+    }
 
     static function clamp_name(_clamp:ClampType) {
         return switch(_clamp) {
@@ -436,9 +436,9 @@ class Texture extends Resource {
             case ClampType.repeat:  'repeat';
             case ClampType.mirror:  'mirror';
         }
-    } //clamp_name
+    }
 
-} //Texture
+}
 
 
 //General Texture specific types,
@@ -455,7 +455,7 @@ class Texture extends Resource {
         var tex_cube = GL.TEXTURE_CUBE_MAP;
         //:future: var tex_3D = 0x806F; //GL.TEXTURE_3D;
 
-    } //TextureType
+    }
 
     @:enum abstract TextureSubmitTarget(Int) from Int to Int {
 
@@ -469,7 +469,7 @@ class Texture extends Resource {
         var cube_minus_y    = GL.TEXTURE_CUBE_MAP_NEGATIVE_Y;
         var cube_minus_z    = GL.TEXTURE_CUBE_MAP_NEGATIVE_Z;
 
-    } //TextureSubmitTarget
+    }
 
     @:enum abstract FilterType(Int) from Int to Int {
 
@@ -480,7 +480,7 @@ class Texture extends Resource {
         var mip_nearest_linear = GL.NEAREST_MIPMAP_LINEAR;
         var mip_linear_linear = GL.LINEAR_MIPMAP_LINEAR;
 
-    } //FilterType
+    }
 
     @:enum abstract ClampType(Int) from Int to Int {
 
@@ -488,7 +488,7 @@ class Texture extends Resource {
         var repeat = GL.REPEAT;
         var mirror = GL.MIRRORED_REPEAT;
 
-    } //ClampType
+    }
 
 
 //Private Texture types

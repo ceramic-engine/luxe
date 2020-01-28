@@ -30,7 +30,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -221,13 +221,13 @@ class Main extends luxe.Game {
             size : new Vector(60,60)
         });
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
         }
-    } //onkeyup
+    }
 
     override function onrender() {
 
@@ -252,7 +252,7 @@ class Main extends luxe.Game {
             r.color.a = 0.5;
             t.color.a = 0.3;
 
-    } //onrender
+    }
 
 
-} //Main
+}

@@ -28,7 +28,7 @@ using luxe.utils.unifill.Unifill;
     var center = 2;
     var top = 3;
     var bottom = 4;
-} //TextAlign
+}
 
 
 class BitmapFont extends Resource {
@@ -67,9 +67,9 @@ class BitmapFont extends Resource {
             info = BitmapFontParser.parse(_options.font_data);
             apply_pages(_options.pages);
 
-        } //font_data
+        }
 
-    } //new
+    }
 
 //Public api
     //
@@ -86,7 +86,7 @@ class BitmapFont extends Resource {
 
         return 0;
 
-    } //kerning
+    }
 
         /** Wrap the given string to the given rectangle, using the given metrics.
             Returns a new array, with each line of the string split across the bounds. */
@@ -113,7 +113,7 @@ class BitmapFont extends Resource {
 
             _cur_x += _w;
             _final_str += _str;
-        } //_dowrap
+        }
 
             var _strings = _string.split(' ');
             var _count = _strings.length;
@@ -154,7 +154,7 @@ class BitmapFont extends Resource {
 
         return _final_str;
 
-    } //wrap_string_to_bounds
+    }
 
         /** Returns the width of the given line, which assumes the line is already split up (does not split the string), using the given metrics. */
     public function width_of_line( _string:String, _point_size:Float=1.0, _letter_spc:Float=0.0 ) {
@@ -195,7 +195,7 @@ class BitmapFont extends Resource {
 
         return _cur_w;
 
-    } //width_of_line
+    }
 
         /** Returns the width of the given string, using the given metrics.
             This will split the string and populate the optional _line_widths array with each line width of the string */
@@ -221,14 +221,14 @@ class BitmapFont extends Resource {
             //return the max width found
         return _max_w;
 
-    } //width_of
+    }
 
         /** Returns the height of a string, using the given metrics. */
     public inline function height_of( _string:String, _point_size:Float, _line_spc:Float=0.0 ) : Float {
 
         return height_of_lines(_string.split('\n'), _point_size, _line_spc);
 
-    } //height_of
+    }
 
         /** Return the dimensions of a given string, at the specified point size.
             You can also use width_of or height_of, this is a convenience for those */
@@ -239,7 +239,7 @@ class BitmapFont extends Resource {
 
         return _into.set_xy( _width, _height );
 
-    } //dimensions
+    }
 
         /** Get the height of the given lines with the given metrics. */
     public inline function height_of_lines( _lines:Array<String>, _point_size:Float, _line_spc:Float=0.0 ) : Float {
@@ -248,7 +248,7 @@ class BitmapFont extends Resource {
 
         return _lines.length * ((info.line_height + _line_spc) * _ratio);
 
-    } //height_of
+    }
 
         /** Return the point size at which a line of text will occupy a given pixel height. */
         //:todo: Implement test/usage case
@@ -256,7 +256,7 @@ class BitmapFont extends Resource {
 
         return _pixel_height * ( info.point_size / ( info.line_height + _line_spc ) );
 
-    } //line_height_to_point_size
+    }
 
 //Resource api
 
@@ -271,7 +271,7 @@ class BitmapFont extends Resource {
             _page = null;
         }
 
-    } //clear
+    }
 
     override public function reload() {
 
@@ -333,7 +333,7 @@ class BitmapFont extends Resource {
 
         }); //promise
 
-    } //reload
+    }
 
 //Internal
 
@@ -347,7 +347,7 @@ class BitmapFont extends Resource {
             ++_pageid;
         } //each page
 
-    } //apply_pages
+    }
 
     function set_info(_info:BitmapFontData) {
 
@@ -359,12 +359,12 @@ class BitmapFont extends Resource {
 
         return info;
 
-    } //_info
+    }
 
     override function toString() {
         return "BitmapFont(" + id + ")";
     }
 
-} //BitmapFont
+}
 
 

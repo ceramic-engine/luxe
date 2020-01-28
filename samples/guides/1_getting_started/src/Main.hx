@@ -17,13 +17,13 @@ class Main extends luxe.Game {
             size: new Vector(128, 128)
         });
 
-    } //ready
+    }
 
     override function onmousemove( event:MouseEvent ) {
 
         block.pos = event.pos;
 
-    } //onmousemove
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -31,7 +31,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update( delta:Float ) {
 
@@ -40,7 +40,7 @@ class Main extends luxe.Game {
 
         block.rotation_z += 40 * delta;
 
-    } //update
+    }
 
 //This is housekeeping stuff for the guide
 
@@ -53,7 +53,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
-} //Main
+}

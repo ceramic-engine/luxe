@@ -24,7 +24,7 @@ class TiledTileset {
         properties = new Map();
         property_tiles = new Map();
 
-    } //new
+    }
 
 
     public function from_xml( xml:Xml ) {
@@ -48,13 +48,13 @@ class TiledTileset {
                                 properties.set( property.get("name"), property.get("value") );
                             }
                         } //for each property node
-                    } //properties
+                    }
 
                     case "image" : {
                         // var width = Std.parseInt(child.get("width"));
                         // var height = Std.parseInt(child.get("height"));
                         texture_name = child.get("source");
-                    } //image
+                    }
 
                     case "tile" : {
                         var _tile_id:Int = Std.parseInt(child.get("id"));
@@ -79,14 +79,14 @@ class TiledTileset {
                             } //for each tile node
 
                         property_tiles.set(_tile_id, new TiledPropertyTile(_tile_id, _tile_props));
-                    } //tile
+                    }
 
                 } //switch child nodename
 
             } //is valid node
         } //for each child
 
-    } //from_xml
+    }
 
 
     public function from_json( json:Dynamic ) {
@@ -108,13 +108,13 @@ class TiledTileset {
                         for (property_name in child_fields) {
                             properties.set(property_name, Reflect.field(child, property_name));
                         } //for each property
-                    } //properties
+                    }
 
                     case "image" : {
                         // var width = cast Reflect.field(child, "width");
                         // var height = cast Reflect.field(child, "height");
                         texture_name = child;
-                    } //image
+                    }
 
                     case "tile" : {
                         var _tile_id:Int = cast Reflect.field(child, "id");
@@ -133,11 +133,11 @@ class TiledTileset {
 
                         property_tiles.set(_tile_id, new TiledPropertyTile(_tile_id, _tile_props));
 
-                    } //tile
+                    }
 
                 } //switch child nodename
 
         } //for each child
 
-    } //from_xml
-} //TiledTileset
+    }
+}

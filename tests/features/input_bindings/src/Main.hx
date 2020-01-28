@@ -20,22 +20,22 @@ class Main extends luxe.Game {
         //only the gamepad=1 fires this named binding when button 2 is pressed
         Luxe.input.bind_gamepad('jump', 2, 1);
 
-    } //ready
+    }
 
     override function oninputup( event:InputEvent ) {
         trace( 'named input up : ' + event.name );
-    } //oninputup
+    }
 
     override function oninputdown( event:InputEvent ) {
         trace( 'named input down : ' + event.name );
 
-    } //oninputdown
+    }
 
     override function onkeyup( e:KeyEvent ) {
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
         }
-    } //onkeyup
+    }
 
     var next_trace:Float = 0.0;
     override function update(dt:Float) {
@@ -58,4 +58,4 @@ class Main extends luxe.Game {
     }
 
 
-} //Main
+}

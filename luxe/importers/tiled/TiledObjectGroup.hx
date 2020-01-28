@@ -10,7 +10,7 @@ enum TiledObjectType {
     polygon;
     rectangle;
     ellipse;
-} //TiledObjectType
+}
 
 class TiledPolyObject {
     public var origin:Vector;
@@ -19,7 +19,7 @@ class TiledPolyObject {
         origin = _origin;
         points = _points;
     }
-} //TiledPolyObject
+}
 
 class TiledObject {
 
@@ -70,7 +70,7 @@ class TiledObject {
 
         return new TiledPolyObject( pos.clone(), points );
 
-    } //polyobject_from_xml
+    }
 
     function polyobject_from_json( json:Dynamic ) {
 
@@ -86,7 +86,7 @@ class TiledObject {
 
         return new TiledPolyObject( pos.clone(), points );
 
-    } //polyobject_from_json
+    }
 
     public function from_xml( xml:Xml ) {
 
@@ -111,12 +111,12 @@ class TiledObject {
                     case "polygon": {
                         object_type = TiledObjectType.polygon;
                         polyobject = polyobject_from_xml(child);
-                    } //polygon
+                    }
 
                     case "polyline": {
                         object_type = TiledObjectType.polyline;
                         polyobject = polyobject_from_xml(child);
-                    } //polyline
+                    }
 
                     case "ellipse": {
                         object_type = TiledObjectType.ellipse;
@@ -127,7 +127,7 @@ class TiledObject {
                         pos.x += _mid_x;
                         pos.y += _mid_y;
 
-                    } //ellipse
+                    }
 
                     case "properties" : {
                         for( property in child ) {
@@ -135,13 +135,13 @@ class TiledObject {
                                 properties.set(property.get("name"), property.get("value"));
                             }
                         } //each property
-                    } //properties
+                    }
 
                 } //switch child nodename
             }
         } //for each child node
 
-    } //from_xml
+    }
 
     public function from_json( json:Dynamic ) {
 
@@ -171,12 +171,12 @@ class TiledObject {
                     case "polygon": {
                         object_type = TiledObjectType.polygon;
                         polyobject = polyobject_from_json(child);
-                    } //polygon
+                    }
 
                     case "polyline": {
                         object_type = TiledObjectType.polyline;
                         polyobject = polyobject_from_json(child);
-                    } //polyline
+                    }
 
                     case "ellipse": {
                         object_type = TiledObjectType.ellipse;
@@ -187,21 +187,21 @@ class TiledObject {
                         pos.x += _mid_x;
                         pos.y += _mid_y;
 
-                    } //ellipse
+                    }
 
                     case "properties" : {
                         var child_fields = Reflect.fields(child);
                         for (property_name in child_fields) {
                             properties.set(property_name, Reflect.field(child, property_name));
                         } //for each property
-                    } //properties
+                    }
 
                 } //switch child nodename
         } //for each child node
 
-    } //from_xml
+    }
 
-} //TiledObject
+}
 
 class TiledObjectGroup {
 
@@ -222,7 +222,7 @@ class TiledObjectGroup {
         properties = new Map();
         objects = [];
 
-    } //new
+    }
 
     public function from_xml( xml:Xml ) {
 
@@ -251,7 +251,7 @@ class TiledObjectGroup {
                 }
             }
         } //for each child
-    } //from_xml
+    }
 
     public function from_json( json:Dynamic ) {
 
@@ -277,18 +277,18 @@ class TiledObjectGroup {
 
                         } //object_json in list
 
-                    } //object
+                    }
 
                     case "properties" : {
                         var child_fields = Reflect.fields(child);
                         for (property_name in child_fields) {
                             properties.set(property_name, Reflect.field(child, property_name));
                         } //for each property
-                    } //properties
+                    }
 
-                } //switch
+                }
         } //for each field
-    } //from_json
+    }
 
 
 } //TiledObjectGroup

@@ -57,7 +57,7 @@ class TiledMap extends Tilemap {
             //Set the orientation
         orientation = tiledmap_data.orientation;
 
-    } //new
+    }
 
     function _load_tilesets( options:TiledMapOptions ) {
 
@@ -82,7 +82,7 @@ class TiledMap extends Tilemap {
 
         } //for all tilesets
 
-    } //load_tilesets
+    }
 
     function _load_layers( options:TiledMapOptions ) {
 
@@ -137,6 +137,6 @@ class TiledMap extends Tilemap {
 
         } //for each layer
 
-    } //load_layers
+    }
 
-} //TiledMap
+}

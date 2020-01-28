@@ -74,7 +74,7 @@ class Main extends luxe.Game {
         trace( Luxe.events.does_filter_event('*.player', 'derp.plea') );
         trace( Luxe.events.does_filter_event('(player)*(house)', 'player inside house') );
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -94,9 +94,9 @@ class Main extends luxe.Game {
             entity.events.fire('player.spawn', {spawn_node:'spawn12'}, true);
             entity.events.fire('player.health.gain', {amount:'100'}, true);
 
-        } //space
+        }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

@@ -21,9 +21,9 @@ package luxe.components.physics.deflect.three;
 
             shape = new BtBoxShape( width, height, depth );
 
-        } //init
+        }
 
-    } //BoxCollider
+    }
 
 
 #end //deflect

@@ -27,7 +27,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -55,7 +55,7 @@ class Main extends luxe.Game {
 
         connect_input();
 
-    } //ready
+    }
 
 
     function connect_input() {
@@ -69,7 +69,7 @@ class Main extends luxe.Game {
         Luxe.input.bind_key('right', Key.right);
         Luxe.input.bind_key('right', Key.key_d);
 
-    } //connect_input
+    }
 
     override function update( delta:Float ) {
 
@@ -88,7 +88,7 @@ class Main extends luxe.Game {
 
         }
 
-    } //update
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -96,7 +96,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

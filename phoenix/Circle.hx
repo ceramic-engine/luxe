@@ -13,13 +13,13 @@ class Circle {
         y = _y;
         r = _r;
 
-    } //new
+    }
 
     inline function toString() {
 
         return "{ x:"+x + ", y:" + y + ", r:" + r + " }" ;
 
-    } //toString
+    }
 
     public inline function point_inside(_x:Float, _y:Float) {
 
@@ -29,13 +29,13 @@ class Circle {
 
         return _len <= r;
 
-    } //point_inside
+    }
 
     public inline function clone() {
 
         return new Circle(x, y, r);
 
-    } //clone
+    }
 
     public inline function set(_x:Float, _y:Float, _r:Float) {
 
@@ -43,13 +43,13 @@ class Circle {
         y = _y;
         r = _r;
 
-    } //set
+    }
 
     public inline function set_xy(_x:Float, _y:Float) {
 
         x = _x;
         y = _y;
 
-    } //set
+    }
 
-} //Circle
+}

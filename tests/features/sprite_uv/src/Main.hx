@@ -23,7 +23,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -53,7 +53,7 @@ class Main extends luxe.Game {
 
         Luxe.on(luxe.Ev.windowresized, on_resize);
 
-    } //ready
+    }
 
     function on_resize( _event: snow.types.Types.WindowEvent ) {
 
@@ -70,7 +70,7 @@ class Main extends luxe.Game {
 
         mousetext.text = 'mouse pos' + e.pos;
 
-    } //onmousemove
+    }
 
     var fs = false;
     override function onkeyup( e:KeyEvent ) {
@@ -85,14 +85,14 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
         stars.uv.y -= 4 * dt;
         stars.uv.x += 8 * dt;
 
-    } //update
+    }
 
 
-} //Main
+}

@@ -12,9 +12,9 @@ class ID {
         name = _name;
         id = _id == '' ? Luxe.utils.uniqueid() : _id;
 
-    } //new
+    }
 
-} //ID
+}
 
 
 /** A simple base object, event emitter, and ID. */
@@ -31,7 +31,7 @@ class Objects extends Emitter<Int> {
         name = _name;
         id = _id == '' ? Luxe.utils.uniqueid() : _id;
 
-    } //new
+    }
 
 //These can't be inlined because they are intended to be overridden in subclasses
 

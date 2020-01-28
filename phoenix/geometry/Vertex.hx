@@ -21,7 +21,7 @@ class Vertex {
         color = (_color == null) ? new Color() : _color;
         normal = (_normal == null) ? new Vector() : _normal;
 
-    } //new
+    }
 
     public inline function clone() : Vertex {
 
@@ -30,7 +30,7 @@ class Vertex {
 
         return _new;
 
-    } //clone
+    }
 
     public inline function destroy() {
         pos = null;
@@ -41,4 +41,4 @@ class Vertex {
     }
 
 
-} //Vertex
+}

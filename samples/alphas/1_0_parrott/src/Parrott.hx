@@ -36,7 +36,7 @@ class Parrott {
 
         }); //on init
 
-    } //new
+    }
 
 }
 

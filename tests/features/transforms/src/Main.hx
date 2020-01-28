@@ -138,7 +138,7 @@ class Main extends luxe.Game {
 
         Actuate.tween(spr_parent.pos, 8, {x:Luxe.screen.w-16}).repeat().reflect().ease(luxe.tween.easing.Linear.easeNone);
 
-    } //ready
+    }
 
     var d1 : Transform;
     var qg : QuadGeometry;
@@ -164,7 +164,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     var r : Float = 0;
 
@@ -208,6 +208,6 @@ class Main extends luxe.Game {
         g2.transform.origin = new Vector(3,3);
         g2.transform.rotation = g2.transform.rotation.setFromEuler(new Vector(0,0,r*4).radians());
 
-    } //update
+    }
 
-} //Main
+}

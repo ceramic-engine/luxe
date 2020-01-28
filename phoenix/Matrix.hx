@@ -23,7 +23,7 @@ class MatrixTransform {
         pos = null; rotation = null; scale = null;
     }
 
-} //MatrixTransform
+}
 
 class Matrix {
 
@@ -152,7 +152,7 @@ class Matrix {
 
         return _float32array;
 
-    } //float32array
+    }
 
     public inline function identity () : Matrix {
 
@@ -165,7 +165,7 @@ class Matrix {
 
         return this;
 
-    } //identity
+    }
 
 
     public inline function copy( m:Matrix ) : Matrix {
@@ -360,7 +360,7 @@ class Matrix {
 
         return this;
 
-    } //makeRotationFromEuler
+    }
 
     public inline function makeRotationFromQuaternion( q:Quaternion ) : Matrix {
 
@@ -396,7 +396,7 @@ class Matrix {
 
         return this;
 
-    } //makeRotationFromQuaternion
+    }
 
 
     public inline function lookAt( _eye:Vector, _target:Vector, _up:Vector ) : Matrix {
@@ -428,14 +428,14 @@ class Matrix {
 
         return this;
 
-    } //lookAt
+    }
 
 
     public inline function multiply( _m:Matrix ) : Matrix {
 
         return multiplyMatrices(this, _m);
 
-    } //multiply
+    }
 
 
     public inline function multiplyMatrices( _a:Matrix, _b:Matrix ) : Matrix {
@@ -476,7 +476,7 @@ class Matrix {
 
         return this;
 
-    } //multiplyMatrices
+    }
 
 
     public inline function multiplyToArray( _a:Matrix, _b:Matrix, _r:Array<Float> ) : Matrix {
@@ -492,7 +492,7 @@ class Matrix {
 
         return this;
 
-    } //multiplyToArray
+    }
 
 
     public inline function multiplyScalar( _s:Float ) : Matrix {
@@ -506,7 +506,7 @@ class Matrix {
 
         return this;
 
-    } //multiplyScalar
+    }
 
 
     public inline function multiplyVector3Array( _a:Array<Float> ) : Array<Float> {
@@ -533,7 +533,7 @@ class Matrix {
 
         return _a;
 
-    } //multiplyVector3Array
+    }
 
     public inline function determinant() : Float {
 
@@ -578,7 +578,7 @@ class Matrix {
                 +n12 * n23 * n31
             )
         );
-    } //determinant
+    }
 
     public inline function transpose() : Matrix {
 
@@ -595,7 +595,7 @@ class Matrix {
 
         return this;
 
-    } //transpose
+    }
 
     public inline function flattenToArray( _flat:Array<Float> = null ) : Array<Float> {
 
@@ -613,7 +613,7 @@ class Matrix {
 
         return _flat;
 
-    } //flattenToArray
+    }
 
 
     public inline function flattenToArrayOffset( _flat:Array<Float>, _offset:Int ) : Array<Float> {
@@ -642,7 +642,7 @@ class Matrix {
 
         return _flat;
 
-    } //flattenToArrayOffset
+    }
 
 
     public inline function setPosition( _v:Vector ) : Matrix {
@@ -655,7 +655,7 @@ class Matrix {
 
         return this;
 
-    } //setPosition
+    }
 
     public inline function inverse() : Matrix {
         return clone().getInverse(this);
@@ -706,7 +706,7 @@ class Matrix {
 
         return this;
 
-    } //getInverse
+    }
 
 
     public inline function scale( _v:Vector ) : Matrix {
@@ -724,7 +724,7 @@ class Matrix {
 
         return this;
 
-    } //scale
+    }
 
 
     public inline function getMaxScaleOnAxis() : Float {
@@ -737,7 +737,7 @@ class Matrix {
 
         return Math.sqrt( Math.max( _scaleXSq, Math.max( _scaleYSq, _scaleZSq ) ) );
 
-    } //getMaxScaleOnAxis
+    }
 
 
     public inline function makeTranslation( _x:Float, _y:Float, _z:Float ) : Matrix {
@@ -751,7 +751,7 @@ class Matrix {
 
         return this;
 
-    } //makeTranslation
+    }
 
 
     public inline function makeRotationX( _theta:Float ) : Matrix {
@@ -768,7 +768,7 @@ class Matrix {
 
         return this;
 
-    } //makeRotationX
+    }
 
 
     public inline function makeRotationY(_theta:Float) : Matrix {
@@ -785,7 +785,7 @@ class Matrix {
 
         return this;
 
-    } //makeRotationY
+    }
 
 
     public inline function makeRotationZ(_theta:Float) : Matrix {
@@ -802,7 +802,7 @@ class Matrix {
 
         return this;
 
-    } //makeRotationZ
+    }
 
 
     public inline function makeRotationAxis( _axis:Vector, _angle:Float ) : Matrix {
@@ -827,7 +827,7 @@ class Matrix {
 
         return this;
 
-    } //makeRotationAxis
+    }
 
 
     public inline function makeScale( _x:Float, _y:Float, _z:Float) : Matrix {
@@ -841,7 +841,7 @@ class Matrix {
 
         return this;
 
-    } //makeScale
+    }
 
 
     public inline function compose_with_origin( _position:Vector, _origin:Vector, _quaternion:Quaternion, _scale:Vector ) : Matrix {
@@ -872,7 +872,7 @@ class Matrix {
 
         return this;
 
-    } //compose
+    }
 
     var _transform : MatrixTransform;
 
@@ -940,7 +940,7 @@ class Matrix {
 
         return _transform;
 
-    } //decompose
+    }
 
 
     public inline function makeFrustum( _left:Float, _right:Float, _bottom:Float, _top:Float, _near:Float, _far:Float ) : Matrix {
@@ -962,7 +962,7 @@ class Matrix {
 
         return this;
 
-    } //makeFrustum
+    }
 
 
     public inline function makePerspective( _fov:Float, _aspect:Float, _near:Float, _far:Float ) : Matrix {
@@ -974,7 +974,7 @@ class Matrix {
 
         return makeFrustum( xmin, xmax, ymin, ymax, _near, _far );
 
-    } //makePerspective
+    }
 
 
     public inline function makeOrthographic( _left:Float, _right:Float, _top:Float, _bottom:Float, _near:Float, _far:Float ) : Matrix {
@@ -996,13 +996,13 @@ class Matrix {
 
         return this;
 
-    } //makeOrthographic
+    }
 
     public inline function fromArray(_from:Array<Float>) {
 
         elements = _from.concat([]);
 
-    } //fromArray
+    }
 
     public inline function toArray() : Array<Float> {
 
@@ -1015,7 +1015,7 @@ class Matrix {
                 te[ 12 ], te[ 13 ], te[ 14 ], te[ 15 ]
             ];
 
-    } //toArray
+    }
 
     public inline function clone() : Matrix {
 
@@ -1028,32 +1028,32 @@ class Matrix {
                 te[3], te[7], te[11], te[15]
             );
 
-    } //clone
+    }
 
     public inline function up() {
         return new Vector( elements[4], elements[5], elements[6] );
-    } //up
+    }
 
     public inline function down() : Vector {
         return up().inverted;
-    } //down
+    }
 
     public inline function left() : Vector {
         return right().inverted;
-    } //left
+    }
 
     public inline function right() : Vector {
         return new Vector( elements[0], elements[1], elements[2] );
-    } //right
+    }
 
     public inline function backward() {
         return new Vector( elements[8], elements[9], elements[10] );
-    } //backward
+    }
 
     public inline function forward() : Vector {
         return backward().inverted;
-    } //forward
+    }
 
 
-} //Matrix
+}
 

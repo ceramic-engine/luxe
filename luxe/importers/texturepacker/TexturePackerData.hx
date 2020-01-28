@@ -43,11 +43,11 @@ class TexturePackerData {
             frame_map.set( haxe.io.Path.withoutExtension(_frame.filename), _frame );
         }
 
-    } //new
+    }
 
     public function frame(name:String) {
         return frame_map.get(name);
-    } //frame
+    }
 
-} //TexturePackerData
+}
 

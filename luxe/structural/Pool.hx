@@ -36,7 +36,7 @@ class Pool<T> {
         if(size_limit > 0) make = Std.int(Math.min(make, size_limit));
         for(i in 0 ... make) items.push(create_func());
 
-    } //new
+    }
 
         /** Get the next available item from the pool.
             If there are no available items the function returns null. */
@@ -47,7 +47,7 @@ class Pool<T> {
 
         return create_func();
 
-    } //get
+    }
 
         /** Return an item to the pool.
             Take note: This function doesn't care
@@ -61,6 +61,6 @@ class Pool<T> {
 
         items.push(item);
 
-    } //put
+    }
 
-} //Pool
+}

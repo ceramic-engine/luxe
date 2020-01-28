@@ -21,7 +21,7 @@ class Bounce extends Component {
             dir = 1;
         }
 
-    } //update
+    }
 
 
-} //Bounce
+}

@@ -107,34 +107,34 @@ class Component extends ID {
 
         super(_name == '' ? Luxe.utils.uniqueid() : _name);
 
-    } //new
+    }
 
 //components
 
         /** attach a component to the entity */
     public function add<T:Component>( component:T ) : T {
         return entity.add( component );
-    } //add
+    }
 
         /** remove a component from the entity */
     public function remove( _name:String ) : Bool {
         return entity.remove( _name );
-    } //add
+    }
 
         /** get a component from the entity, by name */
     public function get<T>( _name:String, ?in_children:Bool = false ) : T {
         return entity.get( _name, in_children );
-    } //get
+    }
 
         /** get all component from the entity, by name */
     public function get_any<T>( _name:String, ?in_children:Bool = false, ?first_only:Bool = true ) : Array<T> {
         return entity.get_any( _name, in_children, first_only );
-    } //get_any
+    }
 
         /** returns true if the entity has a component by the given name */
     public function has( _name:String ) : Bool {
         return entity.has( _name );
-    } //has
+    }
 
 //Internal
 
@@ -146,7 +146,7 @@ class Component extends ID {
             //entity.off(luxe.Ev.reset, _reset);
         }
 
-    } //detach_entity
+    }
 
     function _attach_entity() {
 
@@ -154,7 +154,7 @@ class Component extends ID {
             //entity.on(luxe.Ev.reset, _reset);
         }
 
-    } //attach_entity
+    }
 
     function set_entity(_entity:Entity) {
 
@@ -166,55 +166,55 @@ class Component extends ID {
 
         return entity;
 
-    } //set_entity
+    }
 
     function get_entity() {
 
         return entity;
 
-    } //get_entity
+    }
 
 //transforms
 
     function set_pos( _p:Vector ) {
         return entity.transform.pos = _p;
-    } //set_pos
+    }
 
     function get_pos() {
         return entity.transform.pos;
-    } //get_pos
+    }
 
     function set_rotation( _r:Quaternion ) {
         return entity.transform.rotation = _r;
-    } //set_rotation
+    }
 
     function get_rotation() {
         return entity.transform.rotation;
-    } //get_rotation
+    }
 
     function set_scale(_s:Vector) {
         return entity.transform.scale = _s;
-    } //set_scale
+    }
 
     function get_scale() {
         return entity.transform.scale;
-    } //get_scale
+    }
 
     function set_origin(_o:Vector) {
         return entity.transform.origin = _o;
-    } //set_origin
+    }
 
     function get_origin() {
         return entity.transform.origin;
-    } //get_origin
+    }
 
     function set_transform(_o:Transform) {
         return entity.transform = _o;
-    } //set_transform
+    }
 
     function get_transform() {
         return entity.transform;
-    } //get_transform
+    }
 
     @:noCompletion public function entity_pos_change( _pos:Vector ) {}
     @:noCompletion public function entity_scale_change( _scale:Vector ) {}
@@ -228,4 +228,4 @@ class Component extends ID {
 
 //internal api
 
-} //Component
+}

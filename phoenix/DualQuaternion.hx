@@ -25,7 +25,7 @@ class DualQuaternion {
         real = new Quaternion(0,0,0,1);
         dual = new Quaternion(0,0,0,0);
 
-    } //new
+    }
 
     public function set( _real:Quaternion, _dual:Quaternion ) : DualQuaternion {
 
@@ -34,13 +34,13 @@ class DualQuaternion {
 
         return this;
 
-    } //set
+    }
 
     public function clone() : DualQuaternion {
 
         return new DualQuaternion().set(real, dual);
 
-    } //clone
+    }
 
     public function setFromTranslationRotation( _translation:Vector, _rotation:Quaternion ) : DualQuaternion {
 
@@ -49,13 +49,13 @@ class DualQuaternion {
 
         return this;
 
-    } //set_translation_rotation
+    }
 
     public function dot( _other:DualQuaternion ) : Float {
 
         return real.dot( _other.real );
 
-    } //dot
+    }
 
     public function normalize() : DualQuaternion {
 
@@ -74,7 +74,7 @@ class DualQuaternion {
 
         return this;
 
-    } //normalize
+    }
 
     public function scale( _scale:Float ) : DualQuaternion {
 
@@ -83,7 +83,7 @@ class DualQuaternion {
 
         return this;
 
-    } //scale
+    }
 
     public function conjugate() : DualQuaternion {
 
@@ -92,7 +92,7 @@ class DualQuaternion {
 
         return this;
 
-    } //conjugate
+    }
 
 
     public function multiply( _other : DualQuaternion ) : DualQuaternion {
@@ -112,7 +112,7 @@ class DualQuaternion {
 
         return real.clone();
 
-    } //get_rotation
+    }
 
     function get_translation() : Vector {
 
@@ -122,7 +122,7 @@ class DualQuaternion {
 
         return new Vector( t.x, t.y, t.z );
 
-    } //get_translation
+    }
 
     public static function ToMatrix( _dq:DualQuaternion ) {
 
@@ -158,20 +158,20 @@ class DualQuaternion {
 
         return M;
 
-    } //ToMatrix
+    }
 
 
     public static function Dot( _a:DualQuaternion, _b:DualQuaternion ) : Float {
 
         return Quaternion.Dot( _a.real, _b.real );
 
-    } //Dot
+    }
 
     public static function Normalize( _dq:DualQuaternion ) {
 
         return _dq.clone().normalize();
 
-    } //Normalize
+    }
 
     public static function Add( _a:DualQuaternion, _b:DualQuaternion ) {
 
@@ -181,7 +181,7 @@ class DualQuaternion {
 
         return new DualQuaternion().set( _real, _dual );
 
-    } //Add
+    }
 
         // Multiplication order - left to right
     public static function Multiply( _a:DualQuaternion, _b:DualQuaternion ) {
@@ -196,7 +196,7 @@ class DualQuaternion {
 
         return new DualQuaternion().set(_real,_dual);
 
-    } //Multiply
+    }
 
     public static function Conjugate( _q:DualQuaternion ) : DualQuaternion {
 
@@ -204,7 +204,7 @@ class DualQuaternion {
 
         return new DualQuaternion().set( _d.real.conjugate() , _d.dual.conjugate() );
 
-    } //Conjugate
+    }
 
     public static function GetRotation( _q:DualQuaternion ) : Quaternion {
 
@@ -216,7 +216,7 @@ class DualQuaternion {
 
         return _q.clone().translation;
 
-    } //GetTranslation
+    }
 
 
 } //DualQuaternion

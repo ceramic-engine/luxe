@@ -20,9 +20,9 @@ package luxe.components.physics.deflect.three;
 
             shape = new BtConeShape( radius, height );
 
-        } //init
+        }
 
-    } //ConeCollider
+    }
 
 
 #end //deflect

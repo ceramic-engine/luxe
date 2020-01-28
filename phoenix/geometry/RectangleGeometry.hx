@@ -51,7 +51,7 @@ class RectangleGeometry extends Geometry {
 
         transform.pos = transform.pos.set_xy( _x, _y );
 
-    } //new
+    }
 
         /** Set the vertices from values */
     public function set_xywh( _x:Float, _y:Float, _w:Float, _h:Float ) {
@@ -80,14 +80,14 @@ class RectangleGeometry extends Geometry {
             //
         transform.pos = transform.pos.set_xy( _x, _y );
 
-    } //set_xywh
+    }
 
         /** Set the vertices based on a rectangle instance */
     public inline function set( _rect:luxe.Rectangle ) {
 
         set_xywh(_rect.x, _rect.y, _rect.w, _rect.h);
 
-    } //set
+    }
 
 
-} //RectangleGeometry
+}

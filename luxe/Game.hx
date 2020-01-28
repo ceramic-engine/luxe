@@ -17,7 +17,7 @@ class Game {
 
             new luxe.types.user.Game();
 
-        } //main
+        }
     #end
 
     public function new() {
@@ -25,7 +25,7 @@ class Game {
         app = new luxe.Engine(this);
         app.run();
 
-    } //new
+    }
 
         /** Called by luxe to request config changes, override this to change the defaults.
             This happens before ready, so the values are available when ready is called.
@@ -97,4 +97,4 @@ class Game {
         /** very low level event handler from snow core. Often handled by the subsystems and by luxe, so check there first! */
     @:noCompletion public function onevent(event:snow.types.Types.SystemEvent) {}
 
-} //Game
+}

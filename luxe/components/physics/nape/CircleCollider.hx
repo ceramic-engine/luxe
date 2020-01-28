@@ -19,7 +19,7 @@ typedef CircleColliderOptions = {
         /** the radius of the circle */
     var r : Float;
 
-} //CircleColliderOptions
+}
 
 class CircleCollider extends NapeBody {
 
@@ -31,7 +31,7 @@ class CircleCollider extends NapeBody {
 
         super(options);
 
-    } //new
+    }
 
     override function onadded() {
 
@@ -42,8 +42,8 @@ class CircleCollider extends NapeBody {
 
         post_add();
 
-    } //onadded
+    }
 
-} //CircleCollider
+}
 
 #end //nape

@@ -32,7 +32,7 @@ class LineGeometry extends Geometry {
         add(new Vertex( p0, _options.color0 ));
         add(new Vertex( p1, _options.color1 ));
 
-    } //new
+    }
 
 //Internal
 
@@ -46,7 +46,7 @@ class LineGeometry extends Geometry {
 
         return p0 = _p;
 
-    } //set_p0
+    }
 
     function set_p1(_p:Vector) : Vector {
 
@@ -58,7 +58,7 @@ class LineGeometry extends Geometry {
 
         return p1 = _p;
 
-    } //set_p1
+    }
 
     function set_color0(_c:Color) : Color {
 
@@ -70,7 +70,7 @@ class LineGeometry extends Geometry {
 
         return color0;
 
-    } //set_color0
+    }
 
     function set_color1(_c:Color) : Color {
 
@@ -82,6 +82,6 @@ class LineGeometry extends Geometry {
 
         return color1;
 
-    } //set_color1
+    }
 
-} //LineGeometry
+}

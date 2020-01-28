@@ -42,7 +42,7 @@ class Draw {
 
         return new RectangleGeometry(options);
 
-    } //rectangle
+    }
 
         /** Draw a solid rectangle box at the specified `x`,`y`,`w`,`h` with options */
     public function box( options:DrawBoxOptions ) {
@@ -52,7 +52,7 @@ class Draw {
 
         return new QuadGeometry(options);
 
-    } //box
+    }
 
         /** Draw a circle outline at the specified `x`,`y` with radius `r` (or `rx`,`ry` optionally for an ellipse), with options */
     public function ring( options:DrawRingOptions ) {
@@ -62,7 +62,7 @@ class Draw {
 
         return new RingGeometry(options);
 
-    } //ring
+    }
 
         /** Draw a solid circle at the specified `x`,`y` with radius `r` (or `rx`,`ry` optionally for an ellipse), with options */
     public function circle( options:DrawCircleOptions ) {
@@ -72,7 +72,7 @@ class Draw {
 
         return new CircleGeometry(options);
 
-    } //circle
+    }
 
         /** Draw an arc (open circle) at the specified `x`,`y`, between `start_angle` and `end_angle` with radius `r` (or `rx`,`ry` optionally for an ellipsical arc), with options */
     public function arc( options:DrawArcOptions ) {
@@ -82,7 +82,7 @@ class Draw {
 
         return new ArcGeometry(options);
 
-    } //arc
+    }
 
         /** Draw an n-sided polygon (3 sides for triangle, 6 for hexagon etc) at `x`,`y` with a radius `r` and `sides` with options  */
     public function ngon( options:DrawNgonOptions ) : Geometry {
@@ -153,7 +153,7 @@ class Draw {
 
         return _geometry;
 
-    } //ngon
+    }
 
         /** Draw an arbitrary polygon of points with options.
             Uses triangle fans (no additional verts added) for solid,
@@ -216,7 +216,7 @@ class Draw {
 
         }
 
-    } //poly
+    }
 
         /** Draw a textured `box` with image `texture` at `x`,`y`,`w`,`h` OR with `pos` and `size`, and `uv` with options */
     public function texture( options:DrawTextureOptions ) {
@@ -275,7 +275,7 @@ class Draw {
 
         return _quad;
 
-    } //texture
+    }
 
         /** Draw `text` with options (default font used if none specified) */
     public function text( options:TextGeometryOptions ) {
@@ -284,7 +284,7 @@ class Draw {
 
         return new TextGeometry(options);
 
-    } //text
+    }
 
 //Internal API
 
@@ -294,7 +294,7 @@ class Draw {
 
         core = _core;
 
-    } //new
+    }
 
 
-} //Draw
+}

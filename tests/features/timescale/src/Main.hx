@@ -61,7 +61,7 @@ class Main extends luxe.Game {
 
         // Luxe.fixed_timestep = 1/Luxe.core.config.fps;
 
-    } //ready
+    }
 
     override function oninputdown( e:InputEvent ) {
 
@@ -69,7 +69,7 @@ class Main extends luxe.Game {
             jump();
         } //jump pressed
 
-    } //oninput
+    }
 
     function jump() {
 
@@ -77,7 +77,7 @@ class Main extends luxe.Game {
             vel.y = -jump_vel;
         } //player is on the ground
 
-    } //jump
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -86,7 +86,7 @@ class Main extends luxe.Game {
             Luxe.timescale = _scale;
         }
 
-    } //onmousemove
+    }
 
     override function ongamepadaxis( e:GamepadEvent ) {
 
@@ -106,14 +106,14 @@ class Main extends luxe.Game {
             }
         }
 
-    } //ongamepadaxis
+    }
 
     override function onkeydown( e:KeyEvent ) {
 
         if(e.keycode == Key.left || e.keycode == Key.key_a) { left = true; }
         if(e.keycode == Key.right || e.keycode == Key.key_d) { right = true; }
 
-    } //onkeydown
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -134,7 +134,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update( dt:Float ) {
 
@@ -173,6 +173,6 @@ class Main extends luxe.Game {
 
         } //if theres a velocity
 
-    } //update
+    }
 
-} //Main
+}

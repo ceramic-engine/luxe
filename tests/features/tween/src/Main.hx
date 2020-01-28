@@ -88,7 +88,7 @@ class Main extends luxe.Game {
             .ease(luxe.tween.easing.Cubic.easeInOut);
 
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -96,7 +96,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

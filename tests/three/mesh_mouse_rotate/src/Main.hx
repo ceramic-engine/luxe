@@ -18,7 +18,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -44,7 +44,7 @@ class Main extends luxe.Game {
             //attach a mouse rotate component
         tower.add( new MouseRotate({ name:'rotate' }) );
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -52,9 +52,9 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}
 
 
 class MouseRotate extends Component {
@@ -71,7 +71,7 @@ class MouseRotate extends Component {
         mouse = new Vector();
         reference_rotation = new Vector();
 
-    } //init
+    }
 
     override function onmousedown(e:MouseEvent) {
         mouse = e.pos;
@@ -85,13 +85,13 @@ class MouseRotate extends Component {
         mouse = e.pos;
         dragging = false;
 
-    } //onmouseup
+    }
 
     override function onmousemove(e:MouseEvent) {
 
         mouse = e.pos;
 
-    } //onmousemove
+    }
 
     override function update(dt:Float) {
 
@@ -103,7 +103,7 @@ class MouseRotate extends Component {
             rotation.setFromEuler(new Vector(-mx, -my));
         }
 
-    } //update
+    }
 
 
-} //MouseRotate
+}

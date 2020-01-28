@@ -49,7 +49,7 @@ class Pause extends State {
         title.color.a = 0;
         desc.color.a = 0;
 
-    } //new
+    }
 
     override function onenabled<T>(_:T) {
 
@@ -77,7 +77,7 @@ class Pause extends State {
             //tell the rest of the game we are unpausing
         Luxe.events.fire('game.paused', { state:false });
 
-    } //ondisabled
+    }
 
 
     override function onkeyup( e:KeyEvent ) {
@@ -100,7 +100,7 @@ class Pause extends State {
             Main.state.set('menu');
         }
 
-    } //onkeyup
+    }
 
 
 } //Pause state

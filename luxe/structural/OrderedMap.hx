@@ -26,7 +26,7 @@ class OrderedMapIterator<K,V> {
     public inline function next() : V
         return map.get( map._keys[index++] );
 
-} //OrderedMapIterator
+}
 
 @:generic
 class OrderedMap<K, V> /*implements IMap<K, V>*/ {
@@ -65,4 +65,4 @@ class OrderedMap<K, V> /*implements IMap<K, V>*/ {
     public inline function get(key)            return map.get(key);
     public inline function keys()              return _keys.iterator();
 
-} //OrderedMap
+}

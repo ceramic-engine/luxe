@@ -21,7 +21,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -49,7 +49,7 @@ class Main extends luxe.Game {
         mesh2.geometry.vertices = [].concat(mesh.geometry.vertices);
         mesh2.transform.pos.set_xy(1,0);
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -57,7 +57,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     var y = 0.0;
 
@@ -68,7 +68,7 @@ class Main extends luxe.Game {
 
         mesh.rotation.setFromEuler(new Vector(0,y,0).radians());
 
-    } //update
+    }
 
 
-} //Main
+}

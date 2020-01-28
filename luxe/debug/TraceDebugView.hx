@@ -22,13 +22,13 @@ class TraceDebugView extends luxe.debug.DebugView {
         add_line('luxe version ${debug.app.runtime_info()}');
 
 
-    } //new
+    }
 
     public function on_trace( v : Dynamic, ?inf : haxe.PosInfos ) {
 
         add_line( inf.fileName + ':' + inf.lineNumber + ' ' + v );
 
-    } //on_trace
+    }
 
     public override function create() {
 
@@ -84,7 +84,7 @@ class TraceDebugView extends luxe.debug.DebugView {
 
         refresh_lines();
 
-    } //add_line
+    }
 
     var _last_logged_length : Int = 0;
     function refresh_lines() {
@@ -120,7 +120,7 @@ class TraceDebugView extends luxe.debug.DebugView {
 
         _last_logged_length = logged.length;
 
-    } //refresh_lines
+    }
 
 
     public override function refresh() {

@@ -29,7 +29,7 @@ class Ortho {
 
         return tile_coord;
 
-    } //worldpos_to_tile_coord
+    }
 
     public static function tile_coord_to_worldpos(  tile_x:Int, tile_y:Int, tile_width:Int, tile_height:Int,
                                                     ?scale:Float=1.0, ?offset_x:TileOffset, ?offset_y:TileOffset ) : Vector {
@@ -60,10 +60,10 @@ class Ortho {
 
         return world_pos;
 
-    } //tile_coord_to_worldpos
+    }
 
 
-} //Ortho
+}
 
 class OrthoVisual extends TilemapVisual {
 
@@ -131,7 +131,7 @@ class OrthoVisual extends TilemapVisual {
 
         }
 
-    } //create
+    }
 
     override function update_tile_id( _geom:Geometry, _layer_name:String, _x:Int, _y:Int, _id:Int, _flipx:Bool, _flipy:Bool, _angle:Int ) {
 
@@ -153,7 +153,7 @@ class OrthoVisual extends TilemapVisual {
         g.flipy = _flipy;
         g.uv_angle = _angle;
 
-    } //update_tile_id
+    }
 
     override function create_tile_for_layer( layer:TileLayer, x:Int, y:Int ) {
 
@@ -214,7 +214,7 @@ class OrthoVisual extends TilemapVisual {
 
         return _tile_geom;
 
-    } //create_tile_for_layer
+    }
 
 
-} //OrhtoVisual
+}

@@ -21,10 +21,10 @@ package luxe.components.physics.deflect.three;
 
             shape = new BtSphereShape(radius);
 
-        } //init
+        }
 
 
-    } //PlaneCollider
+    }
 
 
 #end //deflect

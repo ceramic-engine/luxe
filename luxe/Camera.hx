@@ -24,7 +24,7 @@ enum SizeMode {
         /** contain the size (stretch to fit the viewport)*/
     contain;
 
-} //SizeMode
+}
 
     /** An entity based camera class */
 class Camera extends Entity {
@@ -92,38 +92,38 @@ class Camera extends Entity {
             no_scene : _options.no_scene
         });
 
-    } //new
+    }
 
     function get_viewport() : Rectangle {
         return view.viewport;
-    } //get_viewport
+    }
 
     function set_viewport( _v:Rectangle ) : Rectangle {
         return view.viewport = _v;
-    } //set_viewport
+    }
 
     function get_center() : Vector {
         return view.center;
-    } //get_center
+    }
 
     function set_center( _c:Vector ) : Vector {
 
         pos = new Vector(_c.x - (viewport.w/2), _c.y - (viewport.h/2));
         return view.center = _c;
 
-    } //set_center
+    }
 
     function get_minimum_zoom() : Float {
         return view.minimum_zoom;
-    } //get_minimum_zoom
+    }
 
     function set_minimum_zoom( _m:Float ) : Float {
         return view.minimum_zoom = _m;
-    } //set_minimum_zoom
+    }
 
     function get_zoom() : Float {
         return view.zoom;
-    } //get_zoom
+    }
 
     function set_zoom( _z:Float ) : Float {
 
@@ -138,15 +138,15 @@ class Camera extends Entity {
 
         return view.zoom;
 
-    } //set_zoom
+    }
 
     function get_size() : Vector {
         return size;
-    } //get_size
+    }
 
     function get_size_mode() : SizeMode {
         return size_mode;
-    } //get_size
+    }
 
     function set_size_mode( _m:SizeMode ) : SizeMode {
 
@@ -159,7 +159,7 @@ class Camera extends Entity {
 
         return size_mode = _m;
 
-    } //get_size
+    }
 
     var _connected = false;
     function _onwindowsized( _event:luxe.Screen.WindowEvent ) {
@@ -212,7 +212,7 @@ class Camera extends Entity {
                 //use actual size
             }
 
-        } //size_mode
+        }
 
             //assign the scale values
         _size_factor.x = _ratio_x;
@@ -227,7 +227,7 @@ class Camera extends Entity {
             //return
         return size = _size.clone();
 
-    } //set_size
+    }
 
         /**Focus the camera on a specific point, for Ortho only.
         Use `.target` for a focus in perspective */
@@ -239,21 +239,21 @@ class Camera extends Entity {
                 transform.pos.set_xy(view.pos.x, view.pos.y);
             });
 
-    } //focus
+    }
 
         /** convert a screen point to world space for this camera. handles zoom, rotation, scale, etc */
     public function screen_point_to_world( _vector:Vector ) : Vector {
 
         return view.screen_point_to_world( _vector );
 
-    } //screen_point_to_world
+    }
 
         /** convert a world point to screen space for this camera. handles zoom, rotation, scale, etc */
     public function world_point_to_screen( _vector:Vector, ?_viewport:Rectangle=null ) : Vector {
 
         return view.world_point_to_screen( _vector, _viewport );
 
-    } //world_point_to_screen
+    }
 
     // var cnt = 0;
     override function set_pos_from_transform(_pos:Vector) {
@@ -282,7 +282,7 @@ class Camera extends Entity {
 
         view.pos = view.pos.set_xyz(_pos.x, _pos.y, _pos.z);
 
-    } //set_pos_from_transform
+    }
 
     override function set_rotation_from_transform(_rotation:Quaternion) {
 
@@ -292,7 +292,7 @@ class Camera extends Entity {
             view.rotation = _rotation;
         }
 
-    } //set_scale_from_transform
+    }
 
     override function set_scale_from_transform(_scale:Vector) {
 
@@ -302,7 +302,7 @@ class Camera extends Entity {
             view.scale = _scale;
         }
 
-    } //set_scale_from_transform
+    }
 
         /** Shake the camera a given amount */
     public function shake(_amount:Float) {
@@ -310,7 +310,7 @@ class Camera extends Entity {
         shake_amount = _amount;
         shaking = true;
 
-    } //shake
+    }
 
         //Called by the scene the camera belongs to, or manually if you want
     @:noCompletion override public function update(dt:Float) {
@@ -338,8 +338,8 @@ class Camera extends Entity {
                 //tell it to update the view
             view.pos = view.pos.set_xyz(transform.pos.x + shake_vector.x, transform.pos.y + shake_vector.y, transform.pos.z + shake_vector.z);
 
-        } //shaking
+        }
 
-    } //update
+    }
 
-} //Camera
+}

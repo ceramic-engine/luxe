@@ -26,7 +26,7 @@ class Bag<T> {
         root = null;
         length = 0;
 
-    } //new
+    }
 
         /** Add an item to this bag */
     public function add( item:T ) : Void {
@@ -39,7 +39,7 @@ class Bag<T> {
 
         ++length;
 
-    } //add
+    }
 
         /** Convert the items in the bag to an array */
     public function toArray() : Array<T> {
@@ -59,16 +59,16 @@ class Bag<T> {
 
         return a;
 
-    } //toArray
+    }
 
         /** create an iterator for the bag. Usable as `for(item in bag)` */
     public function iterator() : Iterator<T> {
 
         return toArray().iterator();
 
-    } //iterator
+    }
 
-} //Bag
+}
 
 private class BagNode<T> {
 
@@ -79,4 +79,4 @@ private class BagNode<T> {
 
     public function new() {}
 
-} //BagNode
+}

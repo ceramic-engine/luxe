@@ -13,7 +13,7 @@ typedef WindowEventData = {
         /** The y data for the event, if applicable */
     @:optional var y:Int;
 
-} //WindowEventData
+}
 
 
 /** A window event */
@@ -63,7 +63,7 @@ class Screen {
         width = _w;
         height = _h;
 
-    } //new
+    }
 
     function toString() {
         return 'luxe.Screen({ w:$w, h:$h })';
@@ -81,7 +81,7 @@ class Screen {
 
         return true;
 
-    } //point_inside
+    }
 
         /** Returns true if the given point as floats fall within the bounds of the w/h of the screen. */
     public function point_inside_xy( _x:Float, _y:Float ) {
@@ -93,7 +93,7 @@ class Screen {
 
         return true;
 
-    } //point_inside_xy
+    }
 
 //Internal
 
@@ -102,7 +102,7 @@ class Screen {
         width = _w;
         height = _h;
 
-    } //set_size
+    }
 
 //getters/setters
 
@@ -115,7 +115,7 @@ class Screen {
     function get_h() : Int return Std.int(height);
     function get_device_pixel_ratio() return core.app.runtime.window_device_pixel_ratio();
 
-} //Screen
+}
 
 
 
@@ -142,7 +142,7 @@ class Cursor {
         screen = _screen;
         pos = new Vector();
 
-    } //new
+    }
 
     @:allow(luxe.Engine)
     inline function set_internal(_x:Float, _y:Float) {
@@ -158,7 +158,7 @@ class Cursor {
 
         ignore = false;
 
-    } //set_internal
+    }
 
 //getters/setters
 
@@ -166,7 +166,7 @@ class Cursor {
 
         return grab;
 
-    } //get_grab
+    }
 
     function set_grab( _grab:Bool ) : Bool {
 
@@ -174,12 +174,12 @@ class Cursor {
 
         return grab = _grab;
 
-    } //set_grab
+    }
 
     function get_pos() : Vector {
 
         return pos;
 
-    } //get_pos
+    }
 
-} //Cursor
+}

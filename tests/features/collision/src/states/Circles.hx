@@ -30,7 +30,7 @@ class Circles extends luxe.States.State {
 
         Main.display(text);
 
-    } //onenter
+    }
 
     override function onleave<T>(_:T) {
 
@@ -42,13 +42,13 @@ class Circles extends luxe.States.State {
         mover.destroy();
         mover = null;
 
-    } //onleave
+    }
 
     override function onmousemove(e:MouseEvent) {
 
         mover.position = e.pos;
 
-    } //onmousemove
+    }
 
     override function onrender() {
 

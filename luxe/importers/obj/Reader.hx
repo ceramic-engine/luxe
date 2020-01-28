@@ -107,7 +107,7 @@ class Reader {
 
         return v;
 
-    } //parse_vert
+    }
 
     function parse_uv(line:String) : luxe.importers.obj.UV {
 
@@ -152,7 +152,7 @@ class Reader {
 
         return n;
 
-    } //parse_normal
+    }
 
     function parse_face(line:String) {
 

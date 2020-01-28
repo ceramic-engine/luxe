@@ -24,7 +24,7 @@ class Stack<T> {
         root = null;
         length = 0;
 
-    } //new
+    }
 
         /** Push a node onto the back of the queue. node cannot be null */
     public function push( node:Null<T> ) {
@@ -42,7 +42,7 @@ class Stack<T> {
 
         length++;
 
-    } //push
+    }
 
         /** Pop the back item off the stack. If the queue is empty, returns null */
     public function pop() : Null<T> {
@@ -58,7 +58,7 @@ class Stack<T> {
 
         return node;
 
-    } //pop
+    }
 
         /** Return the top item of the stack, or null if empty */
     public function top() : Null<T> {
@@ -69,7 +69,7 @@ class Stack<T> {
 
         return root.value;
 
-    } //top
+    }
 
         /** Convert the items in the stack to an array */
     public function toArray() : Array<T> {
@@ -89,16 +89,16 @@ class Stack<T> {
 
         return a;
 
-    } //toArray
+    }
 
         /** create an iterator for the stack. Usable as `for(item in stack)` */
     public function iterator() : Iterator<T> {
 
         return toArray().iterator();
 
-    } //iterator
+    }
 
-} //Stack
+}
 
     /** A single stack node holding */
 class StackNode<T> {
@@ -110,4 +110,4 @@ class StackNode<T> {
 
     public function new() {}
 
-} //StackNode
+}

@@ -114,21 +114,21 @@ class Luxe {
 
         Snow.next(func);
 
-    } //next
+    }
 
         /** shutdown the engine and quit */
     public static inline function shutdown() : Void {
 
         core.shutdown();
 
-    } //shutdown
+    }
 
         /** show/hide the debug console programmatically */
     public static inline function showConsole(_show:Bool) : Void {
 
         core.debug.visible = _show;
 
-    } //showConsole
+    }
 
 //Internal
 
@@ -161,4 +161,4 @@ class Luxe {
     static inline function set_frame_max_delta(_val:Float)  return core.frame_max_delta = _val;
     static inline function set_fixed_frame_time(_val:Float) return core.fixed_frame_time = _val;
 
-} //Luxe
+}

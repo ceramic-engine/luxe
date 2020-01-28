@@ -29,7 +29,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -98,7 +98,7 @@ class Main extends luxe.Game {
         glowing.on(prerender, function(_){ Luxe.renderer.blend_mode(BlendMode.src_alpha, BlendMode.one); });
         glowing.on(postrender, function(_){ Luxe.renderer.blend_mode(); });
 
-    } //ready
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -107,7 +107,7 @@ class Main extends luxe.Game {
 
         ss.pos = mouse;
 
-    } //onmousemove
+    }
 
     override function onmousedown( e:MouseEvent ) {
 
@@ -129,13 +129,13 @@ class Main extends luxe.Game {
 
         }
 
-    } //onmousedown
+    }
 
     override function onmouseup( e:MouseEvent ) {
 
         mouse.set_xy(e.x,e.y);
 
-    } //onmouseup
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -143,7 +143,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

@@ -50,7 +50,7 @@ class RingGeometry extends Geometry {
             //Apply the new options
         set( _options.x, _options.y, _radius_x, _radius_y, _options.steps, _options.start_angle, _options.end_angle );
 
-    } //new
+    }
 
     public function set( _x:Float, _y:Float, _rx:Float, _ry:Float, _steps:Int, _start_angle_degrees:Float=0, _end_angle_degrees:Float=360 ) {
 
@@ -111,7 +111,7 @@ class RingGeometry extends Geometry {
 
                 _index++;
 
-            } //for
+            }
 
                 //if steps is < 0 no segments were added
             if(_segment_pos.length > 0) {
@@ -121,6 +121,6 @@ class RingGeometry extends Geometry {
         //and finally, set the position
         transform.pos = new Vector( _x, _y );
 
-    } //set
+    }
 
-} //RingGeometry
+}

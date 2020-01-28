@@ -29,7 +29,7 @@ class Main extends luxe.Game {
 
         _get.then(onloaded);
 
-    } //ready
+    }
 
     function onloaded(image:Texture) {
 
@@ -60,7 +60,7 @@ class Main extends luxe.Game {
         batcher.on(prerender, before);
         batcher.on(postrender, after);
 
-    } //onloaded
+    }
 
     function before(_) {
 
@@ -69,14 +69,14 @@ class Main extends luxe.Game {
                 //clear the texture to an obvious color
         Luxe.renderer.clear(new Color().rgb(0xff4b03));
 
-    } //before
+    }
 
     function after(_) {
 
             //reset the target back to no target (i.e the screen)
         Luxe.renderer.target = null;
 
-    } //after
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -84,7 +84,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update( dt:Float ) {
 
@@ -96,6 +96,6 @@ class Main extends luxe.Game {
 
         }
 
-    } //update
+    }
 
-} //Main
+}

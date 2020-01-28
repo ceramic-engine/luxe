@@ -749,7 +749,7 @@ class InputEvent {
 
     public function new() {
 
-    } //new
+    }
 
         /** The name of the input event */
     public var name (default, null): String;
@@ -770,43 +770,43 @@ class InputEvent {
     public function set_key(_name:String, _interact_type:InteractType, _key_event:KeyEvent) {
         set_common(_name, InputEventType.key, _interact_type);
         set_events(_key_event, null, null, null);
-    } //set_key
+    }
 
     @:noCompletion
     public function set_mouse(_name:String, _interact_type:InteractType, _mouse_event:MouseEvent) {
         set_common(_name, InputEventType.mouse, _interact_type);
         set_events(null, _mouse_event, null, null);
-    } //set_mouse
+    }
 
     @:noCompletion
     public function set_touch(_name:String, _interact_type:InteractType, _touch_event:TouchEvent) {
         set_common(_name, InputEventType.touch, _interact_type);
         set_events(null, null, _touch_event, null);
-    } //set_touch
+    }
 
     @:noCompletion
     public function set_gamepad(_name:String, _interact_type:InteractType, _gamepad_event:GamepadEvent) {
         set_common(_name, InputEventType.gamepad, _interact_type);
         set_events(null, null, null, _gamepad_event);
-    } //set_gamepad
+    }
 
     @:noCompletion
     public function set_unknown(_name:String, _interact_type:InteractType) {
         set_common(_name, InputEventType.unknown, _interact_type);
         set_events(null, null, null, null);
-    } //set_unknown
+    }
 
     function set_common(_name:String, _input_type:InputEventType, _interact_type:InteractType) {
         name = _name;
         input_type = _input_type;
         interact_type = _interact_type;
-    } //set_common
+    }
 
     function set_events(_key_event:KeyEvent, _mouse_event:MouseEvent, _touch_event:TouchEvent, _gamepad_event:GamepadEvent) {
         key_event = _key_event;
         mouse_event = _mouse_event;
         touch_event = _touch_event;
         gamepad_event = _gamepad_event;
-    } //set_events
+    }
 
-} //InputEvent
+}

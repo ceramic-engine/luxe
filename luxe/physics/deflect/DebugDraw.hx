@@ -24,7 +24,7 @@ package luxe.physics.deflect;
                 primitive_type: PrimitiveType.lines
             });
 
-        } //new
+        }
 
         public function draw( world:BtDiscreteDynamicsWorld ) {
 
@@ -45,9 +45,9 @@ package luxe.physics.deflect;
                 geometry.add(new Vertex(_from, color));
                 geometry.add(new Vertex(_to, color));
 
-            } //_v
+            }
 
-        } //draw
+        }
 
 
         public function clear() {
@@ -55,17 +55,17 @@ package luxe.physics.deflect;
             geometry.vertices = null;
             geometry.vertices = [];
 
-        } //clear
+        }
 
         public function destroy() {
 
             clear();
             geometry.drop();
 
-        } //destroy
+        }
 
 
-    } //DebugDraw
+    }
 
 #end //deflect
 

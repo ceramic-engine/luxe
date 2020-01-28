@@ -6,7 +6,7 @@ class RunTests extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -15,6 +15,6 @@ class RunTests extends luxe.Game {
 
         Luxe.shutdown();
 
-    } //ready
+    }
 
 } //RunTests

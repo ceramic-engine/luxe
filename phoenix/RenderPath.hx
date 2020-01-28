@@ -30,7 +30,7 @@ class RenderPath {
 
         } //each batcher
 
-    } //render
+    }
 
-} //RenderPath
+}
 

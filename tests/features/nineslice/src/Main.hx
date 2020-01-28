@@ -20,7 +20,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -35,7 +35,7 @@ class Main extends luxe.Game {
 
         geom.create( new Vector(100, 200), 500, 260 );
 
-    } //ready
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -43,7 +43,7 @@ class Main extends luxe.Game {
             geom.pos = new Vector(e.x,e.y);
         }
 
-    } //onmousemove
+    }
 
     function sizechange() {
 
@@ -51,7 +51,7 @@ class Main extends luxe.Game {
             geom.size = new Vector(sx,sy);
         }
 
-    } //sizechange
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -66,12 +66,12 @@ class Main extends luxe.Game {
                 Actuate.tween( geom.color, 0.2 , { a:new_a }, true );
             }
 
-        } //geom
+        }
 
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}

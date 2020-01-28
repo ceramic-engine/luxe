@@ -17,7 +17,7 @@ typedef NapeBodyOptions = {
         /** The optional nape material */
     @:optional var material : nape.phys.Material;
 
-} //NapeBodyOptions
+}
 
 class NapeBody extends Component {
 
@@ -33,13 +33,13 @@ class NapeBody extends Component {
 
         super(body_options);
 
-    } //new
+    }
 
     override function onadded() : Void {
 
         body = new nape.phys.Body(body_options.body_type);
 
-    } //onadded
+    }
 
     override function onremoved() : Void {
 
@@ -52,7 +52,7 @@ class NapeBody extends Component {
         body.space = null;
         body = null;
 
-    } //onremoved
+    }
 
     override function update(dt:Float) {
 
@@ -62,7 +62,7 @@ class NapeBody extends Component {
             entity.rotation.setFromEuler(euler);
         }
 
-    } //update
+    }
 
 //internal
 
@@ -75,8 +75,8 @@ class NapeBody extends Component {
             Luxe.physics.nape.debugdraw.add(body);
         }
 
-    } //post_add
+    }
 
-} //Body
+}
 
 #end //nape

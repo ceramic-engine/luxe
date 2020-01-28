@@ -104,7 +104,7 @@ class ParcelProgress {
                 progress_bar.color.tween(options.fade_time,{a:1},true);
                 progress_border.color.tween(options.fade_time,{a:1},true);
 
-            } //fade_in
+            }
 
         } //no visuals?
 
@@ -113,7 +113,7 @@ class ParcelProgress {
         options.parcel.on(ParcelEvent.progress, onprogress);
         options.parcel.on(ParcelEvent.complete, oncomplete);
 
-    } //new
+    }
 
     public function set_progress( amount : Float ) {
 
@@ -124,7 +124,7 @@ class ParcelProgress {
             progress_bar.size.x = Math.ceil(width * amount);
         }
 
-    } //set_progress
+    }
 
     public function onbegin( _parcel:Parcel ) {
 
@@ -151,7 +151,7 @@ class ParcelProgress {
 
         } //not with no_visuals
 
-    } //onbegin
+    }
 
     public function onprogress( _state:ParcelChange ) {
 
@@ -161,7 +161,7 @@ class ParcelProgress {
             //update the progress bar
         set_progress( _amount );
 
-    } //onprogress
+    }
 
     public function oncomplete( _parcel:Parcel ) {
 
@@ -179,7 +179,7 @@ class ParcelProgress {
 
         } //fade out
 
-    } //oncomplete
+    }
 
     function do_complete() {
 
@@ -187,6 +187,6 @@ class ParcelProgress {
             options.oncomplete( options.parcel );
         }
 
-    } //do_complete
+    }
 
 } //Parcel Progress

@@ -36,7 +36,7 @@ class Input {
         gamepad_event = new GamepadEvent();
         input_event = new InputEvent();
 
-    } //new
+    }
 
 //Public API
     //Input query
@@ -44,89 +44,89 @@ class Input {
         /** immediate query of the pressed state of a named input. only true if pressed within one frame */
     public function inputpressed( _event:String ) : Bool {
         return _named_input_pressed.exists( _event );
-    } //inputpressed
+    }
 
         /** immediate query of the released state of a named input. only true if released within one frame */
     public function inputreleased( _event:String ) : Bool {
         return _named_input_released.exists( _event );
-    } //inputreleased
+    }
 
         /** immediate query of the down state of a named input. only true while the key is down */
     public function inputdown( _event:String ) : Bool {
         return _named_input_down.exists( _event );
-    } //inputdown
+    }
 
  //Keys
 
         /** immediate query of the pressed state of a `keycode`, use `Key` for named keycodes. only true if pressed within one frame */
     public function keypressed( _code:Int ) : Bool {
         return core.app.input.keypressed( _code );
-    } //keypressed
+    }
 
         /** immediate query of the released state of a `keycode`, use `Key` for named keycodes. only true if released within one frame */
     public function keyreleased( _code:Int ) : Bool{
         return core.app.input.keyreleased( _code );
-    } //keyreleased
+    }
 
         /** immediate query of the down state of a `keycode`, use `Key` for named keycodes. only true while the key is down */
     public function keydown( _code:Int ) : Bool{
         return core.app.input.keydown( _code );
-    } //keydown
+    }
 
 
         /** immediate query of the pressed state of a `scancode`, use `Scan` for named scancodes. only true if pressed within one frame */
     public function scanpressed( _code:Int ) : Bool {
         return core.app.input.scanpressed( _code );
-    } //scanpressed
+    }
 
         /** immediate query of the released state of a `scancode`, use `Scan` for named scancodes. only true if released within one frame */
     public function scanreleased( _code:Int ) : Bool{
         return core.app.input.scanreleased( _code );
-    } //scanreleased
+    }
 
         /** immediate query of the down state of a `scancode`, use `Scan` for named scancodes. only true while the key is down */
     public function scandown( _code:Int ) : Bool{
         return core.app.input.scandown( _code );
-    } //scandown
+    }
 
     //Mouse
 
         /** immediate query of the pressed state of a mouse button. only true if pressed within one frame */
     public function mousepressed( _button:MouseButton ) : Bool {
         return core.app.input.mousepressed( _button );
-    } //mousepressed
+    }
 
         /** immediate query of the released state of a mouse button. only true if released within one frame */
     public function mousereleased( _button:MouseButton ) : Bool{
         return core.app.input.mousereleased( _button );
-    } //mousereleased
+    }
 
         /** immediate query of the down state of a mouse button. only true while the button is down. */
     public function mousedown( _button:MouseButton ) : Bool{
         return core.app.input.mousedown( _button );
-    } //mousedown
+    }
 
     //Gamepad
 
         /** immediate query of the pressed state of a gamepad button. only true if pressed within one frame */
     public function gamepadpressed( _gamepad:Int, _button:Int ) : Bool {
         return core.app.input.gamepadpressed( _gamepad, _button );
-    } //gamepadpressed
+    }
 
         /** immediate query of the released state of a gamepad button. only true if released within one frame */
     public function gamepadreleased( _gamepad:Int, _button:Int ) : Bool{
         return core.app.input.gamepadreleased( _gamepad, _button );
-    } //gamepadreleased
+    }
 
         /** immediate query of the down state of a gamepad button. only true while the button is down */
     public function gamepaddown( _gamepad:Int, _button:Int ) : Bool{
         return core.app.input.gamepaddown( _gamepad, _button );
-    } //gamepaddown
+    }
 
         /** immediate query of the axis value of a gamepad axis. */
     public function gamepadaxis( _gamepad:Int, _axis:Int ) : Float {
         return core.app.input.gamepadaxis( _gamepad, _axis );
-    } //gamepadaxis
+    }
 
 
 //Named event handlers
@@ -141,7 +141,7 @@ class Input {
         var _kb = key_bindings.get(_name);
             _kb.set(_key, true);
 
-    } //bind_key
+    }
 
         /** Unbind a previously bound named input binding to a `Key` keycode */
     public function unbind_key(_name:String, _key:Int) {
@@ -151,7 +151,7 @@ class Input {
         var _kb = key_bindings.get(_name);
             _kb.remove(_key);
 
-    } //unbind_key
+    }
 
         /** Bind a named input binding to a `MouseButton` */
     public function bind_mouse(_name:String, _button:MouseButton) {
@@ -163,7 +163,7 @@ class Input {
         var _mb = mouse_bindings.get(_name);
             _mb.set(_button, true);
 
-    } //bind_mouse
+    }
 
         /** Unbind a previously bound named input binding to a `MouseButton` */
     public function unbind_mouse(_name:String, _button:MouseButton) {
@@ -173,7 +173,7 @@ class Input {
         var _mb = mouse_bindings.get(_name);
             _mb.remove(_button);
 
-    } //unbind_mouse
+    }
 
     /** Bind a named input binding to a `Gamepad Button`. If no `Gamepad Id` is specified, any gamepad fires the named binding.*/
     public function bind_gamepad(_name:String, _gamepad_button:Int, ?_gamepad_id:Null<Int> = null) {
@@ -185,7 +185,7 @@ class Input {
         var _gp = gamepad_bindings.get(_name);
             _gp.set(_gamepad_button, _gamepad_id);
 
-    } //bind_gamepad
+    }
 
         /** Unbind a previously bound named input binding to a gamepad button */
     public function unbind_gamepad(_name:String, _button:Int) {
@@ -195,7 +195,7 @@ class Input {
         var _gp = gamepad_bindings.get(_name);
             _gp.remove(_button);
 
-    } //unbind_gamepad
+    }
 
 //Internal
 
@@ -211,13 +211,13 @@ class Input {
 
         _debug('\t input initialized.');
 
-    } //init
+    }
 
     function destroy() {
 
         _debug('\t input shut down.');
 
-    } //destroy
+    }
 
     function process() {
         //
@@ -248,7 +248,7 @@ class Input {
 
         } //each _named_input_released
 
-    } //process
+    }
 
 //pass through events from core
 
@@ -266,7 +266,7 @@ class Input {
 
             core.game.onmousedown(mouse_event);
 
-        } //onmousedown
+        }
 
         function onmouseup(_x:Int, _y:Int, _button:Int, _timestamp:Float, _window_id:Int) {
 
@@ -280,7 +280,7 @@ class Input {
 
             core.game.onmouseup(mouse_event);
 
-        } //onmouseup
+        }
 
         function onmousemove(_x:Int, _y:Int, _x_rel:Int, _y_rel:Int, _timestamp:Float, _window_id:Int) {
 
@@ -292,7 +292,7 @@ class Input {
 
             core.game.onmousemove(mouse_event);
 
-        } //onmousemove
+        }
 
         function onmousewheel(_x:Float, _y:Float, _timestamp:Float, _window_id:Int) {
 
@@ -306,7 +306,7 @@ class Input {
 
             core.game.onmousewheel(mouse_event);
 
-        } //onmousewheel
+        }
 
     //keys
 
@@ -322,7 +322,7 @@ class Input {
 
             core.game.onkeydown(key_event);
 
-        } //onkeydown
+        }
 
         function onkeyup(_keycode:Int, _scancode:Int, _repeat:Bool, _mod:ModState, _timestamp:Float, _window_id:Int) : Void {
 
@@ -336,7 +336,7 @@ class Input {
 
             core.game.onkeyup(key_event);
 
-        } //onkeyup
+        }
 
         function ontextinput(_text:String, _start:Int, _length:Int, _etype:snow.types.TextEventType, _timestamp:Float, _window_id:Int) : Void {
             
@@ -354,7 +354,7 @@ class Input {
 
             core.game.ontextinput(text_event);
 
-        } //ontextinput
+        }
 
     //touch
 
@@ -368,7 +368,7 @@ class Input {
 
             core.game.ontouchdown(touch_event);
 
-        } //ontouchdown
+        }
 
         function ontouchup(_x:Float, _y:Float, _dx:Float, _dy:Float, _touch_id:Int, _timestamp:Float) : Void {
 
@@ -380,7 +380,7 @@ class Input {
 
             core.game.ontouchup(touch_event);
 
-        } //ontouchup
+        }
 
         function ontouchmove(_x:Float, _y:Float, _dx:Float, _dy:Float, _touch_id:Int, _timestamp:Float) : Void {
 
@@ -392,7 +392,7 @@ class Input {
 
             core.game.ontouchmove(touch_event);
 
-        } //ontouchmove
+        }
 
     //gamepad
 
@@ -406,7 +406,7 @@ class Input {
 
             core.game.ongamepadaxis(gamepad_event);
 
-        } //ongamepadaxis
+        }
 
         function ongamepaddown(_gamepad:Int, _button:Int, _value:Float, _timestamp:Float) : Void {
                 
@@ -420,7 +420,7 @@ class Input {
 
             core.game.ongamepaddown(gamepad_event);
 
-        } //ongamepaddown
+        }
 
         function ongamepadup(_gamepad:Int, _button:Int, _value:Float, _timestamp:Float) : Void {
                 
@@ -434,7 +434,7 @@ class Input {
 
             core.game.ongamepadup(gamepad_event);
 
-        } //ongamepadup
+        }
 
         function ongamepaddevice(_gamepad:Int, _id:String, _etype:GamepadDeviceEventType, _timestamp:Float) : Void {
                 
@@ -453,7 +453,7 @@ class Input {
 
             core.game.ongamepaddevice(gamepad_event);
 
-        } //ongamepaddevice
+        }
 
     //input bindings
 
@@ -481,7 +481,7 @@ class Input {
 
             core.game.oninputdown(input_event);
 
-        } //oninputdown
+        }
 
         function oninputup(_name:String, ?_key_event:KeyEvent, ?_mouse_event:MouseEvent, ?_touch_event:TouchEvent, ?_gamepad_event:GamepadEvent) {
             
@@ -507,7 +507,7 @@ class Input {
 
             core.game.oninputup(input_event);
 
-        } //oninputup
+        }
 
 //internal
 
@@ -548,7 +548,7 @@ class Input {
             } //if _down
         } //_f in _fired
 
-    } //check_named_keys
+    }
 
     function check_named_mouse( e:MouseEvent, _down:Bool=false ) {
 
@@ -586,7 +586,7 @@ class Input {
             }
         } //_f in _fired
 
-    } //check_named_keys
+    }
 
     function check_named_gamepad_buttons( e:GamepadEvent, _down:Bool=false ) {
 
@@ -625,9 +625,9 @@ class Input {
             }
         } //_f in _fired
 
-    } //check_named_gamepad_buttons
+    }
 
-} //Input
+}
 
     /** A modifier state for key events */
 typedef ModState        =   snow.types.Types.ModState;
@@ -652,7 +652,7 @@ typedef Scan            =   snow.systems.input.Keycodes.Scancodes;
 /** extra button pressed (5) */
     var extra2 = 5;
 
-} //MouseButton
+}
 
 /** A typed state for mouse, touch, or pressed/similar */
 enum InteractState {
@@ -672,7 +672,7 @@ enum InteractState {
 /** A gamepad axis state */
     axis;
 
-} //MouseState
+}
 
 /** A typed text event type */
 enum TextEventType {
@@ -684,14 +684,14 @@ enum TextEventType {
 /** An input text typing event */
     input;
 
-} //TextEventType
+}
 
 /** Information about a keyboard event */
 class KeyEvent {
 
     public function new() {
 
-    } //new
+    }
 
         /** The `Scan` code value for this event */
     public var scancode (default, null): Int;
@@ -719,9 +719,9 @@ class KeyEvent {
         timestamp = _timestamp;
         window_id = _window_id;
 
-    } //set
+    }
 
-} //KeyEvent
+}
 
 /** Information about a touch event */
 class TouchEvent {
@@ -730,7 +730,7 @@ class TouchEvent {
 
         pos = new luxe.Vector();
 
-    } //new
+    }
 
         /** The state this touch event is in */
     public var state (default, null): InteractState;
@@ -762,16 +762,16 @@ class TouchEvent {
 
         pos.set_xy(_x, _y);
 
-    } //set_press
+    }
 
-} //TouchEvent
+}
 
 /** Information about a text input event */
 class TextEvent {
 
     public function new() {
 
-    } //new
+    }
 
         /** The text that this event has generated */
     public var text (default, null) : String;
@@ -796,9 +796,9 @@ class TextEvent {
         timestamp = _timestamp;
         window_id = _window_id;
 
-    } //set
+    }
 
-} //TextEvent
+}
 
 /** A typed gamepad event type */
 enum GamepadEventType {
@@ -816,14 +816,14 @@ enum GamepadEventType {
     /** A device was remapped */
     device_remapped;
 
-} //GamepadEventType
+}
 
 /** Information about a gamepad event */
 class GamepadEvent {
 
     public function new() {
 
-    } //new
+    }
 
         /** The time in seconds when this gamepad event occurred, use for deltas */
     public var timestamp (default, null): Float;
@@ -854,7 +854,7 @@ class GamepadEvent {
         state = InteractState.axis;
         type = GamepadEventType.axis;
 
-    } //set_axis
+    }
 
     @:noCompletion
     public function set_button(_gamepad:Int, _button:Int, _value:Float, _state:InteractState, _timestamp:Float) {
@@ -868,7 +868,7 @@ class GamepadEvent {
         timestamp = _timestamp;
         type = GamepadEventType.button;
 
-    } //set_button
+    }
 
     @:noCompletion
     public function set_device(_gamepad:Int, _id:String, _type:GamepadEventType, _timestamp:Float) {
@@ -882,9 +882,9 @@ class GamepadEvent {
         timestamp = _timestamp;
         state = InteractState.none;
 
-    } //set_device
+    }
 
-} //GamepadEvent
+}
 
 /** Information about a mouse event */
 class MouseEvent {
@@ -926,7 +926,7 @@ class MouseEvent {
 
         pos.set_xy(_x, _y);
 
-    } //set_press
+    }
 
     @:noCompletion
     public function set_move(_x:Int, _y:Int, _x_rel:Int, _y_rel:Int, _timestamp:Float, _window_id:Int) {
@@ -942,7 +942,7 @@ class MouseEvent {
 
         pos.set_xy(_x, _y);
 
-    } //set_move
+    }
 
     @:noCompletion
     public function set_wheel(_x:Float, _y:Float, _timestamp:Float, _window_id:Int) {
@@ -957,9 +957,9 @@ class MouseEvent {
         window_id = _window_id;
         timestamp = _timestamp;
 
-    } //set_wheel
+    }
 
-} //MouseEvent
+}
 
 /** A type for a named input event */
 enum InputEventType {
@@ -975,14 +975,14 @@ enum InputEventType {
         /** A gamepad input event */
     gamepad;
 
-} //InputEventType
+}
 
 /** Information about a named input event */
 class InputEvent {
 
     public function new() {
 
-    } //new
+    }
 
         /** The name of the input event */
     public var name (default, null): String;
@@ -1003,43 +1003,43 @@ class InputEvent {
     public function set_key(_name:String, _state:InteractState, _key_event:KeyEvent) {
         set_common(_name, InputEventType.key, _state);
         set_events(_key_event, null, null, null);
-    } //set_key
+    }
 
     @:noCompletion
     public function set_mouse(_name:String, _state:InteractState, _mouse_event:MouseEvent) {
         set_common(_name, InputEventType.mouse, _state);
         set_events(null, _mouse_event, null, null);
-    } //set_mouse
+    }
 
     @:noCompletion
     public function set_touch(_name:String, _state:InteractState, _touch_event:TouchEvent) {
         set_common(_name, InputEventType.touch, _state);
         set_events(null, null, _touch_event, null);
-    } //set_touch
+    }
 
     @:noCompletion
     public function set_gamepad(_name:String, _state:InteractState, _gamepad_event:GamepadEvent) {
         set_common(_name, InputEventType.gamepad, _state);
         set_events(null, null, null, _gamepad_event);
-    } //set_gamepad
+    }
 
     @:noCompletion
     public function set_unknown(_name:String, _state:InteractState) {
         set_common(_name, InputEventType.unknown, _state);
         set_events(null, null, null, null);
-    } //set_unknown
+    }
 
     function set_common(_name:String, _type:InputEventType, _state:InteractState) {
         name = _name;
         type = _type;
         state = _state;
-    } //set_common
+    }
 
     function set_events(_key_event:KeyEvent, _mouse_event:MouseEvent, _touch_event:TouchEvent, _gamepad_event:GamepadEvent) {
         key_event = _key_event;
         mouse_event = _mouse_event;
         touch_event = _touch_event;
         gamepad_event = _gamepad_event;
-    } //set_events
+    }
 
-} //InputEvent
+}

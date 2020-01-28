@@ -16,4 +16,4 @@ typedef ParcelProgressOptions = {
     ?bar_border: Color,
     ?background: Color
 
-} //ParcelProgressOptions
+}

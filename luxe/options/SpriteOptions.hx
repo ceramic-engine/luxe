@@ -16,4 +16,4 @@ typedef SpriteOptions = {
         /** specify the uv rectangle inside the texture, in texture space (pixels) */
     @:optional var uv : Rectangle;
 
-} //SpriteOptions
+}

@@ -67,7 +67,7 @@ class Mesh {
         scale = def(options.scale, new Vector(1,1,1));
         rotation = def(options.rotation, new Quaternion());
 
-    } //new
+    }
 
 //Position
 
@@ -75,19 +75,19 @@ class Mesh {
 
         return transform.pos = _pos;
 
-    } //set_pos
+    }
 
     function get_pos() {
         return transform.pos;
-    } //get_pos
+    }
 
     function get_rotation() {
         return transform.rotation;
-    } //get_rotation
+    }
 
     function get_scale() {
         return transform.scale;
-    } //get_scale
+    }
 
     function set_pos_from_transform( _pos:Vector ) {
 
@@ -97,7 +97,7 @@ class Mesh {
             geometry.transform.pos = _pos;
         }
 
-    } //set_pos
+    }
 
 //Rotation
 
@@ -105,15 +105,15 @@ class Mesh {
 
         return transform.rotation = _rotation;
 
-    } //set_rotation
+    }
 
     function set_rotation_from_transform( _rotation:Quaternion ) {
 
         if(geometry != null) {
             geometry.transform.rotation = _rotation;
-        } //geometry
+        }
 
-    } //set_rotation
+    }
 
 //Scale
 
@@ -121,7 +121,7 @@ class Mesh {
 
         return transform.scale = _scale;
 
-    } //set_scale
+    }
 
     function set_scale_from_transform( _scale:Vector ) {
 
@@ -129,7 +129,7 @@ class Mesh {
             geometry.transform.scale = _scale;
         }
 
-    } //set_scale
+    }
 
 
 //Create a mesh from an Obj file
@@ -152,7 +152,7 @@ class Mesh {
 
        geometry.add( _v );
 
-    } //_obj_add_vert
+    }
 
     public function from_string( string_data:String, texture:Texture, ?_scale:Vector, _batcher:Batcher ) {
 
@@ -179,7 +179,7 @@ class Mesh {
 
         } //for all verts
 
-    } //from_string
+    }
 
     public function from_obj_file( asset_id:String, texture:Texture, ?_scale:Vector, _batcher:Batcher ) {
 
@@ -203,4 +203,4 @@ class Mesh {
     }
 
 
-} //Mesh
+}

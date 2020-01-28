@@ -50,7 +50,7 @@ class CircleGeometry extends Geometry {
             //Apply the new options
         set( _options.x, _options.y, _radius_x, _radius_y, _options.steps, _options.start_angle, _options.end_angle );
 
-    } //new
+    }
 
     public function set( _x:Float, _y:Float, _rx:Float, _ry:Float, _steps:Int, _start_angle:Float=0, _end_angle:Float=360 ) {
 
@@ -115,14 +115,14 @@ class CircleGeometry extends Geometry {
 
                 _index++;
 
-            } //for
+            }
 
         add(new Vertex( _segment_pos[_steps], color )); //1
 
             //and finally, set the position
         transform.pos = new Vector( _x, _y );
 
-    } //set
+    }
 
 
-} //CircleGeometry
+}

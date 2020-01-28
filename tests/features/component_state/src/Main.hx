@@ -17,19 +17,19 @@ class Toggler extends Component {
 
     override function init() {
         trace('init toggler ');
-    } //init
+    }
 
     override function onmousedown(e:MouseEvent) {
 
         trace('hello');
         trace(e);
 
-    } //mousedown
+    }
 
     override function onreset() {
         trace('reset toggler');
         sprite.color = new Color().rgb(0xcc0000);
-    } //reset
+    }
 
     override function onadded() {
         trace('added toggler');
@@ -39,9 +39,9 @@ class Toggler extends Component {
     override function onremoved() {
         sprite.color = new Color();
         trace('removed toggler');
-    } //removed
+    }
 
-} //Toggler
+}
 
 
 class Main extends luxe.Game {
@@ -59,7 +59,7 @@ class Main extends luxe.Game {
             pos : Luxe.screen.mid
         });
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -72,7 +72,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     function toggle_component( new_value:Bool ) {
 
@@ -84,6 +84,6 @@ class Main extends luxe.Game {
             trace( 'removed? ' + entity_one.remove('toggler') );
         }
 
-    } //toggle_component
+    }
 
-} //Main
+}

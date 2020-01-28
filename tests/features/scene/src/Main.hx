@@ -29,7 +29,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -45,13 +45,13 @@ class Main extends luxe.Game {
 
         log(Luxe.scene);
 
-    } //ready
+    }
 
     override function update(dt:Float) {
 
         bg.rotation_z += 16 * dt;
 
-    } //update
+    }
 
     function create_hud() {
 
@@ -72,7 +72,7 @@ class Main extends luxe.Game {
 
         log(hud);
 
-    } //create_hude
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -119,9 +119,9 @@ class Main extends luxe.Game {
             }
         }
 
-    } //keyup
+    }
 
-} //Main
+}
 
 class RandomSlide extends Component {
 
@@ -136,13 +136,13 @@ class RandomSlide extends Component {
 
         log('init');
 
-    } //init
+    }
 
     override function onmousedown( e:MouseEvent ) {
 
         Actuate.tween(pos, 0.1, { x: e.pos.x });
 
-    } //mousedown
+    }
 
     override function onreset() {
 
@@ -150,13 +150,13 @@ class RandomSlide extends Component {
 
         log('reset');
 
-    } //reset
+    }
 
     override function ondestroy() {
 
         trace('destroy');
 
-    } //ondestroy
+    }
 
     override function update(dt:Float) {
 
@@ -167,7 +167,7 @@ class RandomSlide extends Component {
             next = time + (1 + Std.random(3));
         }
 
-    } //update
+    }
 
     override function onwindowmoved( e:WindowEvent ) trace('RandomSlide: window moved : ${e.x} / ${e.y}');
     override function onwindowresized( e:WindowEvent ) trace('RandomSlide: window resized : ${e.x} / ${e.y}');

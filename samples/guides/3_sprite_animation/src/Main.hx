@@ -52,7 +52,7 @@ class Main extends luxe.Game {
             //go!
         parcel.load();
 
-    } //ready
+    }
 
         //called when assets are done loading
     function assets_loaded(_) {
@@ -62,7 +62,7 @@ class Main extends luxe.Game {
         create_player_animation();
         connect_input();
 
-    } //assets_loaded
+    }
 
     function create_apartment() {
 
@@ -86,7 +86,7 @@ class Main extends luxe.Game {
             centered: false
         });
 
-    } //create_apartment
+    }
 
     function create_player() {
 
@@ -117,7 +117,7 @@ class Main extends luxe.Game {
             size: new Vector(width, height)
         });
 
-    } //create_player
+    }
 
     function create_player_animation() {
 
@@ -136,7 +136,7 @@ class Main extends luxe.Game {
         anim.animation = 'idle';
         anim.play();
 
-    } //create_player_animation
+    }
 
     function connect_input() {
 
@@ -149,7 +149,7 @@ class Main extends luxe.Game {
         Luxe.input.bind_key('right', Key.right);
         Luxe.input.bind_key('right', Key.key_d);
 
-    } //connect_input
+    }
 
     override function update( delta:Float ) {
 
@@ -198,7 +198,7 @@ class Main extends luxe.Game {
             }
         }
 
-    } //update
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -206,7 +206,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function config( config:luxe.GameConfig ) {
 
@@ -217,6 +217,6 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
-} //Main
+}

@@ -60,7 +60,7 @@ class TextEdit extends Component {
         var a = after(index);
         index += event.text.uLength();
         refresh( b + event.text + a );
-    } //ontextinput
+    }
 
     override function onkeydown( event:KeyEvent ) {
         switch(event.keycode) {
@@ -73,13 +73,13 @@ class TextEdit extends Component {
             case Key.right: move(1);
             case Key.enter:
         }
-    } //onkeydown
+    }
 
     inline function refresh( str:String ) {
         text.text = edit = str;
         update_cur();
         return edit;
-    } //refresh
+    }
 
     function move(amount:Int = -1) {
         index += amount;
@@ -143,6 +143,6 @@ class TextEdit extends Component {
             });
         }
 
-    } //update
+    }
 
 } //TextEdit

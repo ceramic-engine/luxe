@@ -27,7 +27,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -106,7 +106,7 @@ class Main extends luxe.Game {
             //and this one, disable blending
         luxe_sprite5.blend_disabled = true;
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -114,7 +114,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

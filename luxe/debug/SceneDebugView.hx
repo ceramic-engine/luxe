@@ -53,7 +53,7 @@ class SceneDebugView extends luxe.debug.DebugView  {
 
         scenes.push(_scene);
 
-    } //add_scene
+    }
 
     public function remove_scene(_scene:luxe.Scene) : Bool {
 
@@ -66,7 +66,7 @@ class SceneDebugView extends luxe.debug.DebugView  {
 
         return _result;
 
-    } //remove_scene
+    }
 
     public override function onkeydown(e:KeyEvent) {
 
@@ -74,7 +74,7 @@ class SceneDebugView extends luxe.debug.DebugView  {
             toggle_ids();
         }
 
-    } //onkeydown
+    }
 
     var hide_ids : Bool = true;
     function toggle_ids() {
@@ -130,13 +130,13 @@ class SceneDebugView extends luxe.debug.DebugView  {
 
         return _result;
 
-    } //get_list
+    }
 
     public override function refresh() {
 
         items_list.text = get_list();
 
-    } //refresh
+    }
 
     public override function process() {
 
@@ -155,9 +155,9 @@ class SceneDebugView extends luxe.debug.DebugView  {
 
             refresh();
 
-        } //_has_changed
+        }
 
-    } //process
+    }
 
 #if (desktop || web)
     //:wip:
@@ -187,14 +187,14 @@ class SceneDebugView extends luxe.debug.DebugView  {
         refresh();
         items_list.visible = true;
 
-    } //show
+    }
 
     public override function hide() {
 
         super.hide();
         items_list.visible = false;
 
-    } //hide
+    }
 
 //sizing
 

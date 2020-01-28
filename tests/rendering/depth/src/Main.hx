@@ -19,7 +19,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -55,7 +55,7 @@ class Main extends luxe.Game {
 
         sprites[0].pos = e.pos;
 
-    } //onmousemove
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -78,7 +78,7 @@ class Main extends luxe.Game {
             trace(sprites[0].depth);
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

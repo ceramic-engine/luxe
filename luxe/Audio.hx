@@ -19,7 +19,7 @@ class Audio {
 
         core = _core;
 
-    } //new
+    }
 
 //events
 
@@ -118,17 +118,17 @@ class Audio {
 
         _debug('\t audio initialized.');
 
-    } //init
+    }
 
     function destroy() {
 
         _debug('\t audio shut down.');
 
-    } //destroy
+    }
 
     function process() {
 
 
-    } //process
+    }
 
-} //Audio
+}

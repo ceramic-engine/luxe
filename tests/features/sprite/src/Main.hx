@@ -15,7 +15,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -75,14 +75,14 @@ class Main extends luxe.Game {
 
         mouse = new Vector();
 
-    } //ready
+    }
 
     var inside = false;
     var mouse : Vector;
 
     override function onmousemove( e:MouseEvent ) {
         mouse = e.pos;
-    } //onmousemove
+    }
 
     function hittest( e:Vector ) {
             //wait for loading on web
@@ -101,12 +101,12 @@ class Main extends luxe.Game {
                 luxe.tween.Actuate.tween(test_sprite1.scale, 0.1, {x:1, y:1});
             }
         }
-    } //hittest
+    }
 
     override function onmouseup( e:MouseEvent ) {
         mouse = e.pos;
         test_sprite1.pos = e.pos;
-    } //onmouseup
+    }
 
 
     var _next : Int = 0;
@@ -136,7 +136,7 @@ class Main extends luxe.Game {
             var _size = _sizes[_next2];
             test_sprite1.size = _size;
 
-        } //key_R
+        }
 
         if(e.keycode == Key.key_f) {
             test_sprite1.flipy = !test_sprite1.flipy;
@@ -162,23 +162,23 @@ class Main extends luxe.Game {
             var _scale = _scales[_next];
             test_sprite1.scale = _scale;
 
-        } //key_S
+        }
 
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
-        } //escape
+        }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
         test_sprite1.rotation_z += 50 * dt;
         hittest(mouse);
 
-    } //update
+    }
 
     override function ondestroy() {
 
-    } //ondestroy
+    }
 
-} //Main
+}

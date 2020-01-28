@@ -71,9 +71,9 @@ package luxe.components.physics.deflect.three;
                 additionalAngularDampingThresholdSqr : additionalAngularDampingThresholdSqr,
                 additionalAngularDampingFactor : additionalAngularDampingFactor
 
-            } //construct_info
+            }
 
-        } //init
+        }
 
         override function onreset() {
 
@@ -82,7 +82,7 @@ package luxe.components.physics.deflect.three;
                 //Add to the world for updates
             Luxe.physics.deflect.add_rigidbody( rigid_body );
 
-        } //onreset
+        }
 
 
         override function update(dt:Float) {
@@ -95,12 +95,12 @@ package luxe.components.physics.deflect.three;
 
             } //only if not static
 
-        } //update
+        }
 
         public function destroyed() {
 
-        } //destroyed
+        }
 
-    } //RigidBody
+    }
 
 #end //deflect

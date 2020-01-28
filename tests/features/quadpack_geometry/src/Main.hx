@@ -34,7 +34,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -80,7 +80,7 @@ class Main extends luxe.Game {
 
         geom.locked = true;
 
-    } //ready
+    }
 
     function random_int( max:Int ) {
 
@@ -110,22 +110,22 @@ class Main extends luxe.Game {
 
                 _row.push( { quad:_quad, tilex:_tilex, tiley:_tiley } );
 
-            } //_x
+            }
             map_tiles.push(_row);
-        } //_y
-    } //create_map
+        }
+    }
 
     override function onmousemove( e:MouseEvent ) {
         // geom.quad_pos( mouse_quad, new Vector(e.x-32, e.y-32) );
-    } //onmousemove
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
-        } //escape
+        }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
@@ -142,7 +142,7 @@ class Main extends luxe.Game {
             }
         }
 
-    } //update
+    }
 
 
-} //Main
+}

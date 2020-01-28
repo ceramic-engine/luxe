@@ -28,7 +28,7 @@ class TileView extends State {
             //store the reference to our parent for access to the state machine
         root = _root;
 
-    } //new
+    }
 
 
     override function onenter<T>( ignored:T ) {
@@ -45,7 +45,7 @@ class TileView extends State {
 
         create_map();
 
-    } //onenter
+    }
 
     function create_map() {
 
@@ -72,13 +72,13 @@ class TileView extends State {
 
                 _row.push( { quad:_quad, tilex:_tilex, tiley:_tiley } );
 
-            } //_x
+            }
 
             map_tiles.push(_row);
 
-        } //_y
+        }
 
-    } //create_map
+    }
 
 
     override function onkeyup( event:KeyEvent ) {
@@ -91,9 +91,9 @@ class TileView extends State {
                 root.state.disable('textview');
             }
 
-        } //key_t
+        }
 
-    } //onkeyup
+    }
 
 
-} //TileView
+}

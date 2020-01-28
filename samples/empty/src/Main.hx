@@ -13,11 +13,11 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
-    } //ready
+    }
 
     override function onkeyup(event:KeyEvent) {
 
@@ -25,10 +25,10 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(delta:Float) {
 
-    } //update
+    }
 
-} //Main
+}

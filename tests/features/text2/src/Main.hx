@@ -26,7 +26,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -103,7 +103,7 @@ class Main extends luxe.Game {
             color : new Color(1,1,1,0.5)
         });
 
-    } //ready
+    }
 
     var dragging = false;
     var drag_start : Vector;
@@ -113,7 +113,7 @@ class Main extends luxe.Game {
 
         dragging = false;
 
-    } //onmouseup
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -136,9 +136,9 @@ class Main extends luxe.Game {
             // since it's clip space, it should be transformed internally.
             // text.geometry.clip_rect = text.bounds;
 
-        } //dragging
+        }
 
-    } //onmousemove
+    }
 
     override function onmousedown( e:MouseEvent ) {
 
@@ -156,7 +156,7 @@ class Main extends luxe.Game {
             }
         } //!dragging
 
-    } //onmousedown
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -239,14 +239,14 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
-    } //update
+    }
 
 
-} //Main
+}
 
 
 
@@ -325,7 +325,7 @@ class CameraDrag extends Component {
 
                 pos.set_xy(drag_start_pos.x - diffx, drag_start_pos.y - diffy);
 
-        } //draggable
-    } //onmousemove
+        }
+    }
 
-} //CameraDrag
+}

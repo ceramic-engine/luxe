@@ -8,7 +8,7 @@ class Main extends luxe.Game {
 
         Luxe.showConsole( true );
 
-    } //ready
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -16,7 +16,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update( dt:Float ) {
 
@@ -32,7 +32,7 @@ class Main extends luxe.Game {
             trace('key R is down');
         }
 
-    } //update
+    }
 
 
-} //Main
+}

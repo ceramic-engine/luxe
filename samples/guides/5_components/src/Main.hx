@@ -24,7 +24,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
     override function ready() {
@@ -47,13 +47,13 @@ class Main extends luxe.Game {
             point_size : 20
         });
 
-    } //ready
+    }
 
     override function update(dt:Float) {
             //Update the text each frame
         delta_time_text.text = 'dt : ' + dt + '\n average : ' + Luxe.debug.dt_average;
 
-    } //update
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
@@ -62,7 +62,7 @@ class Main extends luxe.Game {
 
             rotator.rotate_speed = new_speed;
 
-    } //onmousemove
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -70,7 +70,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

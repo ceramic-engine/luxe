@@ -52,7 +52,7 @@ class QuadPackGeometry extends Geometry {
 
         quads = new Map();
 
-    } //new
+    }
 
     public function clear() {
 
@@ -60,7 +60,7 @@ class QuadPackGeometry extends Geometry {
             quad_remove( q );
         }
 
-    } //clear
+    }
 
     public function quad_add( _options:PackedQuadOptions ) : Int {
 
@@ -121,7 +121,7 @@ class QuadPackGeometry extends Geometry {
 
         return _uid;
 
-    } //add_quad
+    }
 
     public function quad_remove( _quad_id:Int ) {
 
@@ -141,9 +141,9 @@ class QuadPackGeometry extends Geometry {
                 //for locked geometry
             dirty = true;
 
-        } //_quad
+        }
 
-    } //quad_remove
+    }
 
     public function quad_visible( _quad_id:Int, visible:Bool ) {
 
@@ -174,14 +174,14 @@ class QuadPackGeometry extends Geometry {
                 remove( _quad.verts[4] );
                 remove( _quad.verts[5] );
 
-            } //visible
+            }
 
                 //for locked geometry
             dirty = true;
 
-        } //_quad
+        }
 
-    } //quad_visible
+    }
 
     public function quad_resize( _quad_id:Int, _size : Rectangle ) {
 
@@ -200,9 +200,9 @@ class QuadPackGeometry extends Geometry {
                 //for locked geometry
             dirty = true;
 
-        } //_quad
+        }
 
-    } //remove_quad
+    }
 
     public function quad_pos( _quad_id:Int, _p:Vector ) {
 
@@ -236,7 +236,7 @@ class QuadPackGeometry extends Geometry {
 
         } //_quad != null
 
-    } //quad_pos
+    }
 
     public function quad_color( _quad_id:Int, _c:Color ) {
 
@@ -251,7 +251,7 @@ class QuadPackGeometry extends Geometry {
             _quad.verts[5].color = _c;
         } //_quad != null
 
-    } //quad_color
+    }
 
     public function quad_alpha( _quad_id:Int, _a:Float ) {
 
@@ -266,7 +266,7 @@ class QuadPackGeometry extends Geometry {
             _quad.verts[5].color.a = _a;
         } //_quad != null
 
-    } //quad_alpha
+    }
 
     public function quad_uv_space( _quad_id:Int, _uv : Rectangle ) {
 
@@ -314,7 +314,7 @@ class QuadPackGeometry extends Geometry {
                         br_y = tr_y;
                         tr_y = tmp_y;
 
-                } //flipy
+                }
 
                     //flipped x swaps tl and bl with tr and br, only on x
                 if(flipx) {
@@ -329,7 +329,7 @@ class QuadPackGeometry extends Geometry {
                         br_x = bl_x;
                         bl_x = tmp_x;
 
-                } //flipx
+                }
 
             _quad.verts[0].uv.uv0.set_uv( tl_x , tl_y );
             _quad.verts[1].uv.uv0.set_uv( tr_x , tr_y );
@@ -344,7 +344,7 @@ class QuadPackGeometry extends Geometry {
 
         } //_quad != null
 
-    } //quad_uv_space
+    }
 
     public function quad_uv( _quad_id:Int, _uv : Rectangle ) {
 
@@ -360,7 +360,7 @@ class QuadPackGeometry extends Geometry {
 
         quad_uv_space( _quad_id, new luxe.Rectangle( tlx, tly, szx, szy ) );
 
-    } //quad_uv
+    }
 
     public function quad_flipx( _quad_id:Int, _flip:Bool ) {
 
@@ -371,7 +371,7 @@ class QuadPackGeometry extends Geometry {
             quad_uv_space( _quad_id, _quad._uv_cache );
         } //_quad != null
 
-    } //quad_flipx
+    }
 
     public function quad_flipy( _quad_id:Int, _flip:Bool ) {
 
@@ -382,6 +382,6 @@ class QuadPackGeometry extends Geometry {
             quad_uv_space( _quad_id, _quad._uv_cache );
         } //_quad != null
 
-    } //quad_flipy
+    }
 
-} //QuadPackGeometry
+}

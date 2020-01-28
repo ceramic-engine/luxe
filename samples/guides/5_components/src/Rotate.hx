@@ -24,6 +24,6 @@ class Rotate extends Component {
             //changes to the transform inside of components affect the entity directly!
         sprite.rotation_z += rotate_speed * dt;
 
-    } //update
+    }
 
-} //Rotate
+}

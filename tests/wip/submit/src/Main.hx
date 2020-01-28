@@ -19,7 +19,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     var mesh : luxe.Mesh;
     var nodes : Array<Matrix>;
@@ -69,7 +69,7 @@ class Main extends luxe.Game {
 
         mesh.geometry.shader = Luxe.resources.shader('object_shader');
 
-    } //ready
+    }
 
     override function onpostrender() {
 
@@ -80,7 +80,7 @@ class Main extends luxe.Game {
             Luxe.renderer.batcher.submit_geometry(mesh.geometry);
         }
 
-    } //onrender
+    }
 
     var change = 100;
     var range = 60;
@@ -116,16 +116,16 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
         text.text = '${nodes.length} / $dt';
 
-    } //update
+    }
 
 
-} //Main
+}
 
 
 @:publicFields

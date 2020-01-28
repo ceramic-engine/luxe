@@ -27,7 +27,7 @@ class BatcherDebugView extends luxe.debug.DebugView {
             layer : 1000
         });
 
-    } //create
+    }
 
     public override function refresh() {
         clear_batcher_tree();
@@ -271,4 +271,4 @@ class BatcherDebugView extends luxe.debug.DebugView {
         clear_batcher_tree();
     }
 
-} //BatcherDebugView
+}

@@ -54,7 +54,7 @@ class Debug {
 
         app = _app;
 
-    } //new
+    }
 
 //public API
 
@@ -67,11 +67,11 @@ class Debug {
                 return cast view;
             }
 
-        } //view
+        }
 
         return null;
 
-    } //get_view
+    }
 
     #if !luxe_noprofile
 
@@ -116,7 +116,7 @@ class Debug {
 
         _debug('\t debug initialized.');
 
-    } //init
+    }
 
     function create_debug_console() {
 
@@ -189,7 +189,7 @@ class Debug {
 
         #end //no_debug_console
 
-    } //create_debug_console
+    }
 
     static var debug_batch_tag  = 'batcher.debug_batcher';
     function render() {
@@ -204,11 +204,11 @@ class Debug {
 
                 #if !luxe_noprofile end(debug_batch_tag); #end
 
-            } //visible
+            }
 
         #end
 
-    } //render
+    }
 
 //Trace capturing
 
@@ -242,7 +242,7 @@ class Debug {
 
         tracing = false;
 
-    } //internal_trace
+    }
 
 //Events
 
@@ -252,7 +252,7 @@ class Debug {
                 view.onmouseup(e);
             }
         }
-    } //mouseup
+    }
 
     function mousedown(e:MouseEvent) {
         if(visible) {
@@ -260,7 +260,7 @@ class Debug {
                 view.onmousedown(e);
             }
         }
-    } //mousedown
+    }
 
     function mousemove(e:MouseEvent) {
         if(visible) {
@@ -268,7 +268,7 @@ class Debug {
                 view.onmousemove(e);
             }
         }
-    } //mousemove
+    }
 
     function mousewheel(e:MouseEvent) {
         if(visible) {
@@ -276,7 +276,7 @@ class Debug {
                 view.onmousewheel(e);
             }
         }
-    } //mousewheel
+    }
 
    function touchup(e:TouchEvent) {
         if(visible) {
@@ -284,7 +284,7 @@ class Debug {
                 view.ontouchup(e);
             }
         }
-    } //touchup
+    }
 
     function touchdown(e:TouchEvent) {
 
@@ -310,7 +310,7 @@ class Debug {
                 view.ontouchdown(e);
             }
         }
-    } //touchdown
+    }
 
     function touchmove(e:TouchEvent) {
         if(visible) {
@@ -318,7 +318,7 @@ class Debug {
                 view.ontouchmove(e);
             }
         }
-    } //touchmove
+    }
 
     function keyup(e:KeyEvent) {
 
@@ -326,7 +326,7 @@ class Debug {
             for(view in views) {
                 view.onkeyup(e);
             }
-        } //visible
+        }
 
         #if profiler
             #if luxe_native
@@ -338,7 +338,7 @@ class Debug {
             #end //luxe_native
         #end //profiler
 
-    } //keyup
+    }
 
     function keydown(e:KeyEvent) {
 
@@ -368,7 +368,7 @@ class Debug {
             #end //luxe_native
         #end //profiler
 
-    } //keydown
+    }
 
     function refresh() {
 
@@ -376,7 +376,7 @@ class Debug {
             current_view.refresh();
         }
 
-    } //refresh
+    }
 
         /** programmatically switch the debug console view. currently cycles the view. */
     @:noCompletion public function switch_view() {
@@ -399,7 +399,7 @@ class Debug {
             //show the new one
         current_view.show();
 
-    } //switch_view
+    }
 
     var last_cursor_grab : Bool = false;
 
@@ -430,11 +430,11 @@ class Debug {
             current_view.hide();
             inspector.hide();
 
-        } //visible
+        }
 
         return visible;
 
-    } //set_visible
+    }
 
     function destroy() {
 
@@ -448,7 +448,7 @@ class Debug {
         _debug('\t debug shut down.');
         shut_down = true;
 
-    } //destroy
+    }
 
     function process() {
 
@@ -472,7 +472,7 @@ class Debug {
             view.process();
         }
 
-    } //process
+    }
 
-} //Debug
+}
 

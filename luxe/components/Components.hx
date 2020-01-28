@@ -20,7 +20,7 @@ import luxe.Log._verbose;
         components = new OrderedMap(_map);
         entity = _entity;
 
-    } //new
+    }
 
     public function destroy() {
 
@@ -80,7 +80,7 @@ import luxe.Log._verbose;
 
         return components.remove(_name);
 
-    } //remove
+    }
 
     public function get<T>(_name:String, ?in_children:Bool = false ) : T {
 
@@ -109,7 +109,7 @@ import luxe.Log._verbose;
 
                 if(found != null) {
                     return cast found;
-                } //found
+                }
 
             } //for each child
 
@@ -119,7 +119,7 @@ import luxe.Log._verbose;
 
         return null;
 
-    } //get
+    }
 
     public function get_any<T>(_name:String, ?in_children:Bool = false, ?first_only:Bool = true ) : Array<T> {
 
@@ -160,7 +160,7 @@ import luxe.Log._verbose;
                         results.concat(found);
                     } //append to the list
 
-                } //found
+                }
 
             } //for each child
 
@@ -168,10 +168,10 @@ import luxe.Log._verbose;
 
         return results;
 
-    } //get_any
+    }
 
     public function has(_name:String) : Bool {
         return components.exists(_name);
-    } //has
+    }
 
-} //Components
+}

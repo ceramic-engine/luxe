@@ -41,7 +41,7 @@ class TexturePackerJSON {
                 json_type = TexturePackerJSONType.array;
             }
 
-        } //json_type
+        }
 
         luxe.Log._verbose("Parsing json with type : " + json_type);
 
@@ -52,7 +52,7 @@ class TexturePackerJSON {
             case array: {
                 frames = parse_frames_array( json.frames );
             }
-        } //json_type
+        }
 
             //for now, sort the frames by name
         frames.sort( function(a:TexturePackerFrame, b:TexturePackerFrame) {
@@ -61,7 +61,7 @@ class TexturePackerJSON {
 
         return new TexturePackerData(meta, frames);
 
-    } //parse
+    }
 
     static function parse_frame( name:String, json:Dynamic ) {
 
@@ -86,7 +86,7 @@ class TexturePackerJSON {
             origin              : new luxe.Vector(_sourceSize.w - _spriteSourceSize.w, _sourceSize.h - _spriteSourceSize.h)
         };
 
-    } //parse_frame
+    }
 
     static function parse_frames_hash( json:Dynamic ) {
 
@@ -105,7 +105,7 @@ class TexturePackerJSON {
 
         return _results;
 
-    } //parse_frames_hash
+    }
 
     static function parse_frames_array( json:Dynamic ) {
 
@@ -124,7 +124,7 @@ class TexturePackerJSON {
 
         return _results;
 
-    } //parse_frames_array
+    }
 
     static function parse_meta( json:Dynamic ) : TexturePackerMeta {
 
@@ -146,7 +146,7 @@ class TexturePackerJSON {
             scale   : Std.parseFloat(_scale)
         };
 
-    } //parse_meta
+    }
 
     static function parse_rect( json:Dynamic ) : TexturePackerRect {
 
@@ -159,7 +159,7 @@ class TexturePackerJSON {
 
         return { x:_x, y:_y, w:_w, h:_h };
 
-    } //parse_rect
+    }
 
     static function parse_size( json:Dynamic ) : TexturePackerSize {
 
@@ -170,6 +170,6 @@ class TexturePackerJSON {
 
         return { w:_w, h:_h };
 
-    } //parse_rect
+    }
 
-} //TexturePackerJSON
+}

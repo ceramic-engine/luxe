@@ -60,7 +60,7 @@ class Heap<T> {
 
         compare = _compare;
 
-    } //new
+    }
 
     /**
         The heap's front item.

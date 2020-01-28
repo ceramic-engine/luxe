@@ -106,7 +106,7 @@ class Batcher {
         renderer.stats.batchers++;
         all.push(this);
 
-    } //new
+    }
 
 //Public function
     inline
@@ -148,7 +148,7 @@ class Batcher {
             // trace("Warning : Attempting to add geometry to the same batcher twice. " + _geom);
         }
 
-    } //add
+    }
 
         /** Drop all the geometry within this batcher, emptying it out. */
     public function empty( _drop:Bool=true ) {
@@ -164,7 +164,7 @@ class Batcher {
             }
         }
 
-    } //empty
+    }
 
         /** Destroy this batcher.
             Drops all the geometry within it (empty).
@@ -194,7 +194,7 @@ class Batcher {
 
         all.remove(this);
 
-    } //destroy
+    }
 
     public function remove( _geom:Geometry, ?_remove_batcher_from_geometry:Bool = true ) {
 
@@ -203,7 +203,7 @@ class Batcher {
             if(_geom.batchers.length == 0) {
                 _geom.added = false;
             }
-        } //_remove_batcher_from_geometry
+        }
 
         var countbefore = geometry.size();
 
@@ -218,7 +218,7 @@ class Batcher {
 
         tree_changed = true;
 
-    } //remove
+    }
 
         //Run the batcher over the current list of geometry
         //and submit it to the graphics card for drawing
@@ -346,7 +346,7 @@ class Batcher {
 
         prune();
 
-    } //batch
+    }
 
     inline function prune() {
 
@@ -360,7 +360,7 @@ class Batcher {
             _dropped = [];
         }
 
-    } //prune
+    }
 
     inline
     public function draw( ?persist_immediate:Bool = false ) {
@@ -389,7 +389,7 @@ class Batcher {
 
         #if !luxe_noprofile if(name != '') Luxe.debug.end(name); #end
 
-    } //draw
+    }
 
     @:noCompletion
     inline
@@ -403,7 +403,7 @@ class Batcher {
             //Set the viewport to the view
         renderer.state.viewport(view.viewport.x, view.viewport.y, view.viewport.w, view.viewport.h);
 
-    } //update_view
+    }
 
     @:noCompletion
     inline
@@ -448,7 +448,7 @@ class Batcher {
         _stats.draw_calls++;
         _stats.vert_count += _length;
 
-    } //submit_geometry
+    }
 
     // inline
     @:noCompletion
@@ -491,7 +491,7 @@ class Batcher {
 
         draw_calls++;
 
-    } //submit_buffers
+    }
 
     @:noCompletion
     inline
@@ -522,7 +522,7 @@ class Batcher {
 
         return true;
 
-    } //submit_static_geometry
+    }
 
     @:noCompletion
     inline
@@ -560,7 +560,7 @@ class Batcher {
 
         return true;
 
-    } //submit_current_vertex_list
+    }
 
 //Batch related helper functions
 
@@ -595,7 +595,7 @@ class Batcher {
         color_floats     += _length;
         normal_floats    += _length;
 
-    } //geometry_batch
+    }
 
 
 //Internal
@@ -610,7 +610,7 @@ class Batcher {
             //return value
         return layer;
 
-    } //set_layer
+    }
 
     inline
     function toString() {
@@ -626,7 +626,7 @@ class Batcher {
 
         return 1;
 
-    } //compare
+    }
 
     function compare_rule_to_string(r:Int) : String {
         return switch(r) {
@@ -659,7 +659,7 @@ class Batcher {
 
         }
 
-    } //compare_rule_to_string
+    }
 
     function compare_rule( a:GeometryKey, b:GeometryKey ) : Int {
 
@@ -730,7 +730,7 @@ class Batcher {
                 return 14;
             }
 
-        } //clippin
+        }
 
             //if all else is indistinguishable,
             //make sure older geometry is before
@@ -750,7 +750,7 @@ class Batcher {
             //otherwise push down the list because wtf
         return 20;
 
-    } //compare_rule
+    }
 
     function geometry_compare( a:GeometryKey, b:GeometryKey ) : Int {
 
@@ -829,7 +829,7 @@ class Batcher {
                 return -1;
             }
 
-        } //clippin
+        }
 
             //if all else is indistinguishable,
             //make sure older geometry is before
@@ -846,7 +846,7 @@ class Batcher {
             //otherwise push down the list because wtf
         return 1;
 
-    } //geometry_compare
+    }
 
     function list_geometry() {
         for(geom in geometry) {
@@ -869,7 +869,7 @@ class Batcher {
     public static inline var color_attribute  : Int = 2;
     public static inline var normal_attribute : Int = 3;
 
-} //Batcher
+}
 
 
 @:enum abstract PrimitiveType(Int) from Int to Int {
@@ -883,7 +883,7 @@ class Batcher {
     var triangle_fan    = GL.TRIANGLE_FAN;
     var points          = GL.POINTS;
 
-} //PrimitiveType
+}
 
 @:enum abstract BlendMode(Int) from Int to Int {
 
@@ -899,7 +899,7 @@ class Batcher {
     var one_minus_dst_color     = GL.ONE_MINUS_DST_COLOR;
     var src_alpha_saturate      = GL.SRC_ALPHA_SATURATE;
 
-} //BlendMode
+}
 
 @:enum abstract BlendEquation(Int) from Int to Int {
 
@@ -907,7 +907,7 @@ class Batcher {
     var subtract               = GL.FUNC_SUBTRACT;
     var reverse_subtract       = GL.FUNC_REVERSE_SUBTRACT;
 
-} //BlendEquation
+}
 
 @:enum abstract BatcherEventType(Int) from Int to Int {
 
@@ -915,5 +915,5 @@ class Batcher {
     var prerender   = 1;
     var postrender  = 2;
 
-} //BatcherEventType
+}
 

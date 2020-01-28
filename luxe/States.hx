@@ -23,25 +23,25 @@ class State extends ID {
 
         super( _options.name );
 
-    } //_name
+    }
 
     public function enable<T>( ?_enable_with:T ) {
 
         machine.enable( name, _enable_with );
 
-    } //enable
+    }
 
     public function disable<T>( ?_disable_with:T ) {
 
         machine.disable( name, _disable_with );
 
-    } //disable
+    }
 
     public function destroy() {
 
         machine.kill( name );
 
-    } //destroy
+    }
 
         //critical events
     public function init() {}
@@ -101,10 +101,10 @@ class State extends ID {
             inited = true;
             init();
         }
-    } //_init
+    }
 
 
-} //State
+}
 
 class States extends Objects {
 
@@ -163,7 +163,7 @@ class States extends Objects {
         Luxe.core.on(Ev.windowminimized, windowminimized);
         Luxe.core.on(Ev.windowrestored, windowrestored);
 
-    } //new
+    }
 
     var _state_count:Int = 0;
     public function add<T:State>( _state:T ) : T {
@@ -187,7 +187,7 @@ class States extends Objects {
 
         return _state;
 
-    } //add
+    }
 
     public function remove<T:State, T1>( _name:String, ?_leave_with:T1 ) : T {
 
@@ -224,11 +224,11 @@ class States extends Objects {
 
             return _state;
 
-        } //remove
+        }
 
         return null;
 
-    } //remove
+    }
 
     public function kill( _name:String ) {
 
@@ -241,7 +241,7 @@ class States extends Objects {
             }
         }
 
-    } //kill
+    }
 
     public function enabled( _name:String ) {
         if(_state_count == 0) return false;
@@ -254,7 +254,7 @@ class States extends Objects {
 
         return false;
 
-    } //enabled
+    }
 
     public function enable<T>( _name:String, ?_enable_with:T ) {
         if(_state_count == 0) return;
@@ -269,7 +269,7 @@ class States extends Objects {
             active_count++;
             _debug('$name / now at ${active_states.length} active states');
         }
-    } //enable
+    }
 
     public function disable<T>( _name:String, ?_disable_with:T  ) {
         if(_state_count == 0) return;
@@ -284,7 +284,7 @@ class States extends Objects {
             active_count--;
             _debug('$name / now at ${active_states.length} active states');
         }
-    } //disable
+    }
 
     function enter<T>( _state:State, ?_enter_with:T ) {
 
@@ -294,7 +294,7 @@ class States extends Objects {
         active_count++;
         _state.active = true;
 
-    } //enter
+    }
 
     function leave<T>( _state:State, ?_leave_with:T ) {
 
@@ -304,7 +304,7 @@ class States extends Objects {
         active_count--;
         _state.onleave( _leave_with );
 
-    } //leave
+    }
 
         /** Change the actively set state. */
     public function set<T1,T2>(name:String, ?_enter_with:T1, ?_leave_with:T2 #if luxe_state_pos, ?pos:haxe.PosInfos #end ) : Bool {
@@ -334,7 +334,7 @@ class States extends Objects {
 
         return true;
 
-    } //set
+    }
 
         /** Exit the actively set state. */
     public function unset<T>( ?_leave_with:T ) {
@@ -352,7 +352,7 @@ class States extends Objects {
 
         } //current_state != null
 
-    } //unset
+    }
 
     public function destroy() {
 
@@ -399,7 +399,7 @@ class States extends Objects {
 
         emit(Ev.destroy);
 
-    } //destroy
+    }
 
     //entity router functions
     function init(_) {
@@ -408,7 +408,7 @@ class States extends Objects {
                 state._init();
             }
         }
-    } //init
+    }
 
     function reset(_) {
         if(active_count > 0) {
@@ -416,7 +416,7 @@ class States extends Objects {
                 state.onreset();
             }
         }
-    } //reset
+    }
 
     function update(dt:Float) {
         if(active_count > 0) {
@@ -425,13 +425,13 @@ class States extends Objects {
                 state.update(dt);
             }
         }
-    } //update
+    }
 
     function ondestroy(_) {
 
         destroy();
 
-    } //ondestroy
+    }
 
     function render(_) {
         if(active_count > 0) {
@@ -439,7 +439,7 @@ class States extends Objects {
                 state.onrender();
             }
         }
-    } //render
+    }
 
     function prerender(_) {
         if(active_count > 0) {
@@ -447,7 +447,7 @@ class States extends Objects {
                 state.onprerender();
             }
         }
-    } //prerender
+    }
 
     function postrender(_) {
         if(active_count > 0) {
@@ -455,7 +455,7 @@ class States extends Objects {
                 state.onpostrender();
             }
         }
-    } //postrender
+    }
 
 //Internal helper functions
 
@@ -465,7 +465,7 @@ class States extends Objects {
                 state.onkeydown(_event);
             }
         }
-    } //onkeydown
+    }
 
     function keyup(_event:KeyEvent) {
         if(active_count > 0) {
@@ -473,7 +473,7 @@ class States extends Objects {
                 state.onkeyup(_event);
             }
         }
-    } //onkeyup
+    }
 
     function textinput(_event:TextEvent) {
         if(active_count > 0) {
@@ -481,7 +481,7 @@ class States extends Objects {
                 state.ontextinput(_event);
             }
         }
-    } //ontextinput
+    }
 
 //inputbindings
 
@@ -491,7 +491,7 @@ class States extends Objects {
                 state.oninputup(_event);
             }
         }
-    } //oninputup
+    }
 
     function inputdown(_event:InputEvent) {
         if(active_count > 0) {
@@ -499,7 +499,7 @@ class States extends Objects {
                 state.oninputdown(_event);
             }
         }
-    } //oninputdown
+    }
 
 //mouse
 
@@ -509,7 +509,7 @@ class States extends Objects {
                 state.onmousedown(_event);
             }
         }
-    } //onmousedown
+    }
 
     function mousewheel(_event:MouseEvent) {
         if(active_count > 0) {
@@ -517,7 +517,7 @@ class States extends Objects {
                 state.onmousewheel(_event);
             }
         }
-    } //onmousewheel
+    }
 
     function mouseup(_event:MouseEvent) {
         if(active_count > 0) {
@@ -525,7 +525,7 @@ class States extends Objects {
                 state.onmouseup(_event);
             }
         }
-    } //onmouseup
+    }
 
     function mousemove(_event:MouseEvent) {
         if(active_count > 0) {
@@ -533,7 +533,7 @@ class States extends Objects {
                 state.onmousemove(_event);
             }
         }
-    } //onmousemove
+    }
 
 //touch
 
@@ -543,7 +543,7 @@ class States extends Objects {
                 state.ontouchdown(_event);
             }
         }
-    } //ontouchdown
+    }
 
     function touchup(_event:TouchEvent) {
         if(active_count > 0) {
@@ -551,7 +551,7 @@ class States extends Objects {
                 state.ontouchup(_event);
             }
         }
-    } //ontouchup
+    }
 
     function touchmove(_event:TouchEvent) {
         if(active_count > 0) {
@@ -559,7 +559,7 @@ class States extends Objects {
                 state.ontouchmove(_event);
             }
         }
-    } //ontouchmove
+    }
 
 //gamepad
 
@@ -569,7 +569,7 @@ class States extends Objects {
                 state.ongamepadaxis(_event);
             }
         }
-    } //ongamepadaxis
+    }
 
     function gamepadup(_event:GamepadEvent) {
         if(active_count > 0) {
@@ -577,7 +577,7 @@ class States extends Objects {
                 state.ongamepadup(_event);
             }
         }
-    } //ongamepadup
+    }
 
     function gamepaddown(_event:GamepadEvent) {
         if(active_count > 0) {
@@ -585,7 +585,7 @@ class States extends Objects {
                 state.ongamepaddown(_event);
             }
         }
-    } //ongamepaddown
+    }
 
     function gamepaddevice(_event:GamepadEvent) {
         if(active_count > 0) {
@@ -593,7 +593,7 @@ class States extends Objects {
                 state.ongamepaddevice(_event);
             }
         }
-    } //ongamepaddevice
+    }
 
 //windowing
 
@@ -603,7 +603,7 @@ class States extends Objects {
                 state.onwindowmoved(_event);
             }
         }
-    } //windowmoved
+    }
 
     function windowresized(_event:WindowEvent) {
         if(active_count > 0) {
@@ -611,7 +611,7 @@ class States extends Objects {
                 state.onwindowresized(_event);
             }
         }
-    } //windowresized
+    }
 
     function windowsized(_event:WindowEvent) {
         if(active_count > 0) {
@@ -619,7 +619,7 @@ class States extends Objects {
                 state.onwindowsized(_event);
             }
         }
-    } //windowsized
+    }
 
     function windowminimized(_event:WindowEvent) {
         if(active_count > 0) {
@@ -627,7 +627,7 @@ class States extends Objects {
                 state.onwindowminimized(_event);
             }
         }
-    } //windowminimized
+    }
 
     function windowrestored(_event:WindowEvent) {
         if(active_count > 0) {
@@ -635,7 +635,7 @@ class States extends Objects {
                 state.onwindowrestored(_event);
             }
         }
-    } //windowrestored
+    }
 
 
-} //States
+}

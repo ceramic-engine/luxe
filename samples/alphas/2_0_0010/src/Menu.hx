@@ -65,7 +65,7 @@ class Menu extends luxe.State {
 
             fire = Luxe.resources.audio('assets/181563__kingsrow__fire-crackling-01.ogg');
 
-        } //create_sound
+        }
 
         inline function create_particles( pos:Vector ) {
 
@@ -128,7 +128,7 @@ class Menu extends luxe.State {
             glowing.on(prerender, function(_){ Luxe.renderer.blend_mode(BlendMode.src_alpha, BlendMode.one); });
             glowing.on(postrender, function(_){ Luxe.renderer.blend_mode(); });
 
-        } //create_particles
+        }
 
         inline function create_title() {
 
@@ -155,7 +155,7 @@ class Menu extends luxe.State {
             });
 
 
-        } //create_title
+        }
 
         inline function create_background() {
 
@@ -169,7 +169,7 @@ class Menu extends luxe.State {
                 pos: new Vector(Luxe.screen.mid.x, Luxe.screen.h - (54/2)),
             });
 
-        } //create_background
+        }
 
         inline function create_items() {
 
@@ -206,7 +206,7 @@ class Menu extends luxe.State {
 
             } //each item_list
 
-        } //create_items
+        }
 
         create_particles( left_fire );
         create_particles( right_fire );
@@ -215,7 +215,7 @@ class Menu extends luxe.State {
         create_items();
         create_sound();
 
-    } //new
+    }
 
     function select_item( item:Text ) {
 
@@ -241,7 +241,7 @@ class Menu extends luxe.State {
 
         active_item = item;
 
-    } //select_item
+    }
 
     override function init() {
 
@@ -250,7 +250,7 @@ class Menu extends luxe.State {
         stones_top.color.a = 0;
         stones_bottom.color.a = 0;
 
-    } //init
+    }
 
 
     override function onenter<T>(_:T) {
@@ -304,7 +304,7 @@ class Menu extends luxe.State {
             //play the sound
         fire_sound = Luxe.audio.loop(fire.source);
 
-    } //onenter
+    }
 
     override function onleave<T>(_:T) {
 
@@ -337,7 +337,7 @@ class Menu extends luxe.State {
         stones_top.color.tween(0.3, {a:0});
         stones_bottom.color.tween(0.3, {a:0});
 
-    } //onenter
+    }
 
 
     var input_ready : Bool = false;
@@ -353,7 +353,7 @@ class Menu extends luxe.State {
             } //if mouse inside
         } //each menu item
 
-    } //onmouseup
+    }
 
     override function onmousemove(e:MouseEvent) {
         if(!input_ready) return;
@@ -364,7 +364,7 @@ class Menu extends luxe.State {
             } //if mouse inside
         } //each menu item
 
-    } //onmousemove
+    }
 
     override function update( dt:Float ) {
 
@@ -375,7 +375,7 @@ class Menu extends luxe.State {
             active_item.glow_amount = glow_amount;
         }
 
-    } //update
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -384,7 +384,7 @@ class Menu extends luxe.State {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Menu
+}

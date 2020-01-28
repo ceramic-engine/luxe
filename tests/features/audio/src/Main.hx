@@ -61,7 +61,7 @@ class Main extends luxe.Game {
 
         }); //load.then
 
-    } //ready
+    }
 
     function create_controls() {
 
@@ -203,7 +203,7 @@ class Main extends luxe.Game {
 
         } //dragging != null
 
-    } //onmousemove
+    }
 
     override function onmouseup( e:MouseEvent ) {
 
@@ -260,7 +260,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
 
-} //Main
+}

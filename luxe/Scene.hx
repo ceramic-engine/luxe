@@ -88,7 +88,7 @@ class Scene extends Objects {
             _view.add_scene(this);
         }
 
-    } //new
+    }
 
     @:allow(luxe.Entity)
     inline function handle_duplicate_warning(_name:String) {
@@ -117,16 +117,16 @@ class Scene extends Objects {
             if(inited) {
                 _debug('adding a delayed entity to init list ' + entity.name);
                 _delayed_init_entities.push(entity);
-            } //inited
+            }
 
             if(started) {
                 _debug('adding a delayed entity to reset list ' + entity.name);
                 _delayed_reset_entities.push(entity);
-            } //started
+            }
 
         _has_changed = true;
 
-    } //add
+    }
 
         /** removes given entity from this scene */
     public function remove( entity:Entity ) : Bool {
@@ -151,13 +151,13 @@ class Scene extends Objects {
 
         return false;
 
-    } //remove
+    }
 
     public inline function get<T:(Entity)>(_name:String) : T {
 
         return cast entities.get(_name);
 
-    } //get
+    }
 
         /** Destroy all entities in this scene.
             There is one exception: If `entity == Luxe.camera`,
@@ -188,7 +188,7 @@ class Scene extends Objects {
             #end
         } //entity_count > 0
 
-    } //empty
+    }
 
         /**
             Return a list of similarly named entities in the scene.
@@ -213,7 +213,7 @@ class Scene extends Objects {
 
         return into;
 
-    } //get_named_like
+    }
 
 //render
 
@@ -221,19 +221,19 @@ class Scene extends Objects {
 
         emit(Ev.render);
 
-    } //render
+    }
 
     function prerender(_) {
 
         emit(Ev.prerender);
 
-    } //prerender
+    }
 
     function postrender(_) {
 
         emit(Ev.postrender);
 
-    } //postrender
+    }
 
 //Keys
 
@@ -243,7 +243,7 @@ class Scene extends Objects {
 
         emit(Ev.keydown, e);
 
-    } //keydown
+    }
 
     function keyup(e:KeyEvent) {
 
@@ -251,7 +251,7 @@ class Scene extends Objects {
 
         emit(Ev.keyup, e);
 
-    } //keyup
+    }
 
     function textinput(e:TextEvent) {
 
@@ -259,7 +259,7 @@ class Scene extends Objects {
 
         emit(Ev.textinput, e);
 
-    } //textinput
+    }
 
 //Mouse
 
@@ -269,7 +269,7 @@ class Scene extends Objects {
 
         emit(Ev.mousedown, e);
 
-    } //onmousedown
+    }
 
     function mousewheel(e:MouseEvent) {
 
@@ -277,7 +277,7 @@ class Scene extends Objects {
 
         emit(Ev.mousewheel, e);
 
-    } //onmousewheel
+    }
 
     function mouseup(e:MouseEvent) {
 
@@ -285,7 +285,7 @@ class Scene extends Objects {
 
         emit(Ev.mouseup, e);
 
-    } //onmouseup
+    }
 
     function mousemove(e:MouseEvent) {
 
@@ -293,7 +293,7 @@ class Scene extends Objects {
 
         emit(Ev.mousemove, e);
 
-    } //onmousemove
+    }
 
 //Touch
 
@@ -301,19 +301,19 @@ class Scene extends Objects {
 
         emit(Ev.touchdown, event);
 
-    } //ontouchdown
+    }
 
     function touchup( event : TouchEvent ) {
 
         emit(Ev.touchup, event);
 
-    } //ontouchup
+    }
 
     function touchmove( event : TouchEvent ) {
 
         emit(Ev.touchmove, event);
 
-    } //ontouchmove
+    }
 
 //Gamepad
 
@@ -321,25 +321,25 @@ class Scene extends Objects {
 
         emit(Ev.gamepadaxis, event);
 
-    } //gamepadaxis
+    }
 
     function gamepadup( event:GamepadEvent ) {
 
         emit(Ev.gamepadup, event);
 
-    } //gamepadup
+    }
 
     function gamepaddown( event:GamepadEvent ) {
 
         emit(Ev.gamepaddown, event);
 
-    } //gamepaddown
+    }
 
     function gamepaddevice( event:GamepadEvent ) {
 
         emit(Ev.gamepaddevice, event);
 
-    } //gamepaddown
+    }
 
 
 //windowing
@@ -348,31 +348,31 @@ class Scene extends Objects {
 
         emit(Ev.windowmoved, event);
 
-    } //windowmoved
+    }
 
     function windowresized( event:WindowEvent ) {
 
         emit(Ev.windowresized, event);
 
-    } //windowresized
+    }
 
     function windowsized( event:WindowEvent ) {
 
         emit(Ev.windowsized, event);
 
-    } //windowsized
+    }
 
     function windowminimized( event:WindowEvent ) {
 
         emit(Ev.windowminimized, event);
 
-    } //windowminimized
+    }
 
     function windowrestored( event:WindowEvent ) {
 
         emit(Ev.windowrestored, event);
 
-    } //windowrestored
+    }
 
 //Input
 
@@ -380,13 +380,13 @@ class Scene extends Objects {
 
         emit(Ev.inputdown, _event);
 
-    } //inputdown
+    }
 
     function inputup(_event:InputEvent) {
 
         emit(Ev.inputup, _event);
 
-    } //inputup
+    }
 
 //Cleanup
 
@@ -394,7 +394,7 @@ class Scene extends Objects {
 
         destroy();
 
-    } //destroy
+    }
 
     public function destroy() {
 
@@ -446,7 +446,7 @@ class Scene extends Objects {
             _view.remove_scene(this);
         }
 
-    } //destroy
+    }
 
     function _do_init() : Bool {
 
@@ -485,7 +485,7 @@ class Scene extends Objects {
 
         reset();
 
-    } //init
+    }
 
         /** reset this scene, allowing all entities, children and attached components to be notified of the reset */
     public function reset() {
@@ -496,7 +496,7 @@ class Scene extends Objects {
 
         started = true;
 
-    } //reset
+    }
 
     function update(dt:Float) {
 
@@ -518,7 +518,7 @@ class Scene extends Objects {
 
         #if !luxe_noprofile Luxe.core.debug.end('scene.' + name); #end
 
-    } //update
+    }
 
     function handle_delayed_additions() {
 
@@ -550,19 +550,19 @@ class Scene extends Objects {
             _delayed_reset_entities = [];
         }
 
-    } //handle_delayed_additions
+    }
 
     function get_length() : Int {
 
         return Lambda.count(entities);
 
-    } //get_length
+    }
 
     function toString() {
 
         return 'luxe Scene: $name / $length entities / id: $id';
 
-    } //toString
+    }
 
 
-} //Scene
+}

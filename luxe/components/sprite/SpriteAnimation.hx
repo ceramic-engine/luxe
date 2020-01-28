@@ -59,7 +59,7 @@ class SpriteAnimation extends Component {
         animations = new Map();
         uv_cache = new Rectangle();
 
-    } //new
+    }
 
 //component
 
@@ -72,7 +72,7 @@ class SpriteAnimation extends Component {
 
     override function init() {
 
-    } //init
+    }
 
 //public playback API :todo: these are a bit odd.
 
@@ -82,21 +82,21 @@ class SpriteAnimation extends Component {
         frame = 1;
         play();
 
-    } //restart
+    }
 
         /** Play/resume playback. */
     public function play() : Void {
 
         playing = true;
 
-    } //play
+    }
 
         /** Stop/pause playback. Does not (currently) reset the animation to frame 1. */
     public function stop() : Void {
 
         playing = false;
 
-    } //stop
+    }
 
 
 //public animation data API
@@ -106,7 +106,7 @@ class SpriteAnimation extends Component {
 
         animations.set(_data.name, _data);
 
-    } //add_from_anim_data
+    }
 
         /** Add an animation object from a string containing JSON data. */
     public function add_from_json_object( _json_object : Dynamic ) : Void {
@@ -133,7 +133,7 @@ class SpriteAnimation extends Component {
 
         }
 
-    } //add_from_json_object
+    }
 
         /** Add an animation object from a string containing JSON data. */
     public function add_from_json( _json_string : String ) : Void {
@@ -144,7 +144,7 @@ class SpriteAnimation extends Component {
             //and add directly
         add_from_json_object( _json_object );
 
-    } //add_from_json
+    }
 
 //public event api
 
@@ -176,7 +176,7 @@ class SpriteAnimation extends Component {
             log('${entity.name} / $animation requested an event to be added, but that animation is not found in the `$name` component');
         }
 
-    } //remove_event
+    }
 
         /** Remove all events from a frame */
     public function remove_events( _animation:String, _image_frame:Int) : Void {
@@ -193,7 +193,7 @@ class SpriteAnimation extends Component {
             log('${entity.name} / $animation requested an event to be removed, but that animation is not found in the `$name` component');
         }
 
-    } //remove_events
+    }
 
     public function add_event( _animation:String, _image_frame:Int, _event:String='' ) : Void {
 
@@ -234,7 +234,7 @@ class SpriteAnimation extends Component {
 
         } //
 
-    } //add_event
+    }
 
 //Internal
 
@@ -313,7 +313,7 @@ class SpriteAnimation extends Component {
 
         } //time?
 
-    } //update
+    }
 
         //sync the state to the sprite itself
     function refresh_sprite() : Void {
@@ -354,7 +354,7 @@ class SpriteAnimation extends Component {
 
         }
 
-    } //refresh_sprite
+    }
 
 //properties
 
@@ -362,7 +362,7 @@ class SpriteAnimation extends Component {
 
         return frame;
 
-    } //get_frame
+    }
 
     function set_frame( _frame:Int ) : Int {
 
@@ -386,13 +386,13 @@ class SpriteAnimation extends Component {
 
         return frame;
 
-    } //set_frame
+    }
 
     inline function get_speed() : Float {
 
         return speed;
 
-    } //get_speed
+    }
 
     function set_speed( _speed:Float ) : Float {
 
@@ -404,13 +404,13 @@ class SpriteAnimation extends Component {
 
         return speed = _speed;
 
-    } //set_speed
+    }
 
     inline function get_animation() : String {
 
         return animation;
 
-    } //get_animation
+    }
 
     function set_animation( _name:String ) : String {
 
@@ -432,7 +432,7 @@ class SpriteAnimation extends Component {
 
         return animation = _name;
 
-    } //set_animation
+    }
 
 //internal
 
@@ -460,7 +460,7 @@ class SpriteAnimation extends Component {
 
         } //each event
 
-    } //emit_frame_events
+    }
 
     inline function emit_anim_event(_name:String) {
         var _event_emit_name = 'animation.$animation.$_name';
@@ -474,7 +474,7 @@ class SpriteAnimation extends Component {
     }
 
 
-} //SpriteAnimation
+}
 
 
 
@@ -598,7 +598,7 @@ class SpriteAnimationData {
                 } else {
                     _pingpong = false;
                 }
-            } //_json_pingpong
+            }
 
         //loop
         var _loop : Bool = false;
@@ -608,7 +608,7 @@ class SpriteAnimationData {
                 } else {
                     _loop = false;
                 }
-            } //_json_loop
+            }
 
         //_reverse
         var _reverse : Bool = false;
@@ -618,7 +618,7 @@ class SpriteAnimationData {
                 } else {
                     _reverse = false;
                 }
-            } //_json_loop
+            }
 
         //speed
         var _speed : Float = 2;
@@ -686,9 +686,9 @@ class SpriteAnimationData {
                     } //if within the frame image set
                 } //each frameset
 
-            } //_images_list
+            }
 
-        } //_json_image_sequence
+        }
 
         pingpong = _pingpong;
         loop = _loop;
@@ -697,7 +697,7 @@ class SpriteAnimationData {
 
         return this;
 
-    } //from_json
+    }
 
     function parse_event_for_frame( _events:Array<SpriteAnimationFrameEvent>, _frame:Int ) : Array<SpriteAnimationFrameEvent> {
 
@@ -713,7 +713,7 @@ class SpriteAnimationData {
 
         return _resulting_events;
 
-    } //parse_event_for_frame
+    }
 
     function parse_source_size_for_frame( _sources:Array<SpriteAnimationFrameSource>, _frame:Int ) : Vector {
 
@@ -727,7 +727,7 @@ class SpriteAnimationData {
 
         return frame_size;
 
-    } //parse_source_size_for_frame
+    }
 
     function parse_source_pos_for_frame( _sources:Array<SpriteAnimationFrameSource>, _frame:Int ) : Vector {
 
@@ -741,7 +741,7 @@ class SpriteAnimationData {
 
         return new Vector();
 
-    } //parse_source_pos_for_frame
+    }
 
     function parse_source_for_frame( _sources:Array<SpriteAnimationFrameSource>, _frame:Int ) : Rectangle {
 
@@ -772,11 +772,11 @@ class SpriteAnimationData {
 
                         result = new Rectangle( image_x, image_y, frame_size.x, frame_size.y );
 
-                    } //animated_uv
+                    }
 
                     default : {}
 
-                } //type
+                }
 
             } //texture != null
 
@@ -788,7 +788,7 @@ class SpriteAnimationData {
 
         } //if explicit source
 
-    } //parse_source_for_frame
+    }
 
     function parse_frame_sources_set( _sources:Array<Dynamic> ) : Array<SpriteAnimationFrameSource> {
 
@@ -841,7 +841,7 @@ class SpriteAnimationData {
 
         return resulting_sources;
 
-    } //parse_frame_sources_set
+    }
 
     function parse_event_set( _events:Array<Dynamic> ) : Array<SpriteAnimationFrameEvent> {
 
@@ -864,7 +864,7 @@ class SpriteAnimationData {
 
         return resulting_events;
 
-    } //parse_event_set
+    }
 
     function parse_frameset_range( _frameset:Array<Int>, regex:EReg, _frame:String ) : Void {
 
@@ -890,7 +890,7 @@ class SpriteAnimationData {
 
         } //_count == 0
 
-    } //parse_frameset_range
+    }
 
     function parse_frameset_hold( _frameset:Array<Int>, regex:EReg, _frame:String ) : Void {
 
@@ -901,7 +901,7 @@ class SpriteAnimationData {
             _frameset.push( _frame_index );
         }
 
-    } //parse_frameset_range
+    }
 
     function parse_frameset_prev_hold( _frameset:Array<Int>, regex:EReg, _frame:String ) : Void {
 
@@ -914,7 +914,7 @@ class SpriteAnimationData {
             _frameset.push( _frame );
         }
 
-    } //parse_frameset_prev_hold
+    }
 
     function parse_frameset_frame( _frameset:Array<Int>, regex:EReg, _frame:String ) : Void {
 
@@ -922,7 +922,7 @@ class SpriteAnimationData {
 
             _frameset.push( _frame );
 
-    } //parse_frameset_frame
+    }
 
     function parse_frameset( _json_frameset:Array<String> ) : Array<Int> {
 
@@ -954,5 +954,5 @@ class SpriteAnimationData {
         return _final_frameset;
     }
 
-} //SpriteAnimationData
+}
 

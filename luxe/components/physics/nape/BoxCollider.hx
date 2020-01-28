@@ -24,7 +24,7 @@ typedef BoxColliderOptions = {
         /** the rotation of the box (in degrees) */
     @:optional var rotation : Float;
 
-} //BoxColliderOptions
+}
 
 class BoxCollider extends NapeBody {
 
@@ -36,7 +36,7 @@ class BoxCollider extends NapeBody {
 
         super(options);
 
-    } //new
+    }
 
     override function onadded() {
 
@@ -49,8 +49,8 @@ class BoxCollider extends NapeBody {
 
         post_add();
 
-    } //onadded
+    }
 
-} //BoxCollider
+}
 
 #end //nape

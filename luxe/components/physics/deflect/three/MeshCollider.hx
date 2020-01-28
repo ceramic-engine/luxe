@@ -29,9 +29,9 @@ package luxe.components.physics.deflect.three;
 
             shape = new BtBvhTriangleMeshShape( mesh_vertices, quantization, build_bvh );
 
-        } //init
+        }
 
-    } //MeshCollider
+    }
 
 
 #end //deflect

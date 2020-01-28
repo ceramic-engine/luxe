@@ -27,7 +27,7 @@ typedef CameraOptions = {
         /** the bounds of the viewport, common to ortho + perspective */
     @:optional var viewport  : Rectangle;
 
-} //CameraOptions
+}
 
     /**Don't like this naming here, tentative. Will have to do for now. */
 typedef LuxeCameraOptions = {
@@ -38,4 +38,4 @@ typedef LuxeCameraOptions = {
         /** Give this luxe entity camera a pre-existing phoenix view camera */
     @:optional var view : phoenix.Camera;
 
-} //LuxeCameraOptions
+}

@@ -86,7 +86,7 @@ import haxe.macro.ExprTools;
 
         return _fields;
 
-    } //apply
+    }
 
 
 
@@ -120,8 +120,8 @@ import haxe.macro.ExprTools;
 
         } //if override
 
-    } //connect_event
+    }
 
 #end //macro
 
-} //EntityRules
+}

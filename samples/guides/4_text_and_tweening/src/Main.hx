@@ -75,7 +75,7 @@ class Main extends luxe.Game {
             //go!
         parcel.load();
 
-    } //ready
+    }
 
     function assets_loaded(_) {
 
@@ -92,7 +92,7 @@ class Main extends luxe.Game {
 
         start();
 
-    } //assets_loaded
+    }
 
     function start() {
 
@@ -108,7 +108,7 @@ class Main extends luxe.Game {
 
         rain_handle = Luxe.audio.loop(rain.source);
 
-    } //start
+    }
 
     function reset() {
 
@@ -123,7 +123,7 @@ class Main extends luxe.Game {
             //start over
         assets_loaded(null);
 
-    } //reset
+    }
 
     function create_overlay() {
 
@@ -140,7 +140,7 @@ class Main extends luxe.Game {
             depth : 1
         });
 
-    } //create_overlay
+    }
 
     function create_text() {
 
@@ -170,7 +170,7 @@ class Main extends luxe.Game {
         messages.push({ msg:'as the tale is written...', time:3 });
         messages.push({ msg:'it all started with a backpack', time:5, event:'finish' });
 
-    } //create_text
+    }
 
     function create_apartment() {
 
@@ -195,7 +195,7 @@ class Main extends luxe.Game {
             color : new Color(1,1,1,0)
         });
 
-    } //create_apartment
+    }
 
 
     function show_message() {
@@ -215,7 +215,7 @@ class Main extends luxe.Game {
 
         text.color.tween(0.45, { a:1 });
 
-    } //show_message
+    }
 
     function message_done() {
 
@@ -235,7 +235,7 @@ class Main extends luxe.Game {
 
         }); //tween
 
-    } //message_done
+    }
 
     function connect_events() {
 
@@ -244,20 +244,20 @@ class Main extends luxe.Game {
         Luxe.events.listen('intro.music', onmusic);
         Luxe.events.listen('intro.finish', onfinish);
 
-    } //connect_events
+    }
 
     function onthunder(_) {
 
         thunder_handle = Luxe.audio.play(thunder.source);
 
-    } //onthunder
+    }
 
     function onmusic(_) {
 
         music_handle = Luxe.audio.play(music.source);
         Luxe.audio.volume(music_handle, 0.1);
 
-    } //onmusic
+    }
 
     function ondarkness(_) {
 
@@ -265,13 +265,13 @@ class Main extends luxe.Game {
         overlay.color.tween(0.3, { r:0.05, g:0.05, b:0.05 });
         text.color = new Color().rgb(0xefefef);
 
-    } //ondarkness
+    }
 
     function onfinish(_) {
 
         overlay.color.tween( 4, { a:0 });
 
-    } //onfinish
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -283,7 +283,7 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
     override function config( config:luxe.GameConfig ) {
 
@@ -294,7 +294,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
 
-} //Main
+}

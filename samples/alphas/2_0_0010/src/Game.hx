@@ -21,7 +21,7 @@ class Game extends State {
 
         super({ name:'game' });
 
-    } //new
+    }
 
         //called when 'set' state is called on this state
     override function onenter<T>(_:T) {
@@ -37,7 +37,7 @@ class Game extends State {
             //create the sounds
         create_wind();
 
-    } //onenter
+    }
 
         //called when 'set' state is called on another state
     override function onleave<T>(_:T) {
@@ -47,7 +47,7 @@ class Game extends State {
 
         cleanup();
 
-    } //onleave
+    }
 
         //when we fire the pause event (from the Pause state)
         //it lands here, because we are listening for it.
@@ -65,7 +65,7 @@ class Game extends State {
             Luxe.audio.unpause(wind_handle);
         }
 
-    } //pause_changed
+    }
 
     var wind : AudioResource;
     var wind_handle : AudioHandle;
@@ -75,7 +75,7 @@ class Game extends State {
         wind = Luxe.resources.audio('assets/69509__zixem__ruin-wind.ogg');
         wind_handle = Luxe.audio.loop(wind.source);
 
-    } //create_wind
+    }
 
     function create_snow() {
 
@@ -108,14 +108,14 @@ class Game extends State {
 
         snow_particles.add_emitter(emitter);
 
-    } //create_snow
+    }
 
     function cleanup() {
 
         Luxe.audio.stop(wind_handle);
         snow_particles.destroy();
 
-    } //cleanup
+    }
 
     override function onkeydown( e:KeyEvent ) {
 
@@ -123,7 +123,7 @@ class Game extends State {
             //it would only happen if not paused
         if(Main.state.enabled('pause')) return;
 
-    } //onkeydown
+    }
 
     override function onkeyup( e:KeyEvent ) {
 
@@ -136,7 +136,7 @@ class Game extends State {
             }
         }
 
-    } //onkeyup
+    }
 
     override function update( dt:Float ) {
 
@@ -146,7 +146,7 @@ class Game extends State {
             //update code can go here,
             //when paused it would not reach
 
-    } //update
+    }
 
 
 } //Game state

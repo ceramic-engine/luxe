@@ -19,6 +19,6 @@ class ArcGeometry extends RingGeometry {
         vertices.pop();
         vertices.pop();
 
-    } //new
+    }
 
-} //ArcGeometry
+}

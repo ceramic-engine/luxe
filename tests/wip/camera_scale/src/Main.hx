@@ -21,7 +21,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -45,7 +45,7 @@ class Main extends luxe.Game {
         });
 
 
-    } //ready
+    }
 
     override function onmousewheel( e:MouseEvent ) {
         if( e.y > 0 ) {
@@ -93,6 +93,6 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}

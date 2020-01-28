@@ -20,7 +20,7 @@ class Main extends luxe.Game {
 
         return config;
 
-    } //config
+    }
 
     override function ready() {
 
@@ -59,13 +59,13 @@ class Main extends luxe.Game {
             //default camera is an entity, so give it a component!
         Luxe.camera.add(new RandomCameraShaker({'name': 'shaker'}));
 
-    } //ready
+    }
 
     override function onmousemove( e:MouseEvent ) {
 
         sprite.pos = e.pos;
 
-    } //onmousemove
+    }
 
     private var spam = false;
 
@@ -83,7 +83,7 @@ class Main extends luxe.Game {
             spam = !spam;
         }
 
-    } //onkeyup
+    }
 
     override function update(dt:Float) {
 
@@ -91,9 +91,9 @@ class Main extends luxe.Game {
             log(dt);
         }
 
-    } //update
+    }
 
-} //Main
+}
 
 class RandomCameraShaker extends Component {
 
@@ -104,15 +104,15 @@ class RandomCameraShaker extends Component {
 
     override function init() {
         set_shake();
-    } //init
+    }
 
     public function shake() {
         Luxe.camera.shake(amount);
-    } //shake
+    }
 
     function set_shake() {
         next_shake = Luxe.time + (5+(Math.random()*5));
-    } //set_shake
+    }
 
     override function onkeyup(e:KeyEvent) {
         if(e.keycode == Key.space) {
@@ -125,10 +125,10 @@ class RandomCameraShaker extends Component {
             Luxe.camera.shake(4);
             set_shake();
         }
-    } //update
+    }
 
 
-} //RandomCameraShaker
+}
 
 
 class FakeGameObject extends Entity {
@@ -139,25 +139,25 @@ class FakeGameObject extends Entity {
 
     override function init() {
         log('\tgameobject init');
-    } //init
+    }
 
     override function onreset() {
         log('\tgameobject reset');
-    } //onreset
+    }
 
     override function ondestroy() {
         log('\tgameobject destroyed');
-    } //ondestroy
+    }
 
     override function update(dt:Float) {
         if(!oncerun){
             log('\tgameobject first update ' + dt);
             oncerun = true;
         }
-    } //update
+    }
 
 
-} //FakeGameObject
+}
 
 
 class Comp1 extends Component {
@@ -173,19 +173,19 @@ class Comp1 extends Component {
 
     override function init() {
         log('\t\t\t\tcomp1 init with string ' + init_string);
-    } //init
+    }
 
     override function onreset() {
         log('\t\t\t\tcomp1 onreset');
-    } //onreset
+    }
 
     override function ondestroy() {
         log('\t\t\t\tcomp1 destroyed');
-    } //ondestroy
+    }
 
     override function onremoved() {
         log('\t\t\t\tcomp1 onremoved');
-    } //onremoved
+    }
 
     override function update(dt:Float) {
         if(!oncerun){
@@ -193,10 +193,10 @@ class Comp1 extends Component {
             oncerun = true;
         }
 
-    } //update
+    }
 
 
-} //Comp1
+}
 
 class Comp2 extends Component {
 
@@ -213,19 +213,19 @@ class Comp2 extends Component {
 
     override function init() {
         log('\t\t\t\tcomp2 init with value ' + unique_value);
-    } //init
+    }
 
     override function onreset() {
         log('\t\t\t\tcomp2 onreset');
-    } //onreset
+    }
 
     override function ondestroy() {
         log('\t\t\t\tcomp2 ondestroy');
-    } //ondestroy
+    }
 
     override function onremoved() {
         log('\t\t\t\tcomp2 onremoved');
-    } //onremoved
+    }
 
     override function update(dt:Float) {
 
@@ -255,7 +255,7 @@ class Comp2 extends Component {
             Luxe.camera.get('shaker').shake( 8+9*Math.random() );
         }
 
-    } //update
+    }
 
 
-} //Comp2
+}

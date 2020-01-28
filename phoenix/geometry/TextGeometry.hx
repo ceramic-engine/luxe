@@ -161,7 +161,7 @@ class TextGeometry extends Geometry {
 
         setup_ = false;
 
-    } //new
+    }
 
 //Public API
 
@@ -186,7 +186,7 @@ class TextGeometry extends Geometry {
 
         } //diff>0
 
-    } //tidy
+    }
 
 
 //Internal
@@ -227,7 +227,7 @@ class TextGeometry extends Geometry {
 
         super.drop(remove);
 
-    } //drop
+    }
 
 
     function default_options() {
@@ -275,7 +275,7 @@ class TextGeometry extends Geometry {
             //text must be last, as it relies on the rest
         if(options.text != null) text = options.text;
 
-    } //default_options
+    }
 
     #if release inline #end
     function set_text(_text:String) : String {
@@ -304,7 +304,7 @@ class TextGeometry extends Geometry {
 
         return text;
 
-    } //set_text
+    }
 
     #if release inline #end
     function stats() {
@@ -337,7 +337,7 @@ class TextGeometry extends Geometry {
 
         return true;
 
-    } //update_sizes
+    }
 
 
     // #if release inline #end
@@ -416,7 +416,7 @@ class TextGeometry extends Geometry {
 
             if( _line_idx != 0 ){
                 _step();
-            } //_line_idx
+            }
 
                 //for each character in the line
 
@@ -503,7 +503,7 @@ class TextGeometry extends Geometry {
         dirty_align = false;
         emitter.emit(EvTextGeometry.update_text);
 
-    } //update_text
+    }
 
     // #if release inline #end
     function update_char( _letteridx:Int, _x:Float, _y:Float, _w:Float, _h:Float, _u:Float, _v:Float, _u2:Float, _v2:Float, _color:Color ) {
@@ -564,7 +564,7 @@ class TextGeometry extends Geometry {
             add( vert3 ); add( vert4 );  add( vert5 );
         }
 
-    } //update_char
+    }
 
 //Setters
 
@@ -575,7 +575,7 @@ class TextGeometry extends Geometry {
 
         return dirty_sizing = _b;
 
-    } //set_dirty_sizing
+    }
 
     #if release inline #end
     function set_bounds( _bounds:Rectangle ) {
@@ -589,7 +589,7 @@ class TextGeometry extends Geometry {
 
         return bounds;
 
-    } //set_bounds
+    }
 
     #if release inline #end
     function set_bounds_wrap( _wrap:Bool ) {
@@ -601,7 +601,7 @@ class TextGeometry extends Geometry {
 
         return bounds_wrap;
 
-    } //set_bounds_wrap
+    }
 
     #if release inline #end
     function set_letter_snapping( _snap:Bool ) {
@@ -613,7 +613,7 @@ class TextGeometry extends Geometry {
 
         return letter_snapping;
 
-    } //set_letter_snapping
+    }
 
     #if release inline #end
     function set_line_spacing(_line_spacing:Float) {
@@ -625,7 +625,7 @@ class TextGeometry extends Geometry {
 
         return line_spacing;
 
-    } //set_line_spacing
+    }
 
     #if release inline #end
     function set_letter_spacing(_letter_spacing:Float) {
@@ -637,7 +637,7 @@ class TextGeometry extends Geometry {
 
         return letter_spacing;
 
-    } //set_leading
+    }
 
     #if release inline #end
     function set_align( _align:TextAlign ) {
@@ -649,7 +649,7 @@ class TextGeometry extends Geometry {
 
         return align;
 
-    } //set_align
+    }
 
     #if release inline #end
     function set_align_vertical( _align_vertical:TextAlign ) {
@@ -661,7 +661,7 @@ class TextGeometry extends Geometry {
 
         return align_vertical;
 
-    } //set_align_vertical
+    }
 
     #if release inline #end
     function set_point_size( s:Float ) {
@@ -674,7 +674,7 @@ class TextGeometry extends Geometry {
 
         return point_size;
 
-    } //set_point_size
+    }
 
     #if release inline #end
     function set_font( _font:BitmapFont ) {
@@ -691,7 +691,7 @@ class TextGeometry extends Geometry {
 
         return font;
 
-    } //set_font
+    }
 
 
 //SDF specific features
@@ -708,7 +708,7 @@ class TextGeometry extends Geometry {
 
         return smoothness = s;
 
-    } //set_smoothness
+    }
 
     #if release inline #end
     function set_thickness(s:Float) {
@@ -721,7 +721,7 @@ class TextGeometry extends Geometry {
 
         return thickness = s;
 
-    } //set_thickness
+    }
 
     #if release inline #end
     function set_outline(s:Float) {
@@ -734,7 +734,7 @@ class TextGeometry extends Geometry {
 
         return outline = s;
 
-    } //set_outline
+    }
 
     #if release inline #end
     function set_glow_threshold(s:Float) {
@@ -747,7 +747,7 @@ class TextGeometry extends Geometry {
 
         return glow_threshold = s;
 
-    } //set_glow_threshold
+    }
 
     #if release inline #end
     function set_glow_amount(s:Float) {
@@ -760,7 +760,7 @@ class TextGeometry extends Geometry {
 
         return glow_amount = s;
 
-    } //set_glow_amount
+    }
 
     #if release inline #end
     function set_outline_color(c:Color) {
@@ -773,7 +773,7 @@ class TextGeometry extends Geometry {
 
         return outline_color = c;
 
-    } //set_outline_color
+    }
 
     #if release inline #end
     function set_glow_color(c:Color) {
@@ -786,7 +786,7 @@ class TextGeometry extends Geometry {
 
         return glow_color = c;
 
-    } //set_glow_color
+    }
 
         //internal convenience for when
         //the shader type changes to sdf
@@ -805,4 +805,4 @@ class TextGeometry extends Geometry {
     }
 
 
-} //TextGeometry
+}

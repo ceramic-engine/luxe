@@ -214,7 +214,7 @@ class Entity extends Objects {
                     _verbose(" \tno scene specified, adding to default scene");
                 }
 
-            } //_should_add
+            }
 
         } else {
 
@@ -240,7 +240,7 @@ class Entity extends Objects {
 
         _verbose(" created " + name);
 
-    } //new
+    }
 
 
 //components
@@ -251,28 +251,28 @@ class Entity extends Objects {
     public inline function add<T:Component>( _component:T ) : T {
         component_count++;
         return _components.add( _component );
-    } //add
+    }
 
         /** remove a component from the entity */
     public inline function remove( _name:String ) : Bool {
         component_count--;
         return _components.remove( _name );
-    } //remove
+    }
 
         /** get a component from the entity, by name */
     public inline function get<T>(_name:String, ?_in_children:Bool = false ) : T {
         return _components.get( _name, _in_children );
-    } //get
+    }
 
         /** get all component from the entity, by name */
     public inline function get_any<T>(_name:String, ?_in_children:Bool = false, ?_first_only:Bool = true ) : Array<T> {
         return _components.get_any( _name, _in_children, _first_only );
-    } //get
+    }
 
         /** returns true if the entity has a component by the given name */
     public inline function has( _name:String ) : Bool {
         return _components.has( _name );
-    } //has
+    }
 
 
 
@@ -297,7 +297,7 @@ class Entity extends Objects {
                 _verbose("          " + name + " calling init on component " + _component.name );
                 _component.init();
             } //for each component
-        } //component_count
+        }
 
             //now init our children, so they do the same
         if(children.length > 0) {
@@ -310,7 +310,7 @@ class Entity extends Objects {
             //flag internally
         inited = true;
 
-    } //_init
+    }
 
     @:allow(luxe.Scene)
     inline function _reset(_) {
@@ -343,7 +343,7 @@ class Entity extends Objects {
             //flag internally
         started = true;
 
-    } //_reset
+    }
 
         /** destroy this entity. removes it from the scene if any, from the parent etc. */
     public function destroy( ?_from_parent:Bool=false ) {
@@ -417,7 +417,7 @@ class Entity extends Objects {
         // name = null;
         id = null;
 
-    } //destroy
+    }
 
     @:allow(luxe.Scene)
     inline function _update(dt:Float) {
@@ -458,7 +458,7 @@ class Entity extends Objects {
             } //for each child
         }
 
-    } //_update
+    }
 
 //timing
 
@@ -491,7 +491,7 @@ class Entity extends Objects {
             }
         }
 
-    } //_fixed_update
+    }
 
 //events
 
@@ -543,7 +543,7 @@ class Entity extends Objects {
 
         return _source;
 
-    } //_find_emit_source
+    }
 
     @:allow(luxe.Component)
     function _listen( _event:Int, _handler:EmitHandler, ? _self:Bool=false ) {
@@ -597,7 +597,7 @@ class Entity extends Objects {
             } //switch event
         } //source != null
 
-    } //_listen
+    }
 
     @:allow(luxe.Entity)
     @:allow(luxe.Component)
@@ -645,7 +645,7 @@ class Entity extends Objects {
             } //switch event
         } //source != null
 
-    } //_unlisten
+    }
 
 
 //scene
@@ -682,7 +682,7 @@ class Entity extends Objects {
 
         } //scene != null
 
-    } //detach_scene
+    }
 
     function _attach_scene() {
 
@@ -691,7 +691,7 @@ class Entity extends Objects {
             scene.on(Ev.destroy, destroy);
         }
 
-    } //attach_scene
+    }
 
 //Keys
 
@@ -706,7 +706,7 @@ class Entity extends Objects {
         onkeyup(_event);
         emit(Ev.keyup, _event);
 
-    } //_keyup
+    }
 
     function _keydown( _event:KeyEvent ) {
 
@@ -719,7 +719,7 @@ class Entity extends Objects {
         onkeydown(_event);
         emit(Ev.keydown, _event);
 
-    } //_keydown
+    }
 
     function _textinput( _event:TextEvent ) {
 
@@ -732,7 +732,7 @@ class Entity extends Objects {
         ontextinput(_event);
         emit(Ev.textinput, _event);
 
-    } //_textinput
+    }
 
 
 //Mouse
@@ -748,7 +748,7 @@ class Entity extends Objects {
         onmousedown(_event);
         emit(Ev.mousedown, _event);
 
-    } //_mousedown
+    }
 
 
     function _mouseup( _event:MouseEvent ) {
@@ -762,7 +762,7 @@ class Entity extends Objects {
         onmouseup(_event);
         emit(Ev.mouseup, _event);
 
-    } //_mouseup
+    }
 
     function _mousewheel( _event:MouseEvent ) {
 
@@ -775,7 +775,7 @@ class Entity extends Objects {
         onmousewheel(_event);
         emit(Ev.mousewheel, _event);
 
-    } //_mousewheel
+    }
 
     function _mousemove( _event:MouseEvent ) {
 
@@ -788,7 +788,7 @@ class Entity extends Objects {
         onmousemove(_event);
         emit(Ev.mousemove, _event);
 
-    } //_mousemove
+    }
 
 //Touch
     function _touchdown( _event:TouchEvent ) {
@@ -802,7 +802,7 @@ class Entity extends Objects {
         ontouchdown(_event);
         emit(Ev.touchdown, _event);
 
-    } //_touchdown
+    }
 
     function _touchup( _event:TouchEvent ) {
 
@@ -815,7 +815,7 @@ class Entity extends Objects {
         ontouchup(_event);
         emit(Ev.touchup, _event);
 
-    } //_touchup
+    }
 
     function _touchmove( _event:TouchEvent ) {
 
@@ -828,7 +828,7 @@ class Entity extends Objects {
         ontouchmove(_event);
         emit(Ev.touchmove, _event);
 
-    } //_touchmove
+    }
 
 //Gamepad
     function _gamepadaxis( _event:GamepadEvent ) {
@@ -842,7 +842,7 @@ class Entity extends Objects {
         ongamepadaxis(_event);
         emit(Ev.gamepadaxis, _event);
 
-    } //_gamepadaxis
+    }
 
     function _gamepaddown( _event:GamepadEvent ) {
 
@@ -855,7 +855,7 @@ class Entity extends Objects {
         ongamepaddown(_event);
         emit(Ev.gamepaddown, _event);
 
-    } //_gamepaddown
+    }
 
     function _gamepadup( _event:GamepadEvent ) {
 
@@ -868,7 +868,7 @@ class Entity extends Objects {
         ongamepadup(_event);
         emit(Ev.gamepadup, _event);
 
-    } //_gamepadup
+    }
 
     function _gamepaddevice( _event:GamepadEvent ) {
 
@@ -881,7 +881,7 @@ class Entity extends Objects {
         ongamepaddevice(_event);
         emit(Ev.gamepaddevice, _event);
 
-    } //_gamepaddevice
+    }
 
 //Windowing
 
@@ -896,7 +896,7 @@ class Entity extends Objects {
         onwindowmoved(_event);
         emit(Ev.windowmoved, _event);
 
-    } //_windowmoved
+    }
 
     function _windowresized( _event:WindowEvent ) {
 
@@ -909,7 +909,7 @@ class Entity extends Objects {
         onwindowresized(_event);
         emit(Ev.windowresized, _event);
 
-    } //_windowresized
+    }
 
     function _windowsized( _event:WindowEvent ) {
 
@@ -922,7 +922,7 @@ class Entity extends Objects {
         onwindowsized(_event);
         emit(Ev.windowsized, _event);
 
-    } //_windowsized
+    }
 
     function _windowminimized( _event:WindowEvent ) {
 
@@ -935,7 +935,7 @@ class Entity extends Objects {
         onwindowminimized(_event);
         emit(Ev.windowminimized, _event);
 
-    } //_windowminimized
+    }
 
     function _windowrestored( _event:WindowEvent ) {
 
@@ -948,7 +948,7 @@ class Entity extends Objects {
         onwindowrestored(_event);
         emit(Ev.windowrestored, _event);
 
-    } //_windowrestored
+    }
 
 //Input
 
@@ -963,7 +963,7 @@ class Entity extends Objects {
         oninputdown(_event);
         emit(Ev.inputdown, _event);
 
-    } //_inputdown
+    }
 
     function _inputup( _event:InputEvent ) {
 
@@ -976,7 +976,7 @@ class Entity extends Objects {
         oninputup(_event);
         emit(Ev.inputup, _event);
 
-    } //_inputup
+    }
 
 
 //timing
@@ -985,7 +985,7 @@ class Entity extends Objects {
 
         return fixed_rate;
 
-    } //get_fixed_rate
+    }
 
     inline function set_fixed_rate( _rate:Float ) : Float {
 
@@ -997,7 +997,7 @@ class Entity extends Objects {
 
         return fixed_rate;
 
-    } //set_fixed_rate
+    }
 
     inline function _stop_fixed_rate_timer() {
 
@@ -1006,7 +1006,7 @@ class Entity extends Objects {
             fixed_rate_timer = null;
         }
 
-    } //_stop_fixed_rate_timer
+    }
 
     inline function _set_fixed_rate_timer( _rate:Float #if luxe_entity_pos , ?_pos:haxe.PosInfos #end ) {
 
@@ -1018,15 +1018,15 @@ class Entity extends Objects {
         if(_rate != 0 && parent == null && !destroyed) {
             fixed_rate_timer = new snow.api.Timer( _rate );
             fixed_rate_timer.run = _fixed_update;
-        } //_rate
+        }
 
-    } //_set_fixed_rate_timer
+    }
 
 //components
 
     inline function get_components() {
         return _components.components;
-    } //get_components
+    }
 
 //children
 
@@ -1056,14 +1056,14 @@ class Entity extends Objects {
             }
         }
 
-    } //_add_child
+    }
 
     @:allow(luxe.Entity)
     function _remove_child(child:Entity) {
 
         children.remove(child);
 
-    } //removeChild
+    }
 
 //listeners
 
@@ -1076,7 +1076,7 @@ class Entity extends Objects {
             } //for each _component
         }
 
-    } //set_pos_from_transform
+    }
 
     function set_rotation_from_transform( _rotation:Quaternion ) {
 
@@ -1087,7 +1087,7 @@ class Entity extends Objects {
             } //for each _component
         }
 
-    } //set_rotation_from_transform
+    }
 
     function set_scale_from_transform( _scale:Vector ) {
 
@@ -1098,7 +1098,7 @@ class Entity extends Objects {
             } //for each _component
         }
 
-    } //set_scale_from_transform
+    }
 
     function set_origin_from_transform( _origin:Vector ) {
 
@@ -1109,7 +1109,7 @@ class Entity extends Objects {
             } //for each _component
         }
 
-    } //set_origin_from_transform
+    }
 
     function set_parent_from_transform( _parent:Transform ) {
 
@@ -1120,7 +1120,7 @@ class Entity extends Objects {
             } //for each _component
         }
 
-    } //set_parent_from_transform
+    }
 
 //pos
 
@@ -1128,13 +1128,13 @@ class Entity extends Objects {
 
         return transform.pos = _p;
 
-    } //set_pos
+    }
 
     function get_pos() {
 
         return transform.pos;
 
-    } //get_pos
+    }
 
 //rotation
 
@@ -1142,13 +1142,13 @@ class Entity extends Objects {
 
         return transform.rotation = _r;
 
-    } //set_rotation
+    }
 
     function get_rotation() {
 
         return transform.rotation;
 
-    } //get_rotation
+    }
 
 //scale
 
@@ -1156,13 +1156,13 @@ class Entity extends Objects {
 
         return transform.scale = _s;
 
-    } //set_scale
+    }
 
     function get_scale() {
 
         return transform.scale;
 
-    } //get_scale
+    }
 
 //origin
 
@@ -1170,14 +1170,14 @@ class Entity extends Objects {
 
         return transform.origin = _origin;
 
-    } //set_origin
+    }
 
 
     function get_origin() {
 
         return transform.origin;
 
-    } //get_origin
+    }
 
 //transform
 
@@ -1185,14 +1185,14 @@ class Entity extends Objects {
 
         return transform = _transform;
 
-    } //set_transform
+    }
 
 
     function get_transform() {
 
         return transform;
 
-    } //get_transform
+    }
 
 //parent
 
@@ -1206,7 +1206,7 @@ class Entity extends Objects {
             //remove ourselves from that parent
         if(parent != null) {
             parent._remove_child( this );
-        } //remove
+        }
 
             //store the new parent, even if it's null, that is ok
         parent = other;
@@ -1223,13 +1223,13 @@ class Entity extends Objects {
 
         return parent;
 
-    } //set_parent
+    }
 
     function get_parent() {
 
         return parent;
 
-    } //get_parent
+    }
 
 //scene
 
@@ -1243,13 +1243,13 @@ class Entity extends Objects {
 
         return scene;
 
-    } //set_scene
+    }
 
     function get_scene() {
 
         return scene;
 
-    } //get_scene
+    }
 
     function set_scene_root(_scene:Scene) {
         
@@ -1261,7 +1261,7 @@ class Entity extends Objects {
 
         return scene_root;
 
-    } //set_scene_root
+    }
 
 //name
 
@@ -1278,7 +1278,7 @@ class Entity extends Objects {
 
         return name = _name;
 
-    } //set_name
+    }
 
 //active
 
@@ -1286,13 +1286,13 @@ class Entity extends Objects {
 
         return active = _active;
 
-    } //set_active
+    }
 
     function get_active() {
 
         return active;
 
-    } //get_active
+    }
 
 // 
 
@@ -1304,4 +1304,4 @@ class Entity extends Objects {
         return 'luxe Entity: $name / ${Lambda.count(components)} components:[${_list.join(", ")}] / id: $id';
     }
 
-} //Entity
+}

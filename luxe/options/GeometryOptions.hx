@@ -40,7 +40,7 @@ typedef GeometryOptions = {
 
 //end section
 
-} //GeometryOptions
+}
 
 /** Options for drawing or creating rectangle based geometry, phoenix.geometry.RectangleGeometry */
 typedef RectangleGeometryOptions = {
@@ -58,7 +58,7 @@ typedef RectangleGeometryOptions = {
         /** optional existing rect. oveerrides x/y/w/h */
     @:optional var rect : Rectangle;
 
-} //RectangleGeometryOptions
+}
 
 /** Options for drawing or creating quad based geometry, phoenix.geometry.QuadGeometry */
 typedef QuadGeometryOptions = {
@@ -72,7 +72,7 @@ typedef QuadGeometryOptions = {
         /** An optional UV texture space rectangle for the quad */
     @:optional var uv : Rectangle;
 
-} //QuadGeometryOptions
+}
 
 /** Options for drawing or creating line based geometry, phoenix.geometry.LineGeometry */
 typedef LineGeometryOptions = {
@@ -89,7 +89,7 @@ typedef LineGeometryOptions = {
         /** specified only if per vertex color is desired, use .color for both */
     @:optional var color1 : Color;
 
-} //LineGeometryOptions
+}
 
 /** Options for drawing or creating circle based geometry, phoenix.geometry.CircleGeometry */
 typedef CircleGeometryOptions = {
@@ -117,7 +117,7 @@ typedef CircleGeometryOptions = {
         /** a fixed number of steps/sides, will auto step smoothly if not specified (using smooth above) */
     @:optional var steps : Int;
 
-} //CircleGeometryOptions
+}
 
 
 //:todo: hidden until 3d api is more official.
@@ -128,5 +128,5 @@ typedef CircleGeometryOptions = {
         /** z position */
     @:optional var z : Float;
 
-} //PlaneGeometryOptions
+}
 

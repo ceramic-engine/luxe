@@ -13,4 +13,4 @@ typedef RenderProperties = {
         /** the geometry depth value (see guides)*/
     @:optional var depth : Float;
 
-} //RenderProperties
+}

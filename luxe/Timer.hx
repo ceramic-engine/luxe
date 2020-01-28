@@ -14,24 +14,24 @@ class Timer {
     @:noCompletion public function new( _core:Engine ) {
         core = _core;
         timers = [];
-    } //new
+    }
 
     @:noCompletion public function init() {
 
         _debug('\t timer initialized.');
 
-    } //init
+    }
 
     @:noCompletion public function destroy() {
 
         reset();
         _debug('\t timer shut down.');
 
-    } //destroy
+    }
 
     @:noCompletion public function process() {
 
-    } //process
+    }
 
         /** Kill all existing scheduled timers created through `schedule` */
     public function reset() {
@@ -44,7 +44,7 @@ class Timer {
         timers = null;
         timers = [];
 
-    } //reset
+    }
 
     public function schedule( _time_in_seconds:Float, _on_time:Void->Void, ?repeat:Bool = false ) : snow.api.Timer {
 
@@ -62,7 +62,7 @@ class Timer {
 
         return t;
 
-    } //schedule
+    }
 
 
-} //Timer
+}

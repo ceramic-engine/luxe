@@ -55,7 +55,7 @@ class TiledLayer {
                             properties.set(property.get("name"), property.get("value"));
 
                         } //for each property
-                    } //properties
+                    }
 
                     case "data": {
 
@@ -83,7 +83,7 @@ class TiledLayer {
 
                         } //switch encoding
 
-                    } //data
+                    }
 
                 } //switch child nodename
             } //is valid node
@@ -93,7 +93,7 @@ class TiledLayer {
             tiles.push( new TiledTile(this, gid) );
         } //gid in tileGIDs
 
-    } //from_xml
+    }
 
     public function from_json( json:Dynamic ) {
 
@@ -115,11 +115,11 @@ class TiledLayer {
                     for (property_name in child_fields) {
                         properties.set(property_name, Reflect.field(child, property_name));
                     } //for each property
-                } //properties
+                }
 
                 case "data": {
                     tileGIDs = child;
-                } //data
+                }
 
             } //switch child nodename
 
@@ -129,7 +129,7 @@ class TiledLayer {
             tiles.push( new TiledTile(this, Std.int(gid)) );
         } //gid in tileGIDs
 
-    } //from_json
+    }
 
     function csv_to_array( input:String ) : Array<Int> {
 
@@ -152,7 +152,7 @@ class TiledLayer {
 
         return result;
 
-    } //csv_to_array
+    }
 
 
     /** Convert the base64 encoded data to a regular array of int's,
@@ -167,7 +167,7 @@ class TiledLayer {
         #else
             return bytes.get(pos) | (bytes.get(pos + 1) << 8) | (bytes.get(pos + 2) << 16) | (bytes.get(pos+3) << 24);
         #end
-    } //bytes_get_int32
+    }
 
     static var base_chars:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
     static var base_lookup:Array<Int> = [];
@@ -237,6 +237,6 @@ class TiledLayer {
 
         return result;
 
-    } //base64_to_array
+    }
 
-} //TiledLayer
+}

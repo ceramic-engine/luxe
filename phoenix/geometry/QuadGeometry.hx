@@ -67,7 +67,7 @@ class QuadGeometry extends Geometry {
             uv_space( 0, 0, 1, 1 );
         }
 
-    } //new
+    }
 
     public inline function uv( _rect:luxe.Rectangle ) {
 
@@ -80,7 +80,7 @@ class QuadGeometry extends Geometry {
 
         uv_space( tlx, tly, szx, szy );
 
-    } //uv
+    }
 
     public inline function uv_space( _rect_x:Float,_rect_y:Float,_rect_w:Float,_rect_h:Float ) {
 
@@ -153,7 +153,7 @@ class QuadGeometry extends Geometry {
                 tmp_x = br_x;
                     br_x = tr_x;
                     tr_x = tmp_x;
-            } //flipy
+            }
 
                 //flipped x swaps tl and bl with tr and br
             if(flipx) {
@@ -174,7 +174,7 @@ class QuadGeometry extends Geometry {
                 tmp_y = br_y;
                     br_y = bl_y;
                     bl_y = tmp_y;
-            } //flipx
+            }
 
         vertices[0].uv.uv0.set_uv( tl_x , tl_y );
         vertices[1].uv.uv0.set_uv( tr_x , tr_y );
@@ -201,19 +201,19 @@ class QuadGeometry extends Geometry {
         vertices[4].pos.set_xy( 0,      0    );
         vertices[5].pos.set_xy( 0+_x,   0+_y );
 
-    } //resize_xy
+    }
 
     public inline function resize( quad:luxe.Vector ) {
 
         resize_xy(quad.x, quad.y);
 
-    } //resize
+    }
 
     public inline function set(quad:luxe.Rectangle) {
 
         set_xywh(quad.x, quad.y, quad.w, quad.h);
 
-    } //set
+    }
 
     public function set_xywh( _x:Float, _y:Float, _w:Float, _h:Float ) {
 
@@ -235,7 +235,7 @@ class QuadGeometry extends Geometry {
 
         transform.pos = transform.pos.set_xy(_x, _y);
 
-    } //set
+    }
 
     function set_flipx(_val:Bool) {
 
@@ -246,7 +246,7 @@ class QuadGeometry extends Geometry {
 
         return flipx;
 
-    } //set_flipx
+    }
 
     function set_flipy(_val:Bool) {
 
@@ -257,7 +257,7 @@ class QuadGeometry extends Geometry {
 
         return flipy;
 
-    } //set_flipy
+    }
 
     function set_uv_angle(_val:Int) {
         assert(_val % 90 == 0, 'uv_angle has to be a multiple of 90');

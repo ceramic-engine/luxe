@@ -45,7 +45,7 @@ class Simulation extends luxe.Physics.PhysicsEngine {
 
         player_velocity = new Vector();
 
-    } //new
+    }
 
         //Called for you when the init event from luxe happens
         //This happens once up front at initialization
@@ -55,7 +55,7 @@ class Simulation extends luxe.Physics.PhysicsEngine {
             //and is just a Vector we can use to apply gravity as a force
         gravity.set_xyz(0, 800, 0);
 
-    } //init
+    }
 
     override public function update() {
 
@@ -69,7 +69,7 @@ class Simulation extends luxe.Physics.PhysicsEngine {
             //Then we resolve collisions that may have happened
         handle_collision();
 
-    } //update
+    }
 
     function handle_physics() {
 
@@ -78,7 +78,7 @@ class Simulation extends luxe.Physics.PhysicsEngine {
         player_velocity.x += gravity.x * Luxe.physics.step_delta;
         player_velocity.y += gravity.y * Luxe.physics.step_delta;
 
-    } //handle_physics
+    }
 
     function update_colliders() {
 
@@ -87,7 +87,7 @@ class Simulation extends luxe.Physics.PhysicsEngine {
         player_collider.position.x += player_velocity.x * Luxe.physics.step_delta;
         player_collider.position.y += player_velocity.y * Luxe.physics.step_delta;
 
-    } //update_colliders
+    }
 
     function handle_collision() {
 
@@ -115,7 +115,7 @@ class Simulation extends luxe.Physics.PhysicsEngine {
         collisions = Collision.shapeWithShapes(player_collider, trigger_colliders);
         Luxe.events.fire('simulation.triggers.collide', collisions);
 
-    } //handle_collision
+    }
 
 
         //This gets called by the engine for us to draw things if we need to,
@@ -129,7 +129,7 @@ class Simulation extends luxe.Physics.PhysicsEngine {
 
         draw_collider_polygon(cast player_collider);
 
-    } //render
+    }
 
         //helper to draw colliders
     function draw_collider_polygon(poly:Polygon) {
@@ -144,6 +144,6 @@ class Simulation extends luxe.Physics.PhysicsEngine {
 
         geom.transform.pos.copy_from(poly.position);
 
-    } //draw_collider_polygon
+    }
 
-} //Simulation
+}

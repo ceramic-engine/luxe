@@ -25,7 +25,7 @@ class TextureCoordSet {
         uv6 = new TextureCoord();
         uv7 = new TextureCoord();
 
-    } //new
+    }
 
     public inline function clone() {
 
@@ -42,7 +42,7 @@ class TextureCoordSet {
 
         return _set;
 
-    } //clone
+    }
 
     public inline function destroy() {
         uv0 = null;
@@ -56,7 +56,7 @@ class TextureCoordSet {
     }
 
 
-} //TextureCoordSet
+}
 
 
 class TextureCoord {
@@ -75,13 +75,13 @@ class TextureCoord {
         w = _w;
         t = _t;
 
-    } //new
+    }
 
     public inline function clone() {
 
         return new TextureCoord( u, v, w, t );
 
-    } //clone
+    }
 
     public inline function set( _u : Float, _v : Float, _w : Float, _t:Float ) : TextureCoord {
 
@@ -92,7 +92,7 @@ class TextureCoord {
 
         return this;
 
-    } //set
+    }
 
     public inline function set_uv( _u : Float, _v : Float ) : TextureCoord {
 
@@ -101,13 +101,13 @@ class TextureCoord {
 
         return this;
 
-    } //set_uv
+    }
 
     inline function toString() {
 
         return  '{ u:$v, v:$v }';
 
-    } //toString
+    }
 
 
-} //TextureCoord
+}

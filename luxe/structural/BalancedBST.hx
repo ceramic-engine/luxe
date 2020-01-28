@@ -31,7 +31,7 @@ class BalancedBST<K,T> {
 
         compare = compare_function;
 
-    } //new
+    }
 
 //Public API
 
@@ -40,14 +40,14 @@ class BalancedBST<K,T> {
 
         return node_count(root);
 
-    } //size
+    }
 
         /** Return the depth of the tree */
     public inline function depth() {
 
         return node_depth(root);
 
-    } //depth
+    }
 
         /** Insert a node into the tree */
     public inline function insert( _key:K, _value:T ) {
@@ -55,7 +55,7 @@ class BalancedBST<K,T> {
         root = node_insert( root, _key, _value );
         root.color = NodeColor.black;
 
-    } //insert
+    }
 
         /** Returns true if the tree contains the key for this node */
     public function contains( _key:K ) : Bool {
@@ -63,14 +63,14 @@ class BalancedBST<K,T> {
             //if the find functions returns non-null it's here
         return find(_key) != null;
 
-    } //contains
+    }
 
         /** Returns a node by key, if found. null otherwise */
     public function find( _key:K ) : T {
 
         return node_find( root, _key );
 
-    } //find
+    }
 
         /** Return the number of nodes to the left of this node, by key.
             http://en.wikipedia.org/wiki/Order_statistic_tree */
@@ -78,7 +78,7 @@ class BalancedBST<K,T> {
 
         return node_rank(_key, root);
 
-    } //rank
+    }
 
         /** Find a key by rank in the tree, i.e given a number of nodes, the key at this point.
             http://en.wikipedia.org/wiki/Order_statistic_tree */
@@ -92,7 +92,7 @@ class BalancedBST<K,T> {
             return null;
         }
 
-    } //select
+    }
 
         /** return the smallest node (key) in the tree (most left) */
     public function smallest() : K {
@@ -105,7 +105,7 @@ class BalancedBST<K,T> {
             return null;
         }
 
-    } //smallest
+    }
 
         /** return the largest node (key) in the tree (most right)*/
    public function largest() : K {
@@ -118,7 +118,7 @@ class BalancedBST<K,T> {
             return null;
         }
 
-    } //largest
+    }
 
         /** remove a node by key. return false if the operation fails (i.e the node is not stored in this tree) */
     public function remove( _key:K ) : Bool {
@@ -139,7 +139,7 @@ class BalancedBST<K,T> {
 
         return true;
 
-    } //remove
+    }
 
         /** remove the smallest node in the tree (most left) */
     public function remove_smallest() {
@@ -156,7 +156,7 @@ class BalancedBST<K,T> {
 
         return true;
 
-    } //remove_smallest
+    }
 
         /** remove the largest node in the tree (most right) */
     public function remove_largest() {
@@ -174,7 +174,7 @@ class BalancedBST<K,T> {
 
         return true;
 
-    } //remove_largest
+    }
 
         /** tree floor http://en.wikipedia.org/wiki/Floor_and_ceiling_functions */
     public function floor( _key:K ) : Null<K> {
@@ -187,7 +187,7 @@ class BalancedBST<K,T> {
 
         return _node.key;
 
-    } //floor
+    }
 
         /** tree ceiling http://en.wikipedia.org/wiki/Floor_and_ceiling_functions */
     public function ceil( _key:K ) : Null<K> {
@@ -200,7 +200,7 @@ class BalancedBST<K,T> {
 
         return _node.key;
 
-    } //ceil
+    }
 
         /** return an array of the values in this tree */
     public function toArray() : Array<T> {
@@ -213,7 +213,7 @@ class BalancedBST<K,T> {
 
         return a;
 
-    } //toArray
+    }
 
         /** Return an array of the keys in this tree */
     public function keys() : Array<K> {
@@ -226,7 +226,7 @@ class BalancedBST<K,T> {
 
         return a;
 
-    } //keys
+    }
 
         /** returns an iterator from a conversion to array of this tree. Usable as `for(item in tree)` */
     // inline // :todo: inlining breaks things on 3.4, https://github.com/HaxeFoundation/haxe/issues/5855
@@ -234,7 +234,7 @@ class BalancedBST<K,T> {
 
         return new BalancedBSTIterator<K,T>(this);
 
-    } //iterator
+    }
 
         /** Traverse a node with the given method, and call the given function for each node traversed */
     public function traverse_node( _node:BalancedBSTNode<K,T>, _method:BalancedBSTTraverseMethod, _on_traverse : BalancedBSTNode<K,T> ->Void ) {
@@ -258,11 +258,11 @@ class BalancedBST<K,T> {
                     traverse_node(_node.right, _method, _on_traverse);
                     _on_traverse(_node);
 
-            } //_method
+            }
 
-        } //_node
+        }
 
-    } //traverse
+    }
 
 //Internal API
 
@@ -287,14 +287,14 @@ class BalancedBST<K,T> {
 
         return 1 + Std.int( _n_depth );
 
-    } //node_depth
+    }
 
         /** the node count/children of a single node */
     inline function node_count( _node:BalancedBSTNode<K,T> ) {
 
         return _node == null ? 0 : _node.nodecount;
 
-    } //node_count
+    }
 
         /** insert a single node */
     function node_insert( _node:BalancedBSTNode<K,T>, _key:K, _value:T ) : BalancedBSTNode<K,T> {
@@ -303,7 +303,7 @@ class BalancedBST<K,T> {
 
             return new BalancedBSTNode<K,T>(_key, _value, 1, NodeColor.red);
 
-        } //_node
+        }
 
             var comparison = compare(_key, _node.key);
 
@@ -337,7 +337,7 @@ class BalancedBST<K,T> {
 
         return _node;
 
-    } //node_insert
+    }
 
         /* make sure the node count is up to date on a given node */
     inline function node_update_count( _node:BalancedBSTNode<K,T> ) {
@@ -346,7 +346,7 @@ class BalancedBST<K,T> {
 
         return _node;
 
-    } //node_update_count
+    }
 
         /** find a single node */
     function node_find( _node:BalancedBSTNode<K,T>, _key:K ) : T {
@@ -365,7 +365,7 @@ class BalancedBST<K,T> {
             return _node.value;
         }
 
-    } //node_find
+    }
 
         /** find rank of single node */
     function node_rank( _key:K, _node:BalancedBSTNode<K,T> ) : Int {
@@ -384,7 +384,7 @@ class BalancedBST<K,T> {
             return node_count(_node.left);
         }
 
-    } //node_rank
+    }
 
         /** find key of node by rank */
     function node_select( _node:BalancedBSTNode<K,T>, _rank:Int ) : BalancedBSTNode<K,T> {
@@ -403,7 +403,7 @@ class BalancedBST<K,T> {
             return _node;
         }
 
-    } //node_select
+    }
 
         /** find smallest of the given node */
     function node_smallest( _node:BalancedBSTNode<K,T> ) : BalancedBSTNode<K,T> {
@@ -414,7 +414,7 @@ class BalancedBST<K,T> {
 
         return node_smallest( _node.left );
 
-    } //node_smallest
+    }
 
         /** find largest of the given node */
     function node_largest( _node : BalancedBSTNode<K,T> ) : BalancedBSTNode<K,T> {
@@ -425,7 +425,7 @@ class BalancedBST<K,T> {
             return node_largest(_node.right);
         }
 
-    } //node_largest
+    }
 
         /** node floor http://en.wikipedia.org/wiki/Floor_and_ceiling_functions */
     function node_floor(_node:BalancedBSTNode<K,T>, _key:K ) : BalancedBSTNode<K,T> {
@@ -450,7 +450,7 @@ class BalancedBST<K,T> {
             return _node;
         }
 
-    } //node_floor
+    }
 
         /** node ceiling http://en.wikipedia.org/wiki/Floor_and_ceiling_functions */
     function node_ceil( _node:BalancedBSTNode<K,T> , _key:K ) : BalancedBSTNode<K,T> {
@@ -479,7 +479,7 @@ class BalancedBST<K,T> {
 
         return node_ceil(_node.right, _key);
 
-    } //node_ceil
+    }
 
         /** remove the smallest node in the tree (most left) */
     function node_remove_smallest( _node:BalancedBSTNode<K,T> ) : BalancedBSTNode<K,T> {
@@ -497,7 +497,7 @@ class BalancedBST<K,T> {
 
         return balance(_node);
 
-    } //remove_smallest
+    }
 
         /** remove the largest node in the tree (most right) */
     function node_remove_largest( _node:BalancedBSTNode<K,T> ) : BalancedBSTNode<K,T> {
@@ -519,7 +519,7 @@ class BalancedBST<K,T> {
 
         return balance(_node);
 
-    } //node_remove_largest
+    }
 
         /** remove a single node by key */
     function node_remove( _node:BalancedBSTNode<K,T>, _key:K ) : BalancedBSTNode<K,T> {
@@ -567,7 +567,7 @@ class BalancedBST<K,T> {
 
         return balance(_node);
 
-    } //_delete
+    }
 
     inline function is_red( _node:BalancedBSTNode<K,T> ) {
 
@@ -577,7 +577,7 @@ class BalancedBST<K,T> {
 
         return _node.color == NodeColor.red;
 
-    } //is_red
+    }
 
     @:noCompletion public function rotate_left( _node:BalancedBSTNode<K,T> ) {
 
@@ -596,7 +596,7 @@ class BalancedBST<K,T> {
 
         return _n;
 
-    } //rotate_left
+    }
 
     @:noCompletion public function rotate_right( _node:BalancedBSTNode<K,T> ) {
 
@@ -615,7 +615,7 @@ class BalancedBST<K,T> {
 
         return _n;
 
-    } //rotate_left
+    }
 
     @:noCompletion public function swap_color( _node:BalancedBSTNode<K,T> ) {
 
@@ -623,7 +623,7 @@ class BalancedBST<K,T> {
         _node.left.color = !_node.left.color;
         _node.right.color = !_node.right.color;
 
-    } //swap_color
+    }
 
     inline function move_red_left( _node:BalancedBSTNode<K,T> ) : BalancedBSTNode<K,T> {
 
@@ -666,9 +666,9 @@ class BalancedBST<K,T> {
 
         return _node;
 
-    } //balance
+    }
 
-} //BalancedBST
+}
 
 
 #if !display @:generic #end
@@ -687,7 +687,7 @@ class BalancedBSTIterator<K,T> {
         current = _min(tree.root);
         rightest = _max(tree.root);
 
-    } //new
+    }
 
     public inline function hasNext():Bool {
 
@@ -695,7 +695,7 @@ class BalancedBSTIterator<K,T> {
 
         return tree.compare(current.key, rightest.key) <= 0;
 
-    } //hasNext
+    }
 
     public inline function next() {
         var _temp = current;
@@ -723,11 +723,11 @@ class BalancedBSTIterator<K,T> {
                     break;
                 }
 
-            } //while
+            }
 
         return _next;
 
-    } //update_next
+    }
 
     inline function _min(_node:BalancedBSTNode<K,T>) {
 
@@ -735,7 +735,7 @@ class BalancedBSTIterator<K,T> {
 
         return _node;
 
-    } //_min
+    }
 
     inline function _max(_node:BalancedBSTNode<K,T>) {
 
@@ -743,9 +743,9 @@ class BalancedBSTIterator<K,T> {
 
         return _node;
 
-    } //_max
+    }
 
-} //BalancedBSTIterator
+}
 
 
 @:noCompletion
@@ -785,10 +785,10 @@ class BalancedBSTNode<K,T> {
         nodecount = _node_count;
         color = _color;
 
-    } //new
+    }
 
 
-} //BalancedBSTNode
+}
 
     /** A traversal method for iterating a node in the tree */
 enum BalancedBSTTraverseMethod {
@@ -797,4 +797,4 @@ enum BalancedBSTTraverseMethod {
     order_retain;
     order_post;
 
-} //enum
+}

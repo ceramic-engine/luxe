@@ -48,27 +48,27 @@ class Utils {
                 if (ascii > 90) { ascii += 6; }
                 return String.fromCharCode(ascii);
             } else return Std.string(value).charAt(0);
-        } //to_char
+        }
 
         var r = Std.int(val % 62);
         var q = Std.int(val / 62);
         if (q > 0) return uniqueid(q) + to_char(r);
         else return Std.string(to_char(r));
 
-    } //uniqueid
+    }
 
         /** Generates and returns a uniqueid converted to a hashed integer for convenience.
             Uses the default `uniqueid` and `hash` implementation detail. */
     #if release inline #end
     public function uniquehash() : UInt {
         return hash( uniqueid() );
-    } //uniquehash
+    }
 
         /** Generates a integer hash from a string using the default algorithm (murmur3) */
     #if release inline #end
     public function hash( string:String ) : UInt {
         return hashdjb2( string );
-    } //hash
+    }
 
         /** Generates an integer hash of a string using the djb2 algorithm */
     #if release inline #end
@@ -82,14 +82,14 @@ class Utils {
 
         return _hash;
 
-    } //hashdjb2
+    }
 
     #if release inline #end
     public function uniqueid2() : String {
 
         return haxe.crypto.Md5.encode(Std.string(Luxe.time*Math.random()));
 
-    } //uniqueid2
+    }
 
     #if release inline #end
     public function stacktrace( ?_depth:Int = 100 ) : String {
@@ -119,11 +119,11 @@ class Utils {
                 if(i != total - 1) {
                     result += '\n';
                 }
-            } //total
+            }
 
         return result;
 
-    } //stacktrace
+    }
 
     #if release inline #end
     public function path_is_relative(_path:String) {
@@ -137,7 +137,7 @@ class Utils {
             || _path.indexOf("//") > _path.indexOf("#")
             || _path.indexOf("//") > _path.indexOf("?"));
 
-    } //path_is_relative
+    }
 
     public function find_assets_sequence( _name:String, _ext:String='.png', _start:String='1' ) : Array<String> {
 
@@ -198,7 +198,7 @@ class Utils {
 
         return _final;
 
-    } //find_assets_sequence
+    }
 
         /** :WIP: Wrap text using a knuth plass algorithm for column breaking. */
     /*#if release inline #end
@@ -216,19 +216,19 @@ class Utils {
                 //no matches?
             if(_into.length == 0) _into.push(_str);
             return _into;
-        } //splitwords
+        }
 
         inline function findlen(_lens:Array<Int>, _start:Int, _end:Int) {
             var total = 0;
             for(i in (_start-1) ... _end) total += _lens[i];
             return total + (_end - _start + 1);
-        } //findlen
+        }
 
         inline function getmin(_from:Map<Int,Int>):Int {
             var min = 0x3FFFFFFF;
             for(item in _from.keys()) if(item < min) min = item;
             return min;
-        } //getmin
+        }
 
         var words = [];
         var lengths = [];
@@ -267,7 +267,7 @@ class Utils {
         if(result.length == 0) result.push(_string);
         return result;
 
-    } //text_wrap_column_knuth
+    }
     */
 
         /** Soft wrap a string by maximum character count. brk default:'\n', col default:80 */
@@ -282,7 +282,7 @@ class Utils {
 
         return StringTools.rtrim(result);
 
-    } //text_wrap_column
+    }
 
     #if release inline #end
     public function bytes_to_string( bytes:Int, ?precision:Int=3 ) : String {
@@ -293,7 +293,7 @@ class Utils {
 
         return _byte_value + ' ' + _byte_levels[index];
 
-    } //bytes_to_string
+    }
 
     #if release inline #end
     public function array_to_bytes(array:Array<Int>):haxe.io.Bytes {
@@ -304,7 +304,7 @@ class Utils {
 
         return bytes;
 
-    } //array_to_bytes
+    }
 
         /** Multiply the pixels in the array by their alpha value.
             This means the format of the pixels is RGBA, with values  [0...255].
@@ -332,7 +332,7 @@ class Utils {
 
         return _pixels;
 
-    } //premultiply_alpha
+    }
 
         /** Multiply the pixels in the array by their alpha value.
             This means the format of the pixels is RGBA with values  [0...1].
@@ -360,7 +360,7 @@ class Utils {
 
         return _pixels;
 
-    } //premultiply_alpha_normalized
+    }
 
 
-} //Utils
+}

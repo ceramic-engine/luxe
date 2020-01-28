@@ -19,4 +19,4 @@ typedef ColorOptions = {
         /** The value component. applies to `ColorHSV` only. */
     @:optional var v : Float;
 
-} //ColorOptions
+}

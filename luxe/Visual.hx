@@ -134,7 +134,7 @@ class Visual extends Entity {
 
         } //
 
-    } //new
+    }
 
     var _creating_geometry : Bool = false;
     @:noCompletion public function _create_geometry() {
@@ -200,7 +200,7 @@ class Visual extends Entity {
             rotation_z = options.rotation_z;
         }
 
-    } //create_geometry
+    }
 
     override public function ondestroy() {
 
@@ -221,13 +221,13 @@ class Visual extends Entity {
         _rotation_euler = null;
         _rotation_quat = null;
 
-    } //ondestroy
+    }
 
     function on_geometry_created() {
 
         // geometry.transform.parent = transform;
 
-    } //on_geometry_created
+    }
 
 //Visibility properties
 
@@ -242,17 +242,17 @@ class Visual extends Entity {
 
         return visible;
 
-    } //set_visible
+    }
 
     function set_depth(_v:Float) {
 
         if(geometry != null) {
             geometry.depth = _v;
-        } //geometry
+        }
 
         return depth = _v;
 
-    } //set_depth
+    }
 
 //Color properties
 
@@ -264,7 +264,7 @@ class Visual extends Entity {
 
         return color = _c;
 
-    } //set_color
+    }
 
     function set_texture(_t:Texture) {
 
@@ -334,7 +334,7 @@ class Visual extends Entity {
 
         return geometry;
 
-    } //set_geometry
+    }
 
 
 //Transforms
@@ -348,7 +348,7 @@ class Visual extends Entity {
             geometry.transform.parent = transform;
         }
 
-    } //set_parent_from_transform
+    }
 
     override function set_rotation_from_transform( _rotation:Quaternion ) {
 
@@ -358,7 +358,7 @@ class Visual extends Entity {
         _rotation_euler.setEulerFromQuaternion(_rotation);
         _rotation_quat.copy(_rotation);
 
-    } //set_rotation_from_transform
+    }
 
 //Size
 
@@ -371,7 +371,7 @@ class Visual extends Entity {
 
         return size;
 
-    } //set_size
+    }
 
 //Blending
     
@@ -427,7 +427,7 @@ class Visual extends Entity {
 
         return Maths.degrees(radians);
 
-    } //get_rotation
+    }
 
     function set_rotation_z( _degrees:Float ) : Float {
 
@@ -435,7 +435,7 @@ class Visual extends Entity {
 
         return _degrees;
 
-    } //set_rotation_z
+    }
 
     function set_radians(_r:Float) : Float {
 
@@ -446,11 +446,11 @@ class Visual extends Entity {
 
         return radians = _r;
 
-    } //set_radians
+    }
 
     function get_radians() : Float {
         return radians;
-    } //get_radians
+    }
 
 //Locked
 
@@ -462,7 +462,7 @@ class Visual extends Entity {
 
         return locked = _l;
 
-    } //set_locked
+    }
 
 
 //Geometry properties
@@ -481,4 +481,4 @@ class Visual extends Entity {
         //An internal callback for when x y or z on a size changes
     function _size_change( _ ) { this.set_size( size ); }
 
-} //Visual
+}

@@ -80,7 +80,7 @@ class Engine extends snow.App {
         Luxe.core = this;
         Luxe.utils = new luxe.utils.Utils(this);
 
-    } //new
+    }
 
 //Public API
 
@@ -94,7 +94,7 @@ class Engine extends snow.App {
 
         new snow.Snow(this);
 
-    } //run
+    }
 
         /** Shut down the engine */
     public function shutdown() {
@@ -105,14 +105,14 @@ class Engine extends snow.App {
             //shutdown snow, which calls ondestroy for us
         snow.Snow.next(app.shutdown);
 
-    } //shutdown
+    }
 
         /** Returns information about the runtime, like the build number, debug state, os, platform */
     public inline function runtime_info() {
 
         return '${build} / debug:${app.debug} / os:${app.os} / platform:${app.platform}';
 
-    } //runtime_info
+    }
 
     // @:generic
     inline
@@ -178,7 +178,7 @@ class Engine extends snow.App {
 
         #end //no_default_font
 
-    } //ready
+    }
 
     override function ondestroy() {
 
@@ -216,7 +216,7 @@ class Engine extends snow.App {
 
         log('goodbye.');
 
-    } //ondestroy
+    }
 
     var pixel_scale : Float = 1;
 
@@ -288,7 +288,7 @@ class Engine extends snow.App {
 
         internal_pre_ready();
 
-    } //init
+    }
 
     function internal_pre_ready() {
 
@@ -322,7 +322,7 @@ class Engine extends snow.App {
 
         }
 
-    } //internal_pre_ready
+    }
 
     function internal_ready(_) {
 
@@ -353,7 +353,7 @@ class Engine extends snow.App {
 
         } //!shutting down
 
-    } //internal_ready
+    }
 
 //System events
 
@@ -365,7 +365,7 @@ class Engine extends snow.App {
 
         game.onevent(_event);
 
-    } //onevent
+    }
 
 //Update events
 
@@ -419,7 +419,7 @@ class Engine extends snow.App {
         debug.process();
             #if luxe_fullprofile debug.end(Tag.debug); #end
 
-    } //update
+    }
 
     override function tick(_delta:Float) {
 
@@ -435,7 +435,7 @@ class Engine extends snow.App {
             render();
         }
 
-    } //tick
+    }
 
     @:noCompletion 
     public function render() {
@@ -458,7 +458,7 @@ class Engine extends snow.App {
 
         debug.render();
 
-    } //render
+    }
 
     override function ontickstart() {
 
@@ -466,7 +466,7 @@ class Engine extends snow.App {
             emitter.emit(luxe.Ev.tickstart);
         }
 
-    } //ontickstart
+    }
 
     override function ontickend() {
 
@@ -474,7 +474,7 @@ class Engine extends snow.App {
             emitter.emit(luxe.Ev.tickend);
         }
 
-    } //ontickend
+    }
 
 //Window events
 
@@ -503,39 +503,39 @@ class Engine extends snow.App {
             case we_moved : {
                 emitter.emit(luxe.Ev.windowmoved, _event);
                 game.onwindowmoved(_event);
-            } //moved
+            }
 
             case we_resized : {
                 screen.internal_resized(_event.x, _event.y);
                 renderer.internal_resized(_render_w, _render_h);
                 emitter.emit(luxe.Ev.windowresized, _event);
                 game.onwindowresized(_event);
-            } //resized
+            }
 
             case we_size_changed : {
                 screen.internal_resized(_event.x, _event.y);
                 renderer.internal_resized(_render_w, _render_h);
                 emitter.emit(luxe.Ev.windowsized, _event);
                 game.onwindowsized(_event);
-            } //size_changed
+            }
 
             case we_minimized : {
                 emitter.emit(luxe.Ev.windowminimized, _event);
                 game.onwindowminimized(_event);
-            } //minimized
+            }
 
             case we_restored : {
                 emitter.emit(luxe.Ev.windowrestored, _event);
                 game.onwindowrestored(_event);
-            } //restored
+            }
 
             case _:
 
-        } //switch
+        }
 
         _event = null;
 
-    } //window_event
+    }
 
 //Input events
 
@@ -557,7 +557,7 @@ class Engine extends snow.App {
 
             input.onmousedown(_x, _y, _button, _timestamp, _window_id);
 
-        } //onmousedown
+        }
 
         override function onmouseup(_x:Int, _y:Int, _button:Int, _timestamp:Float, _window_id:Int) {
 
@@ -570,7 +570,7 @@ class Engine extends snow.App {
 
             input.onmouseup(_x, _y, _button, _timestamp, _window_id);
 
-        } //onmouseup
+        }
 
         override function onmousemove(_x:Int, _y:Int, _x_rel:Int, _y_rel:Int, _timestamp:Float, _window_id:Int) {
 
@@ -583,7 +583,7 @@ class Engine extends snow.App {
 
             input.onmousemove(_x, _y, _x_rel, _y_rel, _timestamp, _window_id);
 
-        } //onmousemove
+        }
 
         override function onmousewheel(_x:Float, _y:Float, _timestamp:Float, _window_id:Int) {
 
@@ -591,7 +591,7 @@ class Engine extends snow.App {
 
             input.onmousewheel(_x, _y, _timestamp, _window_id);
 
-        } //onmousewheel
+        }
 
     //keys
 
@@ -601,7 +601,7 @@ class Engine extends snow.App {
 
             input.onkeydown(_keycode, _scancode, _repeat, _mod, _timestamp, _window_id);
 
-        } //onkeydown
+        }
 
         override function onkeyup(_keycode:Int, _scancode:Int, _repeat:Bool, _mod:ModState, _timestamp:Float, _window_id:Int) : Void {
 
@@ -609,7 +609,7 @@ class Engine extends snow.App {
 
             input.onkeyup(_keycode, _scancode, _repeat, _mod, _timestamp, _window_id);
 
-        } //onkeyup
+        }
 
         override function ontextinput(_text:String, _start:Int, _length:Int, _etype:snow.types.TextEventType, _timestamp:Float, _window_id:Int) : Void {
 
@@ -617,7 +617,7 @@ class Engine extends snow.App {
 
             input.ontextinput(_text, _start, _length, _etype, _timestamp, _window_id);
 
-        } //ontextinput
+        }
 
     //touch
 
@@ -627,7 +627,7 @@ class Engine extends snow.App {
 
             input.ontouchdown(_x, _y, _dx, _dy, _touch_id, _timestamp);
 
-        } //ontouchdown
+        }
 
         override function ontouchup(_x:Float, _y:Float, _dx:Float, _dy:Float, _touch_id:Int, _timestamp:Float) {
 
@@ -635,7 +635,7 @@ class Engine extends snow.App {
 
              input.ontouchup(_x, _y, _dx, _dy, _touch_id, _timestamp);
 
-        } //ontouchup
+        }
 
         override function ontouchmove(_x:Float, _y:Float, _dx:Float, _dy:Float, _touch_id:Int, _timestamp:Float) {
 
@@ -643,7 +643,7 @@ class Engine extends snow.App {
 
             input.ontouchmove(_x, _y, _dx, _dy, _touch_id, _timestamp);
 
-        } //ontouchmove
+        }
 
     //input
 
@@ -653,7 +653,7 @@ class Engine extends snow.App {
 
             input.oninputdown(_name, _key_event, _mouse_event, _touch_event, _gamepad_event);
 
-        } //oninputdown
+        }
 
         public function oninputup(_name:String, ?_key_event:KeyEvent, ?_mouse_event:MouseEvent, ?_touch_event:TouchEvent, ?_gamepad_event:GamepadEvent) {
 
@@ -661,7 +661,7 @@ class Engine extends snow.App {
 
             input.oninputup(_name, _key_event, _mouse_event, _touch_event, _gamepad_event);
 
-        } //oninputup
+        }
 
     //gamepad
 
@@ -671,7 +671,7 @@ class Engine extends snow.App {
 
             input.ongamepadaxis(_gamepad, _axis, _value, _timestamp);
 
-        } //ongamepadaxis
+        }
 
         override function ongamepaddown(_gamepad:Int, _button:Int, _value:Float, _timestamp:Float) : Void {
 
@@ -679,7 +679,7 @@ class Engine extends snow.App {
 
             input.ongamepaddown(_gamepad, _button, _value, _timestamp);
 
-        } //ongamepadbuttondown
+        }
 
         override function ongamepadup(_gamepad:Int, _button:Int, _value:Float, _timestamp:Float) : Void {
 
@@ -687,7 +687,7 @@ class Engine extends snow.App {
 
             input.ongamepadup(_gamepad, _button, _value, _timestamp);
 
-        } //ongamepadup
+        }
 
         override function ongamepaddevice(_gamepad:Int, _id:String, _etype:GamepadDeviceEventType, _timestamp:Float) : Void {
 
@@ -695,7 +695,7 @@ class Engine extends snow.App {
 
             input.ongamepaddevice(_gamepad, _id, _etype, _timestamp);
 
-        } //ongamepaddevice
+        }
 
 
 //config handling
@@ -732,9 +732,9 @@ class Engine extends snow.App {
             //return the snow config
         return cast game_config;
 
-    } //config
+    }
 
-} //Engine
+}
 
 
 /**

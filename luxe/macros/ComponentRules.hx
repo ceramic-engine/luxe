@@ -71,7 +71,7 @@ import haxe.macro.ExprTools;
 
                 case 'new': {
                     check_entity_touch(_field);
-                } //new
+                }
 
                 case
                     'ontouchmove',
@@ -110,7 +110,7 @@ import haxe.macro.ExprTools;
 
         return _fields;
 
-    } //apply
+    }
 
 
     static function connect_event( _field:haxe.macro.Field ) {
@@ -154,7 +154,7 @@ import haxe.macro.ExprTools;
 
         } //if override
 
-    } //connect_event
+    }
 
     static function check_entity_touch( _field:haxe.macro.Field ) {
         switch(_field.kind) {
@@ -170,7 +170,7 @@ import haxe.macro.ExprTools;
                         } //for node in b
                 } //switch f.expr.expr
         } //switch _field.kind
-    } //check_entity_touch
+    }
 
     static function check_entity_field_access( expr:ExprDef ) {
         switch(expr) {
@@ -189,8 +189,8 @@ import haxe.macro.ExprTools;
                 } //switch e.expr
             } //case EField
         }
-    } //check_entity_field_access
+    }
 
 #end //macro
 
-} //ComponentRules
+}

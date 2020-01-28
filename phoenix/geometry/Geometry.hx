@@ -200,7 +200,7 @@ class Geometry {
         if(buffer_based) create_vbos();
         uniforms = new Uniforms();
 
-    } //new
+    }
 
     public function key_string() {
 
@@ -213,7 +213,7 @@ class Geometry {
             'depth: '+ key.depth + '\n' +
             'clip: '+ key.clip;
 
-    } //key_string
+    }
 
     public function refresh_key() {
 
@@ -233,7 +233,7 @@ class Geometry {
         key.blend_dest_alpha = state.blend_dest_alpha;
         key.blend_dest_rgb = state.blend_dest_rgb;
 
-    } //refresh_key
+    }
 
     public function str() {
         if(!state.log) return;
@@ -284,19 +284,19 @@ class Geometry {
 
         dropped = true;
 
-    } //drop
+    }
 
     public function add( v : Vertex ) {
 
         vertices.push( v );
 
-    } //add
+    }
 
     public function remove( v : Vertex ) {
 
         vertices.remove(v);
 
-    } //remove
+    }
 
     #if !luxe_no_hotpath_inline @:extern inline #end
     public function batch( vert_index : Int, tcoord_index:Int, color_index:Int, normal_index:Int,
@@ -370,7 +370,7 @@ class Geometry {
 
         } //each vertex
 
-    } //batch
+    }
 
     @:noCompletion
     inline
@@ -417,7 +417,7 @@ class Geometry {
 
         } //each vertex
 
-    } //batch_object_space
+    }
 
     public function batch_into_arrays( vertlist : Array<Float>, tcoordlist : Array<Float>,
                            colorlist : Array<Float>, normallist : Array<Float> ) {
@@ -456,7 +456,7 @@ class Geometry {
 
         } //each vertex
 
-    } //batch_into_arrays
+    }
 
 //Explicit vb
 
@@ -468,7 +468,7 @@ class Geometry {
         #if phoenix_use_normals
         GL.deleteBuffer(vb_normals);
         #end
-    } //destroy_vbos
+    }
 
     inline
     function create_vbos() {
@@ -541,7 +541,7 @@ class Geometry {
         GL.bufferData(GL.ARRAY_BUFFER, buffer_normals, buffer_type);
         #end
 
-    } //_bind_and_upload
+    }
 
     var _prev_count = 0;
     function update_buffers() : Bool {
@@ -575,7 +575,7 @@ class Geometry {
 
         return true;
 
-    } //update_vb
+    }
 
     inline
     function draw() {
@@ -602,25 +602,25 @@ class Geometry {
 
         return locked = _locked;
 
-    } //set_locked
+    }
 
     inline function get_locked() : Bool {
 
         return locked;
 
-    } //get_locked
+    }
 
     function set_dirty( _dirty:Bool ) : Bool {
 
         return dirty = _dirty;
 
-    } //set_dirty
+    }
 
     inline function get_dirty() : Bool {
 
         return dirty;
 
-    } //get_dirty
+    }
 
 //Invariants that cause a shift in the geometry tree
 
@@ -635,27 +635,27 @@ class Geometry {
             if(dirty_primitive_type) {
                 dirty_primitive_type = false;
                 state.primitive_type = shadow_primitive_type;
-            } //dirty_primitive_type
+            }
 
             if(dirty_texture) {
                 dirty_texture = false;
                 state.texture = shadow_texture;
-            } //dirty_texture
+            }
 
             if(dirty_shader) {
                 dirty_shader = false;
                 state.shader = shadow_shader;
-            } //dirty_shader
+            }
 
             if(dirty_depth) {
                 dirty_depth = false;
                 state.depth = shadow_depth;
-            } //dirty_depth
+            }
 
             if(dirty_clip) {
                 dirty_clip = false;
                 state.clip = shadow_clip;
-            } //dirty_clip
+            }
 
             if(dirty_blend) {
                 dirty_blend = false;
@@ -664,7 +664,7 @@ class Geometry {
                 state.blend_src_rgb = shadow_blend_src_rgb;
                 state.blend_dest_alpha = shadow_blend_dest_alpha;
                 state.blend_dest_rgb = shadow_blend_dest_rgb;
-            } //dirty_clip
+            }
 
                 //make sure the key is updated
            refresh_key();
@@ -673,7 +673,7 @@ class Geometry {
             b.add( this, false );
         } //for each batcher
 
-    } //refresh
+    }
 
 //Primitive Type
 
@@ -681,7 +681,7 @@ class Geometry {
 
         return state.primitive_type;
 
-    } //get_primitive_type
+    }
 
     function set_primitive_type( val : PrimitiveType ) : PrimitiveType {
 
@@ -693,7 +693,7 @@ class Geometry {
 
         return primitive_type = val;
 
-    } //set_primitive_type
+    }
 
 //Texture
 
@@ -701,7 +701,7 @@ class Geometry {
 
         return state.texture;
 
-    } //get_texture
+    }
 
     function set_texture(val : Texture) : Texture {
 
@@ -713,7 +713,7 @@ class Geometry {
 
         return texture = val;
 
-    } //set_texture
+    }
 
 //Visibility
 
@@ -721,7 +721,7 @@ class Geometry {
 
         return visible = val;
 
-    } //set_visible
+    }
 
 //Color
 
@@ -735,7 +735,7 @@ class Geometry {
 
         return color = val;
 
-    } //set_color
+    }
 
 //Shader
 
@@ -743,7 +743,7 @@ class Geometry {
 
         return state.shader;
 
-    } //get_shader
+    }
 
     function set_shader(val : Shader) : Shader {
 
@@ -755,7 +755,7 @@ class Geometry {
 
         return shader = val;
 
-    } //set_shader
+    }
 
 //Depth
 
@@ -763,7 +763,7 @@ class Geometry {
 
         return state.depth;
 
-    } //get_depth
+    }
 
 
     function set_depth(val : Float) : Float {
@@ -776,7 +776,7 @@ class Geometry {
 
         return depth = val;
 
-    } //set_depth
+    }
 
 //Blends
 
@@ -859,7 +859,7 @@ class Geometry {
 
         return state.clip;
 
-    } //get_clip
+    }
 
     function set_clip(val : Bool) : Bool {
 
@@ -871,7 +871,7 @@ class Geometry {
 
         return clip = val;
 
-    } //set_clip
+    }
 
 //Clip rect
 
@@ -879,7 +879,7 @@ class Geometry {
 
         return clip_rect;
 
-    } //get_clip_rect
+    }
 
     function set_clip_rect(val : Rectangle) : Rectangle {
 
@@ -895,10 +895,10 @@ class Geometry {
 
         return clip_rect = val;
 
-    } //set_clip_rect
+    }
 
 
-} //Geometry
+}
 
 
 class GeometryKey {
@@ -919,4 +919,4 @@ class GeometryKey {
     public var blend_dest_alpha : Int = 0;
     public var blend_dest_rgb : Int = 0;
 
-} //GeometryKey
+}

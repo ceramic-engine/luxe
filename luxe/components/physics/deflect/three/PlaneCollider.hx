@@ -19,9 +19,9 @@ package luxe.components.physics.deflect.three;
 
             shape = new BtStaticPlaneShape( normal, 1 );
 
-        } //init
+        }
 
-    } //PlaneCollider
+    }
 
 
 #end //deflect

@@ -125,7 +125,7 @@ class Renderer {
         _debug("default Framebuffer set to " + default_framebuffer);
         _debug("default Renderbuffer set to " + default_renderbuffer);
 
-    } //new
+    }
 
     public function init() {
 
@@ -183,13 +183,13 @@ class Renderer {
             GL.pixelStorei(GL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
         #end //luxe_web
 
-    } //init
+    }
 
     public function destroy() {
 
         clear( new luxe.Color().rgb(0xff440b) );
 
-    } //destroy
+    }
 
     @:allow(phoenix.Batcher)
     function sort_batchers( a:Batcher, b:Batcher ) {
@@ -198,20 +198,20 @@ class Renderer {
         if(a.sequence < b.sequence) return -1;
         if(a.sequence > b.sequence) return 1;
         return 1;
-    } //sort_batchers
+    }
 
     public function add_batch( batch:Batcher ) {
 
         batchers.push( batch );
         batchers.sort( sort_batchers );
 
-    } //add_batch
+    }
 
     public function remove_batch( batch:Batcher ) {
 
         batchers.remove( batch );
 
-    } //remove_batch
+    }
 
         /** Create a batcher, convenience for create batcher, add batcher (option), and create a camera for the batcher. */
     public function create_batcher( ? options:luxe.options.BatcherOptions ) : Batcher {
@@ -246,7 +246,7 @@ class Renderer {
 
         return _batcher;
 
-    } //create_batcher
+    }
 
 
     public function clear( _color:Color ) {
@@ -262,13 +262,13 @@ class Renderer {
             GL.clear(GL.COLOR_BUFFER_BIT);
         }
 
-    } //clear
+    }
 
     public function blend_disable(disabled_state:Bool) {
 
         disabled_state ? state.enable(GL.BLEND) : state.disable(GL.BLEND);
 
-    } //blend_disable
+    }
 
     public function blend_mode(?_src_mode:BlendMode = BlendMode.src_alpha, _dst_mode:BlendMode = BlendMode.one_minus_src_alpha) {
 
@@ -294,7 +294,7 @@ class Renderer {
             backbuffer.viewport_scale = core.app.runtime.window_device_pixel_ratio();
         #end
 
-    } //internal_resized
+    }
 
         //The main render function
     @:allow(luxe.Engine)
@@ -314,20 +314,20 @@ class Renderer {
         //     stop = true;
         // }
 
-    } //process
+    }
 
     @:allow(luxe.Engine)
     function prerender() {
 
         stats.reset();
 
-    } //prerender
+    }
 
     function get_target() : RenderTarget {
 
         return target;
 
-    } //get_target
+    }
 
     function set_target(_target:RenderTarget) {
 
@@ -337,14 +337,14 @@ class Renderer {
 
         return target = _target;
 
-    } //set_target
+    }
 
     public inline function bind_target(_target:RenderTarget) {
 
         state.bindFramebuffer(_target.framebuffer);
         state.bindRenderbuffer(_target.renderbuffer);
 
-    } //bind_target
+    }
 
     function create_default_shaders() {
 
@@ -410,7 +410,7 @@ class Renderer {
 
         _debug('done.');
 
-    } //create_default_shaders
+    }
 
     function create_default_font() {
 
@@ -438,9 +438,9 @@ class Renderer {
 
         _debug("done. " + _font_texture.width + 'x' + _font_texture.height );
 
-    } //create_default_font
+    }
 
-} //renderer
+}
 
 
 

@@ -11,7 +11,7 @@ package luxe.components.physics.deflect.three;
 
         public var shape : Dynamic;
 
-    } //PlaneCollider
+    }
 
 
 #end //deflect

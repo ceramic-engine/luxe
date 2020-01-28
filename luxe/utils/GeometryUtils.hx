@@ -18,7 +18,7 @@ class GeometryUtils {
 
         return Std.int(_smooth * Math.sqrt( _radius ));
 
-    } //segments_for_smooth_circle
+    }
 
     public function random_point_in_unit_circle() : Vector {
 
@@ -32,7 +32,7 @@ class GeometryUtils {
             //finally, work out the x and y
         return new Vector( _r*Math.cos(_t), _r*Math.sin(_t) );
 
-    } //random_point_in_unit_circle
+    }
 
     public function point_in_polygon(_point:Vector, _offset:Vector, _verts:Array<Vector> ) : Bool {
 
@@ -55,7 +55,7 @@ class GeometryUtils {
 
         return c;
 
-    } //point_in_polygon
+    }
 
         //:todo : Note this function assumes _geometry is a 2D polygon,
         //and is currently slightly less efficient due to geometry not keeping
@@ -99,7 +99,7 @@ class GeometryUtils {
 
         return c;
 
-    } //point_in_geometry
+    }
 
 
         //plane_point is a point on the plane (anywhere) , can be 0,0,0 for infinite plane.
@@ -116,7 +116,7 @@ class GeometryUtils {
 
         return Vector.Add(_ray_start, Vector.Multiply(_ray_dir, T));
 
-    } //intersect_ray_plane
+    }
 
 
- } //GeometryUtils
+ }

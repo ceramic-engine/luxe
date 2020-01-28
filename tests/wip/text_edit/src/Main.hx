@@ -40,7 +40,7 @@ class Main extends luxe.Game {
         edit_edit = new TextEdit();
         nums_edit = new TextEdit({ filter:new EReg('[0-9]+','gi') });
 
-    } //ready
+    }
 
     override function onmousedown( e:MouseEvent ) {
 
@@ -68,8 +68,8 @@ class Main extends luxe.Game {
             Luxe.shutdown();
         }
 
-    } //onkeyup
+    }
 
-} //Main
+}
 
 

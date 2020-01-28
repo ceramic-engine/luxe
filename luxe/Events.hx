@@ -30,14 +30,14 @@ class Events {
         event_queue = [];
         event_schedules = new Map();
 
-    } //new
+    }
 
         /** Destroy this `Events` instance */
     public function destroy() {
 
         clear();
 
-    } //destroy
+    }
 
         /** Clear any scheduled or bound events. Called on destroy. */
     public function clear() {
@@ -76,7 +76,7 @@ class Events {
 
         return _final_search.match( _event );
 
-    } //does_filter_event
+    }
 
 
         /** Bind a signal (listener) to a slot (event_name)
@@ -122,7 +122,7 @@ class Events {
             //return the id for unlistening
         return _id;
 
-    } //listen
+    }
 
         /**Disconnect a bound signal
             The event connection id is returned from listen()
@@ -153,7 +153,7 @@ class Events {
             return false;
         }
 
-    } //unlisten
+    }
 
         /*Queue an event in the next update loop
             event_name : The event (register listeners with listen())
@@ -167,7 +167,7 @@ class Events {
 
         return _id;
 
-    } //queue
+    }
 
         /** Remove an event from the queue by id returned from queue. */
     public function dequeue( event_id: String ) {
@@ -188,7 +188,7 @@ class Events {
 
         return false;
 
-    } //dequeue
+    }
 
         /** Process/update the events, firing any events in the queue.
             if you create a custom instance, call this when you want to process. */
@@ -202,7 +202,7 @@ class Events {
             _count--;
         }
 
-    } //update
+    }
 
         /** Fire an event immediately, calling all listeners.
             properties : An optional pass-through value to hand to the listener.
@@ -256,7 +256,7 @@ class Events {
 
         return _fired;
 
-    } //fire
+    }
 
         /** Schedule and event in the future
             event_name : The event (register listeners with listen())
@@ -272,7 +272,7 @@ class Events {
 
         return _id;
 
-    } //schedule
+    }
 
         /** Unschedule a previously scheduled event
             schedule_id : The id of the schedule (returned from schedule)
@@ -292,7 +292,7 @@ class Events {
 
         return false;
 
-    } //unschedule
+    }
 
 //Internal
 
@@ -307,7 +307,7 @@ class Events {
 
         return _properties;
 
-    } //tag_properties
+    }
 
 } // Events
 
@@ -325,10 +325,10 @@ private class EventConnection {
         listener = _listener;
         event_name = _event_name;
 
-    } //new
+    }
 
 
-} //EventConnection
+}
 
 private class EventObject {
 
@@ -344,7 +344,7 @@ private class EventObject {
         name = _event_name;
         properties = _event_properties;
 
-    } //new
+    }
 
 
-} //EventObject
+}

@@ -48,19 +48,19 @@ class TextView extends State {
 
         } //each letter
 
-    } //new
+    }
 
     override function onenabled<T>( ignored:T ) {
 
         log('onenabled textview');
 
-    } //onenabled
+    }
 
     override function ondisabled<T>( ignored:T ) {
 
         log('ondisabled textview');
 
-    } //ondisabled
+    }
 
     override function update(dt:Float) {
 
@@ -71,7 +71,7 @@ class TextView extends State {
             index++;
         }
 
-    } //update
+    }
 
 
 } //TextView
