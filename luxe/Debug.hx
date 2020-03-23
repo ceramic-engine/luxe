@@ -110,9 +110,9 @@ class Debug {
 
             current_view = views[0];
 
-        #end
+            haxe.Log.trace = internal_trace;
 
-        haxe.Log.trace = internal_trace;
+        #end
 
         _debug('\t debug initialized.');
 
