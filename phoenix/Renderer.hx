@@ -152,6 +152,10 @@ class Renderer {
             //init shaders
         #if !luxe_no_default_shaders
         create_default_shaders();
+        #else
+            #if luxe_web
+            var ext = snow.modules.opengl.GL.gl.getExtension('OES_standard_derivatives');
+            #end
         #end
 
             //create the default batcher
