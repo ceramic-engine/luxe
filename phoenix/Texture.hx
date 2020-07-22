@@ -324,7 +324,15 @@ class Texture extends Resource {
 
 
         /** Return the maximum size of a texture from the hardware */
-    public static function max_size() : Int return GL.getParameter(GL.MAX_TEXTURE_SIZE);
+    public static function max_size():Int {
+        var size = GL.getParameter(GL.MAX_TEXTURE_SIZE);
+        // It seems that on some devices value may be below 0
+        // In that case, just use 4096 as save value
+        if (size <= 0) {
+            size = 4096;
+        }
+        return size;
+    }
 
         //:todo: not be a weird static function
     static inline function dump_asset_info(_asset:AssetImage) {
