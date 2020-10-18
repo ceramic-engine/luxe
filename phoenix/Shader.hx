@@ -26,19 +26,19 @@ import ceramic.IntMap;
 class Uniforms {
 
 #if web
-    var ints        : Map<Location,Uniform<Int>>;
-    var floats      : Map<Location,Uniform<Float>>;
-    var floatarrs   : Map<Location,Uniform<Float32Array>>;
-    var vector2s    : Map<Location,Uniform<Vector>>;
-    var vector2arrs : Map<Location,Uniform<Float32Array>>;
-    var vector3s    : Map<Location,Uniform<Vector>>;
-    var vector3arrs : Map<Location,Uniform<Float32Array>>;
-    var vector4s    : Map<Location,Uniform<Vector>>;
-    var vector4arrs : Map<Location,Uniform<Float32Array>>;
-    var matrix4s    : Map<Location,Uniform<Matrix>>;
-    var matrix4arrs : Map<Location,Uniform<Float32Array>>;
-    var colors      : Map<Location,Uniform<Color>>;
-    var textures    : Map<Location,Uniform<Texture>>;
+    var ints        : Map<String,Uniform<Int>>;
+    var floats      : Map<String,Uniform<Float>>;
+    var floatarrs   : Map<String,Uniform<Float32Array>>;
+    var vector2s    : Map<String,Uniform<Vector>>;
+    var vector2arrs : Map<String,Uniform<Float32Array>>;
+    var vector3s    : Map<String,Uniform<Vector>>;
+    var vector3arrs : Map<String,Uniform<Float32Array>>;
+    var vector4s    : Map<String,Uniform<Vector>>;
+    var vector4arrs : Map<String,Uniform<Float32Array>>;
+    var matrix4s    : Map<String,Uniform<Matrix>>;
+    var matrix4arrs : Map<String,Uniform<Float32Array>>;
+    var colors      : Map<String,Uniform<Color>>;
+    var textures    : Map<String,Uniform<Texture>>;
 #else
     var ints        : IntMap<Uniform<Int>>;
     var floats      : IntMap<Uniform<Float>>;
@@ -152,13 +152,13 @@ class Uniforms {
 
     public inline function set_int( _name:String, _value:Int, _location:Location ) : Void {
 
-        var _int = ints.get(_location);
+        var _int = ints.get(#if web _name #else _location #end);
 
         if(_int != null) {
             _int.value = _value;
         } else {
             _int = new Uniform<Int>(_name, _value, _location);
-            ints.set(_location, _int);
+            ints.set(#if web _name #else _location #end, _int);
         }
 
         dirty_ints.push(_int);
@@ -167,13 +167,13 @@ class Uniforms {
 
     public inline function set_float( _name:String, _value:Float, _location:Location ) : Void {
 
-        var _float = floats.get(_location);
+        var _float = floats.get(#if web _name #else _location #end);
 
         if(_float != null) {
             _float.value = _value;
         } else {
             _float = new Uniform<Float>(_name, _value, _location);
-            floats.set(_location, _float);
+            floats.set(#if web _name #else _location #end, _float);
         }
 
         dirty_floats.push(_float);
@@ -182,13 +182,13 @@ class Uniforms {
 
     public inline function set_float_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _float = floatarrs.get(_location);
+        var _float = floatarrs.get(#if web _name #else _location #end);
 
         if(_float != null) {
             _float.value = _value;
         } else {
             _float = new Uniform<Float32Array>(_name, _value, _location);
-            floatarrs.set(_location, _float);
+            floatarrs.set(#if web _name #else _location #end, _float);
         }
 
         dirty_floatarrs.push(_float);
@@ -197,13 +197,13 @@ class Uniforms {
 
     public inline function set_vector2( _name:String, _value:Vector, _location:Location ) : Void {
 
-        var _vector2 = vector2s.get(_location);
+        var _vector2 = vector2s.get(#if web _name #else _location #end);
 
         if(_vector2 != null) {
             _vector2.value = _value;
         } else {
             _vector2 = new Uniform<Vector>(_name, _value, _location);
-            vector2s.set(_location, _vector2);
+            vector2s.set(#if web _name #else _location #end, _vector2);
         }
 
         dirty_vector2s.push(_vector2);
@@ -212,13 +212,13 @@ class Uniforms {
 
     public inline function set_vector2_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _vector2 = vector2arrs.get(_location);
+        var _vector2 = vector2arrs.get(#if web _name #else _location #end);
 
         if(_vector2 != null) {
             _vector2.value = _value;
         } else {
             _vector2 = new Uniform<Float32Array>(_name, _value, _location);
-            vector2arrs.set(_location, _vector2);
+            vector2arrs.set(#if web _name #else _location #end, _vector2);
         }
 
         dirty_vector2arrs.push(_vector2);
@@ -227,13 +227,13 @@ class Uniforms {
 
     public inline function set_vector3( _name:String, _value:Vector, _location:Location ) : Void {
 
-        var _vector3 = vector3s.get(_location);
+        var _vector3 = vector3s.get(#if web _name #else _location #end);
 
         if(_vector3 != null) {
             _vector3.value = _value;
         } else {
             _vector3 = new Uniform<Vector>(_name, _value, _location);
-            vector3s.set(_location, _vector3);
+            vector3s.set(#if web _name #else _location #end, _vector3);
         }
 
         dirty_vector3s.push(_vector3);
@@ -242,13 +242,13 @@ class Uniforms {
 
     public inline function set_vector3_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _vector3 = vector3arrs.get(_location);
+        var _vector3 = vector3arrs.get(#if web _name #else _location #end);
 
         if(_vector3 != null) {
             _vector3.value = _value;
         } else {
             _vector3 = new Uniform<Float32Array>(_name, _value, _location);
-            vector3arrs.set(_location, _vector3);
+            vector3arrs.set(#if web _name #else _location #end, _vector3);
         }
 
         dirty_vector3arrs.push(_vector3);
@@ -257,13 +257,13 @@ class Uniforms {
 
     public inline function set_vector4( _name:String, _value:Vector, _location:Location ) : Void {
 
-        var _vector4 = vector4s.get(_location);
+        var _vector4 = vector4s.get(#if web _name #else _location #end);
 
         if(_vector4 != null) {
             _vector4.value = _value;
         } else {
             _vector4 = new Uniform<Vector>(_name, _value, _location);
-            vector4s.set(_location, _vector4);
+            vector4s.set(#if web _name #else _location #end, _vector4);
         }
 
         dirty_vector4s.push(_vector4);
@@ -272,13 +272,13 @@ class Uniforms {
 
     public inline function set_vector4_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _vector4 = vector4arrs.get(_location);
+        var _vector4 = vector4arrs.get(#if web _name #else _location #end);
 
         if(_vector4 != null) {
             _vector4.value = _value;
         } else {
             _vector4 = new Uniform<Float32Array>(_name, _value, _location);
-            vector4arrs.set(_location, _vector4);
+            vector4arrs.set(#if web _name #else _location #end, _vector4);
         }
 
         dirty_vector4arrs.push(_vector4);
@@ -287,13 +287,13 @@ class Uniforms {
 
     public inline function set_matrix4( _name:String, _value:Matrix, _location:Location ) : Void {
 
-        var _matrix4 = matrix4s.get(_location);
+        var _matrix4 = matrix4s.get(#if web _name #else _location #end);
 
         if(_matrix4 != null) {
             _matrix4.value = _value;
         } else {
             _matrix4 = new Uniform<Matrix>(_name, _value, _location);
-            matrix4s.set(_location, _matrix4);
+            matrix4s.set(#if web _name #else _location #end, _matrix4);
         }
 
         dirty_matrix4s.push(_matrix4);
@@ -302,13 +302,13 @@ class Uniforms {
 
     public inline function set_matrix4_arr( _name:String, _value:Float32Array, _location:Location ) : Void {
 
-        var _matrix4 = matrix4arrs.get(_location);
+        var _matrix4 = matrix4arrs.get(#if web _name #else _location #end);
 
         if(_matrix4 != null) {
             _matrix4.value = _value;
         } else {
             _matrix4 = new Uniform<Float32Array>(_name, _value, _location);
-            matrix4arrs.set(_location, _matrix4);
+            matrix4arrs.set(#if web _name #else _location #end, _matrix4);
         }
 
         dirty_matrix4arrs.push(_matrix4);
@@ -317,13 +317,13 @@ class Uniforms {
 
     public inline function set_color( _name:String, _value:Color, _location:Location ) : Void {
 
-        var _color = colors.get(_location);
+        var _color = colors.get(#if web _name #else _location #end);
 
         if(_color != null) {
             _color.value = _value;
         } else {
             _color = new Uniform<Color>(_name, _value, _location);
-            colors.set(_location, _color);
+            colors.set(#if web _name #else _location #end, _color);
         }
 
         dirty_colors.push(_color);
@@ -332,13 +332,13 @@ class Uniforms {
 
     public inline function set_texture( _name:String, _value:Texture, _location:Location ) : Void {
 
-        var _texture = textures.get(_location);
+        var _texture = textures.get(#if web _name #else _location #end);
 
         if(_texture != null) {
             _texture.value = _value;
         } else {
             _texture = new Uniform<Texture>(_name, _value, _location);
-            textures.set(_location, _texture);
+            textures.set(#if web _name #else _location #end, _texture);
         }
 
         dirty_textures.push(_texture);
