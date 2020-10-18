@@ -15,6 +15,7 @@ import luxe.Resources;
 class RenderTexture extends Texture implements RenderTarget {
 
     inline static var DEPTH24_STENCIL8_OES = 0x88F0;
+    inline static var TEXTURE_2D_MULTISAMPLE = 0x9100;
 
         //These are for RenderTarget interface
     public var framebuffer : GLFramebuffer;
@@ -23,6 +24,8 @@ class RenderTexture extends Texture implements RenderTarget {
     public var viewport_scale : Float = 1;
 
     public var stencil_enabled(default, null) : Bool;
+
+    public var multisampling_value(default, null) : Int;
 
     public function new( _options:RenderTextureOptions ) {
 
@@ -38,6 +41,7 @@ class RenderTexture extends Texture implements RenderTarget {
         height = height_actual = _options.height;
 
         stencil_enabled = _options.render_stencil != null ? _options.render_stencil : false;
+        multisampling_value = _options.render_multisampling != null ? _options.render_multisampling : 0;
 
             //super creates the texture id
             //and binds the texture id for us
@@ -75,7 +79,12 @@ class RenderTexture extends Texture implements RenderTarget {
             #end
         }
             //Attach the framebuffer texture to the buffer
-        GL.framebufferTexture2D( GL.FRAMEBUFFER, GL.COLOR_ATTACHMENT0, GL.TEXTURE_2D, texture, 0 );
+        /*if (multisampling_value > 0) {
+            GL.framebufferTexture2D( GL.FRAMEBUFFER, GL.COLOR_ATTACHMENT0, TEXTURE_2D_MULTISAMPLE, texture, 0 );
+        }
+        else {*/
+            GL.framebufferTexture2D( GL.FRAMEBUFFER, GL.COLOR_ATTACHMENT0, GL.TEXTURE_2D, texture, 0 );
+        //}
             //Attach the depth/stencil buffer to the render buffer
         if (stencil_enabled) {
             GL.framebufferRenderbuffer( GL.FRAMEBUFFER, GL.DEPTH_STENCIL_ATTACHMENT, GL.RENDERBUFFER, renderbuffer);
